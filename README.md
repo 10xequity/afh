@@ -1,79 +1,32 @@
 # AFH — FieldhouseUSA Aurora
 
-<!-- 2026-06-22 · aurora-fieldhouse · v2.0 -->
-
-Cinematic single-page **"walk-in"** site for FieldhouseUSA Aurora (indoor community field house).
-Static, dependency-free, **Cloudflare Pages–ready**. Exterior → Lobby → Wing → Area, plus a
-Programs directory, grouped FAQ, synced Rules, and Book/Menu/Sponsors modals.
+Static site for aurorafieldhouseusa.com. One page, no build step, no dependencies beyond Google Fonts.
 
 | | |
 |---|---|
-| **Version** | v2.0 |
-| **Date** | 2026-06-22 |
-| **Status** | Draft — placeholder imagery + items flagged below |
+| **Branch** | `v3` (this build) · `main` holds the retired v2.0 walk-in draft, also tagged `v2.0-legacy` |
+| **Status** | Demo for owner review. Not yet on the live domain. |
 
-## Structure
+## How it works
 
-```
-AFH/
-├─ index.html          # the whole site (HTML + CSS + JS, no build step)
-├─ data/
-│  └─ zones.json       # SINGLE SOURCE OF TRUTH (wings, areas, links, FAQ, rules, sponsors)
-├─ assets/             # drop logo + photos here (see assets/README.md)
-└─ README.md
-```
+- `index.html` — the whole site: inline CSS and JS, the floor plan as inline SVG, the logo as an SVG symbol.
+- `data/zones.json` — every word of content that changes: site facts, the three things the site sells, the eight zones, the rooms, partners, inquiry routing, FAQ. Edit this, not the HTML.
+- `favicon.svg`, `404.html`, `robots.txt`, `sitemap.xml`.
 
-Add or edit an area in `data/zones.json` and both the wing map **and** the Programs
-directory update — no code changes.
+The page fetches `data/zones.json`, so it must be served over HTTP (`python -m http.server`), not opened as a file.
 
-## Run locally
+## Zones
 
-`index.html` fetches `data/zones.json`, so it must be **served over HTTP** (opening the
-file directly via `file://` blocks the fetch — the page will tell you so).
+Numbered 1–8 from the entrance per the owner's floor plan (2026-10-06): zones 1–4 are the two left columns (top pair and bottom pair of each), 5 is the former boxing space top-right, 6 is the pair beside Oda Up, 7 is the three courts on the east wall, 8 is the studios and Social-Den. Courts 1–15 run in zone order. Change the numbering in `data/zones.json` and in the `data-zone` groups of the SVG together.
 
-```bash
-npx serve .          # or: python3 -m http.server
-```
+## Inquiry routing
 
-## Deploy — Cloudflare Pages
+The contact form picks a request type, then opens the visitor's email app addressed to the `to` list for that type in `data/zones.json` (`inquiries`). No server, no stored data. To send from the site instead (three recipients, no email app), add a Cloudflare Pages Function that POSTs the same fields; the form already builds the payload.
 
-1. Push this repo to GitHub (done).
-2. Cloudflare Pages → **Create project → Connect to Git** → select `AFH`.
-   - Framework preset: **None**
-   - Build command: *(leave empty)*
-   - Build output directory: **`/`**  (root — the site is already static)
-3. Deploy → validate on the generated `*.pages.dev` URL.
-4. **Domain cut-over (separate sign-off):** point `aurorafieldhouseusa.com` + `www` at the
-   Pages project. This moves the domain off Wix — schedule deliberately.
+## Deploy
 
-> Private repos deploy fine via the Cloudflare GitHub app.
+GitHub Pages from branch `v3`, root. Cloudflare in front once the domain moves off Wix (grey-cloud the records until the certificate issues, then enable Enforce HTTPS).
 
-## Logo
+## Still to confirm
 
-The top-bar wordmark is a **temporary text/SVG mark** (red swoosh + "fieldhouse USA" in Oswald).
-To use the real hand-drawn logo: drop `assets/logo-white.svg` (preferred) or `.png` into `assets/`,
-then replace the `<a class="tb-logo wm">…</a>` block in `index.html` with an `<img>`.
-The recolored white-on-transparent raster (from `fieldhouseusalogo.png`) is available separately.
-
-## Imagery
-
-All photos are **seeded placeholders** (`picsum.photos`, stable per `area.id`). To use real shots,
-drop files into `assets/` named by `area.id` (e.g. `assets/social.jpg`) and point `PLACE()` in
-`index.html` at `./assets/<id>.jpg`. Per-area shot list is in the project Asset Manifest.
-
-## Still `[confirm]` before launch
-
-- **Contact email:** uses `admin@boomtownvb.com` (project docs); the live Boomtown site uses
-  `admin@boomtownathletics.com`. Confirm which inbox is monitored.
-- **Oda Up / Oda Up Bar links** point at `aurorafieldhouseusa.com` — the Wix site being replaced
-  (circular). Needs a real destination.
-- **Phone** unverified — omitted from the UI rather than publish a wrong number.
-- Yoga-Den / Colorado Boom / Shoot 360 membership URLs unconfirmed.
-- **Dance-Den scope:** follows project docs (no cheer/gymnastics); live site still lists them.
-- Wing left/right/center mapping + names — confirm against the floor plan.
-- **Rules** are synced from `boomtownathletics.com/events` (pulled 2026-06-22). Re-pull before launch.
-
-### Version history
-| Version | Date | Notes |
-|---|---|---|
-| v2.0 | 2026-06-22 | Initial repo: static walk-in site, data-driven, Pages-ready. |
+See `afh-build-plan_v2_2026-10-06.md`.

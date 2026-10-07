@@ -1,0 +1,119 @@
+{
+  "site": {
+    "name": "FieldhouseUSA Aurora",
+    "url": "https://aurorafieldhouseusa.com/",
+    "address": "14200 E Alameda Ave, Suite 400",
+    "city": "Aurora, CO 80012",
+    "phone": "720-773-4776",
+    "phoneHref": "tel:+17207734776",
+    "email": "admin@aurorafieldhouseusa.com",
+    "rules": "https://www.boomtownathletics.com/facility-rules.html",
+    "waiver": "https://forms.gle/4vAwn3prUqkBDKqVA",
+    "specs": [
+      "8 hardwood, 2 sport-court and 3 turf volleyball courts",
+      "4 basketball courts with 8 hoops and 4 electronic scoreboards",
+      "12 pickleball courts",
+      "90 × 80 ft turf for soccer and futsal",
+      "Yoga studio, sprung dance floor and carpet dance floor",
+      "Free on-site parking and a direct mall entrance"
+    ]
+  },
+
+  "sells": [
+    {
+      "id": "events",
+      "title": "Host an event",
+      "lede": "Birthdays on Saturday nights, corporate days on weekdays, galas and fundraisers whenever the floor is clear. Event-Den books the space; food and the bar come from Oda Up.",
+      "points": [
+        "Corporate off-sites with the courts as part of the agenda",
+        "Holiday parties and galas with a licensed bar",
+        "Fundraisers and community events for up to the whole building"
+      ],
+      "cta": { "label": "Plan it with Event-Den", "url": "https://event-den.com/" },
+      "inquiry": "event"
+    },
+    {
+      "id": "rentals",
+      "title": "Rent the floor",
+      "lede": "Courts, turf and studios by the hour, the day or the weekend. Practices, camps, clinics, film shoots and private games.",
+      "points": [
+        "15 courts across seven zones, plus two studios",
+        "Volleyball, basketball, pickleball, futsal",
+        "Free parking, restrooms by every wing, restaurant on site"
+      ],
+      "cta": { "label": "Request a rental quote", "url": "#contact", "inquiry": "rental" },
+      "inquiry": "rental"
+    },
+    {
+      "id": "tournaments",
+      "title": "Run a tournament",
+      "lede": "Tournament directors book the whole building: hardwood, sport and turf courts, scoreboards, seating and a restaurant under one roof. Plan about six months out.",
+      "points": [
+        "USAV Rocky Mountain Region sanctioned events run here",
+        "Rental agreement signed and paid before event day",
+        "Check-in at the office, coaches' meeting at 7:30 AM"
+      ],
+      "cta": { "label": "Talk to Boomtown about dates", "url": "https://www.boomtownathletics.com/tournaments.html" },
+      "inquiry": "tournament"
+    }
+  ],
+
+  "zones": [
+    { "n": 1, "name": "Zone 1", "courts": "Courts 1–2", "where": "First on your left past the office.", "what": "Two full courts under the main lights. Volleyball, pickleball or basketball depending on the day's schedule.", "uses": ["Volleyball", "Pickleball", "Basketball"], "partner": "boomtown", "inquiry": "rental" },
+    { "n": 2, "name": "Zone 2", "courts": "Courts 3–4", "where": "Far left corner, nearest the mall exit.", "what": "Two courts that pair with Zone 1 for four-court events.", "uses": ["Volleyball", "Pickleball", "Basketball"], "partner": "boomtown", "inquiry": "rental" },
+    { "n": 3, "name": "Zone 3", "courts": "Courts 5–6", "where": "Centre-left, off the main aisle.", "what": "Two courts in the middle of the floor. The usual home for drop-in volleyball.", "uses": ["Volleyball", "Drop-in"], "partner": "boomtown", "inquiry": "volleyball" },
+    { "n": 4, "name": "Zone 4", "courts": "Courts 7–8", "where": "Centre-left, mall end.", "what": "Queens Club courts. Women's league nights and Colorado Boom practices run here.", "uses": ["Women's league", "Club practice"], "partner": "boomtown", "inquiry": "volleyball" },
+    { "n": 5, "name": "Zone 5", "courts": "Courts 9–10", "where": "Top right, straight through the entrance.", "what": "Two courts in the former boxing space, next to the front restrooms.", "uses": ["Volleyball", "Basketball"], "partner": "boomtown", "inquiry": "rental" },
+    { "n": 6, "name": "Zone 6", "courts": "Courts 11–12", "where": "Right of the main aisle, beside Oda Up.", "what": "Courtside seating from the restaurant. Queens Club courts 3 and 4.", "uses": ["Women's league", "Tournament courts"], "partner": "boomtown", "inquiry": "tournament" },
+    { "n": 7, "name": "Zone 7", "courts": "Courts 13–15", "where": "Along the east wall.", "what": "Three courts in a row, the only zone with three. Good for a self-contained bracket.", "uses": ["Tournament pod", "Camps"], "partner": "boomtown", "inquiry": "tournament" },
+    { "n": 8, "name": "Zone 8", "courts": "Studios", "where": "East side, between Zone 5 and Oda Up.", "what": "Two studios and the seating and meeting space. Dance-Den on the sprung floor, Yoga-Den next door, Social-Den for lounging and meetings.", "uses": ["Dance-Den", "Yoga-Den", "Social-Den"], "partner": "studios", "inquiry": "studio" }
+  ],
+
+  "rooms": [
+    { "id": "entrance", "name": "Entrance", "what": "Doors face the parking lot. The mall exit is at the back of the building.", "inquiry": "other" },
+    { "id": "office", "name": "Office", "what": "Front desk and admin. Tournament check-in and the coaches' meeting happen here.", "inquiry": "other" },
+    { "id": "shoot360", "name": "Shoot 360", "what": "Basketball shooting and skills lab with tracked shot data. Memberships and sessions through Shoot 360 Denver.", "partner": "shoot360", "inquiry": "basketball" },
+    { "id": "odaup", "name": "Oda Up", "what": "Restaurant and bar with courtside seating. Outside food and drink stay out; alcohol stays in the bar seating.", "partner": "odaup", "inquiry": "food" },
+    { "id": "restrooms", "name": "Restrooms", "what": "Restrooms and water at the front-left and front-right of the building.", "inquiry": "other" },
+    { "id": "mall", "name": "Mall exit", "what": "Walk straight through to the mall from the back of the floor.", "inquiry": "other" }
+  ],
+
+  "partners": [
+    { "id": "eventden", "name": "Event-Den", "does": "Parties, corporate events, galas, fundraisers and the mezzanine", "url": "https://event-den.com/", "inquiry": "event" },
+    { "id": "boomtown", "name": "Boomtown Athletics", "does": "Court rental, tournaments, adult leagues, drop-in and training", "url": "https://www.boomtownathletics.com/", "inquiry": "rental" },
+    { "id": "coloboom", "name": "Colorado Boom", "does": "Junior club volleyball, tryouts and club training", "url": "https://coloradoboom.com/", "inquiry": "volleyball" },
+    { "id": "shoot360", "name": "Shoot 360 Denver", "does": "Basketball shooting and skills training", "url": "https://www.shoot360denver.com/", "inquiry": "basketball" },
+    { "id": "teamevo", "name": "Team Evo", "does": "Basketball club", "url": "#contact", "inquiry": "basketball" },
+    { "id": "odaup", "name": "Oda Up", "does": "Restaurant, bar and catering", "url": "https://odaup.com/", "inquiry": "food" },
+    { "id": "socialden", "name": "Social-Den", "does": "Lounge, workspace and meeting space", "url": "#social-den", "inquiry": "studio" },
+    { "id": "studios", "name": "Dance-Den and Yoga-Den", "does": "Dance and yoga classes, studio rental", "url": "#contact", "inquiry": "studio" },
+    { "id": "caf", "name": "Colorado Athletics Foundation", "does": "Sponsorship, scholarships and youth access", "url": "https://coloradoaf.org/", "inquiry": "sponsor" },
+    { "id": "realco", "name": "Real Colorado", "does": "Youth soccer and futsal on the turf", "url": "https://www.realcolorado.net/", "inquiry": "rental" },
+    { "id": "volo", "name": "VOLO Sports", "does": "Adult social leagues", "url": "https://www.volosports.com/", "inquiry": "rental" },
+    { "id": "therapy", "name": "Physical therapy and massage", "does": "On-site sports therapy, limited spots", "url": "#contact", "inquiry": "therapy" }
+  ],
+
+  "inquiries": [
+    { "id": "event", "label": "Host an event or party", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "rental", "label": "Rent courts, turf or a studio", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "tournament", "label": "Run a tournament", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "volleyball", "label": "Volleyball: club, league or drop-in", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "basketball", "label": "Basketball training or club", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "food", "label": "Food, bar or catering", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "studio", "label": "Studios and Social-Den", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "sponsor", "label": "Sponsorship or donation", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "therapy", "label": "Physical therapy or massage", "to": ["admin@aurorafieldhouseusa.com"] },
+    { "id": "other", "label": "Something else", "to": ["admin@aurorafieldhouseusa.com"] }
+  ],
+
+  "faq": [
+    { "q": "Are you a city rec center?", "a": "No. FieldhouseUSA is a private sports facility, so pricing is not in line with schools or rec centers. The municipal option is the Aurora Southeast Recreation Center." },
+    { "q": "What are your hours?", "a": "Hours follow the day's programs and events. Check the drop-in schedule or your event confirmation before you come." },
+    { "q": "Is there parking?", "a": "Yes, free and plentiful on site. It is an active lot, so lock your car and keep valuables out of sight." },
+    { "q": "Can I bring food or drink?", "a": "No outside food or drink, including coffee. Oda Up serves food and drinks inside. Catering for events goes through Event-Den." },
+    { "q": "Can I rent a single court for a few hours?", "a": "Sometimes. Individual court rental is limited and priced at event-day rates. Send a rental request with the date and we will tell you what is open." },
+    { "q": "How far ahead should I book a tournament?", "a": "About six months. A rental agreement has to be signed and paid in full before the event." },
+    { "q": "Is there a lost and found?", "a": "No. Items left behind are cleared after each event. Keep electronics and valuables with you." },
+    { "q": "Do you allow service animals?", "a": "Yes, with written notice at least 12 hours ahead. Service animals stay off the playing surfaces." }
+  ]
+}
