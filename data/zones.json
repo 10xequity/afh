@@ -8,193 +8,683 @@
     "phoneHref": "tel:+17207734776",
     "email": "admin@aurorafieldhouseusa.com",
     "waiver": "https://forms.gle/4vAwn3prUqkBDKqVA",
-    "rulesSource": "https://www.boomtownathletics.com/facility-rules.html"
+    "rulesSource": "https://www.boomtownathletics.com/facility-rules.html",
+    "specs": [
+      "8 hardwood, 2 sport-court and 3 turf volleyball courts",
+      "4 basketball courts with 8 hoops and 4 electronic scoreboards",
+      "12 pickleball courts",
+      "90 × 80 ft turf for soccer and futsal",
+      "Yoga studio, sprung dance floor and carpet dance floor",
+      "Free on-site parking and a direct mall entrance"
+    ]
   },
-
   "exterior": {
     "img": "assets/exterior.jpg",
     "kicker": "Aurora, Colorado",
     "title": "Step inside the field house.",
     "lede": "15 courts, two studios, a restaurant and a mall entrance under one roof. Walk the building, pick a zone, and we send you to whoever runs it."
   },
-
   "lobby": {
     "img": "assets/lobby.jpg",
     "title": "Which way?",
     "sub": "You're at the front desk. Three ways to go."
   },
-
   "desk": [
-    { "label": "Host an event", "url": "https://event-den.com/", "inquiry": "event" },
-    { "label": "Rent courts", "action": "contact", "inquiry": "rental" },
-    { "label": "Tournaments", "url": "https://www.boomtownathletics.com/tournaments.html" },
-    { "label": "Rules", "action": "rules" }
+    {
+      "label": "Host an event",
+      "url": "https://event-den.com/",
+      "inquiry": "event"
+    },
+    {
+      "label": "Rent courts",
+      "action": "contact",
+      "inquiry": "rental"
+    },
+    {
+      "label": "Tournaments",
+      "url": "https://www.boomtownathletics.com/tournaments.html"
+    },
+    {
+      "label": "Rules",
+      "action": "rules"
+    }
   ],
-
+  "sells": [
+    {
+      "id": "events",
+      "title": "Host an event",
+      "lede": "Birthdays on Saturday nights, corporate days on weekdays, galas and fundraisers whenever the floor is clear. Event-Den books the space; food and the bar come from Oda Up.",
+      "points": [
+        "Corporate off-sites with the courts as part of the agenda",
+        "Holiday parties and galas with a licensed bar",
+        "Fundraisers and community events for up to the whole building"
+      ],
+      "cta": {
+        "label": "Plan it with Event-Den",
+        "url": "https://event-den.com/"
+      },
+      "inquiry": "event"
+    },
+    {
+      "id": "rentals",
+      "title": "Rent the floor",
+      "lede": "Courts, turf and studios by the hour, the day or the weekend. Practices, camps, clinics, film shoots and private games.",
+      "points": [
+        "15 courts across seven zones, plus two studios",
+        "Volleyball, basketball, pickleball, futsal",
+        "Free parking, restrooms by every wing, restaurant on site"
+      ],
+      "cta": {
+        "label": "Request a rental quote",
+        "url": "#contact",
+        "inquiry": "rental"
+      },
+      "inquiry": "rental"
+    },
+    {
+      "id": "tournaments",
+      "title": "Run a tournament",
+      "lede": "Tournament directors book the whole building: hardwood, sport and turf courts, scoreboards, seating and a restaurant under one roof. Plan about six months out.",
+      "points": [
+        "USAV Rocky Mountain Region sanctioned events run here",
+        "Rental agreement signed and paid before event day",
+        "Check-in at the office, coaches' meeting at 7:30 AM"
+      ],
+      "cta": {
+        "label": "Talk to Boomtown about dates",
+        "url": "https://www.boomtownathletics.com/tournaments.html"
+      },
+      "inquiry": "tournament"
+    }
+  ],
   "wings": [
-    { "key": "west", "name": "West wing", "dir": "left", "arrow": "←", "img": "assets/wing-west.jpg", "sub": "Courts 1–8, the office and the Shoot 360 lab", "areas": ["office", "shoot360", "z1", "z2", "z3", "z4"] },
-    { "key": "ahead", "name": "Straight ahead", "dir": "ahead", "arrow": "↑", "img": "assets/wing-ahead.jpg", "sub": "Oda Up, the studios, Social-Den and courts 11–12", "areas": ["odaup", "socialden", "danceden", "yogaden", "z6", "mezz"] },
-    { "key": "east", "name": "East wing", "dir": "right", "arrow": "→", "img": "assets/wing-east.jpg", "sub": "Courts 9–10 and the three-court run on the east wall", "areas": ["z5", "z7"] }
+    {
+      "key": "west",
+      "name": "West wing",
+      "dir": "left",
+      "arrow": "←",
+      "img": "assets/wing-west.jpg",
+      "sub": "Courts 1–8, the office and the Shoot 360 lab",
+      "areas": [
+        "office",
+        "shoot360",
+        "z1",
+        "z2",
+        "z3",
+        "z4"
+      ]
+    },
+    {
+      "key": "ahead",
+      "name": "Straight ahead",
+      "dir": "ahead",
+      "arrow": "↑",
+      "img": "assets/wing-ahead.jpg",
+      "sub": "Oda Up, the studios, Social-Den and courts 11–12",
+      "areas": [
+        "odaup",
+        "socialden",
+        "danceden",
+        "yogaden",
+        "z6",
+        "mezz"
+      ]
+    },
+    {
+      "key": "east",
+      "name": "East wing",
+      "dir": "right",
+      "arrow": "→",
+      "img": "assets/wing-east.jpg",
+      "sub": "Courts 9–10 and the three-court run on the east wall",
+      "areas": [
+        "z5",
+        "z7"
+      ]
+    }
   ],
-
   "areas": [
-    { "id": "office", "wing": "west", "name": "Front desk & office", "tag": "Start here", "map": "office", "img": "assets/socialden-cafe.jpg",
+    {
+      "id": "office",
+      "wing": "west",
+      "name": "Front desk & office",
+      "tag": "Start here",
+      "map": "office",
+      "img": "assets/socialden-cafe.jpg",
       "blurb": "Check in for tournaments, sign the waiver, ask anything. The coaches' meeting is here at 7:30 AM on event days.",
-      "what": ["Tournament check-in", "Waivers and first-aid supplies for a fee", "Lost? Ask. There is no lost and found."],
-      "partner": "fhusa", "inquiry": "other" },
-    { "id": "shoot360", "wing": "west", "name": "Shoot 360 lab", "tag": "Basketball training", "map": "shoot360", "img": "assets/shoot360.jpg",
+      "what": [
+        "Tournament check-in",
+        "Waivers and first-aid supplies for a fee",
+        "Lost? Ask. There is no lost and found."
+      ],
+      "partner": "fhusa",
+      "inquiry": "other"
+    },
+    {
+      "id": "shoot360",
+      "wing": "west",
+      "name": "Shoot 360 lab",
+      "tag": "Basketball training",
+      "map": "shoot360",
+      "img": "assets/shoot360.jpg",
       "blurb": "Tracked shooting bays and a skills court. Every shot is measured; memberships and sessions run through Shoot 360 Denver.",
-      "what": ["Shooting bays with shot tracking", "Skills court and clinics", "Memberships for youth and adults"],
-      "partner": "shoot360", "inquiry": "basketball" },
-    { "id": "z1", "wing": "west", "zone": 1, "name": "Zone 1", "courts": "Courts 1–2", "tag": "Courts", "map": "z1", "img": "assets/court-1.jpg",
+      "what": [
+        "Shooting bays with shot tracking",
+        "Skills court and clinics",
+        "Memberships for youth and adults"
+      ],
+      "partner": "shoot360",
+      "inquiry": "basketball"
+    },
+    {
+      "id": "z1",
+      "wing": "west",
+      "zone": 1,
+      "name": "Zone 1",
+      "courts": "Courts 1–2",
+      "tag": "Courts",
+      "map": "z1",
+      "img": "assets/court-1.jpg",
       "blurb": "First courts on your left past the office. Volleyball, pickleball or basketball depending on the day's schedule.",
-      "what": ["Two full courts", "Drop-in and practice rental", "Pairs with Zone 2 for four-court events"],
-      "partner": "boomtown", "inquiry": "rental" },
-    { "id": "z2", "wing": "west", "zone": 2, "name": "Zone 2", "courts": "Courts 3–4", "tag": "Courts", "map": "z2", "img": "assets/court-2.jpg",
+      "what": [
+        "Two full courts",
+        "Drop-in and practice rental",
+        "Pairs with Zone 2 for four-court events"
+      ],
+      "partner": "boomtown",
+      "inquiry": "rental"
+    },
+    {
+      "id": "z2",
+      "wing": "west",
+      "zone": 2,
+      "name": "Zone 2",
+      "courts": "Courts 3–4",
+      "tag": "Courts",
+      "map": "z2",
+      "img": "assets/court-2.jpg",
       "blurb": "Far left corner, nearest the mall exit. Two courts that run as a quiet pod during big events.",
-      "what": ["Two full courts", "Camps and clinics", "Private games and practices"],
-      "partner": "boomtown", "inquiry": "rental" },
-    { "id": "z3", "wing": "west", "zone": 3, "name": "Zone 3", "courts": "Courts 5–6", "tag": "Courts", "map": "z3", "img": "assets/court-3.jpg",
+      "what": [
+        "Two full courts",
+        "Camps and clinics",
+        "Private games and practices"
+      ],
+      "partner": "boomtown",
+      "inquiry": "rental"
+    },
+    {
+      "id": "z3",
+      "wing": "west",
+      "zone": 3,
+      "name": "Zone 3",
+      "courts": "Courts 5–6",
+      "tag": "Courts",
+      "map": "z3",
+      "img": "assets/court-3.jpg",
       "blurb": "Centre-left, off the main aisle. The usual home for drop-in volleyball.",
-      "what": ["Drop-in volleyball on a weekly schedule", "Adult training", "Open play"],
-      "partner": "boomtown", "inquiry": "volleyball", "secondary": { "label": "Drop-in schedule", "url": "https://www.boomtownathletics.com/drop-in.html" } },
-    { "id": "z4", "wing": "west", "zone": 4, "name": "Zone 4", "courts": "Courts 7–8", "tag": "Queens Club", "map": "z4", "img": "assets/court-4.jpg",
+      "what": [
+        "Drop-in volleyball on a weekly schedule",
+        "Adult training",
+        "Open play"
+      ],
+      "partner": "boomtown",
+      "inquiry": "volleyball",
+      "secondary": {
+        "label": "Drop-in schedule",
+        "url": "https://www.boomtownathletics.com/drop-in.html"
+      }
+    },
+    {
+      "id": "z4",
+      "wing": "west",
+      "zone": 4,
+      "name": "Zone 4",
+      "courts": "Courts 7–8",
+      "tag": "Queens Club",
+      "map": "z4",
+      "img": "assets/court-4.jpg",
       "blurb": "Queens Club courts 1 and 2. Women's league nights and Colorado Boom club practices run here.",
-      "what": ["Women's league", "Colorado Boom club practice", "Tryouts"],
-      "partner": "coloboom", "inquiry": "volleyball", "secondary": { "label": "Women's league", "url": "https://www.boomtownathletics.com/womens-league.html" } },
-
-    { "id": "odaup", "wing": "ahead", "name": "Oda Up", "tag": "Restaurant & bar", "map": "odaup", "img": "assets/odaup-dining.jpg",
+      "what": [
+        "Women's league",
+        "Colorado Boom club practice",
+        "Tryouts"
+      ],
+      "partner": "coloboom",
+      "inquiry": "volleyball",
+      "secondary": {
+        "label": "Women's league",
+        "url": "https://www.boomtownathletics.com/womens-league.html"
+      }
+    },
+    {
+      "id": "odaup",
+      "wing": "ahead",
+      "name": "Oda Up",
+      "tag": "Restaurant & bar",
+      "map": "odaup",
+      "img": "assets/odaup-dining.jpg",
       "blurb": "The restaurant and bar at the heart of the floor, with courtside seating. Outside food stays out; alcohol stays in the bar seating.",
-      "what": ["Full menu and bar", "Courtside seating on Zone 6", "Catering for events through Event-Den"],
-      "partner": "odaup", "inquiry": "food" },
-    { "id": "socialden", "wing": "ahead", "name": "Social-Den", "tag": "Lounge & meetings", "map": "socialden", "img": "assets/socialden-tables.jpg",
+      "what": [
+        "Full menu and bar",
+        "Courtside seating on Zone 6",
+        "Catering for events through Event-Den"
+      ],
+      "partner": "odaup",
+      "inquiry": "food"
+    },
+    {
+      "id": "socialden",
+      "wing": "ahead",
+      "name": "Social-Den",
+      "tag": "Lounge & meetings",
+      "map": "socialden",
+      "img": "assets/socialden-tables.jpg",
       "blurb": "Seating, workspace and a meeting room between the studios and the restaurant. Work between matches or hold a team meeting.",
-      "what": ["Day-time coworking", "Meeting room for teams and clubs", "Speaker nights and socials"],
-      "partner": "socialden", "inquiry": "studio" },
-    { "id": "danceden", "wing": "ahead", "name": "Dance-Den", "tag": "Studio", "map": "studioA", "img": "assets/danceden-class.jpg",
+      "what": [
+        "Day-time coworking",
+        "Meeting room for teams and clubs",
+        "Speaker nights and socials"
+      ],
+      "partner": "socialden",
+      "inquiry": "studio"
+    },
+    {
+      "id": "danceden",
+      "wing": "ahead",
+      "name": "Dance-Den",
+      "tag": "Studio",
+      "map": "studioA",
+      "img": "assets/danceden-class.jpg",
       "blurb": "Sprung-floor studio for ballet and dance, ages 1.5 and up. Studio rental when classes are out.",
-      "what": ["Ballet and creative movement", "Studio rental by the hour", "Recital and showcase space"],
-      "partner": "studios", "inquiry": "studio" },
-    { "id": "yogaden", "wing": "ahead", "name": "Yoga-Den", "tag": "Studio", "map": "studioB", "img": "assets/yoga-meadow.jpg",
+      "what": [
+        "Ballet and creative movement",
+        "Studio rental by the hour",
+        "Recital and showcase space"
+      ],
+      "partner": "studios",
+      "inquiry": "studio"
+    },
+    {
+      "id": "yogaden",
+      "wing": "ahead",
+      "name": "Yoga-Den",
+      "tag": "Studio",
+      "map": "studioB",
+      "img": "assets/yoga-meadow.jpg",
       "blurb": "The quiet studio. Yoga, mobility and recovery sessions for teams and the public.",
-      "what": ["Yoga and mobility classes", "Team recovery sessions", "Studio rental"],
-      "partner": "studios", "inquiry": "studio" },
-    { "id": "z6", "wing": "ahead", "zone": 6, "name": "Zone 6", "courts": "Courts 11–12", "tag": "Courts", "map": "z6", "img": "assets/court-5.jpg",
+      "what": [
+        "Yoga and mobility classes",
+        "Team recovery sessions",
+        "Studio rental"
+      ],
+      "partner": "studios",
+      "inquiry": "studio"
+    },
+    {
+      "id": "z6",
+      "wing": "ahead",
+      "zone": 6,
+      "name": "Zone 6",
+      "courts": "Courts 11–12",
+      "tag": "Courts",
+      "map": "z6",
+      "img": "assets/court-5.jpg",
       "blurb": "Right of the main aisle, beside Oda Up. Queens Club courts 3 and 4, with seating from the restaurant.",
-      "what": ["Showcase courts for tournaments", "Women's league", "Courtside seating"],
-      "partner": "boomtown", "inquiry": "tournament" },
-    { "id": "mezz", "wing": "ahead", "name": "Mezzanine", "tag": "Events", "map": "odaup", "img": "assets/mezz-lounge.jpg",
+      "what": [
+        "Showcase courts for tournaments",
+        "Women's league",
+        "Courtside seating"
+      ],
+      "partner": "boomtown",
+      "inquiry": "tournament"
+    },
+    {
+      "id": "mezz",
+      "wing": "ahead",
+      "name": "Mezzanine",
+      "tag": "Events",
+      "map": "odaup",
+      "img": "assets/mezz-lounge.jpg",
       "blurb": "Elevated deck overlooking the courts. Private hire for receptions, watch parties and corporate days.",
-      "what": ["Private hire with bar service", "Overlooks Zones 6 and 7", "Booked through Event-Den"],
-      "partner": "eventden", "inquiry": "event" },
-
-    { "id": "z5", "wing": "east", "zone": 5, "name": "Zone 5", "courts": "Courts 9–10", "tag": "Courts", "map": "z5", "img": "assets/court-6.jpg",
+      "what": [
+        "Private hire with bar service",
+        "Overlooks Zones 6 and 7",
+        "Booked through Event-Den"
+      ],
+      "partner": "eventden",
+      "inquiry": "event"
+    },
+    {
+      "id": "z5",
+      "wing": "east",
+      "zone": 5,
+      "name": "Zone 5",
+      "courts": "Courts 9–10",
+      "tag": "Courts",
+      "map": "z5",
+      "img": "assets/court-6.jpg",
       "blurb": "Top right, straight through the entrance. Two courts in the former boxing space, next to the front restrooms.",
-      "what": ["Two full courts", "Warm-up and overflow courts for events", "Camps"],
-      "partner": "boomtown", "inquiry": "rental" },
-    { "id": "z7", "wing": "east", "zone": 7, "name": "Zone 7", "courts": "Courts 13–15", "tag": "Courts", "map": "z7", "img": "assets/court-7.jpg",
+      "what": [
+        "Two full courts",
+        "Warm-up and overflow courts for events",
+        "Camps"
+      ],
+      "partner": "boomtown",
+      "inquiry": "rental"
+    },
+    {
+      "id": "z7",
+      "wing": "east",
+      "zone": 7,
+      "name": "Zone 7",
+      "courts": "Courts 13–15",
+      "tag": "Courts",
+      "map": "z7",
+      "img": "assets/court-7.jpg",
       "blurb": "Three courts in a row along the east wall, the only zone with three. A self-contained bracket.",
-      "what": ["Three-court tournament pod", "Camps and clinics", "Team Evo basketball"],
-      "partner": "boomtown", "inquiry": "tournament", "secondary": { "label": "Team Evo", "action": "contact", "inquiry": "basketball" } }
+      "what": [
+        "Three-court tournament pod",
+        "Camps and clinics",
+        "Team Evo basketball"
+      ],
+      "partner": "boomtown",
+      "inquiry": "tournament",
+      "secondary": {
+        "label": "Team Evo",
+        "action": "contact",
+        "inquiry": "basketball"
+      }
+    }
   ],
-
   "partners": [
-    { "id": "fhusa", "name": "Front desk", "does": "The building itself", "action": "contact", "inquiry": "other" },
-    { "id": "eventden", "name": "Event-Den", "does": "Parties, corporate events, galas, fundraisers and the mezzanine", "url": "https://event-den.com/", "inquiry": "event" },
-    { "id": "boomtown", "name": "Boomtown Athletics", "does": "Court rental, tournaments, adult leagues, drop-in and training", "url": "https://www.boomtownathletics.com/", "inquiry": "rental" },
-    { "id": "coloboom", "name": "Colorado Boom", "does": "Junior club volleyball, tryouts and club training", "url": "https://coloradoboom.com/", "inquiry": "volleyball" },
-    { "id": "shoot360", "name": "Shoot 360 Denver", "does": "Basketball shooting and skills training", "url": "https://www.shoot360denver.com/", "inquiry": "basketball" },
-    { "id": "teamevo", "name": "Team Evo", "does": "Basketball club", "action": "contact", "inquiry": "basketball" },
-    { "id": "odaup", "name": "Oda Up", "does": "Restaurant, bar and catering", "url": "https://odaup.com/", "inquiry": "food" },
-    { "id": "socialden", "name": "Social-Den", "does": "Lounge, workspace and meeting space", "action": "contact", "inquiry": "studio" },
-    { "id": "studios", "name": "Dance-Den and Yoga-Den", "does": "Dance and yoga classes, studio rental", "action": "contact", "inquiry": "studio" },
-    { "id": "caf", "name": "Colorado Athletics Foundation", "does": "Sponsorship, scholarships and youth access", "url": "https://coloradoaf.org/", "inquiry": "sponsor" },
-    { "id": "realco", "name": "Real Colorado", "does": "Youth soccer and futsal on the turf", "url": "https://www.realcolorado.net/", "inquiry": "rental" },
-    { "id": "volo", "name": "VOLO Sports", "does": "Adult social leagues", "url": "https://www.volosports.com/", "inquiry": "rental" },
-    { "id": "therapy", "name": "Physical therapy and massage", "does": "On-site sports therapy, limited spots", "action": "contact", "inquiry": "therapy" }
+    {
+      "id": "fhusa",
+      "name": "Front desk",
+      "does": "The building itself",
+      "action": "contact",
+      "inquiry": "other"
+    },
+    {
+      "id": "eventden",
+      "name": "Event-Den",
+      "does": "Parties, corporate events, galas, fundraisers and the mezzanine",
+      "url": "https://event-den.com/",
+      "inquiry": "event"
+    },
+    {
+      "id": "boomtown",
+      "name": "Boomtown Athletics",
+      "does": "Court rental, tournaments, adult leagues, drop-in and training",
+      "url": "https://www.boomtownathletics.com/",
+      "inquiry": "rental"
+    },
+    {
+      "id": "coloboom",
+      "name": "Colorado Boom",
+      "does": "Junior club volleyball, tryouts and club training",
+      "url": "https://coloradoboom.com/",
+      "inquiry": "volleyball"
+    },
+    {
+      "id": "shoot360",
+      "name": "Shoot 360 Denver",
+      "does": "Basketball shooting and skills training",
+      "url": "https://www.shoot360denver.com/",
+      "inquiry": "basketball"
+    },
+    {
+      "id": "teamevo",
+      "name": "Team Evo",
+      "does": "Basketball club",
+      "action": "contact",
+      "inquiry": "basketball"
+    },
+    {
+      "id": "odaup",
+      "name": "Oda Up",
+      "does": "Restaurant, bar and catering",
+      "url": "https://odaup.com/",
+      "inquiry": "food"
+    },
+    {
+      "id": "socialden",
+      "name": "Social-Den",
+      "does": "Lounge, workspace and meeting space",
+      "action": "contact",
+      "inquiry": "studio"
+    },
+    {
+      "id": "studios",
+      "name": "Dance-Den and Yoga-Den",
+      "does": "Dance and yoga classes, studio rental",
+      "action": "contact",
+      "inquiry": "studio"
+    },
+    {
+      "id": "caf",
+      "name": "Colorado Athletics Foundation",
+      "does": "Sponsorship, scholarships and youth access",
+      "url": "https://coloradoaf.org/",
+      "inquiry": "sponsor"
+    },
+    {
+      "id": "realco",
+      "name": "Real Colorado",
+      "does": "Youth soccer and futsal on the turf",
+      "url": "https://www.realcolorado.net/",
+      "inquiry": "rental"
+    },
+    {
+      "id": "volo",
+      "name": "VOLO Sports",
+      "does": "Adult social leagues",
+      "url": "https://www.volosports.com/",
+      "inquiry": "rental"
+    },
+    {
+      "id": "therapy",
+      "name": "Physical therapy and massage",
+      "does": "On-site sports therapy, limited spots",
+      "action": "contact",
+      "inquiry": "therapy"
+    }
   ],
-
   "inquiries": [
-    { "id": "event", "label": "Host an event or party", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "rental", "label": "Rent courts, turf or a studio", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "tournament", "label": "Run a tournament", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "volleyball", "label": "Volleyball: club, league or drop-in", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "basketball", "label": "Basketball training or club", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "food", "label": "Food, bar or catering", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "studio", "label": "Studios and Social-Den", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "sponsor", "label": "Sponsorship or donation", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "therapy", "label": "Physical therapy or massage", "to": ["admin@aurorafieldhouseusa.com"] },
-    { "id": "other", "label": "Something else", "to": ["admin@aurorafieldhouseusa.com"] }
+    {
+      "id": "event",
+      "label": "Host an event or party",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "rental",
+      "label": "Rent courts, turf or a studio",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "tournament",
+      "label": "Run a tournament",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "volleyball",
+      "label": "Volleyball: club, league or drop-in",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "basketball",
+      "label": "Basketball training or club",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "food",
+      "label": "Food, bar or catering",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "studio",
+      "label": "Studios and Social-Den",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "sponsor",
+      "label": "Sponsorship or donation",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "therapy",
+      "label": "Physical therapy or massage",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Something else",
+      "to": [
+        "admin@aurorafieldhouseusa.com"
+      ]
+    }
   ],
-
   "faq": [
-    { "q": "Are you a city rec center?", "a": "No. FieldhouseUSA is a private sports facility, so pricing is not in line with schools or rec centers. The municipal option is the Aurora Southeast Recreation Center." },
-    { "q": "What are your hours?", "a": "Hours follow the day's programs and events. Check the drop-in schedule or your event confirmation before you come." },
-    { "q": "Is there parking?", "a": "Yes, free and plentiful on site. It is an active lot, so lock your car and keep valuables out of sight." },
-    { "q": "Can I bring food or drink?", "a": "No outside food or drink, including coffee. Oda Up serves food and drinks inside. Catering for events goes through Event-Den." },
-    { "q": "Can I rent a single court for a few hours?", "a": "Sometimes. Individual court rental is limited and priced at event-day rates. Send a rental request with the date and we will tell you what is open." },
-    { "q": "How far ahead should I book a tournament?", "a": "About six months. A rental agreement has to be signed and paid in full before the event." },
-    { "q": "Is there a lost and found?", "a": "No. Items left behind are cleared nightly. Keep electronics and valuables with you." },
-    { "q": "Do you allow service animals?", "a": "Yes, with written notice at least 12 hours ahead. Service animals stay off the playing surfaces." }
+    {
+      "q": "Are you a city rec center?",
+      "a": "No. FieldhouseUSA is a private sports facility, so pricing is not in line with schools or rec centers. The municipal option is the Aurora Southeast Recreation Center."
+    },
+    {
+      "q": "What are your hours?",
+      "a": "Hours follow the day's programs and events. Check the drop-in schedule or your event confirmation before you come."
+    },
+    {
+      "q": "Is there parking?",
+      "a": "Yes, free and plentiful on site. It is an active lot, so lock your car and keep valuables out of sight."
+    },
+    {
+      "q": "Can I bring food or drink?",
+      "a": "No outside food or drink, including coffee. Oda Up serves food and drinks inside. Catering for events goes through Event-Den."
+    },
+    {
+      "q": "Can I rent a single court for a few hours?",
+      "a": "Sometimes. Individual court rental is limited and priced at event-day rates. Send a rental request with the date and we will tell you what is open."
+    },
+    {
+      "q": "How far ahead should I book a tournament?",
+      "a": "About six months. A rental agreement has to be signed and paid in full before the event."
+    },
+    {
+      "q": "Is there a lost and found?",
+      "a": "No. Items left behind are cleared nightly. Keep electronics and valuables with you."
+    },
+    {
+      "q": "Do you allow service animals?",
+      "a": "Yes, with written notice at least 12 hours ahead. Service animals stay off the playing surfaces."
+    }
   ],
-
   "rules": {
     "pulled": "2026-10-07",
     "intro": "Boomtown FieldhouseUSA is a private facility. By entering you accept these rules and the waiver terms, players and spectators alike. Photos and video taken in the facility may be used in marketing; cameras and staff monitor the building.",
     "sections": [
-      { "title": "Before you enter", "items": [
-        "We may refuse entry or ask anyone to leave for any reason. You enter at your own risk.",
-        "Boomtown provides the venue only and is not responsible for the organization of external tournaments or events, or for injuries, damages or losses during them. Contact your tournament organizer with event questions."
-      ]},
-      { "title": "Bags and weapons", "items": [
-        "No weapons or firearms of any kind.",
-        "Only player backpacks are allowed inside. Purses and camera bags are permitted but must be open for a quick check."
-      ]},
-      { "title": "Food and drink", "items": [
-        "No outside commercial food or drink, including coffee. No coolers of food.",
-        "No gum. No sports drinks, coffee or tea in playing areas.",
-        "Only sealed, clear water on the courts. No Stanley or uncapped cups.",
-        "No eating or snacks on the courts. A bar and café is on site; all alcohol stays in the bar seating area.",
-        "If you bring outside food, eat it inside your vehicle."
-      ]},
-      { "title": "Courts and equipment", "items": [
-        "Don't climb nets, fences or sprinklers, stand on tables or bar tops, or enter non-play areas. Offenders pay for damages.",
-        "No personal chairs, camping chairs, coolers or self-carried team tables on the courts. Don't move court chairs.",
-        "Floor mats and seats are fine if they don't scratch the floor. Movable spectator chairs are first come, first served; please return them.",
-        "No ball handling or play, including dribbling or throwing, outside authorized event areas.",
-        "Clean spills immediately; the responsible team stops play to clean up. Each team must clean its area after playing or be fined."
-      ]},
-      { "title": "Kids and restricted areas", "items": [
-        "Children must be supervised at all times or will be asked to leave.",
-        "Stay out of other athletic or under-construction areas: soccer field, lounge, med-spa, gymnastics and dance studios."
-      ]},
-      { "title": "Pets", "items": [
-        "No animals except service animals as defined by law. Please give at least 12 hours' written notice.",
-        "Service animals are kept off all playing surfaces and activity areas."
-      ]},
-      { "title": "First aid and power", "items": [
-        "There is no athletic trainer or ice on site; bring your own. First-aid kits and bandages can be purchased for a fee.",
-        "No appliances may be plugged in. Phone charging is allowed around the bar areas only."
-      ]},
-      { "title": "Parking and out front", "items": [
-        "Parking is free and plentiful, but we are not responsible for your vehicle. Lock it and keep valuables out of sight.",
-        "No tables, camping or tailgating in front of the building (Aurora camping ban; other businesses operate here). Unattended items are removed."
-      ]},
-      { "title": "Lost and found", "items": [
-        "There is no lost and found. Unclaimed items are disposed of nightly for sanitation. Lost electronics and valuables are not our responsibility. Please don't call or email about lost items."
-      ]},
-      { "title": "USAV RMR events", "items": [
-        "RMR players only may bring a brown-bag lunch carried in a player backpack; if it doesn't fit in the backpack, it isn't allowed. Spectators may not bring bags (except purses and camera bags) or food.",
-        "Doors open at 7:00 AM; team areas are first come, first served. Coaches' meeting is at 7:30 AM at the admin desk.",
-        "Warm-up balls and carts are not provided; RMR provides one game ball per court. Guest Wi-Fi is available.",
-        "A limited number of court-approved folding chairs are provided. Return them to the rack at the end.",
-        "Coaches and directors must check out with the site director before leaving or final scores won't be entered (automatic forfeit)."
-      ]},
-      { "title": "Spectators and fines", "items": [
-        "Spectators who refuse to comply will be asked to leave or escorted out by APD, and must supervise their own children.",
-        "1st offense: $25 to the offending team or club. 2nd: $50. 3rd: the team forfeits its remaining matches and is not welcomed back.",
-        "Keep team belongings in your team area and out of the play space; clean up your area after you play, even if the trash isn't yours."
-      ]}
+      {
+        "title": "Before you enter",
+        "items": [
+          "We may refuse entry or ask anyone to leave for any reason. You enter at your own risk.",
+          "Boomtown provides the venue only and is not responsible for the organization of external tournaments or events, or for injuries, damages or losses during them. Contact your tournament organizer with event questions."
+        ]
+      },
+      {
+        "title": "Bags and weapons",
+        "items": [
+          "No weapons or firearms of any kind.",
+          "Only player backpacks are allowed inside. Purses and camera bags are permitted but must be open for a quick check."
+        ]
+      },
+      {
+        "title": "Food and drink",
+        "items": [
+          "No outside commercial food or drink, including coffee. No coolers of food.",
+          "No gum. No sports drinks, coffee or tea in playing areas.",
+          "Only sealed, clear water on the courts. No Stanley or uncapped cups.",
+          "No eating or snacks on the courts. A bar and café is on site; all alcohol stays in the bar seating area.",
+          "If you bring outside food, eat it inside your vehicle."
+        ]
+      },
+      {
+        "title": "Courts and equipment",
+        "items": [
+          "Don't climb nets, fences or sprinklers, stand on tables or bar tops, or enter non-play areas. Offenders pay for damages.",
+          "No personal chairs, camping chairs, coolers or self-carried team tables on the courts. Don't move court chairs.",
+          "Floor mats and seats are fine if they don't scratch the floor. Movable spectator chairs are first come, first served; please return them.",
+          "No ball handling or play, including dribbling or throwing, outside authorized event areas.",
+          "Clean spills immediately; the responsible team stops play to clean up. Each team must clean its area after playing or be fined."
+        ]
+      },
+      {
+        "title": "Kids and restricted areas",
+        "items": [
+          "Children must be supervised at all times or will be asked to leave.",
+          "Stay out of other athletic or under-construction areas: soccer field, lounge, med-spa, gymnastics and dance studios."
+        ]
+      },
+      {
+        "title": "Pets",
+        "items": [
+          "No animals except service animals as defined by law. Please give at least 12 hours' written notice.",
+          "Service animals are kept off all playing surfaces and activity areas."
+        ]
+      },
+      {
+        "title": "First aid and power",
+        "items": [
+          "There is no athletic trainer or ice on site; bring your own. First-aid kits and bandages can be purchased for a fee.",
+          "No appliances may be plugged in. Phone charging is allowed around the bar areas only."
+        ]
+      },
+      {
+        "title": "Parking and out front",
+        "items": [
+          "Parking is free and plentiful, but we are not responsible for your vehicle. Lock it and keep valuables out of sight.",
+          "No tables, camping or tailgating in front of the building (Aurora camping ban; other businesses operate here). Unattended items are removed."
+        ]
+      },
+      {
+        "title": "Lost and found",
+        "items": [
+          "There is no lost and found. Unclaimed items are disposed of nightly for sanitation. Lost electronics and valuables are not our responsibility. Please don't call or email about lost items."
+        ]
+      },
+      {
+        "title": "USAV RMR events",
+        "items": [
+          "RMR players only may bring a brown-bag lunch carried in a player backpack; if it doesn't fit in the backpack, it isn't allowed. Spectators may not bring bags (except purses and camera bags) or food.",
+          "Doors open at 7:00 AM; team areas are first come, first served. Coaches' meeting is at 7:30 AM at the admin desk.",
+          "Warm-up balls and carts are not provided; RMR provides one game ball per court. Guest Wi-Fi is available.",
+          "A limited number of court-approved folding chairs are provided. Return them to the rack at the end.",
+          "Coaches and directors must check out with the site director before leaving or final scores won't be entered (automatic forfeit)."
+        ]
+      },
+      {
+        "title": "Spectators and fines",
+        "items": [
+          "Spectators who refuse to comply will be asked to leave or escorted out by APD, and must supervise their own children.",
+          "1st offense: $25 to the offending team or club. 2nd: $50. 3rd: the team forfeits its remaining matches and is not welcomed back.",
+          "Keep team belongings in your team area and out of the play space; clean up your area after you play, even if the trash isn't yours."
+        ]
+      }
     ]
   }
 }

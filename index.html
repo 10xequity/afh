@@ -227,7 +227,7 @@ ul{margin:0;padding:0;list-style:none}
 @media (hover:hover) and (pointer:fine){.plan g[data-area]:hover .court{fill:#e8893a}.plan g[data-area]:hover .room{fill:rgba(255,255,255,.18)}}
 .plan .you{fill:var(--red);stroke:#fff;stroke-width:3;transition:transform 700ms var(--ease-in-out)}
 .plan .cone{fill:rgba(255,0,0,.28);transition:transform 700ms var(--ease-in-out)}
-.plan.mini text{display:none}.plan.mini .znum{display:block;font-size:44px}.plan.mini .attack{display:none}
+.plan .aisle{display:none}.plan.mini text{display:none}.plan.mini .znum{display:block;font-size:44px}.plan.mini .attack{display:none}
 .plan.mini .shell{stroke-width:4}.plan.mini .hit{cursor:default}
 @media (prefers-reduced-motion:reduce){.plan .you,.plan .cone{transition:none}}
 
@@ -389,6 +389,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px soli
       <button class="btn btn-glass" data-open="faq">Questions</button>
       <button class="btn btn-glass" data-open="partners">Who runs what</button>
       <a class="btn btn-glass" id="m-waiver" href="#" rel="noopener">Waiver</a>
+      <a class="btn btn-glass" href="site.html">Browse the site</a>
     </div></div>
     <div class="st foot" id="menu-foot"></div>
   </div>
@@ -407,6 +408,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px soli
   <div class="inner"><button class="x" aria-label="Close">×</button><div id="panel-body"></div></div>
 </dialog>
 
+<script src="assets/plan.js"></script>
 <script>
 (async function(){
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -426,56 +428,16 @@ const partner=id=>D.partners.find(p=>p.id===id);
 const inquiry=id=>D.inquiries.find(i=>i.id===id)||D.inquiries[D.inquiries.length-1];
 const isUrl=u=>/^https?:/.test(u||'');
 
-/* ---------- floor plan geometry (viewBox 820 x 650) ---------- */
-const ROOMS=[
-  {id:'restroomsL',x:15,y:35,w:80,h:100,label:['Restrooms']},
-  {id:'office',x:97,y:35,w:103,h:100,label:['Office'],area:'office'},
-  {id:'shoot360',x:202,y:35,w:165,h:100,label:['Shoot 360'],area:'shoot360'},
-  {id:'entrance',x:367,y:35,w:103,h:27,label:['Entrance']},
-  {id:'restroomsR',x:646,y:155,w:152,h:95,label:['Restrooms']},
-  {id:'socialden',x:468,y:155,w:85,h:95,label:['Social-Den'],area:'socialden'},
-  {id:'studioA',x:553,y:155,w:93,h:95,label:['Dance-Den'],area:'danceden'},
-  {id:'odaup',x:468,y:297,w:85,h:100,label:['Oda Up'],area:'odaup'},
-  {id:'studioB',x:553,y:297,w:93,h:100,label:['Yoga-Den'],area:'yogaden'},
-];
-const ZONES={
-  1:[[33,205,128,70],[33,300,128,70]],2:[[33,420,128,70],[33,515,128,70]],
-  3:[[240,205,128,70],[240,300,128,70]],4:[[240,420,128,70],[240,515,128,70]],
-  5:[[482,48,145,94],[640,48,145,94]],6:[[490,420,128,70],[490,515,128,70]],
-  7:[[667,275,113,70],[667,370,113,70],[667,465,113,70]]
-};
+/* ---------- floor plan: shared geometry in assets/plan.js ---------- */
+const {ROOMS,ZONES,areaPos}=FHPLAN;
 const POS={ // where you stand on the plan, and which way you face (deg; 0 = facing down the aisle)
   exterior:[418,8,0],lobby:[418,120,0],west:[300,170,100],ahead:[418,330,0],east:[560,120,-100]
 };
-function court(x,y,w,h){const mx=x+w/2;const a=w/6;return `<rect class="court" x="${x}" y="${y}" width="${w}" height="${h}" rx="2"/>
-  <line class="attack" x1="${mx-a}" y1="${y}" x2="${mx-a}" y2="${y+h}"/><line class="attack" x1="${mx+a}" y1="${y}" x2="${mx+a}" y2="${y+h}"/>
-  <line class="net" x1="${mx}" y1="${y-4}" x2="${mx}" y2="${y+h+4}"/><circle class="post" cx="${mx}" cy="${y-4}" r="3"/><circle class="post" cx="${mx}" cy="${y+h+4}" r="3"/>`;}
-function planSVG(mini){
-  let s=`<svg class="plan${mini?' mini':''}" viewBox="0 0 820 650" role="group" aria-label="Floor plan"><rect class="shell" x="15" y="35" width="785" height="570"/>`;
-  for(const r of ROOMS){
-    s+=`<g ${r.area?`data-area="${r.area}" tabindex="${mini?-1:0}" role="button" aria-label="${esc(r.label.join(' '))}"`:''}><rect class="room" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/>`;
-    r.label.forEach((t,i)=>s+=`<text x="${r.x+r.w/2}" y="${r.y+r.h/2+5+i*14}">${esc(t)}</text>`);
-    if(r.area)s+=`<rect class="hit" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/>`;s+='</g>';
-  }
-  for(const [n,cs] of Object.entries(ZONES)){
-    const a=D.areas.find(a=>a.zone==n);const xs=cs.map(c=>c[0]),ys=cs.map(c=>c[1]),x2=cs.map(c=>c[0]+c[2]),y2=cs.map(c=>c[1]+c[3]);
-    const bx=Math.min(...xs)-8,by=Math.min(...ys)-8,bw=Math.max(...x2)-bx+8,bh=Math.max(...y2)-by+8;
-    s+=`<g data-area="${a?a.id:''}" data-zone="${n}" tabindex="${mini?-1:0}" role="button" aria-label="Zone ${n}, ${a?esc(a.courts):''}">`;
-    cs.forEach(c=>s+=court(...c));
-    s+=`<text class="znum" x="${bx+bw/2}" y="${by+bh/2+13}">${n}</text><rect class="hit" x="${bx}" y="${by}" width="${bw}" height="${bh}"/></g>`;
-  }
-  s+=`<text x="418" y="632">Exit to mall</text><text x="418" y="26">Parking</text>`;
-  s+=`<g class="youg"><path class="cone" d="M0 0 L-34 70 L34 70 Z"/><circle class="you" r="9"/></g></svg>`;
-  return s;
-}
+const planSVG=mini=>FHPLAN.svg({mini,areas:D.areas});
 function placeYou(svg,p){
   const yg=$('.youg',svg);if(!yg)return;
   $('.you',yg).style.transform=`translate(${p[0]}px,${p[1]}px)`;
   $('.cone',yg).style.transform=`translate(${p[0]}px,${p[1]}px) rotate(${p[2]}deg)`;
-}
-function areaPos(a){
-  if(a.zone){const cs=ZONES[a.zone];const xs=cs.map(c=>c[0]+c[2]/2),ys=cs.map(c=>c[1]+c[3]/2);return [xs.reduce((p,c)=>p+c)/xs.length,ys.reduce((p,c)=>p+c)/ys.length,0];}
-  const r=ROOMS.find(r=>r.id===a.map);return r?[r.x+r.w/2,r.y+r.h/2,0]:[418,120,0];
 }
 function markPlan(svg,areaId){$$('g[data-area]',svg).forEach(g=>g.classList.toggle('on',!!areaId&&g.dataset.area===areaId));}
 
@@ -491,7 +453,7 @@ function sceneImg(kind,key){
 function copyHTML(kind,key){
   if(kind==='exterior')return `<div class="copy"><div class="hero-logo"><svg role="img" aria-label="FieldhouseUSA"><use href="#logo"/></svg></div>
     <h1>${esc(D.exterior.title)}</h1><p class="lede">${esc(D.exterior.lede)}</p>
-    <div class="ctas"><button class="btn btn-red" data-go="lobby">Step inside</button><a class="btn btn-glass" href="${esc(D.desk[0].url)}" rel="noopener">${esc(D.desk[0].label)}</a></div></div>`;
+    <div class="ctas"><button class="btn btn-red" data-go="lobby">Walk in</button><a class="btn btn-glass" href="site.html">Browse the site instead</a></div></div>`;
   if(kind==='lobby')return `<div class="copy"><p class="kicker">Front desk</p><h2>${esc(D.lobby.title)}</h2><p class="lede">${esc(D.lobby.sub)}</p></div>`;
   if(kind==='wing'){const w=wing(key);return `<div class="copy"><p class="kicker">${esc(w.sub)}</p><h2>${esc(w.name)}</h2></div>`;}
   return '';
