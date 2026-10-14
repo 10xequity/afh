@@ -31,7 +31,7 @@ Serve over HTTP (`python -m http.server`); the page fetches `data/zones.json`.
 
 ## Floor plan
 
-Geometry lives in `ROOMS` and `ZONES` in `assets/plan.js` (viewBox 820×650, traced from the owner's plan). Zones 1–8 from the entrance: 1–4 the two left columns (top pair, bottom pair), 5 the former boxing room, 6 beside Oda Up, 7 the three courts on the east wall, 8 the studios and Social-Den. An area's `map` key names the room or zone it highlights.
+Geometry lives in `ROOMS` and `ZONES` in `assets/plan.js` (viewBox 820×650), redrawn 2026-10-14 from the owner's Exhibit A facility site map: Zones 1–4 (convertible courts, the 2×2 block on the west side), Zone 5 (by the main entrance), Zone 6 (bottom centre) and Zone 7 (the three-court column on the east wall), plus Bathroom 1 and 2, Admin (front desk and the second office), S360 Basketball, Massage, Storage / Dock, Social Den, Dance / Yoga Studio 1, Studio 2 and the Bar / Kitchen Area (Oda Up). Names and descriptors follow Exhibit A; there is no Zone 8. The colour scheme is the site's own (black, red, wood courts), not Exhibit A's. An area's `map` key names the room or zone it highlights.
 
 ## Rules
 

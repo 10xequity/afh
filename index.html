@@ -222,12 +222,16 @@ ul{margin:0;padding:0;list-style:none}
 .plan text{fill:#fff;font-family:var(--body);font-weight:600;font-size:13px;pointer-events:none;text-anchor:middle}
 .plan .znum{font-family:var(--display);font-weight:900;font-size:36px;fill:#fff;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:5}
 .plan .hit{fill:transparent;cursor:pointer}
+.plan .zbox{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.45);stroke-width:1.2}
+.plan .lot,.plan .door{fill:rgba(255,255,255,.18)}.plan .arrow{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.plan .lbl-s{font-size:11px;font-weight:500}.plan .zdesc{font-size:12.5px;font-weight:500;fill:rgba(255,255,255,.9);paint-order:stroke;stroke:rgba(0,0,0,.6);stroke-width:3}
+.plan g[data-area].on .zbox{stroke:var(--red);stroke-width:2.5}
 .plan g[data-area].on .court{fill:var(--red)}
 .plan g[data-area].on .room{fill:rgba(255,0,0,.55);stroke:#fff}
 @media (hover:hover) and (pointer:fine){.plan g[data-area]:hover .court{fill:#e8893a}.plan g[data-area]:hover .room{fill:rgba(255,255,255,.18)}}
 .plan .you{fill:var(--red);stroke:#fff;stroke-width:3;transition:transform 700ms var(--ease-in-out)}
 .plan .cone{fill:rgba(255,0,0,.28);transition:transform 700ms var(--ease-in-out)}
-.plan .aisle{display:none}.plan.mini text{display:none}.plan.mini .znum{display:block;font-size:44px}.plan.mini .attack{display:none}
+.plan .aisle{display:none}.plan.mini text{display:none}.plan.mini .znum{display:block;font-size:44px}.plan.mini .attack,.plan.mini .arrow,.plan.mini .zbox{display:none}
 .plan.mini .shell{stroke-width:4}.plan.mini .hit{cursor:default}
 @media (prefers-reduced-motion:reduce){.plan .you,.plan .cone{transition:none}}
 
@@ -398,7 +402,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px soli
 <dialog id="map" aria-label="Floor plan">
   <div class="inner">
     <button class="x" aria-label="Close map">×</button>
-    <div class="head"><h2>Floor plan</h2><p>Tap any zone or room to walk there. The red dot is you.</p></div>
+    <div class="head"><h2>Floor plan</h2><p>Zones 1–7 and the rooms around them, as on the facility site map. Tap any of them to walk there. The red dot is you.</p></div>
     <div class="planwrap" id="mapwrap"></div>
     <div class="legend"><span><i style="background:#c8742f"></i>Volleyball court</span><span><i style="background:rgba(255,255,255,.2);box-shadow:inset 0 0 0 1px #fff"></i>Room</span><span><i style="background:#ff0000"></i>Where you are</span></div>
   </div>
@@ -431,7 +435,7 @@ const isUrl=u=>/^https?:/.test(u||'');
 /* ---------- floor plan: shared geometry in assets/plan.js ---------- */
 const {ROOMS,ZONES,areaPos}=FHPLAN;
 const POS={ // where you stand on the plan, and which way you face (deg; 0 = facing down the aisle)
-  exterior:[418,8,0],lobby:[418,120,0],west:[300,170,100],ahead:[418,330,0],east:[560,120,-100]
+  exterior:[300,16,0],lobby:[408,70,0],west:[300,175,100],ahead:[410,330,0],east:[500,110,-100]
 };
 const planSVG=mini=>FHPLAN.svg({mini,areas:D.areas});
 function placeYou(svg,p){

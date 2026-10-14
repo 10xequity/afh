@@ -107,7 +107,10 @@ ul{margin:0;padding:0;list-style:none}
 .plan .court{fill:var(--court);stroke:var(--marker);stroke-width:1.4;transition:fill 200ms ease}
 .plan .net{stroke:var(--marker);stroke-width:3}.plan .post{fill:var(--marker)}
 .plan .attack{stroke:rgba(0,0,0,.45);stroke-width:1;stroke-dasharray:4 3}
-.plan .aisle{fill:none;stroke:var(--marker);stroke-width:1;stroke-dasharray:4 5;opacity:.45}
+.plan .zbox{fill:none;stroke:var(--marker);stroke-width:1.4;stroke-dasharray:5 4}
+.plan .lot,.plan .door{fill:#e6e6e6;stroke:var(--marker);stroke-width:1.2}.plan .arrow{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.plan .lbl-s{font-size:11px;font-weight:500}.plan .zdesc{font-size:12.5px;font-weight:500;fill:var(--marker);paint-order:stroke;stroke:#fff;stroke-width:3}
+.plan g[data-area].is-on .zbox{stroke:var(--red);stroke-dasharray:none;stroke-width:2.5}
 .plan g[data-area]{cursor:pointer;outline:none;opacity:0;transition:opacity 400ms ease,transform 650ms var(--ease-in-out)}
 .plan-wrap.walked .plan g[data-area]{opacity:1}
 .plan-wrap.walked.is-zoomed .plan g[data-area]:not(.is-on){opacity:.5}
@@ -310,7 +313,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,
   <div class="wrap">
     <div class="head">
       <h2 id="inside-h">Pick a zone</h2>
-      <p>The floor is numbered 1 to 8 from the entrance. Tap a zone or a room to see what's there and who to talk to.</p>
+      <p>Seven zones and the rooms around them, as on the facility site map. Tap a zone or a room to see what's there and who to talk to.</p>
     </div>
     <div class="board">
       <div>
@@ -469,7 +472,7 @@ let current=null;
 if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es.some(x=>x.isIntersecting)){wrap.classList.add('walked');io.disconnect();}},{threshold:.35});io.observe(wrap);}
 else wrap.classList.add('walked');
 const zoneAreas=D.areas.filter(a=>a.zone).sort((a,b)=>a.zone-b.zone);
-const chipList=[...zoneAreas.map(a=>({n:a.zone,label:a.courts,id:a.id})),{n:8,label:'Studios',id:'danceden'}];
+const chipList=zoneAreas.map(a=>({n:a.zone,label:a.tag,id:a.id}));
 $('#chips').innerHTML=chipList.map(c=>`<button class="chip" role="tab" aria-selected="false" data-area="${c.id}"><b>${c.n}</b>${esc(c.label)}</button>`).join('');
 $('#menu-zones').innerHTML=chipList.map(c=>`<button data-area="${c.id}" data-menu><b>${c.n}</b><small>${esc(c.label)}</small></button>`).join('');
 

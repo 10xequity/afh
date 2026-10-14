@@ -22,12 +22,12 @@
     "img": "assets/exterior.jpg",
     "kicker": "Aurora, Colorado",
     "title": "Step inside the field house.",
-    "lede": "15 courts, two studios, a restaurant and a mall entrance under one roof. Walk the building, pick a zone, and we send you to whoever runs it."
+    "lede": "15 courts in seven zones, two studios, a bar and kitchen, and a mall entrance under one roof. Walk the building, pick a zone, and we send you to whoever runs it."
   },
   "lobby": {
     "img": "assets/lobby.jpg",
     "title": "Which way?",
-    "sub": "You're at the front desk. Three ways to go."
+    "sub": "You’re at the main entrance. Three ways to go."
   },
   "desk": [
     {
@@ -104,7 +104,7 @@
       "dir": "left",
       "arrow": "←",
       "img": "assets/wing-west.jpg",
-      "sub": "Courts 1–8, the office and the Shoot 360 lab",
+      "sub": "Zones 1–4, Admin and S360 Basketball",
       "areas": [
         "office",
         "shoot360",
@@ -120,12 +120,13 @@
       "dir": "ahead",
       "arrow": "↑",
       "img": "assets/wing-ahead.jpg",
-      "sub": "Oda Up, the studios, Social-Den and courts 11–12",
+      "sub": "Oda Up, Social Den, the studios, Massage and Zone 6",
       "areas": [
         "odaup",
         "socialden",
         "danceden",
         "yogaden",
+        "massage",
         "z6",
         "mezz"
       ]
@@ -136,7 +137,7 @@
       "dir": "right",
       "arrow": "→",
       "img": "assets/wing-east.jpg",
-      "sub": "Courts 9–10 and the three-court run on the east wall",
+      "sub": "Zone 5 by the entrance and the three-court Zone 7",
       "areas": [
         "z5",
         "z7"
@@ -147,11 +148,11 @@
     {
       "id": "office",
       "wing": "west",
-      "name": "Front desk & office",
-      "tag": "Start here",
+      "name": "Admin",
+      "tag": "Front desk",
       "map": "office",
       "img": "assets/socialden-cafe.jpg",
-      "blurb": "Check in for tournaments, sign the waiver, ask anything. The coaches' meeting is here at 7:30 AM on event days.",
+      "blurb": "The front desk. Check in for tournaments, sign the waiver, ask anything. The coaches’ meeting is here at 7:30 AM on event days.",
       "what": [
         "Tournament check-in",
         "Waivers and first-aid supplies for a fee",
@@ -163,7 +164,7 @@
     {
       "id": "shoot360",
       "wing": "west",
-      "name": "Shoot 360 lab",
+      "name": "S360 Basketball",
       "tag": "Basketball training",
       "map": "shoot360",
       "img": "assets/shoot360.jpg",
@@ -181,8 +182,8 @@
       "wing": "west",
       "zone": 1,
       "name": "Zone 1",
-      "courts": "Courts 1–2",
-      "tag": "Courts",
+      "courts": "2 volleyball courts or 1 basketball court",
+      "tag": "Convertible courts",
       "map": "z1",
       "img": "assets/court-1.jpg",
       "blurb": "First courts on your left past the office. Volleyball, pickleball or basketball depending on the day's schedule.",
@@ -192,15 +193,16 @@
         "Pairs with Zone 2 for four-court events"
       ],
       "partner": "boomtown",
-      "inquiry": "rental"
+      "inquiry": "rental",
+      "where": "First on your left past Admin."
     },
     {
       "id": "z2",
       "wing": "west",
       "zone": 2,
       "name": "Zone 2",
-      "courts": "Courts 3–4",
-      "tag": "Courts",
+      "courts": "2 volleyball courts or 1 basketball court",
+      "tag": "Convertible courts",
       "map": "z2",
       "img": "assets/court-2.jpg",
       "blurb": "Far left corner, nearest the mall exit. Two courts that run as a quiet pod during big events.",
@@ -210,15 +212,16 @@
         "Private games and practices"
       ],
       "partner": "boomtown",
-      "inquiry": "rental"
+      "inquiry": "rental",
+      "where": "Bottom left, below Zone 1."
     },
     {
       "id": "z3",
       "wing": "west",
       "zone": 3,
       "name": "Zone 3",
-      "courts": "Courts 5–6",
-      "tag": "Courts",
+      "courts": "2 volleyball courts or 1 basketball court",
+      "tag": "Convertible courts",
       "map": "z3",
       "img": "assets/court-3.jpg",
       "blurb": "Centre-left, off the main aisle. The usual home for drop-in volleyball.",
@@ -232,15 +235,16 @@
       "secondary": {
         "label": "Drop-in schedule",
         "url": "https://www.boomtownathletics.com/drop-in.html"
-      }
+      },
+      "where": "Centre-left, beside Zone 1."
     },
     {
       "id": "z4",
       "wing": "west",
       "zone": 4,
       "name": "Zone 4",
-      "courts": "Courts 7–8",
-      "tag": "Queens Club",
+      "courts": "2 volleyball courts or 1 basketball court",
+      "tag": "Convertible courts",
       "map": "z4",
       "img": "assets/court-4.jpg",
       "blurb": "Queens Club courts 1 and 2. Women's league nights and Colorado Boom club practices run here.",
@@ -254,16 +258,17 @@
       "secondary": {
         "label": "Women's league",
         "url": "https://www.boomtownathletics.com/womens-league.html"
-      }
+      },
+      "where": "Centre-left, below Zone 3."
     },
     {
       "id": "odaup",
       "wing": "ahead",
-      "name": "Oda Up",
-      "tag": "Restaurant & bar",
+      "name": "Bar / Kitchen Area",
+      "tag": "Oda Up",
       "map": "odaup",
       "img": "assets/odaup-dining.jpg",
-      "blurb": "The restaurant and bar at the heart of the floor, with courtside seating. Outside food stays out; alcohol stays in the bar seating.",
+      "blurb": "Oda Up runs the bar and kitchen at the heart of the floor, with seating by Zone 6. Outside food stays out; alcohol stays in the bar seating.",
       "what": [
         "Full menu and bar",
         "Courtside seating on Zone 6",
@@ -275,7 +280,7 @@
     {
       "id": "socialden",
       "wing": "ahead",
-      "name": "Social-Den",
+      "name": "Social Den",
       "tag": "Lounge & meetings",
       "map": "socialden",
       "img": "assets/socialden-tables.jpg",
@@ -289,17 +294,33 @@
       "inquiry": "studio"
     },
     {
+      "id": "massage",
+      "wing": "ahead",
+      "name": "Massage",
+      "tag": "Sports therapy",
+      "map": "massage",
+      "img": "assets/socialden-lounge.jpg",
+      "blurb": "On-site sports therapy and massage beside Zone 5. Limited spots, usually booked out on event days.",
+      "what": [
+        "Sports massage",
+        "Physical therapy",
+        "Book ahead on tournament days"
+      ],
+      "partner": "therapy",
+      "inquiry": "therapy"
+    },
+    {
       "id": "danceden",
       "wing": "ahead",
-      "name": "Dance-Den",
+      "name": "Dance / Yoga Studio 1",
       "tag": "Studio",
-      "map": "studioA",
+      "map": "studio1",
       "img": "assets/danceden-class.jpg",
-      "blurb": "Sprung-floor studio for ballet and dance, ages 1.5 and up. Studio rental when classes are out.",
+      "blurb": "The main studio: sprung floor for ballet and dance, yoga and mobility sessions. Studio rental when classes are out.",
       "what": [
         "Ballet and creative movement",
-        "Studio rental by the hour",
-        "Recital and showcase space"
+        "Yoga and mobility classes",
+        "Studio rental by the hour"
       ],
       "partner": "studios",
       "inquiry": "studio"
@@ -307,13 +328,13 @@
     {
       "id": "yogaden",
       "wing": "ahead",
-      "name": "Yoga-Den",
+      "name": "Studio 2",
       "tag": "Studio",
-      "map": "studioB",
+      "map": "studio2",
       "img": "assets/yoga-meadow.jpg",
-      "blurb": "The quiet studio. Yoga, mobility and recovery sessions for teams and the public.",
+      "blurb": "The smaller studio beside the bar. Team recovery, small classes and private sessions.",
       "what": [
-        "Yoga and mobility classes",
+        "Small-group classes",
         "Team recovery sessions",
         "Studio rental"
       ],
@@ -325,18 +346,19 @@
       "wing": "ahead",
       "zone": 6,
       "name": "Zone 6",
-      "courts": "Courts 11–12",
-      "tag": "Courts",
+      "courts": "2 volleyball courts or 1 basketball court",
+      "tag": "Volleyball / sports court",
       "map": "z6",
       "img": "assets/court-5.jpg",
-      "blurb": "Right of the main aisle, beside Oda Up. Queens Club courts 3 and 4, with seating from the restaurant.",
+      "blurb": "Two convertible courts beside Zone 7, with the bar a few steps away.",
       "what": [
-        "Showcase courts for tournaments",
-        "Women's league",
-        "Courtside seating"
+        "2 volleyball courts or 1 basketball court",
+        "Women’s league",
+        "Courtside seating from the bar"
       ],
       "partner": "boomtown",
-      "inquiry": "tournament"
+      "inquiry": "tournament",
+      "where": "Bottom centre, below the Bar / Kitchen Area and Studio 2."
     },
     {
       "id": "mezz",
@@ -359,29 +381,30 @@
       "wing": "east",
       "zone": 5,
       "name": "Zone 5",
-      "courts": "Courts 9–10",
-      "tag": "Courts",
+      "courts": "2 volleyball courts / sports court",
+      "tag": "Volleyball / sports court",
       "map": "z5",
       "img": "assets/court-6.jpg",
-      "blurb": "Top right, straight through the entrance. Two courts in the former boxing space, next to the front restrooms.",
+      "blurb": "Two courts beside the entrance, next to Admin, Massage and the Storage / Dock.",
       "what": [
         "Two full courts",
         "Warm-up and overflow courts for events",
         "Camps"
       ],
       "partner": "boomtown",
-      "inquiry": "rental"
+      "inquiry": "rental",
+      "where": "Top right, straight through the main entrance."
     },
     {
       "id": "z7",
       "wing": "east",
       "zone": 7,
       "name": "Zone 7",
-      "courts": "Courts 13–15",
-      "tag": "Courts",
+      "courts": "3 volleyball courts",
+      "tag": "Volleyball / sports court",
       "map": "z7",
       "img": "assets/court-7.jpg",
-      "blurb": "Three courts in a row along the east wall, the only zone with three. A self-contained bracket.",
+      "blurb": "Three courts in a column, the only zone with three. A self-contained bracket.",
       "what": [
         "Three-court tournament pod",
         "Camps and clinics",
@@ -393,7 +416,8 @@
         "label": "Team Evo",
         "action": "contact",
         "inquiry": "basketball"
-      }
+      },
+      "where": "The tall block on the east wall."
     }
   ],
   "partners": [
