@@ -25,6 +25,14 @@ The tour is a first-person walk through the building. Outside → doors → lobb
 
 Serve over HTTP (`python -m http.server`); the page fetches `data/zones.json`.
 
+## v3.4 — 3D walk, moving photo, 3D map (2026-11-14)
+
+- **Walk is 3D.** `#stage` has perspective; walking forward pushes into the scene (`translateZ`), turning West/East swings the view on its vertical axis (`rotateY`) and the next room arrives from the side you turned toward. Back steps out of the scene. Reduced motion still gets a plain fade.
+- **Moving photo.** The lobby is now the real court panorama (`assets/fieldhouse-panorama.jpg`, `"pano": true` in `zones.json`). It is wider than the screen and looks slowly side to side; pointing at a wing turns it to face that wing, and walking to a wing finishes the turn first.
+- **Real photo for the East wing:** `assets/fieldhouse-overhead.jpg` replaces `wing-east.jpg`.
+- **3D floor plan.** The map dialog opens tilted in 3D with a 3D / Flat toggle; zones stay tappable in both.
+- The same plan geometry also drives the Facility Layout page on boomtownathletics.com (`btvb/assets/js/fieldhouse-plan.js`, a copy — keep them in step).
+
 ## Routes
 
 `#/` outside · `#/lobby` · `#/w/west|ahead|east` · `#/a/<areaId>`. Back button and deep links work. Keyboard: arrows to turn or move between areas, Enter to step in, Escape or Backspace to step back.

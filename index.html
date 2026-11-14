@@ -59,7 +59,8 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* ---------- stage: the first-person view ---------- */
-#stage{position:fixed;inset:0;background:var(--black);overflow:hidden}
+#stage{position:fixed;inset:0;background:var(--black);overflow:hidden;perspective:1100px;perspective-origin:50% 55%}
+/* v3.4: the walk is real 3D now. Forward pushes into the scene (translateZ), turning swings the view on its vertical axis (rotateY) the way your head turns. */
 .layer{position:absolute;inset:0;overflow:hidden;will-change:transform,opacity,filter;transform-origin:var(--ox,50%) var(--oy,50%)}
 .layer .bg{position:absolute;inset:-4%;background-size:cover;background-position:center;transform:scale(1)}
 .layer .bg::after{content:"";position:absolute;inset:0;background:
@@ -68,25 +69,34 @@ ul{margin:0;padding:0;list-style:none}
 /* arriving: step out of a slightly larger, softer frame into focus */
 .layer.enter{animation:arrive var(--walk) var(--ease-out) both}
 .layer.enter.back{animation:arrive-back var(--walk) var(--ease-out) both}
+.layer.enter.left{animation:arrive-left var(--walk) var(--ease-out) both}.layer.enter.right{animation:arrive-right var(--walk) var(--ease-out) both}
 /* leaving: walk forward into the frame toward where you clicked */
 .layer.leave{animation:walk var(--walk) var(--ease-in-out) both;pointer-events:none}
 .layer.leave.back{animation:walk-back var(--walk) var(--ease-in-out) both}
 .layer.leave.left{animation:walk-left var(--walk) var(--ease-in-out) both}
 .layer.leave.right{animation:walk-right var(--walk) var(--ease-in-out) both}
-@keyframes walk{0%{transform:scale(1);opacity:1;filter:blur(0)}60%{opacity:1}100%{transform:scale(1.28);opacity:0;filter:blur(10px)}}
-@keyframes walk-left{0%{transform:scale(1) translateX(0);opacity:1;filter:blur(0)}100%{transform:scale(1.18) translateX(9%);opacity:0;filter:blur(8px)}}
-@keyframes walk-right{0%{transform:scale(1) translateX(0);opacity:1;filter:blur(0)}100%{transform:scale(1.18) translateX(-9%);opacity:0;filter:blur(8px)}}
-@keyframes walk-back{0%{transform:scale(1);opacity:1;filter:blur(0)}100%{transform:scale(.9);opacity:0;filter:blur(8px)}}
-@keyframes arrive{0%{transform:scale(1.1);opacity:0;filter:blur(8px)}35%{opacity:1}100%{transform:scale(1);opacity:1;filter:blur(0)}}
-@keyframes arrive-back{0%{transform:scale(.94);opacity:0;filter:blur(8px)}35%{opacity:1}100%{transform:scale(1);opacity:1;filter:blur(0)}}
+@keyframes walk{0%{transform:translateZ(0);opacity:1;filter:blur(0)}60%{opacity:1}100%{transform:translateZ(260px);opacity:0;filter:blur(10px)}}
+@keyframes walk-left{0%{transform:rotateY(0) translateZ(0);opacity:1;filter:blur(0)}100%{transform:rotateY(-22deg) translateX(14%) translateZ(120px);opacity:0;filter:blur(8px)}}
+@keyframes walk-right{0%{transform:rotateY(0) translateZ(0);opacity:1;filter:blur(0)}100%{transform:rotateY(22deg) translateX(-14%) translateZ(120px);opacity:0;filter:blur(8px)}}
+@keyframes walk-back{0%{transform:translateZ(0);opacity:1;filter:blur(0)}100%{transform:translateZ(-200px);opacity:0;filter:blur(8px)}}
+@keyframes arrive{0%{transform:translateZ(-180px);opacity:0;filter:blur(8px)}35%{opacity:1}100%{transform:translateZ(0);opacity:1;filter:blur(0)}}
+@keyframes arrive-left{0%{transform:rotateY(18deg) translateX(-12%) translateZ(-80px);opacity:0;filter:blur(8px)}35%{opacity:1}100%{transform:none;opacity:1;filter:blur(0)}}
+@keyframes arrive-right{0%{transform:rotateY(-18deg) translateX(12%) translateZ(-80px);opacity:0;filter:blur(8px)}35%{opacity:1}100%{transform:none;opacity:1;filter:blur(0)}}
+@keyframes arrive-back{0%{transform:translateZ(140px);opacity:0;filter:blur(8px)}35%{opacity:1}100%{transform:translateZ(0);opacity:1;filter:blur(0)}}
 /* the footsteps: a small bob on the whole view while walking */
 #stage.walking{animation:bob 900ms var(--ease-in-out) both}
 @keyframes bob{0%{transform:translateY(0)}25%{transform:translateY(-7px)}50%{transform:translateY(0)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
 /* slow drift so a still photo feels like standing in a room */
 .layer.enter .bg{animation:drift 22s ease-in-out infinite alternate}
 @keyframes drift{from{transform:scale(1) translate(0,0)}to{transform:scale(1.06) translate(-1.2%,-.8%)}}
+/* v3.4 moving photo: a panorama sits wider than the screen; --pan (0 west, 50 ahead, 100 east) turns you to face a wing */
+.layer .bg.pano{background-size:auto 100%;background-position:var(--pan,50%) 50%;transition:background-position 1.4s var(--ease-in-out)}
+.layer.enter .bg.pano{animation:look 26s ease-in-out infinite alternate}
+.layer.enter .bg.pano.aim{animation:none}
+@keyframes look{from{background-position:38% 50%}to{background-position:62% 50%}}
 @media (prefers-reduced-motion:reduce){
-  .layer.enter,.layer.enter.back{animation:fade-in 260ms ease both}
+  .layer.enter,.layer.enter.back,.layer.enter.left,.layer.enter.right{animation:fade-in 260ms ease both}
+  .layer .bg.pano{transition:none;animation:none}
   .layer.leave,.layer.leave.back,.layer.leave.left,.layer.leave.right{animation:fade-out 260ms ease both}
   #stage.walking{animation:none}.layer.enter .bg{animation:none}
   @keyframes fade-in{from{opacity:0}to{opacity:1}}@keyframes fade-out{from{opacity:1}to{opacity:0}}
@@ -309,7 +319,15 @@ dialog .x:active{transform:scale(.94)}
 #map .head{display:flex;align-items:end;gap:16px 28px;flex-wrap:wrap;padding-right:60px}
 #map h2{font-size:clamp(40px,6vw,80px)}
 #map .head p{color:rgba(255,255,255,.75);max-width:44ch}
-#map .planwrap{min-height:0;display:grid;place-items:center}
+#map .planwrap{min-height:0;display:grid;place-items:center;perspective:1500px}
+#map .planwrap svg{transition:transform .9s var(--ease-in-out);transform-origin:50% 55%}
+/* v3.4: the plan tilts into 3D; the shadow gives it a floor slab. Clicks still land on the tilted zones. */
+#map .planwrap.is3d svg{transform:rotateX(50deg) rotateZ(-20deg) scale(1.06);filter:drop-shadow(0 30px 30px rgba(0,0,0,.8))}
+#map .viewtog{display:inline-flex;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);overflow:hidden}
+#map .viewtog button{min-height:40px;padding:6px 16px;border:0;background:none;color:#fff;font:inherit;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+#map .viewtog button[aria-pressed="true"]{background:#fff;color:#000}
+#map .viewtog button:focus-visible{outline:2px solid var(--red);outline-offset:-3px}
+@media (prefers-reduced-motion:reduce){#map .planwrap svg{transition:none}}
 #map .planwrap svg{width:min(100%,calc((100svh - 200px) * 820 / 650));height:auto;max-height:calc(100svh - 200px)}
 #map .legend{display:flex;flex-wrap:wrap;gap:14px 22px;margin-top:8px;font-size:14px;color:rgba(255,255,255,.75)}
 #map .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
@@ -402,8 +420,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px soli
 <dialog id="map" aria-label="Floor plan">
   <div class="inner">
     <button class="x" aria-label="Close map">×</button>
-    <div class="head"><h2>Floor plan</h2><p>Zones 1–7 and the rooms around them, as on the facility site map. Tap any of them to walk there. The red dot is you.</p></div>
-    <div class="planwrap" id="mapwrap"></div>
+    <div class="head"><h2>Floor plan</h2><p>Zones 1–7 and the rooms around them, as on the facility site map. Tap any of them to walk there. The red dot is you.</p><div class="viewtog" role="group" aria-label="Map view"><button type="button" data-view="3d" aria-pressed="true">3D</button><button type="button" data-view="flat" aria-pressed="false">Flat</button></div></div>
+    <div class="planwrap is3d" id="mapwrap"></div>
     <div class="legend"><span><i style="background:#c8742f"></i>Volleyball court</span><span><i style="background:rgba(255,255,255,.2);box-shadow:inset 0 0 0 1px #fff"></i>Room</span><span><i style="background:#ff0000"></i>Where you are</span></div>
   </div>
 </dialog>
@@ -478,7 +496,8 @@ function markersHTML(kind,key){
 }
 function buildLayer(kind,key){
   const l=document.createElement('div');l.className='layer';
-  l.innerHTML=`<div class="bg" style="background-image:url('${esc(sceneImg(kind,key))}')"></div>${markersHTML(kind,key)}${copyHTML(kind,key)}`;
+  const pano=kind==='lobby'&&D.lobby.pano;
+  l.innerHTML=`<div class="bg${pano?' pano':''}" style="background-image:url('${esc(sceneImg(kind,key))}')"></div>${markersHTML(kind,key)}${copyHTML(kind,key)}`;
   if(kind==='exterior')l.insertAdjacentHTML('beforeend','<div class="doors"><div class="door l"></div><div class="door r"></div></div>');
   return l;
 }
@@ -504,7 +523,9 @@ function go(kind,key,opts={}){
     if(back)old.classList.add('back');else if(dir==='left')old.classList.add('left');else if(dir==='right')old.classList.add('right');
     $$('.marker',old).forEach(m=>m.style.opacity=0);
   }
-  next.classList.add('enter');if(back)next.classList.add('back');
+  next.classList.add('enter');if(back)next.classList.add('back');else if(dir==='left'||dir==='right')next.classList.add(dir);
+  /* leaving the lobby panorama: face the wing first, so the turn and the walk read as one move */
+  const opano=old&&$('.bg.pano',old);if(opano&&kind==='wing'){opano.classList.add('aim');opano.style.setProperty('--pan',dir==='left'?'0%':dir==='right'?'100%':'50%');}
   stage.appendChild(next);
   if(!reduce){stage.classList.remove('walking');void stage.offsetWidth;stage.classList.add('walking');}
   state.kind=kind;state.key=key;state.layer=next;
@@ -531,6 +552,7 @@ function stepInside(){
 const crumb=$('#crumb'),compass=$('#compass'),desk=$('#desk'),detail=$('#detail'),dbody=$('#detail-body'),mini=$('#minimap');
 mini.innerHTML=planSVG(true);
 $('#map .planwrap').innerHTML=planSVG(false);
+$$('#map .viewtog button').forEach(b=>b.onclick=()=>{const is3d=b.dataset.view==='3d';$('#mapwrap').classList.toggle('is3d',is3d);$$('#map .viewtog button').forEach(x=>x.setAttribute('aria-pressed',x===b));});
 function hud(){
   const k=state.kind,key=state.key;
   let parts=[];
@@ -578,6 +600,14 @@ const menu=$('#menu'),map=$('#map'),panel=$('#panel'),pbody=$('#panel-body');
 $('#menu-btn').onclick=()=>menu.showModal();$('#menu-x').onclick=()=>menu.close();
 $$('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d)d.close();});$('.x',d).onclick=()=>d.close();});
 $('#minimap').onclick=()=>map.showModal();
+/* v3.4: in the lobby, pointing at a wing (hover or keyboard focus) turns the panorama to face it */
+function aimPano(e,on){
+  if(state.kind!=='lobby'||walking)return;
+  const m=e.target.closest&&e.target.closest('.marker[data-dir]'),bg=$('.bg.pano',state.layer);if(!m||!bg)return;
+  bg.classList.toggle('aim',on);bg.style.setProperty('--pan',!on?'50%':m.dataset.dir==='left'?'12%':m.dataset.dir==='right'?'88%':'50%');
+}
+stage.addEventListener('pointerover',e=>aimPano(e,true));stage.addEventListener('pointerout',e=>aimPano(e,false));
+stage.addEventListener('focusin',e=>aimPano(e,true));stage.addEventListener('focusout',e=>aimPano(e,false));
 $('#menu-go').innerHTML=`<button data-go="lobby"><span>Lobby</span><small>front desk</small></button>`+D.wings.map(w=>`<button data-go="wing" data-key="${w.key}"><span>${esc(w.arrow)} ${esc(w.name)}</span><small>${w.areas.length} areas</small></button>`).join('');
 $('#menu-areas').innerHTML=D.areas.map(a=>`<button data-go="area" data-key="${a.id}"><b>${esc(a.name)}</b><small>${esc(a.courts||a.tag)}</small></button>`).join('');
 $('#menu-book').innerHTML=D.desk.filter(d=>d.action!=='rules').map(d=>d.url?`<a class="btn ${d.inquiry==='event'?'btn-red':'btn-glass'}" href="${esc(d.url)}" rel="noopener">${esc(d.label)}</a>`:`<button class="btn btn-glass" data-open="${d.action}" data-inquiry="${d.inquiry||''}">${esc(d.label)}</button>`).join('');

@@ -25,7 +25,8 @@
     "lede": "15 courts in seven zones, two studios, a bar and kitchen, and a mall entrance under one roof. Walk the building, pick a zone, and we send you to whoever runs it."
   },
   "lobby": {
-    "img": "assets/lobby.jpg",
+    "img": "assets/fieldhouse-panorama.jpg",
+    "pano": true,
     "title": "Which way?",
     "sub": "You’re at the main entrance. Three ways to go."
   },
@@ -136,7 +137,7 @@
       "name": "East wing",
       "dir": "right",
       "arrow": "→",
-      "img": "assets/wing-east.jpg",
+      "img": "assets/fieldhouse-overhead.jpg",
       "sub": "Zone 5 by the entrance and the three-court Zone 7",
       "areas": [
         "z5",
