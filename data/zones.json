@@ -19,13 +19,13 @@
     ]
   },
   "exterior": {
-    "img": "assets/exterior.jpg",
+    "img": "assets/exterior.webp",
     "kicker": "Aurora, Colorado",
     "title": "Step inside the field house.",
     "lede": "15 courts in seven zones, two studios, a bar and kitchen, and a mall entrance under one roof. Walk the building, pick a zone, and we send you to whoever runs it."
   },
   "lobby": {
-    "img": "assets/fieldhouse-panorama.jpg",
+    "img": "assets/fieldhouse-panorama.webp",
     "pano": true,
     "title": "Which way?",
     "sub": "You’re at the main entrance. Three ways to go."
@@ -104,7 +104,7 @@
       "name": "West wing",
       "dir": "left",
       "arrow": "←",
-      "img": "assets/wing-west.jpg",
+      "img": "assets/wing-west.webp",
       "sub": "Zones 1–4, Admin and S360 Basketball",
       "areas": [
         "office",
@@ -120,7 +120,7 @@
       "name": "Straight ahead",
       "dir": "ahead",
       "arrow": "↑",
-      "img": "assets/wing-ahead.jpg",
+      "img": "assets/wing-ahead.webp",
       "sub": "Oda Up, Social Den, the studios, Massage and Zone 6",
       "areas": [
         "odaup",
@@ -137,7 +137,7 @@
       "name": "East wing",
       "dir": "right",
       "arrow": "→",
-      "img": "assets/fieldhouse-overhead.jpg",
+      "img": "assets/fieldhouse-overhead.webp",
       "sub": "Zone 5 by the entrance and the three-court Zone 7",
       "areas": [
         "z5",
@@ -152,7 +152,7 @@
       "name": "Admin",
       "tag": "Front desk",
       "map": "office",
-      "img": "assets/socialden-cafe.jpg",
+      "img": "assets/socialden-cafe.webp",
       "blurb": "The front desk. Check in for tournaments, sign the waiver, ask anything. The coaches’ meeting is here at 7:30 AM on event days.",
       "what": [
         "Tournament check-in",
@@ -168,7 +168,7 @@
       "name": "S360 Basketball",
       "tag": "Basketball training",
       "map": "shoot360",
-      "img": "assets/shoot360.jpg",
+      "img": "assets/shoot360.webp",
       "blurb": "Tracked shooting bays and a skills court. Every shot is measured; memberships and sessions run through Shoot 360 Denver.",
       "what": [
         "Shooting bays with shot tracking",
@@ -186,7 +186,7 @@
       "courts": "2 volleyball courts or 1 basketball court",
       "tag": "Convertible courts",
       "map": "z1",
-      "img": "assets/court-1.jpg",
+      "img": "assets/court-1.webp",
       "blurb": "First courts on your left past the office. Volleyball, pickleball or basketball depending on the day's schedule.",
       "what": [
         "Two full courts",
@@ -205,7 +205,7 @@
       "courts": "2 volleyball courts or 1 basketball court",
       "tag": "Convertible courts",
       "map": "z2",
-      "img": "assets/court-2.jpg",
+      "img": "assets/court-2.webp",
       "blurb": "Far left corner, nearest the mall exit. Two courts that run as a quiet pod during big events.",
       "what": [
         "Two full courts",
@@ -224,7 +224,7 @@
       "courts": "2 volleyball courts or 1 basketball court",
       "tag": "Convertible courts",
       "map": "z3",
-      "img": "assets/court-3.jpg",
+      "img": "assets/court-3.webp",
       "blurb": "Centre-left, off the main aisle. The usual home for drop-in volleyball.",
       "what": [
         "Drop-in volleyball on a weekly schedule",
@@ -247,7 +247,7 @@
       "courts": "2 volleyball courts or 1 basketball court",
       "tag": "Convertible courts",
       "map": "z4",
-      "img": "assets/court-4.jpg",
+      "img": "assets/court-4.webp",
       "blurb": "Queens Club courts 1 and 2. Women's league nights and Colorado Boom club practices run here.",
       "what": [
         "Women's league",
@@ -268,7 +268,7 @@
       "name": "Bar / Kitchen Area",
       "tag": "Oda Up",
       "map": "odaup",
-      "img": "assets/odaup-dining.jpg",
+      "img": "assets/odaup-dining.webp",
       "blurb": "Oda Up runs the bar and kitchen at the heart of the floor, with seating by Zone 6. Outside food stays out; alcohol stays in the bar seating.",
       "what": [
         "Full menu and bar",
@@ -284,7 +284,7 @@
       "name": "Social Den",
       "tag": "Lounge & meetings",
       "map": "socialden",
-      "img": "assets/socialden-tables.jpg",
+      "img": "assets/socialden-tables.webp",
       "blurb": "Seating, workspace and a meeting room between the studios and the restaurant. Work between matches or hold a team meeting.",
       "what": [
         "Day-time coworking",
@@ -300,7 +300,7 @@
       "name": "Massage",
       "tag": "Sports therapy",
       "map": "massage",
-      "img": "assets/socialden-lounge.jpg",
+      "img": "assets/socialden-lounge.webp",
       "blurb": "On-site sports therapy and massage beside Zone 5. Limited spots, usually booked out on event days.",
       "what": [
         "Sports massage",
@@ -316,7 +316,7 @@
       "name": "Dance / Yoga Studio 1",
       "tag": "Studio",
       "map": "studio1",
-      "img": "assets/danceden-class.jpg",
+      "img": "assets/danceden-class.webp",
       "blurb": "The main studio: sprung floor for ballet and dance, yoga and mobility sessions. Studio rental when classes are out.",
       "what": [
         "Ballet and creative movement",
@@ -332,7 +332,7 @@
       "name": "Studio 2",
       "tag": "Studio",
       "map": "studio2",
-      "img": "assets/yoga-meadow.jpg",
+      "img": "assets/yoga-meadow.webp",
       "blurb": "The smaller studio beside the bar. Team recovery, small classes and private sessions.",
       "what": [
         "Small-group classes",
@@ -350,7 +350,7 @@
       "courts": "2 volleyball courts or 1 basketball court",
       "tag": "Volleyball / sports court",
       "map": "z6",
-      "img": "assets/court-5.jpg",
+      "img": "assets/court-5.webp",
       "blurb": "Two convertible courts beside Zone 7, with the bar a few steps away.",
       "what": [
         "2 volleyball courts or 1 basketball court",
@@ -367,7 +367,7 @@
       "name": "Mezzanine",
       "tag": "Events",
       "map": "odaup",
-      "img": "assets/mezz-lounge.jpg",
+      "img": "assets/mezz-lounge.webp",
       "blurb": "Elevated deck overlooking the courts. Private hire for receptions, watch parties and corporate days.",
       "what": [
         "Private hire with bar service",
@@ -385,7 +385,7 @@
       "courts": "2 volleyball courts / sports court",
       "tag": "Volleyball / sports court",
       "map": "z5",
-      "img": "assets/court-6.jpg",
+      "img": "assets/court-6.webp",
       "blurb": "Two courts beside the entrance, next to Admin, Massage and the Storage / Dock.",
       "what": [
         "Two full courts",
@@ -404,7 +404,7 @@
       "courts": "3 volleyball courts",
       "tag": "Volleyball / sports court",
       "map": "z7",
-      "img": "assets/court-7.jpg",
+      "img": "assets/court-7.webp",
       "blurb": "Three courts in a column, the only zone with three. A self-contained bracket.",
       "what": [
         "Three-court tournament pod",

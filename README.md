@@ -25,6 +25,13 @@ The tour is a first-person walk through the building. Outside → doors → lobb
 
 Serve over HTTP (`python -m http.server`); the page fetches `data/zones.json`.
 
+## v3.5 — speed (2026-11-14)
+
+- **Photos are WebP**, max 1600 px wide (panorama 2400), quality 60: 6.06 MB of JPEG became 3.28 MB. `zones.json` and the preload point at `.webp`; the `.jpg` originals stay in `assets/` as masters (nothing loads them; `og:image` still uses `lobby.jpg` for link previews). To add a photo, drop the JPEG in and export a WebP the same way.
+- **No live blur.** The 8 frosted-glass `backdrop-filter`s re-blurred a constantly moving photo every frame, and every walk step blurred the whole screen. Both removed; the glass tint is already 58-78% black, so it reads the same.
+- **Panorama pans with `transform`** (GPU) instead of `background-position` (full repaint every frame).
+- **Startup:** fonts no longer block the page script, `zones.json` starts downloading from the `<head>`, and the next scenes' photos download only after the first scene is on screen.
+
 ## v3.4 — 3D walk, moving photo, 3D map (2026-11-14)
 
 - **Walk is 3D.** `#stage` has perspective; walking forward pushes into the scene (`translateZ`), turning West/East swings the view on its vertical axis (`rotateY`) and the next room arrives from the side you turned toward. Back steps out of the scene. Reduced motion still gets a plain fade.
