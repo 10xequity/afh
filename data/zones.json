@@ -65,10 +65,10 @@
   },
   {
    "id": "hall13",
-   "name": "Hallway between Courts 1 and 3",
-   "tag": "Convertible courts",
+   "name": "Hardwood Courts",
+   "tag": "Zones 1 to 4",
    "courts": "Zones 1 to 4",
-   "blurb": "Stand in the aisle between Zones 1 and 3, with Zones 2 and 4 behind them. These four zones convert between volleyball, basketball and pickleball.",
+   "blurb": "Four hardwood zones, seen from the aisle between Zones 1 and 3. They convert between volleyball, basketball and pickleball.",
    "what": [
     "8 volleyball, 4 basketball or 12 pickleball courts",
     "Leagues, drop-in and club practice",
@@ -167,7 +167,7 @@
   },
   {
    "id": "studio2",
-   "name": "Studio 2",
+   "name": "Studio 1",
    "tag": "Studio",
    "courts": null,
    "blurb": "The smaller studio beside the bar, for small classes, team recovery and private sessions.",
@@ -188,10 +188,10 @@
   },
   {
    "id": "studio1",
-   "name": "Studio 1",
+   "name": "Studio 2",
    "tag": "Dance and yoga",
    "courts": null,
-   "blurb": "The main studio, used for dance, yoga and mobility classes.",
+   "blurb": "The larger studio, used for dance, yoga and mobility classes.",
    "what": [
     "Dance classes",
     "Yoga and mobility",
@@ -251,10 +251,10 @@
   },
   {
    "id": "court6",
-   "name": "Court 6",
-   "tag": "Volleyball",
+   "name": "Sports Court",
+   "tag": "Zone 6",
    "courts": "2 volleyball courts",
-   "blurb": "Two volleyball courts beside the bar, with courtside seating.",
+   "blurb": "A sports court with two volleyball courts beside the bar, with courtside seating.",
    "what": [
     "2 volleyball courts",
     "League nights",
@@ -272,10 +272,10 @@
   },
   {
    "id": "court7",
-   "name": "Court 7",
-   "tag": "Volleyball and futsal",
+   "name": "Sports Court and Futsal Arena",
+   "tag": "Zone 7",
    "courts": "3 volleyball courts or 1 futsal arena",
-   "blurb": "Three volleyball courts in a row, or one futsal arena.",
+   "blurb": "A sports court with three volleyball courts in a row, or one futsal arena.",
    "what": [
     "3 volleyball courts or 1 futsal arena",
     "Tournament pod",
@@ -289,6 +289,135 @@
     {
      "src": "assets/court-6.webp",
      "alt": "Volleyball courts"
+    }
+   ],
+   "partners": [
+    "boomtown",
+    "realco"
+   ]
+  }
+ ],
+ "zones": [
+  {
+   "n": 1,
+   "name": "Zone 1",
+   "tag": "Hardwood courts",
+   "courts": "2 volleyball courts or 1 basketball court",
+   "blurb": "Hardwood. Sets up as 2 volleyball courts, 1 basketball court or 3 pickleball courts. First zone on the left past Admin.",
+   "imgs": [
+    {
+     "src": "assets/court-1.webp",
+     "alt": "Volleyball on Zone 1"
+    },
+    {
+     "src": "assets/fieldhouse-panorama.webp",
+     "alt": "Tournament play seen from the admin desk"
+    }
+   ],
+   "partners": [
+    "boomtown"
+   ]
+  },
+  {
+   "n": 2,
+   "name": "Zone 2",
+   "tag": "Hardwood courts",
+   "courts": "2 volleyball courts or 1 basketball court",
+   "blurb": "Hardwood. Sets up as 2 volleyball courts, 1 basketball court or 3 pickleball courts. Far left corner.",
+   "imgs": [
+    {
+     "src": "assets/court-2.webp",
+     "alt": "Zone 2"
+    }
+   ],
+   "partners": [
+    "boomtown"
+   ]
+  },
+  {
+   "n": 3,
+   "name": "Zone 3",
+   "tag": "Hardwood courts",
+   "courts": "2 volleyball courts or 1 basketball court",
+   "blurb": "Hardwood. Sets up as 2 volleyball courts, 1 basketball court or 3 pickleball courts. Off the main aisle.",
+   "imgs": [
+    {
+     "src": "assets/court-3.webp",
+     "alt": "Volleyball on Zone 3"
+    }
+   ],
+   "partners": [
+    "boomtown",
+    "volo"
+   ]
+  },
+  {
+   "n": 4,
+   "name": "Zone 4",
+   "tag": "Hardwood courts",
+   "courts": "2 volleyball courts or 1 basketball court",
+   "blurb": "Hardwood. Sets up as 2 volleyball courts, 1 basketball court or 3 pickleball courts. League nights and club practice.",
+   "imgs": [
+    {
+     "src": "assets/court-4.webp",
+     "alt": "Zone 4"
+    }
+   ],
+   "partners": [
+    "boomtown",
+    "coloboom"
+   ]
+  },
+  {
+   "n": 5,
+   "name": "Zone 5",
+   "tag": "Volleyball courts",
+   "courts": "2 volleyball courts",
+   "blurb": "Two courts just inside the main entrance.",
+   "imgs": [
+    {
+     "src": "assets/court-6.webp",
+     "alt": "Volleyball courts"
+    },
+    {
+     "src": "assets/fieldhouse-overhead.webp",
+     "alt": "Courts seen from the mezzanine"
+    }
+   ],
+   "partners": [
+    "boomtown"
+   ]
+  },
+  {
+   "n": 6,
+   "name": "Zone 6",
+   "tag": "Sports court",
+   "courts": "2 volleyball courts",
+   "blurb": "Sports court with two volleyball courts, beside the bar.",
+   "imgs": [
+    {
+     "src": "assets/court-5.webp",
+     "alt": "Volleyball on Zone 6"
+    }
+   ],
+   "partners": [
+    "boomtown"
+   ]
+  },
+  {
+   "n": 7,
+   "name": "Zone 7",
+   "tag": "Sports court and futsal arena",
+   "courts": "3 volleyball courts or 1 futsal arena",
+   "blurb": "Sports court with three volleyball courts in a row. Converts to one futsal arena.",
+   "imgs": [
+    {
+     "src": "assets/court-7.webp",
+     "alt": "Zone 7"
+    },
+    {
+     "src": "assets/fieldhouse-overhead.webp",
+     "alt": "Courts seen from the mezzanine"
     }
    ],
    "partners": [
@@ -390,7 +519,7 @@
    "id": "danceden",
    "name": "Dance-Den",
    "cat": "Studios and wellness",
-   "does": "Dance classes and studio time in Studio 1",
+   "does": "Dance classes and studio time in the studios",
    "url": "studios.html#dance-den",
    "inquiry": "studio"
   },

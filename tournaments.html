@@ -30,7 +30,7 @@
 .box li::before,.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px;counter-reset:st}
 .steps li{counter-increment:st;padding:18px 20px;border-top:4px solid var(--red);background:var(--panel);border-radius:0 0 14px 14px}
-.steps li::before{content:counter(st,decimal-leading-zero);display:block;font-family:var(--display);font-weight:900;font-size:34px;color:var(--red);line-height:1;margin-bottom:8px}
+.steps li::before{content:counter(st,decimal-leading-zero);display:block;font-family:var(--display);font-weight:900;font-size:34px;color:var(--red-t);line-height:1;margin-bottom:8px}
 .steps b{display:block;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.03em;text-transform:uppercase;margin-bottom:4px}
 .steps span{color:var(--ink-2);font-size:16px}
 .jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
@@ -39,12 +39,21 @@
 .plist a,.plist button{display:grid;grid-template-columns:96px minmax(0,2fr) minmax(0,3fr) auto;gap:6px 20px;align-items:center;width:100%;text-align:left;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}
 .plist .ph{width:96px;aspect-ratio:4/3;border-radius:8px;background:var(--panel-2);overflow:hidden}
 .plist .ph img{width:100%;height:100%;object-fit:cover}
-.plist .ini{display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:30px;color:var(--red);box-shadow:inset 0 0 0 1px var(--line)}
+.plist .ini{display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:30px;color:var(--red-t);box-shadow:inset 0 0 0 1px var(--line)}
 .plist strong{font-family:var(--display);font-weight:700;font-size:25px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
 .plist span:not(.ph){color:var(--ink-2)}
-.plist i{font-style:normal;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;color:var(--red);white-space:nowrap}
+.plist i{font-style:normal;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;color:var(--red-t);white-space:nowrap}
 @media (hover:hover){.plist a:hover,.plist button:hover{background:rgba(255,255,255,.05)}}
-@media (max-width:900px){.cols,.steps{grid-template-columns:1fr}}
+.boomban{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px;margin-top:-18px;padding:14px 22px;background:var(--red);color:#fff;text-decoration:none;box-shadow:0 22px 44px rgba(0,0,0,.9),0 6px 14px rgba(0,0,0,.7);position:relative;z-index:2;font-size:17px}
+.boomban img{height:44px;width:auto}
+.boomban b{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:.04em;text-transform:uppercase}
+.boomban b i{font-style:normal;color:#ffd400}
+.boomban u{margin-left:auto;font-weight:600;text-underline-offset:4px;white-space:nowrap}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:24px 0 0;border-top:3px solid var(--red)}
+.spec div{padding:16px 18px 16px 0;border-bottom:1px solid var(--line)}
+.spec dt{font-family:var(--display);font-weight:900;font-size:clamp(36px,4.4vw,60px);line-height:.95}
+.spec dd{margin:4px 0 0;color:var(--ink-2)}
+@media (max-width:900px){.cols,.steps,.spec{grid-template-columns:1fr}}
 @media (max-width:640px){.plist a,.plist button{grid-template-columns:72px 1fr;gap:2px 14px}.plist .ph{width:72px;grid-row:1/4}.plist strong,.plist span,.plist i{grid-column:2}}
 </style>
 </head>
@@ -56,21 +65,32 @@
   <p class="lede">FieldhouseUSA rents courts to tournament directors and sanctioning bodies. You run the event. We provide the building: 15 volleyball courts in seven zones, a bar and kitchen, seating and free parking, in Aurora on the east side of the Denver metro.</p>
   <div class="acts" style="margin-top:22px"><button class="btn btn-red" data-ask="tournament">Ask about dates</button><a class="btn btn-line" href="tour.html">See the courts</a></div>
 </div></section>
+<div class="wrap"><a class="boomban" href="https://www.boomtownathletics.com/tournaments.html" rel="noopener"><img src="assets/boom-logo.png" alt="" width="92" height="44"><span>Looking to play, not host? <b>Boom<i>town</i></b> Athletics runs volleyball tournaments here.</span><u>See Boomtown tournaments</u></a></div>
 
-<section class="sec"><div class="wrap">
+<section class="sec" style="border-top:0"><div class="wrap">
   <h2>What we host</h2>
   <div class="cols">
     <div class="box"><h3>Volleyball</h3><p>Up to 15 courts. Sanctioned and independent events for juniors and adults.</p><ul><li>Region and national qualifier play dates</li><li>Club, school and adult tournaments</li><li>Pods of 2, 3 or 4 courts, or the whole building</li></ul></div>
     <div class="box"><h3>Basketball and pickleball</h3><p>Zones 1 to 4 convert from volleyball.</p><ul><li>4 basketball courts</li><li>12 pickleball courts</li><li>Club tournaments, showcases and league finals</li></ul></div>
     <div class="box"><h3>Futsal</h3><p>Zone 7 sets up as one futsal arena.</p><ul><li>Single-arena tournaments and festivals</li><li>Can run beside a court-sport event</li></ul></div>
   </div>
+  <h3 style="font-size:clamp(28px,3.4vw,40px);margin-top:44px">Open space and rooms</h3>
+  <p class="lede">Every net raises to the ceiling. That clears the floor for expos, galas, ceremonies and anything that needs room.</p>
+  <dl class="spec">
+    <div><dt>32,000 sq ft</dt><dd>of open floor with the nets raised</dd></div>
+    <div><dt>8,000 sq ft</dt><dd>event and expo spaces</dd></div>
+    <div><dt>8,000 sq ft</dt><dd>gala space</dd></div>
+    <div><dt>1,500 + 2,000 sq ft</dt><dd>two studios</dd></div>
+    <div><dt>3,000 sq ft</dt><dd>lounge and dining area</dd></div>
+    <div><dt>Full bar</dt><dd>and restaurant on site</dd></div>
+  </dl>
 </div></section>
 
 <section class="sec"><div class="wrap">
   <h2>How booking works</h2>
   <ol class="steps">
     <li><b>Ask 6 to 8 months out</b><span>Weekends fill early. Send your dates, sport, court count and expected teams.</span></li>
-    <li><b>30% deposit</b><span>A signed facility agreement and a 30% deposit hold your dates. Nothing is held without both.</span></li>
+    <li><b>Contract and 30% deposit</b><span>Rental contracts are required for all rentals. A signed contract and a 30% deposit hold your dates. Nothing is held without both.</span></li>
     <li><b>Paid in full 30 days before</b><span>The balance is due at least 30 days before the first day of the event.</span></li>
     <li><b>Event day</b><span>Your director checks in at the admin desk. Your teams and spectators follow the facility rules.</span></li>
   </ol>
@@ -83,7 +103,6 @@
     <div class="box"><h3>House rules apply</h3><ul><li>No outside food or drink. Food and the bar come from Oda Up</li><li>Everyone is subject to a bag search</li><li>Fines start at the first offense and are charged to the team or club</li></ul><div class="acts"><a class="btn btn-line" href="index.html#rules">Read the rules</a></div></div>
     <div class="box"><h3>This is a commercial facility</h3><ul><li>Pricing is not in line with schools or rec centers</li><li>Single-court, few-hour requests are limited on event days</li><li>Private parties and corporate events go through <a href="https://event-den.com/" rel="noopener">Event-Den</a></li></ul></div>
   </div>
-  <p class="lede">Looking to play in a tournament, not host one? Boomtown Athletics lists its own volleyball tournaments at <a href="https://www.boomtownathletics.com/tournaments.html" rel="noopener">boomtownathletics.com</a>.</p>
 </div></section>
 </main>
 <script src="assets/site.js"></script>

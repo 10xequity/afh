@@ -34,6 +34,12 @@ To regenerate the 3D PDF: print a page that calls `FHPLAN.iso()` with headless C
 
 Serve over HTTP (`python -m http.server`); the tour fetches `data/zones.json`.
 
+## v5.1 changes (2026-11-16)
+
+Second owner review. Home: banners moved under the hero, three photo-led columns and a scoreboard replace the offer cards, entrance photo, rotatable 3D map with numbered pins and a side panel, one Take a tour button, a small Lost items section, facility rules PDF. Tour: every zone 1 to 7 opens its court photos (`#/z/<n>`), pins are numbered, 3D map rotates (drag or arrow buttons). Stops renamed: 3 Hardwood Courts, 9 Sports Court, 10 Sports Court and Futsal Arena; the studio labels are swapped (large room is Studio 2). Shared: no phone number or call button anywhere (email only), Home and an Activities dropdown in the nav, two reds (`--red` for fills, `--red-t` for red text on black) and larger small text for contrast, event and tournament requests must answer a full set of planning questions, downloads ask first. New `assets/chat.js`: an offline helper that answers rule questions by keyword and collects event details, then fills the request form; keep its answers in step with the rules on `index.html`. Tournaments: Boomtown banner, open-space sizes, rental contracts required for all rentals. "Who runs what" is now "Based here".
+
+`assets/fieldhouse-facility-rules.pdf` is generated from the rules in `index.html`; regenerate it when the rules change.
+
 ## v5 changes (2026-11-16)
 
 Owner review, 25 items. Home and tour swapped names (home is `index.html`). Walk-through idea dropped for ten set stops. Map: Massage is now Therapy / Spa and fills its gap, Bathroom is Restroom, Studio 1 lines up with Admin, Zone 6 is volleyball only, Zone 7 is 3 volleyball courts or 1 futsal arena. Removed: soccer field and turf, sprung and foam floors, mall entrance, the "pulled from Boomtown" note. Rules rewritten as FieldhouseUSA rules with bag search and service-animal accommodation. Address shows FieldhouseUSA on the suite line. SEO: titles and H1 lead with Denver metro, address stays Aurora; JSON-LD for the venue and FAQ.

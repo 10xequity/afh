@@ -1,6 +1,6 @@
 /* FieldhouseUSA: shared styles for every page. Black, white, one red. No blur, no gradients, no always-on animation except the hero court. */
 :root{
-  --black:#000;--white:#fff;--red:#ff0000;--red-d:#d60000;--panel:#0d0d0d;--panel-2:#161616;--ink-2:rgba(255,255,255,.74);--ink-3:rgba(255,255,255,.5);--line:rgba(255,255,255,.16);
+  --black:#000;--white:#fff;--red:#e10600;--red-d:#bf0500;--red-t:#ff5a4f;--panel:#0d0d0d;--panel-2:#161616;--ink-2:rgba(255,255,255,.74);--ink-3:rgba(255,255,255,.66);--line:rgba(255,255,255,.16);
   --court:#c8742f;
   --display:'Big Shoulders Display',Impact,'Arial Narrow Bold',sans-serif;
   --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -13,7 +13,7 @@ body{margin:0;background:var(--black);color:var(--white);font-family:var(--body)
 h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.94;margin:0;text-transform:uppercase}
 p{margin:0}a{color:inherit}ul,ol{margin:0;padding:0;list-style:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 :focus-visible{outline:3px solid var(--red);outline-offset:3px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .skip{position:fixed;left:8px;top:-60px;z-index:100;background:var(--white);color:var(--black);padding:10px 14px;border-radius:6px;font-weight:600}
@@ -21,7 +21,7 @@ img{max-width:100%;display:block}
 .wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
 .sec{padding:clamp(48px,8vh,96px) 0;border-top:1px solid var(--line)}
 .sec>.wrap>h2,.sec-h{font-size:clamp(40px,6vw,80px)}
-.eyebrow{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:var(--red-t);margin-bottom:6px}
 .lede{color:var(--ink-2);font-size:clamp(17px,1.5vw,20px);max-width:62ch;margin-top:12px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background-color 120ms ease,transform 120ms var(--ease-out)}
@@ -35,12 +35,16 @@ img{max-width:100%;display:block}
 #top .logo{display:block;width:64px;height:32px;--logo-ink:#fff;flex:none;margin-right:auto}#top .logo svg{width:100%;height:100%;display:block}
 #top nav{display:flex;gap:2px}
 #top nav a{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:8px 12px;border-radius:999px}
-#top nav a[aria-current="page"]{color:var(--red)}
+#top nav a[aria-current="page"]{color:var(--red-t)}
 @media (hover:hover){#top nav a:hover{background:rgba(255,255,255,.1)}}
 #menu-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase}
 #menu-btn i{display:block;width:16px;height:2px;background:currentColor;box-shadow:0 5px 0 currentColor,0 -5px 0 currentColor}
 @media (hover:hover){#menu-btn:hover{background:rgba(255,255,255,.1)}}
-@media (max-width:980px){#top nav{display:none}}
+#top .dd{position:relative;display:flex}
+#top .ddm{position:absolute;left:0;top:100%;min-width:230px;padding:6px;background:#0b0b0b;border:1px solid var(--line);border-radius:10px;display:none}
+#top .dd:hover .ddm,#top .dd:focus-within .ddm{display:grid}
+#top .ddm a{font-size:16px;padding:8px 10px;border-radius:6px}
+@media (max-width:1080px){#top nav{display:none}}
 
 /* side menu: a game-style list. Numbered rows, a red marker that slides in, arrow keys move the selection. */
 dialog{color:#fff;border:0;padding:0;max-width:none;max-height:none}
@@ -62,15 +66,16 @@ dialog::backdrop{background:rgba(0,0,0,.7)}
 #menu ol a::after{content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;background:var(--red);transform:scaleY(0);transition:transform 160ms var(--ease-out)}
 #menu ol a span{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:.03em;text-transform:uppercase;line-height:1;transition:transform 160ms var(--ease-out)}
 #menu ol a span{white-space:nowrap}
-#menu ol a small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);text-align:right;line-height:1.2}
+#menu ol a small{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);text-align:right;line-height:1.2}
 #menu ol a:hover,#menu ol a:focus-visible,#menu ol a[aria-current="page"]{background:rgba(255,255,255,.06);outline:none}
 #menu ol a:hover::after,#menu ol a:focus-visible::after,#menu ol a[aria-current="page"]::after{transform:none}
-#menu ol a:hover span,#menu ol a:focus-visible span{transform:translateX(6px)}
-#menu ol a:hover::before,#menu ol a:focus-visible::before,#menu ol a[aria-current="page"]::before{color:var(--red)}
+#menu ol a:hover span,#menu ol a:focus-visible span{transform:translateX(6px);color:var(--red-t)}
+#menu ol a[aria-current="page"] span{color:var(--red-t)}
+#menu ol a:hover::before,#menu ol a:focus-visible::before,#menu ol a[aria-current="page"]::before{color:var(--red-t)}
 #menu .mfoot{margin-top:auto;padding:16px 20px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2);line-height:1.6}
 #menu .mfoot a{color:#fff;font-weight:600;text-decoration:none}
 #menu .mfoot .acts{margin-bottom:12px}#menu .mfoot .btn{min-height:38px;font-size:16px;padding:0 14px}
-#menu .hint{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 20px 8px}
+#menu .hint{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 20px 8px}
 @media (hover:none){#menu .hint{display:none}}
 
 /* ask-the-front-desk panel */
@@ -107,7 +112,7 @@ footer .fine{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);c
 .plan .znum{font-family:var(--display);font-weight:900;font-size:36px;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:5}
 .plan .zbox{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.45);stroke-width:1.2}
 .plan .lot,.plan .door{fill:rgba(255,255,255,.18)}.plan .arrow{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.plan .lbl-s{font-size:11px;font-weight:500}.plan .zdesc{font-size:12.5px;font-weight:500;paint-order:stroke;stroke:rgba(0,0,0,.6);stroke-width:3}
+.plan .lbl-s{font-size:11.5px;font-weight:600}.plan .zdesc{font-size:13px;font-weight:500;paint-order:stroke;stroke:rgba(0,0,0,.6);stroke-width:3}
 .plan .hit{fill:transparent}
 .plan [data-spot]{cursor:pointer;outline:none}
 .plan [data-el].on .zbox{stroke:var(--red);stroke-width:3}.plan [data-el].on .court{fill:var(--red)}
@@ -128,3 +133,42 @@ footer .fine{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);c
 .iso [data-el="mezzdeck"] .top{fill:rgba(60,60,60,.92)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* map container */
+.fhmap .stage.grab{cursor:grab;touch-action:pan-y;user-select:none}
+.fhmap .stage.grab:active{cursor:grabbing}
+.fhmap .rotbar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.fhmap .rotbar[hidden]{display:none}
+.fhmap .rotbar button{width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line);font-size:20px;color:#fff}
+@media (hover:hover){.fhmap .rotbar button:hover{background:rgba(255,255,255,.12)}}
+.plan .pnum{font-family:var(--display);font-weight:900;font-size:13px;fill:#fff;pointer-events:none}
+.plan .pin.on .pnum{fill:var(--red)}
+.iso .znum{font-size:30px}
+
+/* event questions inside the ask panel */
+#evx{display:grid;gap:14px;border:0;padding:0;margin:0}
+#evx[hidden]{display:none}
+#evx legend{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase;padding:0;margin-bottom:4px}
+.checks{display:flex;flex-wrap:wrap;gap:6px}
+.checks label{display:inline-flex;grid-template-columns:none;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);font-weight:500;cursor:pointer}
+.checks input{width:auto;min-height:0;accent-color:var(--red)}
+.req{color:var(--red-t)}
+
+/* offline helper: answers rule questions and collects event details. Runs entirely in the page. */
+#chat-open{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:999px;background:#fff;color:#000;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase;box-shadow:0 6px 20px rgba(0,0,0,.6)}
+#chat{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100svh - 90px));display:grid;grid-template-rows:auto 1fr auto auto;background:#0b0b0b;border:1px solid rgba(255,255,255,.3);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.8)}
+#chat[hidden]{display:none}
+#chat header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 16px;border-bottom:1px solid var(--line)}
+#chat header b{font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:.05em;text-transform:uppercase}
+#chat header small{display:block;font-size:13px;color:var(--ink-3)}
+#chat .log{overflow:auto;padding:12px;display:grid;gap:8px;align-content:start}
+#chat .m{max-width:88%;padding:9px 12px;border-radius:12px;font-size:15.5px;line-height:1.4;white-space:pre-line}
+#chat .m.b{background:var(--panel-2);justify-self:start}
+#chat .m.u{background:#fff;color:#000;justify-self:end}
+#chat .m a{color:#fff;font-weight:600}
+#chat .quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 8px}
+#chat .quick button{padding:7px 11px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);font-size:14px}
+@media (hover:hover){#chat .quick button:hover{background:rgba(255,255,255,.12)}}
+#chat form{display:flex;gap:6px;padding:10px 12px;border-top:1px solid var(--line)}
+#chat form input{min-height:42px}
+#chat form button{flex:none;min-height:42px;padding:0 14px;font-size:16px}
