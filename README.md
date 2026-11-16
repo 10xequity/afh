@@ -10,9 +10,9 @@ Static site for aurorafieldhouseusa.com. One page, no build step, no dependencie
 
 ## What it is
 
-Two experiences from one entry. `index.html` opens outside the building and offers **Walk in** (the first-person tour) or **Browse the site instead** (`site.html`, a conventional scrolling page with the whiteboard floor plan, the three sells, partners, rules, FAQ and the contact form). Each links to the other; zone panels on the site deep-link into the same area of the tour.
+Two experiences. `index.html` is the **map tour**; `site.html` is a conventional scrolling page (whiteboard floor plan, the three sells, partners, rules, FAQ, contact form). Each links to the other; zone panels on the site deep-link into the tour (`index.html#/a/<area id>`).
 
-The tour is a first-person walk through the building. Outside → doors → lobby → one of three wings → an area. Every move is a "walk" transition (the view pushes forward toward what you tapped, blurs, and the next room settles into focus with a small footstep bob). A game-style HUD sits on top: compass (turn West / Ahead / East), where-you-are breadcrumb, front-desk quick actions, a minimap that opens the full floor plan drawn with volleyball courts. Rules, FAQ, partners and the contact form open as side panels from anywhere.
+The tour (v4) is one screen: the floor plan on the left (3D tilt or flat) is the navigation, a card on the right shows the chosen place: photo, what's here, who runs it, the booking button, and Previous / Next. Below the plan every place is one tap away as a chip (Courts: Zones 1–7, then Rooms). Arrow keys step through the same order. Nothing locks while it animates; a click swaps the card at once. On phones the card sits on top and the map below. Book buttons are in the header; rules, FAQ, partners and the contact form open as side panels from Menu.
 
 ## Files
 
@@ -24,6 +24,15 @@ The tour is a first-person walk through the building. Outside → doors → lobb
 - `favicon.svg`, `404.html`, `robots.txt`, `sitemap.xml`.
 
 Serve over HTTP (`python -m http.server`); the page fetches `data/zones.json`.
+
+## v4 — map tour (2026-11-16)
+
+The first-person walk (outside → doors → lobby → wing → area, with compass, breadcrumb, minimap and detail drawer) is replaced by the map tour above. Why: owner reported it laggy, unresponsive and confusing. Each move locked input for 820 ms (plus 640 ms for the doors), screens stacked full-screen 3D layers, and there were six overlapping ways to navigate. Measured on the new build with the CPU throttled 6×: a click repaints the card in 42–79 ms; the welcome card holds 60 fps.
+
+- `index.html` rewritten (65 KB → 36 KB). Old deep links still work: `#/a/<id>` opens that place, `#/w/<wing>` opens the wing's first court, `#/lobby` opens the welcome card.
+- `zones.json` still carries `wings`, `exterior`, `lobby` and `desk`; the tour reads the copy and photos from them. `wing-*.webp`, `lobby.webp` and `exterior.webp` are no longer shown by the tour.
+- `site.html` links say "Tour the building" and point to `index.html`.
+- The walk-in is in git history at tag-free commit `4458aa3` (v3.5) if it is ever wanted back.
 
 ## v3.5 — speed (2026-11-14)
 

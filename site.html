@@ -284,7 +284,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,
     <a href="#inside">Inside</a>
     <a href="#rules">Rules</a>
     <a href="#contact">Contact</a>
-    <a class="walk" href="index.html#/lobby">Walk the building</a>
+    <a class="walk" href="index.html">Tour the building</a>
     <button id="menu-btn" aria-haspopup="dialog" aria-controls="menu"><span class="bars"><i></i><i></i><i></i></span><span class="lbl">Menu</span></button>
   </nav>
 </header>
@@ -305,7 +305,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,
     <p class="lede" id="hero-lede"></p>
     <div class="ctas">
       <a class="btn btn-red" href="#inside">See the floor</a>
-      <a class="btn btn-ghost" href="index.html#/lobby">Walk the building instead</a>
+      <a class="btn btn-ghost" href="index.html">Tour the building instead</a>
     </div>
   </div>
 </section>
@@ -327,7 +327,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,
           <p class="kicker">Nothing selected</p>
           <h3>Where to?</h3>
           <p>Tap a zone, a studio or Oda Up on the plan. Each one tells you what it's for and who books it.</p>
-          <p class="walk">Prefer to walk it? <a href="index.html#/lobby">Open the first-person tour</a>.</p>
+          <p class="walk">Prefer a map? <a href="index.html">Open the map tour</a>.</p>
         </div>
         <div id="panel-body" hidden></div>
       </aside>
@@ -395,7 +395,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,
   <div class="wrap">
     <div class="grid">
       <div><div class="flogo"><svg role="img" aria-label="FieldhouseUSA"><use href="#logo"/></svg></div><address id="f-addr"></address></div>
-      <div><h3>Here</h3><ul><li><a href="#events">Host an event</a></li><li><a href="#rentals">Rent the floor</a></li><li><a href="#tournaments">Run a tournament</a></li><li><a href="#inside">Floor plan</a></li><li><a href="index.html#/lobby">Walk the building</a></li></ul></div>
+      <div><h3>Here</h3><ul><li><a href="#events">Host an event</a></li><li><a href="#rentals">Rent the floor</a></li><li><a href="#tournaments">Run a tournament</a></li><li><a href="#inside">Floor plan</a></li><li><a href="index.html">Tour the building</a></li></ul></div>
       <div><h3>Partners</h3><ul id="f-partners"></ul></div>
       <div><h3>Rules</h3><ul><li><a href="#rules">Facility rules</a></li><li><a id="f-waiver" href="#" rel="noopener">Liability waiver</a></li><li><a href="#faq">Questions</a></li></ul></div>
     </div>
@@ -410,7 +410,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,
     <div class="st"><h2>Inside</h2><div class="zones" id="menu-zones"></div></div>
     <div class="st"><h2>Partners</h2><div class="small" id="menu-partners"></div></div>
     <div class="st"><h2>Before you come</h2><div class="small"><a href="#rules">Facility rules</a><a href="#faq">Questions</a><a id="m-waiver" href="#" rel="noopener">Liability waiver</a></div></div>
-    <div class="st"><a class="btn btn-red" href="index.html#/lobby">Walk the building</a></div>
+    <div class="st"><a class="btn btn-red" href="index.html">Tour the building</a></div>
     <div class="st foot" id="menu-foot"></div>
   </div>
 </dialog>
@@ -492,7 +492,7 @@ function render(a){
   acts.push(`<a class="btn ${acts.length?'btn-ghost':'btn-red'}" href="#contact" data-inquiry="${esc(a.inquiry)}">Ask the front desk</a>`);
   body.innerHTML=`<p class="kicker">${esc(w.name)} · ${esc(a.tag)}</p><h3>${esc(a.name)}</h3>${a.courts?`<p class="courts">${esc(a.courts)}</p>`:''}
     <p class="what">${esc(a.blurb)}</p><ul class="list">${a.what.map(u=>`<li>${esc(u)}</li>`).join('')}</ul><div class="acts">${acts.join('')}</div>
-    <p class="walk"><a href="index.html#/a/${esc(a.id)}">Walk into ${esc(a.name)} in the tour</a></p><button class="close" aria-label="Close">×</button>`;
+    <p class="walk"><a href="index.html#/a/${esc(a.id)}">See ${esc(a.name)} in the map tour</a></p><button class="close" aria-label="Close">×</button>`;
   body.hidden=false;empty.hidden=true;$('.close',body).onclick=clear;
   if(mobile())requestAnimationFrame(()=>panel.classList.add('open'));
 }

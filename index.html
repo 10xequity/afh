@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FieldhouseUSA Aurora — walk the field house</title>
-<meta name="description" content="Aurora's indoor field house: 15 courts, two studios, a restaurant and a mall entrance. Walk the building, pick a zone, and book with the right partner.">
+<title>FieldhouseUSA Aurora — tour the field house</title>
+<meta name="description" content="Aurora's indoor field house: 15 courts, two studios, a restaurant and a mall entrance. Tour the building on the map, pick a zone, and book with the right partner.">
 <link rel="canonical" href="https://aurorafieldhouseusa.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="FieldhouseUSA Aurora">
-<meta property="og:description" content="15 courts, two studios, a restaurant and a mall entrance under one roof. Walk the building and book with the right partner.">
+<meta property="og:description" content="15 courts, two studios, a restaurant and a mall entrance under one roof. Tour the building and book with the right partner.">
 <meta property="og:url" content="https://aurorafieldhouseusa.com/">
 <meta property="og:image" content="https://aurorafieldhouseusa.com/assets/lobby.jpg">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/exterior.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/fieldhouse-panorama.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- perf v3.5: building data starts downloading now, not after the fonts and plan.js; fonts no longer block the page script -->
@@ -24,411 +24,182 @@
 {"@context":"https://schema.org","@type":"SportsActivityLocation","name":"FieldhouseUSA Aurora","url":"https://aurorafieldhouseusa.com/","telephone":"+1-720-773-4776","email":"admin@aurorafieldhouseusa.com","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave, Suite 400","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"},"sameAs":["https://www.boomtownathletics.com/","https://event-den.com/"]}
 </script>
 <style>
-/* ---------- tokens ---------- */
+/* v4: map tour. One screen: the floor plan is the navigation, the card shows the place. No walk animations, no input locks. */
 :root{
-  --black:#000;--white:#fff;--red:#ff0000;
-  --glass:rgba(0,0,0,.58);--glass-2:rgba(0,0,0,.78);--line:rgba(255,255,255,.18);
+  --black:#000;--white:#fff;--red:#ff0000;--ink-2:rgba(255,255,255,.72);--line:rgba(255,255,255,.16);--panel:#0d0d0d;
   --display:'Big Shoulders Display',Impact,'Arial Narrow Bold',sans-serif;
   --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --ease-out:cubic-bezier(.23,1,.32,1);
-  --ease-in-out:cubic-bezier(.77,0,.175,1);
-  --ease-drawer:cubic-bezier(.32,.72,0,1);
-  --walk:820ms;
-  --gutter:clamp(14px,3vw,32px);
+  --ease-out:cubic-bezier(.23,1,.32,1);--ease-drawer:cubic-bezier(.32,.72,0,1);
+  --gutter:clamp(14px,2.4vw,28px);
 }
 *,*::before,*::after{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--black);color:var(--white);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow:hidden;overscroll-behavior:none}
+html{background:var(--black)}
+body{margin:0;background:var(--black);color:var(--white);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.92;margin:0;text-transform:uppercase}
-p{margin:0}
-a{color:inherit}
+p{margin:0}a{color:inherit}ul{margin:0;padding:0;list-style:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-ul{margin:0;padding:0;list-style:none}
 :focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 20px;border-radius:999px;
-  font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;white-space:nowrap;
-  transition:transform 160ms var(--ease-out),background-color 160ms ease,color 160ms ease,box-shadow 160ms ease}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background-color 120ms ease,transform 120ms var(--ease-out)}
 .btn:active{transform:scale(.97)}
-.btn-red{background:var(--red);color:var(--white)}
-.btn-white{background:var(--white);color:var(--black)}
-.btn-glass{background:var(--glass);color:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
-.btn-ghost{box-shadow:inset 0 0 0 2px currentColor}
-@media (hover:hover) and (pointer:fine){
-  .btn-red:hover{background:#e60000}.btn-white:hover{background:#ededed}
-  .btn-glass:hover{background:var(--glass-2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
-  .btn-ghost:hover{background:rgba(255,255,255,.1)}
-}
+.btn-red{background:var(--red);color:#fff}.btn-glass{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px var(--line)}
+@media (hover:hover){.btn-red:hover{background:#e00000}.btn-glass:hover{background:rgba(255,255,255,.18)}}
 
-/* ---------- stage: the first-person view ---------- */
-#stage{position:fixed;inset:0;background:var(--black);overflow:hidden;perspective:1100px;perspective-origin:50% 55%}
-/* v3.4: the walk is real 3D now. Forward pushes into the scene (translateZ), turning swings the view on its vertical axis (rotateY) the way your head turns. */
-.layer{position:absolute;inset:0;overflow:hidden;will-change:transform,opacity;transform-origin:var(--ox,50%) var(--oy,50%)}
-.layer .bg{position:absolute;inset:-4%;background-size:cover;background-position:center;transform:scale(1)}
-.layer .bg::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.25) 38%,rgba(0,0,0,.12) 60%,rgba(0,0,0,.55) 100%),
-  radial-gradient(120% 90% at 50% 50%,rgba(0,0,0,0) 45%,rgba(0,0,0,.55) 100%)}
-/* arriving: step out of a slightly larger, softer frame into focus */
-.layer.enter{animation:arrive var(--walk) var(--ease-out) both}
-.layer.enter.back{animation:arrive-back var(--walk) var(--ease-out) both}
-.layer.enter.left{animation:arrive-left var(--walk) var(--ease-out) both}.layer.enter.right{animation:arrive-right var(--walk) var(--ease-out) both}
-/* leaving: walk forward into the frame toward where you clicked */
-.layer.leave{animation:walk var(--walk) var(--ease-in-out) both;pointer-events:none}
-.layer.leave.back{animation:walk-back var(--walk) var(--ease-in-out) both}
-.layer.leave.left{animation:walk-left var(--walk) var(--ease-in-out) both}
-.layer.leave.right{animation:walk-right var(--walk) var(--ease-in-out) both}
-@keyframes walk{0%{transform:translateZ(0);opacity:1}60%{opacity:1}100%{transform:translateZ(260px);opacity:0}}
-@keyframes walk-left{0%{transform:rotateY(0) translateZ(0);opacity:1}100%{transform:rotateY(-22deg) translateX(14%) translateZ(120px);opacity:0}}
-@keyframes walk-right{0%{transform:rotateY(0) translateZ(0);opacity:1}100%{transform:rotateY(22deg) translateX(-14%) translateZ(120px);opacity:0}}
-@keyframes walk-back{0%{transform:translateZ(0);opacity:1}100%{transform:translateZ(-200px);opacity:0}}
-@keyframes arrive{0%{transform:translateZ(-180px);opacity:0}35%{opacity:1}100%{transform:translateZ(0);opacity:1}}
-@keyframes arrive-left{0%{transform:rotateY(18deg) translateX(-12%) translateZ(-80px);opacity:0}35%{opacity:1}100%{transform:none;opacity:1}}
-@keyframes arrive-right{0%{transform:rotateY(-18deg) translateX(12%) translateZ(-80px);opacity:0}35%{opacity:1}100%{transform:none;opacity:1}}
-@keyframes arrive-back{0%{transform:translateZ(140px);opacity:0}35%{opacity:1}100%{transform:translateZ(0);opacity:1}}
-/* the footsteps: a small bob on the whole view while walking */
-#stage.walking{animation:bob 900ms var(--ease-in-out) both}
-@keyframes bob{0%{transform:translateY(0)}25%{transform:translateY(-7px)}50%{transform:translateY(0)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
-/* slow drift so a still photo feels like standing in a room */
-.layer.enter .bg{animation:drift 22s ease-in-out infinite alternate}
-@keyframes drift{from{transform:scale(1) translate(0,0)}to{transform:scale(1.06) translate(-1.2%,-.8%)}}
-/* v3.4 moving photo: a panorama sits wider than the screen; --pan (0 west, 50 ahead, 100 east) turns you to face a wing */
-/* perf v3.5: the panorama box is as wide as the photo and slides with transform, so panning never repaints. --p: 0 west, .5 ahead, 1 east */
-.layer .bg.pano{inset:-4% auto -4% 0;width:auto;aspect-ratio:2400/917;min-width:108%;background-size:cover;
-  transform:translateX(calc(var(--p,.5) * (100vw - 100%)));transition:transform 1.4s var(--ease-in-out)}
-.layer.enter .bg.pano{animation:look 26s ease-in-out infinite alternate}
-.layer.enter .bg.pano.aim{animation:none}
-@keyframes look{from{transform:translateX(calc(.38 * (100vw - 100%)))}to{transform:translateX(calc(.62 * (100vw - 100%)))}}
-@media (prefers-reduced-motion:reduce){
-  .layer.enter,.layer.enter.back,.layer.enter.left,.layer.enter.right{animation:fade-in 260ms ease both}
-  .layer .bg.pano{transition:none;animation:none}
-  .layer.leave,.layer.leave.back,.layer.leave.left,.layer.leave.right{animation:fade-out 260ms ease both}
-  #stage.walking{animation:none}.layer.enter .bg{animation:none}
-  @keyframes fade-in{from{opacity:0}to{opacity:1}}@keyframes fade-out{from{opacity:1}to{opacity:0}}
-}
+/* header */
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top)) var(--gutter) 10px;background:var(--black);border-bottom:1px solid var(--line)}
+.top .logo{display:block;width:64px;height:32px;--logo-ink:#fff;flex:none}.top .logo svg{width:100%;height:100%;display:block}
+.top .book{display:flex;gap:8px;margin-left:auto;overflow-x:auto;scrollbar-width:none}.top .book::-webkit-scrollbar{display:none}
+.top .book .btn{min-height:40px;font-size:16px;padding:0 14px;flex:none}
+.menu-btn{flex:none;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase}
+@media (hover:hover){.menu-btn:hover{background:rgba(255,255,255,.1)}}
+@media (max-width:700px){.top .book{display:none}}
 
-/* ---------- exterior doors ---------- */
-.doors{position:absolute;inset:0;pointer-events:none;z-index:2}
-.door{position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#0b0b0b,#161616);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
-  transform:translateX(0);transition:transform 700ms var(--ease-in-out)}
-.door.l{left:0;border-right:2px solid rgba(255,255,255,.25)}.door.r{right:0;border-left:2px solid rgba(255,255,255,.25)}
-.door::after{content:"";position:absolute;top:46%;width:10px;height:70px;border-radius:5px;background:rgba(255,255,255,.35)}
-.door.l::after{right:22px}.door.r::after{left:22px}
-.doors.open .door.l{transform:translateX(-101%)}.doors.open .door.r{transform:translateX(101%)}
-/* doors only cover the view while you're outside; they start open so the photo shows, and shut-then-open is the step-in */
-.doors{opacity:0;transition:opacity 200ms ease}
-.doors.armed{opacity:1}
-@media (prefers-reduced-motion:reduce){.door{transition:none}}
+/* layout: map left, card right */
+.tour{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,440px);gap:var(--gutter);padding:var(--gutter);min-height:calc(100svh - 61px)}
+@media (max-width:900px){.tour{grid-template-columns:1fr}}
 
-/* ---------- scene copy ---------- */
-.copy{position:absolute;left:0;right:0;bottom:0;padding:0 var(--gutter) calc(96px + env(safe-area-inset-bottom));z-index:3;pointer-events:none}
-.copy>*{pointer-events:auto}
-.copy .kicker{display:inline-block;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--red);padding:4px 10px 5px;border-radius:6px;margin-bottom:8px}
-.copy h1{font-size:clamp(40px,min(9vw,13vh),128px);max-width:11ch;text-shadow:0 2px 24px rgba(0,0,0,.6)}
-.copy h2{font-size:clamp(40px,6.5vw,92px);text-shadow:0 2px 24px rgba(0,0,0,.6)}
-.copy .lede{max-width:52ch;font-size:clamp(17px,1.7vw,21px);color:rgba(255,255,255,.9);margin:14px 0 24px;text-shadow:0 1px 10px rgba(0,0,0,.7)}
-.copy .ctas{display:flex;flex-wrap:wrap;gap:10px}
-.copy .hero-logo{width:min(440px,70vw,34vh);--logo-ink:#fff;margin-bottom:18px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.6))}
-.copy .hero-logo svg{width:100%;height:auto;display:block}
-/* stagger the copy in after arrival */
-.layer.enter .copy>*{opacity:0;transform:translateY(10px);animation:up 500ms var(--ease-out) forwards}
-.layer.enter .copy>:nth-child(1){animation-delay:calc(var(--walk) * .55)}.layer.enter .copy>:nth-child(2){animation-delay:calc(var(--walk) * .62)}
-.layer.enter .copy>:nth-child(3){animation-delay:calc(var(--walk) * .69)}.layer.enter .copy>:nth-child(4){animation-delay:calc(var(--walk) * .76)}
-@keyframes up{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.layer.enter .copy>*{animation:none;opacity:1;transform:none}}
+/* map */
+.mapcol{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;min-width:0}
+.maphead{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.maphead h1{font-size:clamp(34px,4.4vw,60px)}
+.maphead p{color:var(--ink-2);font-size:15px;margin-top:4px}
+.viewtog{display:inline-flex;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);overflow:hidden;flex:none}
+.viewtog button{min-height:40px;padding:6px 16px;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.viewtog button[aria-pressed="true"]{background:#fff;color:#000}
+.planbox{display:grid;place-items:center;min-height:0;perspective:1600px;padding:8px 0}
+.planbox svg{width:100%;max-width:980px;height:auto;max-height:calc(100svh - 360px);transform-origin:50% 55%;transition:transform 600ms var(--ease-out)}
+.planbox.is3d svg{transform:rotateX(46deg) rotateZ(-16deg) scale(.98)}
+@media (max-width:900px){.planbox svg{max-height:none}}
 
-/* ---------- markers: objective-style hotspots in the scene ---------- */
-.markers{position:absolute;inset:0;z-index:3;pointer-events:none}
-.marker{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;pointer-events:auto;text-decoration:none;
-  opacity:0;animation:up 420ms var(--ease-out) forwards;animation-delay:calc(var(--walk) * .7 + var(--i,0) * 45ms)}
-.marker .ring{position:relative;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 0 0 3px rgba(0,0,0,.45);flex:none;transition:background-color 160ms ease,transform 160ms var(--ease-out)}
-.marker .ring::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid rgba(255,255,255,.75);animation:pulse 2.2s ease-out infinite}
-.marker .ring::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--red);opacity:0;transition:opacity 160ms ease}
-@keyframes pulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.5);opacity:0}}
-.marker .tag{display:grid;gap:1px;padding:7px 12px 8px;border-radius:12px;background:var(--glass);box-shadow:inset 0 0 0 1px var(--line);text-align:left;
-  transition:transform 180ms var(--ease-out),background-color 160ms ease,box-shadow 160ms ease}
-.marker .tag b{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.03em;text-transform:uppercase;line-height:1}
-.marker .tag small{font-size:12.5px;color:rgba(255,255,255,.8);line-height:1.2}
-@media (hover:hover) and (pointer:fine){
-  .marker:hover .ring{transform:scale(1.15)}.marker:hover .ring::after{opacity:1}
-  .marker:hover .tag{transform:translateX(4px);background:var(--glass-2);box-shadow:inset 0 0 0 1px rgba(255,0,0,.8)}
-}
-.marker:active .ring{transform:scale(.9)}
-.marker.flip{flex-direction:row-reverse}
-.marker.flip .tag{text-align:right}
-@media (hover:hover) and (pointer:fine){.marker.flip:hover .tag{transform:translateX(-4px)}}
-.marker.up{flex-direction:column}
-@media (prefers-reduced-motion:reduce){.marker{animation:none;opacity:1}.marker .ring::before{animation:none;opacity:.6}}
-/* small screens: markers become a rail you can scroll */
-@media (max-width:760px){
-  .markers{top:auto;bottom:calc(110px + env(safe-area-inset-bottom));left:0;right:0;display:flex;gap:10px;overflow-x:auto;padding:6px var(--gutter);scroll-snap-type:x mandatory;scrollbar-width:none}
-  .markers::-webkit-scrollbar{display:none}
-  .marker{position:static;transform:none;scroll-snap-align:start;flex:none}
-  .marker.flip{flex-direction:row}.marker.flip .tag{text-align:left}.marker.up{flex-direction:row}
-  .copy{padding-bottom:calc(192px + env(safe-area-inset-bottom))}
-  .copy h1{font-size:clamp(44px,13vw,80px)}
-  .copy .kicker{font-size:13px;padding:3px 8px 4px}
-}
+/* places: every stop, one tap away */
+.places{display:grid;gap:8px}
+.places h2{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.5)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{min-height:38px;padding:0 13px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;transition:background-color 120ms ease}
+.chip[aria-current="true"]{background:var(--red);box-shadow:none}
+@media (hover:hover){.chip:not([aria-current="true"]):hover{background:rgba(255,255,255,.12)}}
 
-/* ---------- HUD ---------- */
-#hud{position:fixed;inset:0;z-index:10;pointer-events:none}
-#hud>*{pointer-events:auto}
-.hud-top{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:calc(12px + env(safe-area-inset-top)) var(--gutter) 0;pointer-events:none}
-.hud-top>*{pointer-events:auto}
-.hud-top .logo{display:block;height:34px;width:68px;--logo-ink:#fff;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
-.hud-top .logo svg{height:100%;width:100%;display:block}
-.hud-btns{display:flex;gap:8px}
-.hud-btn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px;border-radius:999px;background:var(--glass);box-shadow:inset 0 0 0 1px var(--line);
-  font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase;transition:background-color 160ms ease,transform 160ms var(--ease-out),box-shadow 160ms ease}
-.hud-btn:active{transform:scale(.96)}
-@media (hover:hover) and (pointer:fine){.hud-btn:hover{background:var(--glass-2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}}
-.hud-btn .bars{width:18px;height:12px;position:relative}
-.hud-btn .bars i{position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px}
-.hud-btn .bars i:nth-child(1){top:0}.hud-btn .bars i:nth-child(2){top:5px}.hud-btn .bars i:nth-child(3){top:10px}
-@media (max-width:600px){.hud-btn .lbl{display:none}.hud-btn{padding:0 12px}}
-
-/* compass */
-#compass{position:absolute;top:calc(12px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;padding:4px;border-radius:999px;background:var(--glass);box-shadow:inset 0 0 0 1px var(--line);
-  transition:opacity 250ms ease,transform 250ms var(--ease-out)}
-#compass.hide{opacity:0;transform:translate(-50%,-8px);pointer-events:none}
-#compass button{display:grid;gap:0;place-items:center;min-width:64px;height:36px;padding:0 12px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.04em;text-transform:uppercase;line-height:1;
-  transition:background-color 160ms ease,color 160ms ease,transform 160ms var(--ease-out)}
-#compass button:active{transform:scale(.96)}
-#compass button span{font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.65);font-weight:700}
-#compass button.on{background:var(--red)}#compass button.on span{color:rgba(255,255,255,.85)}
-@media (hover:hover) and (pointer:fine){#compass button:not(.on):hover{background:rgba(255,255,255,.12)}}
-@media (max-width:760px){#compass{top:calc(62px + env(safe-area-inset-top))}#compass button{min-width:50px;padding:0 9px;height:32px;font-size:14px}}
-
-/* where you are + front-desk actions */
-.hud-bottom{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:0 var(--gutter) calc(14px + env(safe-area-inset-bottom));pointer-events:none}
-.hud-bottom>*{pointer-events:auto}
-#crumb{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;background:var(--glass);box-shadow:inset 0 0 0 1px var(--line);
-  font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;overflow:hidden;max-width:min(60vw,520px)}
-#crumb i{font-style:normal;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(255,0,0,.25);flex:none}
-#crumb span{opacity:.6}#crumb span.here{opacity:1}
-#crumb button{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;margin-left:4px;border-radius:999px;background:rgba(255,255,255,.12);font-size:15px;transition:background-color 160ms ease,transform 160ms var(--ease-out)}
-#crumb button:active{transform:scale(.96)}
-@media (hover:hover) and (pointer:fine){#crumb button:hover{background:rgba(255,255,255,.22)}}
-#desk{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;transition:opacity 250ms ease,transform 250ms var(--ease-out)}
-#desk.hide{opacity:0;transform:translateY(8px);pointer-events:none}
-#minimap{width:150px;aspect-ratio:820/650;border-radius:10px;background:var(--glass);box-shadow:inset 0 0 0 1px var(--line);padding:6px;cursor:pointer;
-  transition:transform 180ms var(--ease-out),box-shadow 160ms ease}
-#minimap:active{transform:scale(.97)}
-@media (hover:hover) and (pointer:fine){#minimap:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}}
-#minimap svg{width:100%;height:100%;display:block}
-@media (max-width:760px){
-  .hud-bottom{flex-direction:column;align-items:stretch;gap:8px}
-  #crumb{max-width:100%;height:36px;font-size:15px;order:2}
-  #desk{order:1;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter));padding:0 var(--gutter)}
-  #desk::-webkit-scrollbar{display:none}
-  #desk .btn{min-height:40px;font-size:16px;padding:0 14px;flex:none}
-  #minimap{position:fixed;top:calc(62px + env(safe-area-inset-top));right:var(--gutter);width:76px;padding:4px}
-}
-#reticle{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:rgba(255,255,255,.7);box-shadow:0 0 0 2px rgba(0,0,0,.35);pointer-events:none;display:none}
-@media (hover:hover) and (pointer:fine){#reticle{display:block}}
-
-/* floor-plan drawing (shared by minimap and map dialog) */
+/* plan drawing */
 .plan .shell{fill:none;stroke:#fff;stroke-width:3}
 .plan .room{fill:rgba(255,255,255,.06);stroke:rgba(255,255,255,.7);stroke-width:1.5}
 .plan .court{fill:#c8742f;stroke:#fff;stroke-width:1.3}
-.plan .net{stroke:#fff;stroke-width:3}
-.plan .post{fill:#fff}
+.plan .net{stroke:#fff;stroke-width:3}.plan .post{fill:#fff}
 .plan .attack{stroke:rgba(255,255,255,.75);stroke-width:1;stroke-dasharray:4 3}
 .plan text{fill:#fff;font-family:var(--body);font-weight:600;font-size:13px;pointer-events:none;text-anchor:middle}
-.plan .znum{font-family:var(--display);font-weight:900;font-size:36px;fill:#fff;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:5}
+.plan .znum{font-family:var(--display);font-weight:900;font-size:36px;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:5}
 .plan .hit{fill:transparent;cursor:pointer}
 .plan .zbox{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.45);stroke-width:1.2}
 .plan .lot,.plan .door{fill:rgba(255,255,255,.18)}.plan .arrow{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .plan .lbl-s{font-size:11px;font-weight:500}.plan .zdesc{font-size:12.5px;font-weight:500;fill:rgba(255,255,255,.9);paint-order:stroke;stroke:rgba(0,0,0,.6);stroke-width:3}
-.plan g[data-area].on .zbox{stroke:var(--red);stroke-width:2.5}
+.plan g[data-area]:focus-visible{outline:none}.plan g[data-area]:focus-visible .zbox,.plan g[data-area]:focus-visible .room{stroke:var(--red);stroke-width:3}
+.plan g[data-area].on .zbox{stroke:var(--red);stroke-width:3}
 .plan g[data-area].on .court{fill:var(--red)}
-.plan g[data-area].on .room{fill:rgba(255,0,0,.55);stroke:#fff}
-@media (hover:hover) and (pointer:fine){.plan g[data-area]:hover .court{fill:#e8893a}.plan g[data-area]:hover .room{fill:rgba(255,255,255,.18)}}
-.plan .you{fill:var(--red);stroke:#fff;stroke-width:3;transition:transform 700ms var(--ease-in-out)}
-.plan .cone{fill:rgba(255,0,0,.28);transition:transform 700ms var(--ease-in-out)}
-.plan .aisle{display:none}.plan.mini text{display:none}.plan.mini .znum{display:block;font-size:44px}.plan.mini .attack,.plan.mini .arrow,.plan.mini .zbox{display:none}
-.plan.mini .shell{stroke-width:4}.plan.mini .hit{cursor:default}
-@media (prefers-reduced-motion:reduce){.plan .you,.plan .cone{transition:none}}
+.plan g[data-area].on .room{fill:rgba(255,0,0,.6);stroke:#fff}
+@media (hover:hover){.plan g[data-area]:hover .court{fill:#e8893a}.plan g[data-area]:hover .room{fill:rgba(255,255,255,.2)}}
+.plan .aisle{display:none}
 
-/* ---------- area detail panel ---------- */
-#detail{position:absolute;left:var(--gutter);top:calc(74px + env(safe-area-inset-top));bottom:calc(74px + env(safe-area-inset-bottom));width:min(440px,92vw);z-index:4;overflow:auto;
-  padding:22px 22px 24px;border-radius:18px;background:var(--glass-2);box-shadow:inset 0 0 0 1px var(--line),0 30px 60px -30px rgba(0,0,0,.9);
-  transform:translateX(-24px);opacity:0;transition:transform 420ms var(--ease-out),opacity 300ms ease;pointer-events:none}
-#detail.show{transform:none;opacity:1;pointer-events:auto;transition-delay:calc(var(--walk) * .5)}
-#detail .kicker{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.05em;text-transform:uppercase;color:var(--red)}
-#detail h2{font-size:clamp(40px,4.4vw,60px);margin:2px 0 4px}
-#detail .courts{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:12px}
-#detail .blurb{color:rgba(255,255,255,.9);margin-bottom:16px}
-#detail h3{font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:0 0 6px}
-#detail ul.what{display:grid;gap:6px;margin-bottom:18px}
-#detail ul.what li{padding-left:18px;position:relative;color:rgba(255,255,255,.9)}
-#detail ul.what li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
-#detail .acts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-#detail .nav{display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px}
-#detail .nav button{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.1);font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;transition:background-color 160ms ease,transform 160ms var(--ease-out)}
-#detail .nav button:active{transform:scale(.96)}
-@media (hover:hover) and (pointer:fine){#detail .nav button:hover{background:rgba(255,255,255,.2)}}
-#detail .handle{display:none}
-@media (max-width:760px){
-  #detail{left:0;right:0;top:auto;bottom:0;width:auto;max-height:66svh;border-radius:18px 18px 0 0;padding:10px 18px calc(18px + env(safe-area-inset-bottom));transform:translateY(100%);transition:transform 360ms var(--ease-drawer),opacity 200ms ease;touch-action:pan-y}
-  #detail.show{transform:none}
-  #detail.dragging{transition:none}
-  #detail .handle{display:block;width:44px;height:5px;border-radius:3px;background:rgba(255,255,255,.4);margin:2px auto 12px;touch-action:none}
-  #detail h2{font-size:38px}
-}
-@media (prefers-reduced-motion:reduce){#detail{transition:opacity 200ms ease;transform:none}}
+/* card */
+.card{align-self:start;position:sticky;top:calc(61px + var(--gutter));max-height:calc(100svh - 61px - 2 * var(--gutter));overflow:auto;overscroll-behavior:contain;display:block;background:var(--panel);border-radius:18px;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;scroll-margin-top:70px}
+@media (max-width:900px){.card{position:static;max-height:none;overflow:visible;order:-1}}
+.photo{position:relative;aspect-ratio:16/10;background:#111;overflow:hidden}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 180ms ease}
+.photo img.loading{opacity:.35}
+/* the moving photo on the welcome card: the panorama slides inside the card (small box, GPU transform) */
+.photo img.pano{width:auto;max-width:none;height:100%;animation:look 30s ease-in-out infinite alternate}
+@keyframes look{from{transform:translateX(0)}to{transform:translateX(calc(-100% + var(--cw,440px)))}}
+.photo .num{position:absolute;left:14px;top:12px;font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.06em;text-transform:uppercase;background:var(--red);padding:3px 9px 4px;border-radius:6px}
+.body{padding:18px 20px 20px;display:grid;gap:12px}
+.body .kicker{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;color:var(--red)}
+.body h2{font-size:clamp(38px,4vw,54px)}
+.body .courts{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.body .blurb{color:rgba(255,255,255,.88)}
+.body .where{font-size:15px;color:var(--ink-2)}
+.body h3{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.5)}
+.body ul.what{display:grid;gap:5px}
+.body ul.what li{padding-left:18px;position:relative}
+.body ul.what li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.step{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px solid var(--line);padding-top:12px}
+.step button{min-height:44px;padding:0 12px;border-radius:12px;background:rgba(255,255,255,.08);font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;text-align:left}
+.step button:last-child{text-align:right}
+.step button small{display:block;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.55)}
+@media (hover:hover){.step button:hover{background:rgba(255,255,255,.16)}}
+.step button[hidden]{display:block;visibility:hidden}
 
-/* ---------- dialogs: menu, map, panel ---------- */
-dialog{color:var(--white);border:0;padding:0;max-width:none;max-height:none}
+/* dialogs: menu and info panel */
+dialog{color:#fff;border:0;padding:0;max-width:none;max-height:none}
 dialog::backdrop{background:rgba(0,0,0,.6)}
-dialog .x{position:absolute;top:calc(12px + env(safe-area-inset-top));right:var(--gutter);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:26px;line-height:1;background:rgba(255,255,255,.1);transition:background-color 160ms ease,transform 160ms var(--ease-out);z-index:2}
-dialog .x:active{transform:scale(.94)}
-@media (hover:hover) and (pointer:fine){dialog .x:hover{background:rgba(255,255,255,.2)}}
-
-#menu{position:fixed;inset:0;left:auto;width:min(480px,100vw);height:100%;margin:0;background:var(--black);
-  transform:translateX(100%);transition:transform 340ms var(--ease-drawer),display 340ms allow-discrete,overlay 340ms allow-discrete}
-#menu[open]{transform:none}
-@starting-style{#menu[open]{transform:translateX(100%)}}
-#menu::backdrop{opacity:0;transition:opacity 340ms ease,display 340ms allow-discrete,overlay 340ms allow-discrete}
-#menu[open]::backdrop{opacity:1}
-@starting-style{#menu[open]::backdrop{opacity:0}}
-#menu .inner{height:100%;overflow:auto;padding:calc(16px + env(safe-area-inset-top)) var(--gutter) 40px;display:flex;flex-direction:column}
-#menu .mlogo{height:30px;--logo-ink:#fff;margin:6px 0 14px}
-#menu .mlogo svg{height:100%;width:auto}
-#menu h2{font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.08em;color:rgba(255,255,255,.5);margin:22px 0 6px;text-transform:uppercase}
-#menu .go{display:grid;gap:2px}
-#menu .go button{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:6px 0;text-align:left;
-  font-family:var(--display);font-weight:900;font-size:clamp(38px,6vw,50px);line-height:1;text-transform:uppercase;transition:color 160ms ease,transform 160ms var(--ease-out)}
-#menu .go button:active{transform:scale(.985)}#menu .go button small{font-family:var(--body);font-weight:500;font-size:14px;text-transform:none;color:rgba(255,255,255,.6)}
-#menu .go button.here{color:var(--red)}
-@media (hover:hover) and (pointer:fine){#menu .go button:hover{color:var(--red)}}
-#menu .areas{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-#menu .areas button{display:grid;gap:1px;text-align:left;padding:9px 11px;border-radius:9px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);transition:background-color 160ms ease,transform 160ms var(--ease-out)}
-#menu .areas button:active{transform:scale(.97)}
-#menu .areas button.here{box-shadow:inset 0 0 0 2px var(--red)}
-@media (hover:hover) and (pointer:fine){#menu .areas button:hover{background:rgba(255,255,255,.1)}}
-#menu .areas b{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05}
-#menu .areas small{font-size:12px;color:rgba(255,255,255,.65)}
+dialog .x{position:absolute;top:calc(12px + env(safe-area-inset-top));right:var(--gutter);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:26px;line-height:1;background:rgba(255,255,255,.1);z-index:2}
+#menu,#panel{position:fixed;inset:0;left:auto;width:min(560px,100vw);height:100%;margin:0;background:#0a0a0a;transform:translateX(100%);transition:transform 280ms var(--ease-drawer),display 280ms allow-discrete,overlay 280ms allow-discrete}
+#menu[open],#panel[open]{transform:none}
+@starting-style{#menu[open],#panel[open]{transform:translateX(100%)}}
+#menu .inner,#panel .inner{height:100%;overflow:auto;padding:calc(16px + env(safe-area-inset-top)) var(--gutter) 40px}
+#menu h2{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.5);margin:22px 0 8px}
 #menu .row{display:flex;flex-wrap:wrap;gap:8px}
-#menu .foot{margin-top:auto;padding-top:24px;color:rgba(255,255,255,.65);font-size:15px;line-height:1.6}
-#menu .foot a{color:#fff;text-decoration:none;font-weight:600}
-#menu .st{opacity:0;transform:translateY(10px);transition:opacity 300ms ease,transform 420ms var(--ease-out)}
-#menu[open] .st{opacity:1;transform:none}
-#menu[open] .st:nth-child(2){transition-delay:60ms}#menu[open] .st:nth-child(3){transition-delay:100ms}#menu[open] .st:nth-child(4){transition-delay:140ms}
-#menu[open] .st:nth-child(5){transition-delay:180ms}#menu[open] .st:nth-child(6){transition-delay:220ms}#menu[open] .st:nth-child(7){transition-delay:260ms}#menu[open] .st:nth-child(8){transition-delay:300ms}
-
-#map{position:fixed;inset:0;width:100%;height:100%;margin:0;background:rgba(0,0,0,.92);opacity:0;transform:scale(.97);transition:opacity 260ms ease,transform 320ms var(--ease-out),display 320ms allow-discrete,overlay 320ms allow-discrete}
-#map[open]{opacity:1;transform:none}
-@starting-style{#map[open]{opacity:0;transform:scale(.97)}}
-#map .inner{height:100%;display:grid;grid-template-rows:auto 1fr auto;padding:calc(14px + env(safe-area-inset-top)) var(--gutter) calc(14px + env(safe-area-inset-bottom))}
-#map .head{display:flex;align-items:end;gap:16px 28px;flex-wrap:wrap;padding-right:60px}
-#map h2{font-size:clamp(40px,6vw,80px)}
-#map .head p{color:rgba(255,255,255,.75);max-width:44ch}
-#map .planwrap{min-height:0;display:grid;place-items:center;perspective:1500px}
-#map .planwrap svg{transition:transform .9s var(--ease-in-out);transform-origin:50% 55%}
-/* v3.4: the plan tilts into 3D; the shadow gives it a floor slab. Clicks still land on the tilted zones. */
-#map .planwrap.is3d svg{transform:rotateX(50deg) rotateZ(-20deg) scale(1.06);filter:drop-shadow(0 30px 30px rgba(0,0,0,.8))}
-#map .viewtog{display:inline-flex;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);overflow:hidden}
-#map .viewtog button{min-height:40px;padding:6px 16px;border:0;background:none;color:#fff;font:inherit;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
-#map .viewtog button[aria-pressed="true"]{background:#fff;color:#000}
-#map .viewtog button:focus-visible{outline:2px solid var(--red);outline-offset:-3px}
-@media (prefers-reduced-motion:reduce){#map .planwrap svg{transition:none}}
-#map .planwrap svg{width:min(100%,calc((100svh - 200px) * 820 / 650));height:auto;max-height:calc(100svh - 200px)}
-#map .legend{display:flex;flex-wrap:wrap;gap:14px 22px;margin-top:8px;font-size:14px;color:rgba(255,255,255,.75)}
-#map .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
-
-#panel{position:fixed;inset:0;left:auto;width:min(600px,100vw);height:100%;margin:0;background:#0a0a0a;
-  transform:translateX(100%);transition:transform 340ms var(--ease-drawer),display 340ms allow-discrete,overlay 340ms allow-discrete}
-#panel[open]{transform:none}
-@starting-style{#panel[open]{transform:translateX(100%)}}
-#panel .inner{height:100%;overflow:auto;padding:calc(16px + env(safe-area-inset-top)) var(--gutter) 48px}
+#menu .foot{margin-top:28px;color:var(--ink-2);font-size:15px;line-height:1.6}#menu .foot a{color:#fff;font-weight:600;text-decoration:none}
 #panel .kicker{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.05em;text-transform:uppercase;color:var(--red);margin-top:6px}
 #panel h2{font-size:clamp(40px,5vw,64px);margin-bottom:12px;padding-right:56px}
 #panel .lede{color:rgba(255,255,255,.8);max-width:60ch;margin-bottom:22px}
-#panel h3{font-size:24px;margin:22px 0 8px;letter-spacing:.02em}
-#panel ul.rules li{position:relative;padding:8px 0 8px 20px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.9);max-width:62ch}
+#panel h3{font-size:24px;margin:22px 0 8px}
+#panel ul.rules li{position:relative;padding:8px 0 8px 20px;border-top:1px solid rgba(255,255,255,.1);max-width:62ch}
 #panel ul.rules li::before{content:"";position:absolute;left:0;top:1.05em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
 #panel details{border-top:1px solid rgba(255,255,255,.12)}
-#panel details:last-of-type{border-bottom:1px solid rgba(255,255,255,.12)}
-#panel summary{list-style:none;cursor:pointer;padding:14px 40px 14px 0;position:relative;font-weight:600;font-size:17px}
-#panel summary::-webkit-details-marker{display:none}
-#panel summary::after{content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-70%) rotate(45deg);transition:transform 200ms var(--ease-out)}
-#panel details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+#panel summary{cursor:pointer;padding:14px 0;font-weight:600;font-size:17px}
 #panel details p{padding:0 0 16px;max-width:60ch;color:rgba(255,255,255,.8)}
-#panel .plist a,#panel .plist button{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center;width:100%;text-align:left;padding:12px 0;border-top:1px solid rgba(255,255,255,.12);text-decoration:none}
-#panel .plist a>*,#panel .plist button>*{transition:transform 200ms var(--ease-out)}
-#panel .plist strong{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
-#panel .plist span{grid-column:1;color:rgba(255,255,255,.7);font-size:15px}
-#panel .plist i{grid-row:1/3;font-style:normal;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;color:var(--red)}
-@media (hover:hover) and (pointer:fine){#panel .plist a:hover>*,#panel .plist button:hover>*{transform:translateX(8px)}}
+#panel .plist a,#panel .plist button{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;width:100%;text-align:left;padding:12px 0;border-top:1px solid rgba(255,255,255,.12);text-decoration:none}
+#panel .plist strong{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase}
+#panel .plist span{grid-column:1;color:var(--ink-2);font-size:15px}
+#panel .plist i{grid-row:1/3;font-style:normal;font-family:var(--display);font-weight:700;text-transform:uppercase;color:var(--red)}
 #panel .note{font-size:14px;color:rgba(255,255,255,.55);margin-top:24px}
-#panel .note a{color:#fff}
-form{display:grid;gap:14px}
-.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form{display:grid;gap:14px}.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 label{display:grid;gap:6px;font-weight:600;font-size:14px}
 input,select,textarea{font:inherit;color:#fff;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.3);border-radius:8px;padding:11px 13px;min-height:46px;width:100%}
-select option{color:#000}
-textarea{min-height:120px;resize:vertical}
-input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--red);outline-offset:2px}
-#form-note{color:rgba(255,255,255,.7);font-size:14px}
+select option{color:#000}textarea{min-height:120px;resize:vertical}
+#form-note{color:var(--ink-2);font-size:14px}
 @media (max-width:560px){.f2{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){#menu,#menu::backdrop,#menu .st,#map,#panel{transition:none}}
-
-/* loading / error */
-#boot{position:fixed;inset:0;z-index:20;display:grid;place-items:center;background:var(--black);transition:opacity 400ms ease;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-#boot.off{opacity:0;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.photo img.pano{animation:none}}
 </style>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="logo" viewBox="0 0 587 297"><path fill="#FF0000" d="M62.2,144.1c-6.7-10.1-13.3-20.2-20-30.3c-0.8-1.3-1.7-2.5-2.4-3.8c-7.7-14.6-8.2-24.3,4-37.1 c8.1-8.5,17.3-15.1,27.5-20.6c24.3-13.1,50-22.8,76.4-30.9c2.3-0.7,4.5-1.5,7.7-2.6c-6.2-1.9-12.6,1.4-17.5-4.2 c4.8-3.3,10-3.2,14.8-3.9C164.2,9,175.6,7.7,187,6.2c0.5-0.1,0.8-0.8,1.2-1.2c4.3,0,8.5,0,12.8,0c0.6,1.3,1.2,2.6,2.2,4.6 c-9.7,8.1-19.4,16.3-29.2,24.4c-3.7,3.1-7.7,5.9-11.5,9c-3.1,2.6-6.5,2.8-11.4,1.9c1.4-3.7,2.6-6.8,4.4-11.3 c-4.5,1.7-8.1,2.9-11.6,4.3C126,45.3,108,52.5,90.3,60.5c-11.6,5.2-22.6,11.9-31.9,20.8c-3.4,3.3-6.3,7.2-9.1,10.5 c4.3,13,12.1,22.8,18.4,33.5c2.7,4.7,5.2,9.5,7.8,14.3c-2.1,1.3-4.3,2.6-7.4,4.5C66.9,144.1,64.6,144.1,62.2,144.1z"/> <path fill="var(--logo-ink,#fff)" d="M62.2,143c2.3,0,4.7,0,5.9,0c3.1-1.9,5.3-3.2,7.4-4.5c7.3-1.4,14.7-2.9,22-4c4.6-0.7,9.3-0.7,14.1-1c-0.6,4.6-3.4,4.9-6,5.8 c-6.8,2.3-13.6,4.8-20.3,7.4c-1.8,0.7-3.2,2.3-4.8,3.4c-2.6,0.1-5.3,0.3-7.5,0.4c-2,1.7-3.7,3.1-5.4,4.6 c-9.1,5.3-18.2,10.5-28.7,16.6c4.6,0.7,7.3,1.1,10.5,1.6C42.9,180.4,22.2,186.3,9,185c0-1.8,0-3.7,0-5.5 c7.2-8.7,14.4-17.4,21.7-26.1c2.1-2.5,4.3-5.1,8.8-4.1c0.5,2,0.9,4.2,1.6,6.9C48.2,151.8,55.2,147.4,62.2,143z"/> <path fill="#FF0000" d="M520.9,221c14.1-1.2,28.2-2.3,43-3.6c1.8,1,4.2,2.2,6.5,3.5c0.6,7.8,1.1,15.6,1.9,23.3c1,9.2,2.4,18.4,3.4,27.6 c0.3,2.3-0.2,4.6-0.3,6.9c-8.6,1.1-16.5,2-24.5,3c0,0.2,0,0.4,0,0.7c8.8,0,17.6,0,26.2,0c0.5-5.7,1-10.7,1.5-15.7 c0.3,5.7,0.5,11.3,0.8,17.8c-11.1,0-21.4,0.3-31.6-0.1c-19.8-0.7-39.2,2.9-58.7,4.9c-4.2,0.4-8.5,1-12.7,0.9c-2.5,0-5.1-1.2-8.3-2 c-2.4-19.8-4.8-39.1-7.3-59.2c3.4-0.5,6-0.9,8.5-1.3c3.9,0,8.2,1.1,11.6-0.2c8.7-3.4,17.6-2.7,26.5-3.4 C512.1,223.9,516.5,222.1,520.9,221z M539.7,277.3c3.1-0.2,5.6-0.4,8.8-0.6c-0.7-7.4-1.3-14.1-1.9-20.9c4.6-0.7,8.1-1.3,12.1-1.9 c1.2,7.3,2.3,14.3,3.5,21.9c3.3-1.2,5.7-2,8-2.8c-0.6-23.7-3.7-42.2-8.2-48.5c-8.4,0.2-17.2-1.1-26.9,3.9 C534.7,244.3,537.4,260.5,539.7,277.3z M511.6,242.2c7.2-1.2,13.6-2.3,20.2-3.4c-0.9-4.6-1.7-8.4-2.4-11.9 c-6.9,0.6-13.2,0.9-19.5,1.7c-6.5,0.8-9.1,4.2-8.3,10.4c0.4,3.6,1,7.2,1.2,10.8c0.3,4.5,1.9,8.2,6.3,10.8c4.7-0.5,9.6-1,15.2-1.6 c0,2.9,0,4.8,0,7.3c-6.5,0.9-12.7,1.7-19.2,2.6c0.6,4,1.2,7.8,1.9,12.5c9-1.2,17.5-2.4,25.9-3.5c3.9-11.1,1.2-20.3-2.5-29.8 c-6.4,0-12.1,0-18.2,0C512.1,246.3,511.9,244.9,511.6,242.2z M481.3,270.9c-1.7-13.1-3.3-25.1-4.9-37.5c-3,0.3-5.6,0.6-9.1,1 c3.2,16.8,2.2,33.5,7.7,50.3c8.5-0.8,16.2-1.6,24.2-2.4c1.3-2.7,2.4-5.1,3.1-6.7c-1.9-15.6-3.6-30.2-5.5-45.6 c-3.4,0.8-5.9,1.4-9.1,2.2c0.8,6.4,1.6,12.4,2.2,18.4c0.7,6.2,1.1,12.5,1.7,19.3C488.1,270.3,485.2,270.5,481.3,270.9z"/> <path fill="#FF0000" d="M67.6,156.1c1.7-1.4,3.4-2.9,5.4-4.6c2.2-0.1,4.9-0.2,7.5-0.4c6,10.2,7,18.8,3.4,34c4.4,1.2,8.9,2.4,13.9,3.8 c0.6,3.3,1.2,6.8,1.8,10.7c-2.6,2.4-5.3,4.9-8.3,7.6c2.1,1,4.1,1.9,7.2,3.3c0.5,2.2,1.2,5.3,1.9,8.5c-3.8,3.4-7.1,6.5-11,10 c4.2,2.1,8.4,4,8.8,9.9c-0.5,1.5-1.3,3.8-2.2,6.5c4.8,0.9,9.6,1.9,15.4,3c1.5,1.4,3.4,3.2,5.2,4.9c0,5,0,9.2,0,13.2 c-8.9,10.8-22.4,15.2-33.2,10.9c-4.6-1.9-8.7-4.3-9.2-10.1c-0.5-6.3,1.1-11.5,6.5-15c3-1.9,6.4-3.3,9.7-5c0.7-3.2,1.3-6.3,2.1-9.9 c-4.7-0.7-9.1-1.4-13.5-2.1c-0.4-4.9-0.4-4.9,9.9-17.7c-4.8-0.6-9.3-1.2-14.1-1.9c0-3.4,0-6.1,0-10.9c2.3-1.5,5.9-3.9,10.5-7.1 c-6.6-1.5-11-2.5-16-3.6c-0.8-2.4-1.8-5.2-2.1-6.2c2.5-7,4.3-12.3,6.2-17.8C71.6,165.4,69.6,160.8,67.6,156.1z M111.3,258.6 c-11.6-5.3-21.3-2.8-26.9,6.9c4.5,7.5,11.6,5.1,17.9,4.2C107.9,268.9,110.4,265.2,111.3,258.6z"/> <path fill="var(--logo-ink,#fff)" d="M284.4,208.8c-6.4-0.9-5.2-5.5-7.4-8c-10,9.6-21.8,11.5-34.4,6.7c-4-1.5-7.9-4.7-10.6-8.1c-5.8-7-5.1-16.7,1.3-23.2 c7.7-8,17.4-10.8,28.2-9.3c2.9,0.4,5.7,1.5,9,2.4c0-10.3-0.5-20.3,0.2-30.2c0.4-6.6,2.1-13.1,3.7-19.5c1.1-4.5,3.8-8.2,9.9-9.9 c1,2,2.4,4.1,3.2,6.4c0.5,1.6,0.2,3.6-0.1,5.4c-3.3,25.7-2.1,51.6-2.3,77.4C285,201.9,284.6,205.1,284.4,208.8z M275.9,196.3 c-0.4-11.6-9.5-19.6-22.4-19.5c-9.9,0-13.7,3.4-15.8,13.5C244.9,205.4,263.3,208.3,275.9,196.3z"/> <path fill="var(--logo-ink,#fff)" d="M343.7,211c0-3,0.2-6,0-8.9c-0.3-3.6-0.1-7.4-1.4-10.7c-5.2-12.8-15.9-14.9-26.8-5.7c-3.3,6.4-1.4,14.3-4.9,20.6 c-5.6,0-8.7-2.8-8.8-7.1c-0.3-19.4-7.9-38.2-5.6-57.8c0.8-6.6,1.9-13.2,3.5-19.6c1.3-5.3,2.1-5.5,8.4-8.5c4.2,1,4.8,4.3,4.6,7.8 c-0.3,4.8-1,9.7-1.3,14.5c-0.6,11.2-1,22.3-1.5,33.8c20.5-5.3,33.4-0.5,39.8,14.1c2.8,6.4,2.5,13.2,0.6,19.6 C349.4,206,349.3,210.7,343.7,211z"/> <path fill="var(--logo-ink,#fff)" d="M155.3,182.5c0,2.6,0,5,0,7.2c4.2,6.3,10.5,8.4,17.2,9.1c6,0.6,12.1,0.8,18.2,0.9c4.3,0.1,8.3,0.9,12.9,4.4 c-3.6,2.6-6.1,5.4-9.3,6.4c-13.9,4.8-27.7,3.9-40.5-3.2c-18.1-10.1-17.8-31.7,0.3-42.4c11.3-6.7,22.7-5.7,33.5,1.1 c5.3,3.3,8,8.2,5.8,14.8c-7.3,7.9-21.6,9.8-32.2,3.7c7.5-4.3,16.8-1.1,23.2-6.7C176.2,168.3,166,169.8,155.3,182.5z"/> <path fill="var(--logo-ink,#fff)" d="M530.5,178.4c6,7.1,14.1,8.6,22.3,9.4c4.5,0.4,9.1,0.2,13.7,0.1c4,0,7.8,0.2,11,3.3c-1.5,4.5-5.6,5.4-9.1,6.7 c-13.6,5-27,3.6-39.6-3.2c-16.4-8.9-17.8-26.7-3.3-39.1c12.7-10.9,31-9.9,43,3.7c0,2.8,0,6.4,0,9.6c-7.9,7-23.4,8.8-32.7,3.1 c8.6-1.8,16-3.3,23.7-4.9c-4.3-7-10.9-8.7-19-5.8C532.2,164.1,529.4,168.7,530.5,178.4z"/> <path fill="var(--logo-ink,#fff)" d="M215.9,102.8c1.8,2.6,4.1,4.9,5.2,7.7c1.5,3.9,2.7,8.1,3,12.3c1.2,16.7,2.1,33.4-0.4,50c-1.9,12.3-3.9,24.5-6,36.7 c-0.4,2.1-1.5,4.1-2.3,6.2c-4.5-1.8-3.6-5-3.6-7.5c-0.8-27.9-1.5-55.9-2.1-83.8c-0.1-4.8-0.1-9.7,0.4-14.4c0.3-2.4,1.9-4.7,3-7 C214,103,214.9,102.9,215.9,102.8z"/> <path fill="var(--logo-ink,#fff)" d="M158.9,107.1c0,12.5-11.5,16.7-18.2,25.2c3.2,2.2,6.5,4.5,10.5,7.2c0.2,2.3,0.3,4.9,0.5,7.5c-8.9,6.1-15.1-1.3-22-3.5 c-7.7,2.5-9.6,13.1-19.6,13.2c-1.8-8.9,6.4-13.3,8.4-20.1c-3-4.8-11.3-5.4-10.6-13.5c6.5-3,11.6,1.5,18,3.4c3.1-3,6.5-6.3,10-9.6 c3.1-2.9,6.2-5.8,9.5-8.5C149.3,105.1,153.6,103.5,158.9,107.1z"/> <path fill="var(--logo-ink,#fff)" d="M494.9,187.5c-4-2.9-7.8-5.8-11.8-8.5c-12.6-8.5-13.7-20-2.5-30.1c3.6-3.2,7.9-5.6,12-8.1c0.8-0.5,2.2-0.1,3.5-0.1 c-0.5,9.6-12.4,12.4-11.5,22.8c2.8,1.7,5.7,3.7,8.8,5.5c2.9,1.7,5.8,3.3,8.7,4.9c10.4,5.9,10.7,18.1,4.7,25.1 c-4.6,5.4-10.9,9.5-16.9,13.4c-2.1,1.4-5.6,0.6-8.7,0.7C478.9,200.8,492.3,198.1,494.9,187.5z"/> <path fill="var(--logo-ink,#fff)" d="M421.9,156.4c0,4.1,0.2,7.1,0,10.1c-1.3,14.9,4,22.7,18.5,26.6c12.4-3.5,16-8.1,16.5-21.4c0.1-3.3,0.2-6.7,0.4-10 c0.1-0.8,0.6-1.6,1.1-2.9c4.5,0.8,6.4,4,8,7.7c4.2,9.7,0.2,26.4-7.8,32.5c-10,7.5-24.3,7.3-33.9-0.3c-8.9-7.2-12.6-20.1-8.9-32.2 C416.8,163.1,417.1,159.2,421.9,156.4z"/> <path fill="#FF0000" d="M366,184.2c1.5,8.8,7.8,11.7,15.5,12.6c11.9,1.4,20.6-2.5,27.2-12.2c1.1,6.9-0.7,11.1-6.8,14.6 c-13.7,7.8-27.1,7.3-40-1.3c-8.2-13.4-7.3-22.6,3.5-29.3c4.5-2.8,9.8-5.2,15-6c11.5-1.7,22.4,0.1,30.7,10.1c0,2.8,0,5.8,0,10.2 c-2.6-1.9-4.7-3.2-6.6-4.9c-9.1-8-19.3-7.6-29.8-3.7C370.4,176.1,368.8,178.4,366,184.2z"/> <path fill="var(--logo-ink,#fff)" d="M129.5,158c1.4,3.1,3.5,5.9,3.9,8.9c1.9,16.6-1.6,32.5-7.8,47.8c-0.2,0.5-0.7,1-1.2,1.4c-0.5,0.3-1,0.5-2.3,1 c-0.5-1.6-1.3-3.2-1.3-4.7c0.5-15.1,1.1-30.3,1.7-45.4C122.6,163.3,123.4,159.8,129.5,158z"/> <path fill="var(--logo-ink,#fff)" d="M578.7,266.8c-0.5,5-1,10-1.5,15.7c-8.5,0-17.4,0-26.2,0c0-0.2,0-0.4,0-0.7c8-1,15.9-2,24.5-3c0.1-2.3,0.5-4.7,0.3-6.9 c-1-9.2-2.4-18.4-3.4-27.6c-0.8-7.8-1.3-15.6-1.9-23.3c2.4,1,4.8,1.9,7.3,2.9C579.7,238.6,579.4,252.7,578.7,266.8z"/> <path fill="var(--logo-ink,#fff)" d="M520.9,221c-4.4,1.1-8.8,2.9-13.3,3.3c-8.9,0.6-17.8,0-26.5,3.4c-3.4,1.3-7.7,0.2-11.6,0.2c0.1-2.1,0.3-4.2,0.5-6.9 C487,221,504,221,520.9,221z"/> <path fill="var(--logo-ink,#fff)" d="M539.7,277.3c-2.3-16.8-4.9-33-4.6-49c9.6-5,18.5-3.7,26.9-3.9c4.5,6.3,7.6,24.8,8.2,48.5 c-2.2,0.8-4.7,1.7-8,2.8c-1.2-7.6-2.3-14.6-3.5-21.9c-4,0.6-7.5,1.2-12.1,1.9c0.6,6.7,1.2,13.5,1.9,20.9 C545.3,276.9,542.7,277.1,539.7,277.3z M545.1,243.3c4.8-0.4,8.5-0.7,12.6-1c-0.3-2.3-0.5-3.7-0.8-5.7c-4.2,0.3-7.9,0.5-11.8,0.8 C545.1,239.5,545.1,240.9,545.1,243.3z"/> <path fill="var(--logo-ink,#fff)" d="M511.6,242.2c0.3,2.7,0.5,4.1,0.7,6c6.1,0,11.8,0,18.2,0c3.7,9.5,6.5,18.7,2.5,29.8c-8.5,1.1-17,2.3-25.9,3.5 c-0.7-4.7-1.3-8.5-1.9-12.5c6.5-0.9,12.7-1.7,19.2-2.6c0-2.5,0-4.4,0-7.3c-5.6,0.6-10.5,1.1-15.2,1.6c-4.4-2.7-6-6.3-6.3-10.8 c-0.3-3.6-0.8-7.2-1.2-10.8c-0.7-6.2,1.8-9.6,8.3-10.4c6.3-0.8,12.6-1.1,19.5-1.7c0.7,3.5,1.5,7.3,2.4,11.9 C525.2,240,518.8,241,511.6,242.2z"/> <path fill="var(--logo-ink,#fff)" d="M481.3,270.9c3.9-0.4,6.8-0.7,10.4-1c-0.6-6.8-1.1-13-1.7-19.3c-0.6-6-1.4-11.9-2.2-18.4 c3.2-0.8,5.7-1.4,9.1-2.2c1.8,15.3,3.6,30,5.5,45.6c-0.7,1.6-1.9,4-3.1,6.7c-8,0.8-15.7,1.6-24.2,2.4c-5.5-16.8-4.5-33.5-7.7-50.3 c3.5-0.4,6.1-0.7,9.1-1C478,245.9,479.6,257.8,481.3,270.9z"/> <path fill="#FF0000" d="M545.1,243.3c0-2.4,0-3.8,0-5.9c3.9-0.3,7.6-0.5,11.8-0.8c0.3,2,0.5,3.4,0.8,5.7 C553.6,242.6,549.8,242.9,545.1,243.3z"/></symbol></defs></svg>
 
-<div id="boot" aria-live="polite">Opening the doors</div>
-<main id="stage" aria-live="polite"></main>
+<header class="top">
+  <a class="logo" href="#/" aria-label="FieldhouseUSA Aurora, start of the tour"><svg aria-hidden="true"><use href="#logo"/></svg></a>
+  <nav class="book" id="book" aria-label="Book"></nav>
+  <button class="menu-btn" id="menu-btn" aria-haspopup="dialog" aria-controls="menu">Menu</button>
+</header>
 
-<div id="hud">
-  <div class="hud-top">
-    <a class="logo" href="#/" aria-label="FieldhouseUSA Aurora, back outside"><svg><use href="#logo"/></svg></a>
-    <div class="hud-btns">
-      <button class="hud-btn" data-open="rules">Rules</button>
-      <button class="hud-btn" data-open="map">Map</button>
-      <button class="hud-btn" id="menu-btn" aria-haspopup="dialog" aria-controls="menu"><span class="bars"><i></i><i></i><i></i></span><span class="lbl">Menu</span></button>
+<main class="tour">
+  <section class="mapcol" aria-labelledby="map-h">
+    <div class="maphead">
+      <div><h1 id="map-h">Tour the field house</h1><p>Tap any zone or room on the map, or pick a place below.</p></div>
+      <div class="viewtog" role="group" aria-label="Map view"><button type="button" data-view="3d" aria-pressed="true">3D</button><button type="button" data-view="flat" aria-pressed="false">Flat</button></div>
     </div>
-  </div>
-  <div id="compass" class="hide" role="group" aria-label="Turn"></div>
-  <div id="reticle" aria-hidden="true"></div>
-  <aside id="detail" aria-label="Area details"><div class="handle" aria-hidden="true"></div><div id="detail-body"></div></aside>
-  <div class="hud-bottom">
-    <div id="crumb" aria-label="Where you are"><i></i><span class="here">Outside</span></div>
-    <div id="desk" class="hide"></div>
-    <button id="minimap" aria-label="Open the floor plan"></button>
-  </div>
-</div>
+    <div class="planbox is3d" id="planbox"></div>
+    <div class="places" id="places"></div>
+  </section>
+
+  <article class="card" id="card" aria-live="polite" tabindex="-1">
+    <div class="photo"><img id="photo" class="pano" src="assets/fieldhouse-panorama.webp" alt="Inside the field house: the courts from the main entrance" fetchpriority="high"></div>
+    <div class="body" id="cardbody"><p class="kicker">Loading</p></div>
+  </article>
+</main>
 
 <dialog id="menu" aria-label="Menu">
   <div class="inner">
-    <button class="x" id="menu-x" aria-label="Close menu">×</button>
-    <div class="mlogo st"><svg aria-hidden="true"><use href="#logo"/></svg></div>
-    <div class="st"><h2>Walk to</h2><div class="go" id="menu-go"></div></div>
-    <div class="st"><h2>Areas</h2><div class="areas" id="menu-areas"></div></div>
-    <div class="st"><h2>Book</h2><div class="row" id="menu-book"></div></div>
-    <div class="st"><h2>Know before you go</h2><div class="row">
+    <button class="x" aria-label="Close menu">×</button>
+    <h2>Book</h2><div class="row" id="menu-book"></div>
+    <h2>Know before you go</h2><div class="row">
       <button class="btn btn-glass" data-open="rules">Rules</button>
       <button class="btn btn-glass" data-open="faq">Questions</button>
       <button class="btn btn-glass" data-open="partners">Who runs what</button>
+      <button class="btn btn-glass" data-open="contact">Ask the front desk</button>
       <a class="btn btn-glass" id="m-waiver" href="#" rel="noopener">Waiver</a>
-      <a class="btn btn-glass" href="site.html">Browse the site</a>
-    </div></div>
-    <div class="st foot" id="menu-foot"></div>
-  </div>
-</dialog>
-
-<dialog id="map" aria-label="Floor plan">
-  <div class="inner">
-    <button class="x" aria-label="Close map">×</button>
-    <div class="head"><h2>Floor plan</h2><p>Zones 1–7 and the rooms around them, as on the facility site map. Tap any of them to walk there. The red dot is you.</p><div class="viewtog" role="group" aria-label="Map view"><button type="button" data-view="3d" aria-pressed="true">3D</button><button type="button" data-view="flat" aria-pressed="false">Flat</button></div></div>
-    <div class="planwrap is3d" id="mapwrap"></div>
-    <div class="legend"><span><i style="background:#c8742f"></i>Volleyball court</span><span><i style="background:rgba(255,255,255,.2);box-shadow:inset 0 0 0 1px #fff"></i>Room</span><span><i style="background:#ff0000"></i>Where you are</span></div>
+      <a class="btn btn-glass" href="site.html">Full site</a>
+    </div>
+    <div class="foot" id="menu-foot"></div>
   </div>
 </dialog>
 
@@ -442,192 +213,93 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px soli
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const mobile=()=>matchMedia('(max-width: 760px)').matches;
-const WALK=reduce?260:820;
-const stage=$('#stage'),boot=$('#boot');
+const narrow=()=>matchMedia('(max-width: 900px)').matches;
+const cardbody=$('#cardbody'),photo=$('#photo'),card=$('#card');
 
 let D;
 try{const r=await fetch('data/zones.json');if(!r.ok)throw 0;D=await r.json();}
-catch(e){boot.textContent='The building data did not load. Refresh, or call 720-773-4776.';return;}
+catch(e){cardbody.innerHTML='<p class="blurb">The building data did not load. Refresh, or call 720-773-4776.</p>';return;}
 
 const area=id=>D.areas.find(a=>a.id===id);
-const wing=k=>D.wings.find(w=>w.key===k);
 const partner=id=>D.partners.find(p=>p.id===id);
 const inquiry=id=>D.inquiries.find(i=>i.id===id)||D.inquiries[D.inquiries.length-1];
 const isUrl=u=>/^https?:/.test(u||'');
+/* one tour order: courts by zone number, then the rooms. Same order as the place list, so Next always means the next chip. */
+const courts=D.areas.filter(a=>a.zone).sort((a,b)=>a.zone-b.zone), rooms=D.areas.filter(a=>!a.zone);
+const ORDER=[...courts,...rooms].map(a=>a.id);
 
-/* ---------- floor plan: shared geometry in assets/plan.js ---------- */
-const {ROOMS,ZONES,areaPos}=FHPLAN;
-const POS={ // where you stand on the plan, and which way you face (deg; 0 = facing down the aisle)
-  exterior:[300,16,0],lobby:[408,70,0],west:[300,175,100],ahead:[410,330,0],east:[500,110,-100]
-};
-const planSVG=mini=>FHPLAN.svg({mini,areas:D.areas});
-function placeYou(svg,p){
-  const yg=$('.youg',svg);if(!yg)return;
-  $('.you',yg).style.transform=`translate(${p[0]}px,${p[1]}px)`;
-  $('.cone',yg).style.transform=`translate(${p[0]}px,${p[1]}px) rotate(${p[2]}deg)`;
-}
-function markPlan(svg,areaId){$$('g[data-area]',svg).forEach(g=>g.classList.toggle('on',!!areaId&&g.dataset.area===areaId));}
+/* ---------- map + place list ---------- */
+const planbox=$('#planbox');
+planbox.innerHTML=FHPLAN.svg({areas:D.areas,you:false});
+if(narrow())setView('flat');
+function setView(v){planbox.classList.toggle('is3d',v==='3d');$$('.viewtog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));}
+$$('.viewtog button').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+const chip=a=>`<button class="chip" data-go="${esc(a.id)}">${esc(a.name)}</button>`;
+$('#places').innerHTML=`<h2>COURTS</h2><div class="chips">${courts.map(chip).join('')}</div><h2>ROOMS</h2><div class="chips">${rooms.map(chip).join('')}</div>`;
 
-/* ---------- scenes ---------- */
-const state={kind:'exterior',key:null,layer:null};
-let walking=false;
-function sceneImg(kind,key){
-  if(kind==='exterior')return D.exterior.img;
-  if(kind==='lobby')return D.lobby.img;
-  if(kind==='wing')return wing(key).img;
-  return area(key).img;
-}
-function copyHTML(kind,key){
-  if(kind==='exterior')return `<div class="copy"><div class="hero-logo"><svg role="img" aria-label="FieldhouseUSA"><use href="#logo"/></svg></div>
-    <h1>${esc(D.exterior.title)}</h1><p class="lede">${esc(D.exterior.lede)}</p>
-    <div class="ctas"><button class="btn btn-red" data-go="lobby">Walk in</button><a class="btn btn-glass" href="site.html">Browse the site instead</a></div></div>`;
-  if(kind==='lobby')return `<div class="copy"><p class="kicker">Front desk</p><h2>${esc(D.lobby.title)}</h2><p class="lede">${esc(D.lobby.sub)}</p></div>`;
-  if(kind==='wing'){const w=wing(key);return `<div class="copy"><p class="kicker">${esc(w.sub)}</p><h2>${esc(w.name)}</h2></div>`;}
-  return '';
-}
-function markersHTML(kind,key){
-  if(kind==='lobby'){
-    const pos={west:[16,55,'flip'],ahead:[50,47,'up'],east:[84,55,'']};
-    return `<div class="markers">${D.wings.map((w,i)=>{const p=pos[w.key];return `<button class="marker ${p[2]}" style="left:${p[0]}%;top:${p[1]}%;--i:${i}" data-go="wing" data-key="${w.key}" data-dir="${w.dir}">
-      <span class="ring"></span><span class="tag"><b>${esc(w.arrow)} ${esc(w.name)}</b><small>${esc(w.sub)}</small></span></button>`;}).join('')}</div>`;
-  }
-  if(kind==='wing'){
-    const w=wing(key),n=w.areas.length;
-    return `<div class="markers">${w.areas.map((id,i)=>{const a=area(id);const x=n===1?50:12+i*(76/(n-1)),y=i%2?60:44;const flip=x>60?'flip':'';
-      return `<button class="marker ${flip}" style="left:${x}%;top:${y}%;--i:${i}" data-go="area" data-key="${id}">
-      <span class="ring"></span><span class="tag"><b>${esc(a.name)}</b><small>${esc(a.courts||a.tag)}</small></span></button>`;}).join('')}</div>`;
-  }
-  return '';
-}
-function buildLayer(kind,key){
-  const l=document.createElement('div');l.className='layer';
-  const pano=kind==='lobby'&&D.lobby.pano;
-  l.innerHTML=`<div class="bg${pano?' pano':''}" style="background-image:url('${esc(sceneImg(kind,key))}')"></div>${markersHTML(kind,key)}${copyHTML(kind,key)}`;
-  if(kind==='exterior')l.insertAdjacentHTML('beforeend','<div class="doors"><div class="door l"></div><div class="door r"></div></div>');
-  return l;
-}
-function preload(src){const i=new Image();i.src=src;}
-function preloadFor(kind,key){
-  if(kind==='exterior')preload(D.lobby.img);
-  if(kind==='lobby')D.wings.forEach(w=>preload(w.img));
-  if(kind==='wing')wing(key).areas.forEach(id=>preload(area(id).img));
-  if(kind==='area')preload(wing(area(key).wing).img);
-}
-
-/* walk from the current scene into the next one */
-function go(kind,key,opts={}){
-  if(walking)return;
-  if(state.kind===kind&&state.key===key)return;
-  const dir=opts.dir||'ahead',back=!!opts.back;
-  const next=buildLayer(kind,key);
-  const old=state.layer;
-  walking=true;
-  if(old){
-    if(opts.ox!=null){old.style.setProperty('--ox',opts.ox+'%');old.style.setProperty('--oy',opts.oy+'%');}
-    old.classList.remove('enter');old.classList.add('leave');
-    if(back)old.classList.add('back');else if(dir==='left')old.classList.add('left');else if(dir==='right')old.classList.add('right');
-    $$('.marker',old).forEach(m=>m.style.opacity=0);
-  }
-  next.classList.add('enter');if(back)next.classList.add('back');else if(dir==='left'||dir==='right')next.classList.add(dir);
-  /* leaving the lobby panorama: face the wing first, so the turn and the walk read as one move */
-  const opano=old&&$('.bg.pano',old);if(opano&&kind==='wing'){opano.classList.add('aim');opano.style.setProperty('--p',dir==='left'?'0':dir==='right'?'1':'.5');}
-  stage.appendChild(next);
-  if(!reduce){stage.classList.remove('walking');void stage.offsetWidth;stage.classList.add('walking');}
-  state.kind=kind;state.key=key;state.layer=next;
-  setTimeout(()=>{if(old)old.remove();walking=false;stage.classList.remove('walking');},WALK+40);
-  hud();preloadFor(kind,key);
-  const h=kind==='exterior'?'#/':kind==='lobby'?'#/lobby':kind==='wing'?`#/w/${key}`:`#/a/${key}`;
-  if(location.hash!==h)history.pushState(null,'',h);
-}
-function back(){
-  if(state.kind==='area')go('wing',area(state.key).wing,{back:true});
-  else if(state.kind==='wing')go('lobby',null,{back:true});
-  else if(state.kind==='lobby')go('exterior',null,{back:true});
-}
-/* step in: the doors close over the view, then part as you walk through */
-function stepInside(){
-  const doors=$('.doors',state.layer);
-  if(doors&&!reduce){
-    doors.classList.add('armed');
-    setTimeout(()=>{doors.classList.add('open');setTimeout(()=>go('lobby'),380);},260);
-  }else go('lobby');
-}
-
-/* ---------- HUD ---------- */
-const crumb=$('#crumb'),compass=$('#compass'),desk=$('#desk'),detail=$('#detail'),dbody=$('#detail-body'),mini=$('#minimap');
-mini.innerHTML=planSVG(true);
-$('#map .planwrap').innerHTML=planSVG(false);
-$$('#map .viewtog button').forEach(b=>b.onclick=()=>{const is3d=b.dataset.view==='3d';$('#mapwrap').classList.toggle('is3d',is3d);$$('#map .viewtog button').forEach(x=>x.setAttribute('aria-pressed',x===b));});
-function hud(){
-  const k=state.kind,key=state.key;
-  let parts=[];
-  if(k==='exterior')parts=['Outside'];
-  else if(k==='lobby')parts=['Lobby'];
-  else if(k==='wing')parts=['Lobby',wing(key).name];
-  else{const a=area(key);parts=['Lobby',wing(a.wing).name,a.name];}
-  crumb.innerHTML='<i></i>'+parts.map((p,i)=>`<span class="${i===parts.length-1?'here':''}">${esc(p)}</span>`).join('<span>›</span>')+(k!=='exterior'?'<button data-back aria-label="Go back">← Back</button>':'');
-  const curWing=k==='wing'?key:k==='area'?area(key).wing:null;
-  compass.classList.toggle('hide',k==='exterior');
-  compass.innerHTML=D.wings.map(w=>`<button class="${w.key===curWing?'on':''}" data-turn="${w.key}" aria-pressed="${w.key===curWing}"><span>${w.key==='west'?'W':w.key==='east'?'E':'N'}</span>${esc(w.key==='ahead'?'Ahead':w.key)}</button>`).join('');
-  desk.classList.toggle('hide',k!=='lobby');
-  if(k==='lobby')desk.innerHTML=D.desk.map(d=>d.url?`<a class="btn ${d.inquiry==='event'?'btn-red':'btn-glass'}" href="${esc(d.url)}" rel="noopener">${esc(d.label)}</a>`:`<button class="btn btn-glass" data-open="${d.action}" ${d.inquiry?`data-inquiry="${d.inquiry}"`:''}>${esc(d.label)}</button>`).join('');
-  const pos=k==='area'?areaPos(area(key)):POS[k==='wing'?key:k];
-  [$('svg',mini),$('#map svg')].forEach(svg=>{placeYou(svg,pos);markPlan(svg,k==='area'?key:null);});
-  if(k==='area'){renderDetail(area(key));detail.classList.add('show');}
-  else detail.classList.remove('show');
-  $$('#menu [data-go]').forEach(b=>b.classList.toggle('here',(b.dataset.go===k&&(b.dataset.key||null)===(key||null))));
+/* ---------- the card ---------- */
+let token=0;
+function setPhoto(src,pano){
+  const t=++token;photo.classList.add('loading');
+  const im=new Image();im.src=src;
+  const show=()=>{if(t!==token)return;photo.src=src;photo.classList.toggle('pano',!!pano);photo.classList.remove('loading');};
+  (im.decode?im.decode():Promise.resolve()).then(show,show);
 }
 function ctaFor(p,a){
-  if(!p)return '';
-  if(isUrl(p.url))return `<a class="btn btn-red" href="${esc(p.url)}" rel="noopener">${esc(p.name)}</a>`;
+  if(p&&isUrl(p.url))return `<a class="btn btn-red" href="${esc(p.url)}" rel="noopener">${esc(p.name)}</a>`;
   return `<button class="btn btn-red" data-open="contact" data-inquiry="${esc(a.inquiry)}">Ask the front desk</button>`;
 }
-function renderDetail(a){
-  const w=wing(a.wing),p=partner(a.partner);
+function stepBtns(i){
+  const p=ORDER[i-1],n=ORDER[i+1];
+  return `<div class="step"><button data-go="${p||''}" ${p?'':'hidden'} aria-label="${p?'Previous: '+esc(area(p).name):''}"><small>← PREVIOUS</small>${p?esc(area(p).name):''}</button><button data-go="${n||''}" ${n?'':'hidden'} aria-label="${n?'Next: '+esc(area(n).name):''}"><small>NEXT →</small>${n?esc(area(n).name):''}</button></div>`;
+}
+function showWelcome(){
+  setPhoto(D.lobby.img,D.lobby.pano);
+  photo.alt='Inside the field house: the courts from the main entrance';
+  cardbody.innerHTML=`<p class="kicker">${esc(D.exterior.kicker)}</p><h2>${esc(D.exterior.title)}</h2><p class="blurb">${esc(D.exterior.lede)}</p>
+    <div class="acts"><button class="btn btn-red" data-go="${ORDER[0]}">Start the tour →</button><a class="btn btn-glass" href="site.html">Full site</a></div>`;
+}
+function showArea(a){
+  const p=partner(a.partner),i=ORDER.indexOf(a.id);
+  setPhoto(a.img,false);photo.alt=a.name;
   const sec=a.secondary?(a.secondary.url?`<a class="btn btn-glass" href="${esc(a.secondary.url)}" rel="noopener">${esc(a.secondary.label)}</a>`:`<button class="btn btn-glass" data-open="contact" data-inquiry="${esc(a.secondary.inquiry||a.inquiry)}">${esc(a.secondary.label)}</button>`):'';
-  const ask=isUrl(p&&p.url)?`<button class="btn btn-glass" data-open="contact" data-inquiry="${esc(a.inquiry)}">Ask the front desk</button>`:'';
-  const idx=w.areas.indexOf(a.id),prev=w.areas[idx-1],next=w.areas[idx+1];
-  dbody.innerHTML=`<p class="kicker">${esc(w.name)} · ${esc(a.tag)}</p><h2>${esc(a.name)}</h2>${a.courts?`<p class="courts">${esc(a.courts)}</p>`:''}
-    <p class="blurb">${esc(a.blurb)}</p><h3>What's here</h3><ul class="what">${a.what.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
-    ${p&&p.id!=='fhusa'?`<h3>Who runs it</h3><p class="blurb">${esc(p.name)}: ${esc(p.does.charAt(0).toLowerCase()+p.does.slice(1))}.</p>`:''}
-    <div class="acts">${ctaFor(p,a)}${sec}${ask}</div>
-    <div class="nav">${prev?`<button data-go="area" data-key="${prev}" data-dir="left">← ${esc(area(prev).name)}</button>`:''}${next?`<button data-go="area" data-key="${next}" data-dir="right">${esc(area(next).name)} →</button>`:''}<button data-back>Back to ${esc(w.name)}</button></div>`;
+  const ask=p&&isUrl(p.url)?`<button class="btn btn-glass" data-open="contact" data-inquiry="${esc(a.inquiry)}">Ask the front desk</button>`:'';
+  cardbody.innerHTML=`<p class="kicker">${esc(a.tag)} · ${i+1} of ${ORDER.length}</p><h2>${esc(a.name)}</h2>${a.courts?`<p class="courts">${esc(a.courts)}</p>`:''}
+    <p class="blurb">${esc(a.blurb)}</p>${a.where?`<p class="where">${esc(a.where)}</p>`:''}
+    <h3>WHAT'S HERE</h3><ul class="what">${a.what.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+    ${p&&p.id!=='fhusa'?`<h3>WHO RUNS IT</h3><p class="blurb">${esc(p.name)}: ${esc(p.does.charAt(0).toLowerCase()+p.does.slice(1))}.</p>`:''}
+    <div class="acts">${ctaFor(p,a)}${sec}${ask}</div>${stepBtns(i)}`;
+  /* warm the neighbours so Next is instant */
+  [ORDER[i-1],ORDER[i+1]].forEach(id=>{if(id){const im=new Image();im.src=area(id).img;}});
 }
-/* phone: drag the sheet handle down to step back out */
-(function(){const h=$('.handle',detail);let y0=0,t0=0,dy=0,drag=false;
-  h.addEventListener('pointerdown',e=>{drag=true;y0=e.clientY;t0=performance.now();dy=0;detail.classList.add('dragging');h.setPointerCapture(e.pointerId);});
-  h.addEventListener('pointermove',e=>{if(!drag)return;dy=Math.max(0,e.clientY-y0);detail.style.transform=`translateY(${dy}px)`;});
-  const end=()=>{if(!drag)return;drag=false;detail.classList.remove('dragging');detail.style.transform='';const v=dy/(performance.now()-t0);if(dy>90||v>0.11)back();};
-  h.addEventListener('pointerup',end);h.addEventListener('pointercancel',end);})();
+let cur=null;
+function select(id,{push=true,scroll=false}={}){
+  const a=id&&area(id);cur=a?a.id:null;
+  a?showArea(a):showWelcome();
+  $$('.plan g[data-area]').forEach(g=>g.classList.toggle('on',!!cur&&g.dataset.area===cur));
+  $$('.chip').forEach(c=>c.setAttribute('aria-current',c.dataset.go===cur));
+  const h=cur?`#/a/${cur}`:'#/';
+  if(push&&location.hash!==h)history.pushState(null,'',h);
+  if(scroll&&narrow())card.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+}
 
-/* ---------- dialogs ---------- */
-const menu=$('#menu'),map=$('#map'),panel=$('#panel'),pbody=$('#panel-body');
-$('#menu-btn').onclick=()=>menu.showModal();$('#menu-x').onclick=()=>menu.close();
+/* ---------- menu + info panel ---------- */
+const menu=$('#menu'),panel=$('#panel'),pbody=$('#panel-body');
+$('#menu-btn').onclick=()=>menu.showModal();
 $$('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d)d.close();});$('.x',d).onclick=()=>d.close();});
-$('#minimap').onclick=()=>map.showModal();
-/* v3.4: in the lobby, pointing at a wing (hover or keyboard focus) turns the panorama to face it */
-function aimPano(e,on){
-  if(state.kind!=='lobby'||walking)return;
-  const m=e.target.closest&&e.target.closest('.marker[data-dir]'),bg=$('.bg.pano',state.layer);if(!m||!bg)return;
-  bg.classList.toggle('aim',on);bg.style.setProperty('--p',!on?'.5':m.dataset.dir==='left'?'.12':m.dataset.dir==='right'?'.88':'.5');
-}
-stage.addEventListener('pointerover',e=>aimPano(e,true));stage.addEventListener('pointerout',e=>aimPano(e,false));
-stage.addEventListener('focusin',e=>aimPano(e,true));stage.addEventListener('focusout',e=>aimPano(e,false));
-$('#menu-go').innerHTML=`<button data-go="lobby"><span>Lobby</span><small>front desk</small></button>`+D.wings.map(w=>`<button data-go="wing" data-key="${w.key}"><span>${esc(w.arrow)} ${esc(w.name)}</span><small>${w.areas.length} areas</small></button>`).join('');
-$('#menu-areas').innerHTML=D.areas.map(a=>`<button data-go="area" data-key="${a.id}"><b>${esc(a.name)}</b><small>${esc(a.courts||a.tag)}</small></button>`).join('');
-$('#menu-book').innerHTML=D.desk.filter(d=>d.action!=='rules').map(d=>d.url?`<a class="btn ${d.inquiry==='event'?'btn-red':'btn-glass'}" href="${esc(d.url)}" rel="noopener">${esc(d.label)}</a>`:`<button class="btn btn-glass" data-open="${d.action}" data-inquiry="${d.inquiry||''}">${esc(d.label)}</button>`).join('');
+const bookHTML=D.desk.filter(d=>d.action!=='rules').map(d=>d.url?`<a class="btn ${d.inquiry==='event'?'btn-red':'btn-glass'}" href="${esc(d.url)}" rel="noopener">${esc(d.label)}</a>`:`<button class="btn btn-glass" data-open="${esc(d.action)}" data-inquiry="${esc(d.inquiry||'')}">${esc(d.label)}</button>`).join('');
+$('#book').innerHTML=bookHTML;$('#menu-book').innerHTML=bookHTML;
 $('#m-waiver').href=D.site.waiver;
-$('#menu-foot').innerHTML=`${esc(D.site.address)}<br>${esc(D.site.city)}<br><a href="${D.site.phoneHref}">${esc(D.site.phone)}</a> · <a href="mailto:${esc(D.site.email)}">${esc(D.site.email)}</a>`;
+$('#menu-foot').innerHTML=`${esc(D.site.address)}<br>${esc(D.site.city)}<br><a href="${esc(D.site.phoneHref)}">${esc(D.site.phone)}</a> · <a href="mailto:${esc(D.site.email)}">${esc(D.site.email)}</a>`;
 
 function openPanel(kind,inq){
   if(kind==='rules'){const R=D.rules;pbody.innerHTML=`<p class="kicker">Facility rules</p><h2>Before you play</h2><p class="lede">${esc(R.intro)}</p>
     ${R.sections.map(s=>`<h3>${esc(s.title)}</h3><ul class="rules">${s.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>`).join('')}
     <p class="note">Pulled ${esc(R.pulled)} from <a href="${esc(D.site.rulesSource)}" rel="noopener">boomtownathletics.com</a>. Sign the <a href="${esc(D.site.waiver)}" rel="noopener">liability waiver</a> before you play.</p>`;}
   else if(kind==='faq'){pbody.innerHTML=`<p class="kicker">Questions</p><h2>Before you come</h2>${D.faq.map(f=>`<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}`;}
-  else if(kind==='partners'){pbody.innerHTML=`<p class="kicker">Partners</p><h2>Who runs what</h2><p class="lede">The building is shared by independent operators. Each area sends you to the right one.</p><div class="plist">${D.partners.filter(p=>p.id!=='fhusa').map(p=>isUrl(p.url)?`<a href="${esc(p.url)}" rel="noopener"><strong>${esc(p.name)}</strong><i>Visit</i><span>${esc(p.does)}</span></a>`:`<button data-open="contact" data-inquiry="${p.inquiry}"><strong>${esc(p.name)}</strong><i>Ask</i><span>${esc(p.does)}</span></button>`).join('')}</div>`;}
-  else if(kind==='contact'){pbody.innerHTML=`<p class="kicker">Front desk</p><h2>Ask us</h2><p class="lede">Tell us what you want to do and it goes to the right person. Or call <a href="${D.site.phoneHref}">${esc(D.site.phone)}</a>.</p>
-    <form id="inq" novalidate><label>I want to<select name="type" id="inq-type" required>${D.inquiries.map(i=>`<option value="${i.id}">${esc(i.label)}</option>`).join('')}</select></label>
+  else if(kind==='partners'){pbody.innerHTML=`<p class="kicker">Partners</p><h2>Who runs what</h2><p class="lede">The building is shared by independent operators. Each place on the tour sends you to the right one.</p><div class="plist">${D.partners.filter(p=>p.id!=='fhusa').map(p=>isUrl(p.url)?`<a href="${esc(p.url)}" rel="noopener"><strong>${esc(p.name)}</strong><i>Visit</i><span>${esc(p.does)}</span></a>`:`<button data-open="contact" data-inquiry="${esc(p.inquiry)}"><strong>${esc(p.name)}</strong><i>Ask</i><span>${esc(p.does)}</span></button>`).join('')}</div>`;}
+  else if(kind==='contact'){pbody.innerHTML=`<p class="kicker">Front desk</p><h2>Ask us</h2><p class="lede">Tell us what you want to do and it goes to the right person. Or call <a href="${esc(D.site.phoneHref)}">${esc(D.site.phone)}</a>.</p>
+    <form id="inq" novalidate><label>I want to<select name="type" id="inq-type" required>${D.inquiries.map(i=>`<option value="${esc(i.id)}">${esc(i.label)}</option>`).join('')}</select></label>
     <div class="f2"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
     <div class="f2"><label>Phone<input name="phone" type="tel" autocomplete="tel"></label><label>Date, if you have one<input name="date" type="date"></label></div>
     <label>Details<textarea name="details" placeholder="Headcount, hours, sport, anything that helps us answer fast."></textarea></label>
@@ -642,59 +314,34 @@ function openPanel(kind,inq){
   if(!panel.open)panel.showModal();$('.inner',panel).scrollTop=0;
 }
 
-/* ---------- one click handler for the whole page ---------- */
+/* ---------- one click handler ---------- */
 document.addEventListener('click',e=>{
   const open=e.target.closest('[data-open]');
-  if(open){const k=open.dataset.open;if(menu.open)menu.close();if(k==='map')map.showModal();else openPanel(k,open.dataset.inquiry||null);return;}
-  if(e.target.closest('[data-back]')){back();return;}
-  const turn=e.target.closest('[data-turn]');
-  if(turn){const k=turn.dataset.turn;const cur=state.kind==='wing'?state.key:state.kind==='area'?area(state.key).wing:null;
-    if(k===cur){if(state.kind==='area')back();return;}
-    const order=['west','ahead','east'];const dir=order.indexOf(k)<order.indexOf(cur||'ahead')?'left':'right';go('wing',k,{dir});return;}
+  if(open){if(menu.open)menu.close();openPanel(open.dataset.open,open.dataset.inquiry||null);return;}
   const g=e.target.closest('[data-go]');
-  if(g){
-    const kind=g.dataset.go,key=g.dataset.key||null;
-    if(menu.open)menu.close();if(map.open)map.close();if(panel.open)panel.close();
-    if(kind==='lobby'&&state.kind==='exterior'){stepInside();return;}
-    const r=g.getBoundingClientRect();const ox=((r.left+r.width/2)/innerWidth*100),oy=((r.top+r.height/2)/innerHeight*100);
-    const isBack=(kind==='lobby'&&state.kind!=='exterior')||(kind==='wing'&&state.kind==='area'&&area(state.key).wing===key);
-    go(kind,key,{dir:g.dataset.dir||'ahead',ox:g.closest('.marker')?ox:50,oy:g.closest('.marker')?oy:50,back:isBack});return;
-  }
-  const pg=e.target.closest('.plan:not(.mini) g[data-area]');
-  if(pg&&pg.dataset.area){if(map.open)map.close();go('area',pg.dataset.area);}
+  if(g&&g.dataset.go){select(g.dataset.go,{scroll:!g.closest('.card')});return;}
+  const pg=e.target.closest('.plan g[data-area]');
+  if(pg&&pg.dataset.area)select(pg.dataset.area,{scroll:true});
 });
+$$('.plan g[data-area]').forEach(g=>g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();g.dispatchEvent(new MouseEvent('click',{bubbles:true}));}}));
 document.addEventListener('keydown',e=>{
-  if(e.target.matches('input,textarea,select'))return;
-  if($$('dialog[open]').length)return;
-  if(e.key==='Escape'||e.key==='Backspace'){e.preventDefault();back();return;}
-  if(state.kind==='exterior'&&(e.key==='Enter'||e.key==='ArrowUp')){stepInside();return;}
-  if(state.kind==='lobby'){if(e.key==='ArrowLeft')go('wing','west',{dir:'left'});if(e.key==='ArrowRight')go('wing','east',{dir:'right'});if(e.key==='ArrowUp')go('wing','ahead');}
-  else if(state.kind==='wing'||state.kind==='area'){
-    const w=wing(state.kind==='wing'?state.key:area(state.key).wing);
-    if(state.kind==='wing'&&e.key==='ArrowUp'){go('area',w.areas[0]);return;}
-    if(state.kind==='area'&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){const i=w.areas.indexOf(state.key);const n=w.areas[i+(e.key==='ArrowRight'?1:-1)];if(n)go('area',n,{dir:e.key==='ArrowRight'?'right':'left'});}
-    if(state.kind==='wing'&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){const order=['west','ahead','east'];const i=order.indexOf(state.key)+(e.key==='ArrowRight'?1:-1);if(order[i])go('wing',order[i],{dir:e.key==='ArrowRight'?'right':'left'});}
-  }
+  if(e.target.matches?.('input,textarea,select')||$$('dialog[open]').length)return;
+  if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
+  const i=cur?ORDER.indexOf(cur):-1,n=ORDER[i+(e.key==='ArrowRight'?1:-1)];
+  if(n){e.preventDefault();select(n);}
 });
-$$('#map .plan g[data-area]').forEach(g=>g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();g.click();}}));
 
-/* ---------- routing ---------- */
+/* ---------- routing: #/a/<id>; old walk-in links (#/lobby, #/w/<wing>) still land somewhere sensible ---------- */
 function fromHash(){
-  const h=location.hash.replace(/^#\/?/,'');
-  if(!h)return ['exterior',null];
-  if(h==='lobby')return ['lobby',null];
-  const m=h.match(/^(w|a)\/([\w-]+)$/);
-  if(m&&m[1]==='w'&&wing(m[2]))return ['wing',m[2]];
-  if(m&&m[1]==='a'&&area(m[2]))return ['area',m[2]];
-  return ['exterior',null];
+  const h=location.hash.replace(/^#\/?/,'');let m;
+  if((m=h.match(/^a\/([\w-]+)$/))&&area(m[1]))return m[1];
+  if((m=h.match(/^w\/([\w-]+)$/))){const w=D.wings.find(w=>w.key===m[1]);if(w)return w.areas.find(id=>area(id).zone)||w.areas[0];}
+  return null;
 }
-addEventListener('popstate',()=>{const [k,key]=fromHash();if(k!==state.kind||key!==state.key)go(k,key,{back:true});});
-const [k0,key0]=fromHash();
-const first=buildLayer(k0,key0);first.classList.add('enter');stage.appendChild(first);state.kind=k0;state.key=key0;state.layer=first;
-hud();
-const img=new Image();img.src=sceneImg(k0,key0);
-/* perf v3.5: next scenes' photos download only after the first one is on screen, so they don't compete with it */
-let booted=false;const off=()=>{if(booted)return;booted=true;boot.classList.add('off');preloadFor(k0,key0);};img.decode?img.decode().then(off,off):off();setTimeout(off,2500);
+addEventListener('popstate',()=>select(fromHash(),{push:false}));
+/* the panning photo needs the card width to know how far to slide */
+new ResizeObserver(([e])=>photo.style.setProperty('--cw',e.contentRect.width+'px')).observe($('.photo'));
+select(fromHash(),{push:false});
 })();
 </script>
 </body>
