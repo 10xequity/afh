@@ -3,345 +3,343 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FieldhouseUSA Aurora — tour the field house</title>
-<meta name="description" content="Aurora's indoor field house: 15 courts, two studios, a restaurant and a mall entrance. Tour the building on the map, pick a zone, and book with the right partner.">
+<title>FieldhouseUSA | Indoor Sports Complex and Event Venue, Denver Metro (Aurora, CO)</title>
+<meta name="description" content="Indoor sports complex and event venue in Aurora, serving the Denver metro. 15 volleyball courts, basketball, pickleball and futsal, two studios, a bar and kitchen. Host an event or tournament, or find a league, class or drop-in.">
 <link rel="canonical" href="https://aurorafieldhouseusa.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="FieldhouseUSA Aurora">
-<meta property="og:description" content="15 courts, two studios, a restaurant and a mall entrance under one roof. Tour the building and book with the right partner.">
+<meta property="og:site_name" content="FieldhouseUSA">
+<meta property="og:title" content="FieldhouseUSA | Indoor Sports Complex and Event Venue, Denver Metro (Aurora, CO)">
+<meta property="og:description" content="Indoor sports complex and event venue in Aurora, serving the Denver metro. 15 volleyball courts, basketball, pickleball and futsal, two studios, a bar and kitchen. Host an event or tournament, or find a league, class or drop-in.">
 <meta property="og:url" content="https://aurorafieldhouseusa.com/">
-<meta property="og:image" content="https://aurorafieldhouseusa.com/assets/lobby.jpg">
+<meta property="og:image" content="https://aurorafieldhouseusa.com/assets/fieldhouse-panorama.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/fieldhouse-panorama.webp" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- perf v3.5: building data starts downloading now, not after the fonts and plan.js; fonts no longer block the page script -->
-<link rel="preload" href="data/zones.json" as="fetch" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"FieldhouseUSA Aurora","url":"https://aurorafieldhouseusa.com/","telephone":"+1-720-773-4776","email":"admin@aurorafieldhouseusa.com","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave, Suite 400","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"},"sameAs":["https://www.boomtownathletics.com/","https://event-den.com/"]}
+{"@context":"https://schema.org","@graph":[
+{"@type":["SportsActivityLocation","EventVenue"],"@id":"https://aurorafieldhouseusa.com/#venue","name":"FieldhouseUSA","alternateName":"FieldhouseUSA Aurora","description":"Indoor sports complex and event venue in Aurora, Colorado, serving the Denver metro: 15 volleyball courts, basketball, pickleball and futsal, two studios, a bar and kitchen and a mezzanine.","url":"https://aurorafieldhouseusa.com/","telephone":"+1-720-773-4776","email":"admin@aurorafieldhouseusa.com","image":"https://aurorafieldhouseusa.com/assets/fieldhouse-panorama.jpg","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"},"areaServed":["Denver","Aurora","Denver metropolitan area","Colorado"],"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Volleyball courts","value":15},{"@type":"LocationFeatureSpecification","name":"Basketball courts","value":4},{"@type":"LocationFeatureSpecification","name":"Pickleball courts","value":12},{"@type":"LocationFeatureSpecification","name":"Futsal arena","value":true},{"@type":"LocationFeatureSpecification","name":"Bar and kitchen","value":true},{"@type":"LocationFeatureSpecification","name":"Free parking","value":true}],"sameAs":["https://www.boomtownathletics.com/","https://event-den.com/"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is FieldhouseUSA a city rec center?","acceptedAnswer":{"@type":"Answer","text":"No. FieldhouseUSA is a private, commercial sports and event facility. Pricing and rules are not the same as a school or rec center."}},
+{"@type":"Question","name":"Can I bring outside food or drink?","acceptedAnswer":{"@type":"Answer","text":"No. Outside food and drink, including coffee, are not allowed in the building. Oda Up serves food and drinks inside."}},
+{"@type":"Question","name":"How far ahead do tournaments book?","acceptedAnswer":{"@type":"Answer","text":"Six to eight months ahead. A 30% deposit holds the dates and the balance is due at least 30 days before the event."}},
+{"@type":"Question","name":"When is drop-in volleyball?","acceptedAnswer":{"@type":"Answer","text":"Thursday through Monday, 7 PM to 11 PM, run by Boomtown Athletics."}},
+{"@type":"Question","name":"Are service animals allowed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tell us before you arrive so we have time to arrange a reasonable accommodation. Animals are not allowed on playing surfaces."}}]}]}
 </script>
 <style>
-/* v4: map tour. One screen: the floor plan is the navigation, the card shows the place. No walk animations, no input locks. */
-:root{
-  --black:#000;--white:#fff;--red:#ff0000;--ink-2:rgba(255,255,255,.72);--line:rgba(255,255,255,.16);--panel:#0d0d0d;
-  --display:'Big Shoulders Display',Impact,'Arial Narrow Bold',sans-serif;
-  --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --ease-out:cubic-bezier(.23,1,.32,1);--ease-drawer:cubic-bezier(.32,.72,0,1);
-  --gutter:clamp(14px,2.4vw,28px);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{background:var(--black)}
-body{margin:0;background:var(--black);color:var(--white);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.92;margin:0;text-transform:uppercase}
-p{margin:0}a{color:inherit}ul{margin:0;padding:0;list-style:none}
-button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+/* banners: the first thing on the page */
+.bans{display:grid}
+.ban{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 12px;padding:9px var(--gutter);text-align:center;text-decoration:none;font-size:15px;line-height:1.3}
+.ban b{font-family:var(--display);font-weight:900;font-size:19px;letter-spacing:.05em;text-transform:uppercase}
+.ban u{font-weight:600;text-underline-offset:3px;white-space:nowrap}
+.ban-red{background:var(--red);color:#fff}
+.ban-white{background:#fff;color:#000}
+@media (hover:hover){.ban-red:hover{background:var(--red-d)}.ban-white:hover{background:#eaeaea}}
 
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background-color 120ms ease,transform 120ms var(--ease-out)}
-.btn:active{transform:scale(.97)}
-.btn-red{background:var(--red);color:#fff}.btn-glass{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px var(--line)}
-@media (hover:hover){.btn-red:hover{background:#e00000}.btn-glass:hover{background:rgba(255,255,255,.18)}}
+/* hero: a black court whose markings change sport every 4 seconds (opacity and transform only, so it stays cheap) */
+#hero{position:relative;min-height:min(calc(100svh - var(--header) - 84px),820px);display:grid;align-items:end;padding:32px 0 clamp(28px,5vh,64px);overflow:hidden;isolation:isolate}
+#hero .court{position:absolute;inset:0;z-index:-1;width:100%;height:100%;opacity:.4}
+#hero .court *{fill:none;stroke:#fff;stroke-width:2.5;vector-effect:non-scaling-stroke}
+#hero .court .fillred{fill:var(--red);stroke:none}
+#hero .court .dash{stroke-dasharray:10 10}
+.sp{opacity:0;transform-origin:50% 50%;animation:sport 20s linear infinite}
+.sp2{animation-delay:4s}.sp3{animation-delay:8s}.sp4{animation-delay:12s}.sp5{animation-delay:16s}
+@keyframes sport{0%{opacity:0;transform:scale(1.04)}3%{opacity:1;transform:none}18%{opacity:1;transform:none}21%{opacity:0;transform:scale(.97)}100%{opacity:0}}
+#hero .hero-logo{width:min(340px,60vw,22vh);--logo-ink:#fff;margin-bottom:clamp(18px,4vh,40px)}
+#hero .hero-logo svg{width:100%;height:auto;display:block}
+#hero h1{font-size:clamp(44px,min(8vw,10.5vh),112px);max-width:13ch}
+.now{display:flex;align-items:center;gap:12px;margin-top:16px;font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,30px);letter-spacing:.06em;text-transform:uppercase}
+.now>span:first-child{color:var(--ink-3)}
+.now .words{position:relative;display:inline-grid}
+.now .words span{grid-area:1/1;color:var(--red);white-space:nowrap}
+#hero .lede{margin:16px 0 26px}
+@media (prefers-reduced-motion:reduce){.sp{animation:none}.sp1{opacity:1}}
 
-/* header */
-.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top)) var(--gutter) 10px;background:var(--black);border-bottom:1px solid var(--line)}
-.top .logo{display:block;width:64px;height:32px;--logo-ink:#fff;flex:none}.top .logo svg{width:100%;height:100%;display:block}
-.top .book{display:flex;gap:8px;margin-left:auto;overflow-x:auto;scrollbar-width:none}.top .book::-webkit-scrollbar{display:none}
-.top .book .btn{min-height:40px;font-size:16px;padding:0 14px;flex:none}
-.menu-btn{flex:none;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase}
-@media (hover:hover){.menu-btn:hover{background:rgba(255,255,255,.1)}}
-@media (max-width:700px){.top .book{display:none}}
+/* three offers, side by side */
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.offer{display:flex;flex-direction:column;gap:12px;padding:22px 22px 24px;background:var(--panel);border-radius:14px;box-shadow:inset 0 0 0 1px var(--line)}
+.offer svg{width:44px;height:44px;fill:none;stroke:var(--red);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.offer h3{font-size:clamp(32px,3.2vw,44px)}
+.offer p{color:var(--ink-2)}
+.offer ul{display:grid;gap:6px;font-size:16px}
+.offer li{padding-left:18px;position:relative}
+.offer li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
+.offer .acts{margin-top:auto;padding-top:6px}
+@media (max-width:900px){.offers{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:14px;border-radius:14px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.facts li{padding:14px 18px;border:1px solid var(--line);margin:-1px 0 0 -1px;font-weight:500;color:rgba(255,255,255,.88)}
+.facts b{font-family:var(--display);font-weight:900;font-size:26px;color:#fff;margin-right:6px}
 
-/* layout: map left, card right */
-.tour{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,440px);gap:var(--gutter);padding:var(--gutter);min-height:calc(100svh - 61px)}
-@media (max-width:900px){.tour{grid-template-columns:1fr}}
+/* see the building */
+.see{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,400px);gap:var(--gutter);align-items:start;margin-top:24px}
+.see .stops{display:grid;gap:6px;counter-reset:s}
+.see .stops a{counter-increment:s;display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 12px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);text-decoration:none;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;line-height:1.05}
+.see .stops a::before{content:counter(s);flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--red);font-size:14px}
+.see .stops a::after{content:"→";margin-left:auto;color:var(--ink-3)}
+@media (hover:hover){.see .stops a:hover{background:rgba(255,255,255,.1)}}
+@media (max-width:900px){.see{grid-template-columns:1fr}}
 
-/* map */
-.mapcol{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;min-width:0}
-.maphead{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.maphead h1{font-size:clamp(34px,4.4vw,60px)}
-.maphead p{color:var(--ink-2);font-size:15px;margin-top:4px}
-.viewtog{display:inline-flex;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);overflow:hidden;flex:none}
-.viewtog button{min-height:40px;padding:6px 16px;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
-.viewtog button[aria-pressed="true"]{background:#fff;color:#000}
-.planbox{display:grid;place-items:center;min-height:0;perspective:1600px;padding:8px 0}
-.planbox svg{width:100%;max-width:980px;height:auto;max-height:calc(100svh - 360px);transform-origin:50% 55%;transition:transform 600ms var(--ease-out)}
-.planbox.is3d svg{transform:rotateX(46deg) rotateZ(-16deg) scale(.98)}
-@media (max-width:900px){.planbox svg{max-height:none}}
+/* rules */
+#rules .intro{display:grid;gap:10px;margin:14px 0 22px;padding:16px 18px;border-left:5px solid var(--red);background:var(--panel);border-radius:0 12px 12px 0;max-width:80ch}
+#rules .intro strong,#rules li strong{color:var(--red);font-weight:600}
+.rules{counter-reset:r;border-top:1px solid var(--line)}
+.rules details{counter-increment:r;border-bottom:1px solid var(--line)}
+.rules summary,.faq summary{list-style:none;cursor:pointer;position:relative;display:flex;align-items:center;gap:14px;padding:14px 40px 14px 0;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.03em;text-transform:uppercase}
+.rules summary::-webkit-details-marker,.faq summary::-webkit-details-marker{display:none}
+.rules summary::before{content:counter(r,decimal-leading-zero);flex:none;display:grid;place-items:center;width:38px;height:28px;background:var(--red);color:#fff;font-size:16px;letter-spacing:.06em;border-radius:4px}
+.rules summary::after,.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;border-right:2px solid var(--red);border-bottom:2px solid var(--red);transform:translateY(-70%) rotate(45deg);transition:transform 160ms var(--ease-out)}
+details[open]>summary::after{transform:translateY(-30%) rotate(-135deg)}
+.rules details[open] summary{color:var(--red)}
+.rules ul{display:grid;gap:8px;padding:0 0 18px 52px;max-width:84ch}
+.rules li{padding-left:18px;position:relative;color:rgba(255,255,255,.88)}
+.rules li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
+.rules .fines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 18px 52px;max-width:760px}
+.rules .fines div{padding:12px 14px;border:1.5px solid var(--red);border-radius:10px}
+.rules .fines b{display:block;font-family:var(--display);font-weight:900;font-size:30px;color:var(--red);line-height:1}
+@media (max-width:640px){.rules ul,.rules .fines{padding-left:0;margin-left:0}.rules .fines{grid-template-columns:1fr}}
+.faq{border-top:1px solid var(--line);margin-top:20px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{font-family:var(--body);font-weight:600;font-size:18px;letter-spacing:0;text-transform:none}
+.faq p{padding:0 0 16px;max-width:70ch;color:var(--ink-2)}
 
-/* places: every stop, one tap away */
-.places{display:grid;gap:8px}
-.places h2{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.5)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{min-height:38px;padding:0 13px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;transition:background-color 120ms ease}
-.chip[aria-current="true"]{background:var(--red);box-shadow:none}
-@media (hover:hover){.chip:not([aria-current="true"]):hover{background:rgba(255,255,255,.12)}}
-
-/* plan drawing */
-.plan .shell{fill:none;stroke:#fff;stroke-width:3}
-.plan .room{fill:rgba(255,255,255,.06);stroke:rgba(255,255,255,.7);stroke-width:1.5}
-.plan .court{fill:#c8742f;stroke:#fff;stroke-width:1.3}
-.plan .net{stroke:#fff;stroke-width:3}.plan .post{fill:#fff}
-.plan .attack{stroke:rgba(255,255,255,.75);stroke-width:1;stroke-dasharray:4 3}
-.plan text{fill:#fff;font-family:var(--body);font-weight:600;font-size:13px;pointer-events:none;text-anchor:middle}
-.plan .znum{font-family:var(--display);font-weight:900;font-size:36px;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:5}
-.plan .hit{fill:transparent;cursor:pointer}
-.plan .zbox{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.45);stroke-width:1.2}
-.plan .lot,.plan .door{fill:rgba(255,255,255,.18)}.plan .arrow{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.plan .lbl-s{font-size:11px;font-weight:500}.plan .zdesc{font-size:12.5px;font-weight:500;fill:rgba(255,255,255,.9);paint-order:stroke;stroke:rgba(0,0,0,.6);stroke-width:3}
-.plan g[data-area]:focus-visible{outline:none}.plan g[data-area]:focus-visible .zbox,.plan g[data-area]:focus-visible .room{stroke:var(--red);stroke-width:3}
-.plan g[data-area].on .zbox{stroke:var(--red);stroke-width:3}
-.plan g[data-area].on .court{fill:var(--red)}
-.plan g[data-area].on .room{fill:rgba(255,0,0,.6);stroke:#fff}
-@media (hover:hover){.plan g[data-area]:hover .court{fill:#e8893a}.plan g[data-area]:hover .room{fill:rgba(255,255,255,.2)}}
-.plan .aisle{display:none}
-
-/* card */
-.card{align-self:start;position:sticky;top:calc(61px + var(--gutter));max-height:calc(100svh - 61px - 2 * var(--gutter));overflow:auto;overscroll-behavior:contain;display:block;background:var(--panel);border-radius:18px;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;scroll-margin-top:70px}
-@media (max-width:900px){.card{position:static;max-height:none;overflow:visible;order:-1}}
-.photo{position:relative;aspect-ratio:16/10;background:#111;overflow:hidden}
-.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 180ms ease}
-.photo img.loading{opacity:.35}
-/* the moving photo on the welcome card: the panorama slides inside the card (small box, GPU transform) */
-.photo img.pano{width:auto;max-width:none;height:100%;animation:look 30s ease-in-out infinite alternate}
-@keyframes look{from{transform:translateX(0)}to{transform:translateX(calc(-100% + var(--cw,440px)))}}
-.photo .num{position:absolute;left:14px;top:12px;font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.06em;text-transform:uppercase;background:var(--red);padding:3px 9px 4px;border-radius:6px}
-.body{padding:18px 20px 20px;display:grid;gap:12px}
-.body .kicker{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;color:var(--red)}
-.body h2{font-size:clamp(38px,4vw,54px)}
-.body .courts{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.85)}
-.body .blurb{color:rgba(255,255,255,.88)}
-.body .where{font-size:15px;color:var(--ink-2)}
-.body h3{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.5)}
-.body ul.what{display:grid;gap:5px}
-.body ul.what li{padding-left:18px;position:relative}
-.body ul.what li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
-.acts{display:flex;flex-wrap:wrap;gap:8px}
-.step{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px solid var(--line);padding-top:12px}
-.step button{min-height:44px;padding:0 12px;border-radius:12px;background:rgba(255,255,255,.08);font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;text-align:left}
-.step button:last-child{text-align:right}
-.step button small{display:block;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.55)}
-@media (hover:hover){.step button:hover{background:rgba(255,255,255,.16)}}
-.step button[hidden]{display:block;visibility:hidden}
-
-/* dialogs: menu and info panel */
-dialog{color:#fff;border:0;padding:0;max-width:none;max-height:none}
-dialog::backdrop{background:rgba(0,0,0,.6)}
-dialog .x{position:absolute;top:calc(12px + env(safe-area-inset-top));right:var(--gutter);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:26px;line-height:1;background:rgba(255,255,255,.1);z-index:2}
-#menu,#panel{position:fixed;inset:0;left:auto;width:min(560px,100vw);height:100%;margin:0;background:#0a0a0a;transform:translateX(100%);transition:transform 280ms var(--ease-drawer),display 280ms allow-discrete,overlay 280ms allow-discrete}
-#menu[open],#panel[open]{transform:none}
-@starting-style{#menu[open],#panel[open]{transform:translateX(100%)}}
-#menu .inner,#panel .inner{height:100%;overflow:auto;padding:calc(16px + env(safe-area-inset-top)) var(--gutter) 40px}
-#menu h2{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.5);margin:22px 0 8px}
-#menu .row{display:flex;flex-wrap:wrap;gap:8px}
-#menu .foot{margin-top:28px;color:var(--ink-2);font-size:15px;line-height:1.6}#menu .foot a{color:#fff;font-weight:600;text-decoration:none}
-#panel .kicker{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.05em;text-transform:uppercase;color:var(--red);margin-top:6px}
-#panel h2{font-size:clamp(40px,5vw,64px);margin-bottom:12px;padding-right:56px}
-#panel .lede{color:rgba(255,255,255,.8);max-width:60ch;margin-bottom:22px}
-#panel h3{font-size:24px;margin:22px 0 8px}
-#panel ul.rules li{position:relative;padding:8px 0 8px 20px;border-top:1px solid rgba(255,255,255,.1);max-width:62ch}
-#panel ul.rules li::before{content:"";position:absolute;left:0;top:1.05em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
-#panel details{border-top:1px solid rgba(255,255,255,.12)}
-#panel summary{cursor:pointer;padding:14px 0;font-weight:600;font-size:17px}
-#panel details p{padding:0 0 16px;max-width:60ch;color:rgba(255,255,255,.8)}
-#panel .plist a,#panel .plist button{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;width:100%;text-align:left;padding:12px 0;border-top:1px solid rgba(255,255,255,.12);text-decoration:none}
-#panel .plist strong{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase}
-#panel .plist span{grid-column:1;color:var(--ink-2);font-size:15px}
-#panel .plist i{grid-row:1/3;font-style:normal;font-family:var(--display);font-weight:700;text-transform:uppercase;color:var(--red)}
-#panel .note{font-size:14px;color:rgba(255,255,255,.55);margin-top:24px}
-form{display:grid;gap:14px}.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-label{display:grid;gap:6px;font-weight:600;font-size:14px}
-input,select,textarea{font:inherit;color:#fff;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.3);border-radius:8px;padding:11px 13px;min-height:46px;width:100%}
-select option{color:#000}textarea{min-height:120px;resize:vertical}
-#form-note{color:var(--ink-2);font-size:14px}
-@media (max-width:560px){.f2{grid-template-columns:1fr}}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.photo img.pano{animation:none}}
+/* sponsors */
+.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:24px 0}
+.slots div{aspect-ratio:5/3;display:grid;place-items:center;border:1.5px dashed rgba(255,255,255,.3);border-radius:12px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+@media (max-width:700px){.slots{grid-template-columns:1fr 1fr}}
+.two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px 48px;align-items:start}
+.two ul{display:grid;gap:8px}
+.two li{padding-left:18px;position:relative;color:rgba(255,255,255,.88)}
+.two li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
+@media (max-width:800px){.two{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
+<body data-page="home">
+<div class="bans">
+  <a class="ban ban-red" href="#rules"><b>Facility rules</b><span>apply to every event and every guest. We are a commercial facility, not a rec center, and we follow health code. No outside food or drink in the building.</span><u>Read the rules</u></a>
+  <a class="ban ban-white" href="https://www.boomtownathletics.com/drop-in.html" rel="noopener"><b>Drop-in volleyball</b><span>Thursday through Monday, 7 PM to 11 PM</span><u>Details</u></a>
+</div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="logo" viewBox="0 0 587 297"><path fill="#FF0000" d="M62.2,144.1c-6.7-10.1-13.3-20.2-20-30.3c-0.8-1.3-1.7-2.5-2.4-3.8c-7.7-14.6-8.2-24.3,4-37.1 c8.1-8.5,17.3-15.1,27.5-20.6c24.3-13.1,50-22.8,76.4-30.9c2.3-0.7,4.5-1.5,7.7-2.6c-6.2-1.9-12.6,1.4-17.5-4.2 c4.8-3.3,10-3.2,14.8-3.9C164.2,9,175.6,7.7,187,6.2c0.5-0.1,0.8-0.8,1.2-1.2c4.3,0,8.5,0,12.8,0c0.6,1.3,1.2,2.6,2.2,4.6 c-9.7,8.1-19.4,16.3-29.2,24.4c-3.7,3.1-7.7,5.9-11.5,9c-3.1,2.6-6.5,2.8-11.4,1.9c1.4-3.7,2.6-6.8,4.4-11.3 c-4.5,1.7-8.1,2.9-11.6,4.3C126,45.3,108,52.5,90.3,60.5c-11.6,5.2-22.6,11.9-31.9,20.8c-3.4,3.3-6.3,7.2-9.1,10.5 c4.3,13,12.1,22.8,18.4,33.5c2.7,4.7,5.2,9.5,7.8,14.3c-2.1,1.3-4.3,2.6-7.4,4.5C66.9,144.1,64.6,144.1,62.2,144.1z"/> <path fill="var(--logo-ink,#fff)" d="M62.2,143c2.3,0,4.7,0,5.9,0c3.1-1.9,5.3-3.2,7.4-4.5c7.3-1.4,14.7-2.9,22-4c4.6-0.7,9.3-0.7,14.1-1c-0.6,4.6-3.4,4.9-6,5.8 c-6.8,2.3-13.6,4.8-20.3,7.4c-1.8,0.7-3.2,2.3-4.8,3.4c-2.6,0.1-5.3,0.3-7.5,0.4c-2,1.7-3.7,3.1-5.4,4.6 c-9.1,5.3-18.2,10.5-28.7,16.6c4.6,0.7,7.3,1.1,10.5,1.6C42.9,180.4,22.2,186.3,9,185c0-1.8,0-3.7,0-5.5 c7.2-8.7,14.4-17.4,21.7-26.1c2.1-2.5,4.3-5.1,8.8-4.1c0.5,2,0.9,4.2,1.6,6.9C48.2,151.8,55.2,147.4,62.2,143z"/> <path fill="#FF0000" d="M520.9,221c14.1-1.2,28.2-2.3,43-3.6c1.8,1,4.2,2.2,6.5,3.5c0.6,7.8,1.1,15.6,1.9,23.3c1,9.2,2.4,18.4,3.4,27.6 c0.3,2.3-0.2,4.6-0.3,6.9c-8.6,1.1-16.5,2-24.5,3c0,0.2,0,0.4,0,0.7c8.8,0,17.6,0,26.2,0c0.5-5.7,1-10.7,1.5-15.7 c0.3,5.7,0.5,11.3,0.8,17.8c-11.1,0-21.4,0.3-31.6-0.1c-19.8-0.7-39.2,2.9-58.7,4.9c-4.2,0.4-8.5,1-12.7,0.9c-2.5,0-5.1-1.2-8.3-2 c-2.4-19.8-4.8-39.1-7.3-59.2c3.4-0.5,6-0.9,8.5-1.3c3.9,0,8.2,1.1,11.6-0.2c8.7-3.4,17.6-2.7,26.5-3.4 C512.1,223.9,516.5,222.1,520.9,221z M539.7,277.3c3.1-0.2,5.6-0.4,8.8-0.6c-0.7-7.4-1.3-14.1-1.9-20.9c4.6-0.7,8.1-1.3,12.1-1.9 c1.2,7.3,2.3,14.3,3.5,21.9c3.3-1.2,5.7-2,8-2.8c-0.6-23.7-3.7-42.2-8.2-48.5c-8.4,0.2-17.2-1.1-26.9,3.9 C534.7,244.3,537.4,260.5,539.7,277.3z M511.6,242.2c7.2-1.2,13.6-2.3,20.2-3.4c-0.9-4.6-1.7-8.4-2.4-11.9 c-6.9,0.6-13.2,0.9-19.5,1.7c-6.5,0.8-9.1,4.2-8.3,10.4c0.4,3.6,1,7.2,1.2,10.8c0.3,4.5,1.9,8.2,6.3,10.8c4.7-0.5,9.6-1,15.2-1.6 c0,2.9,0,4.8,0,7.3c-6.5,0.9-12.7,1.7-19.2,2.6c0.6,4,1.2,7.8,1.9,12.5c9-1.2,17.5-2.4,25.9-3.5c3.9-11.1,1.2-20.3-2.5-29.8 c-6.4,0-12.1,0-18.2,0C512.1,246.3,511.9,244.9,511.6,242.2z M481.3,270.9c-1.7-13.1-3.3-25.1-4.9-37.5c-3,0.3-5.6,0.6-9.1,1 c3.2,16.8,2.2,33.5,7.7,50.3c8.5-0.8,16.2-1.6,24.2-2.4c1.3-2.7,2.4-5.1,3.1-6.7c-1.9-15.6-3.6-30.2-5.5-45.6 c-3.4,0.8-5.9,1.4-9.1,2.2c0.8,6.4,1.6,12.4,2.2,18.4c0.7,6.2,1.1,12.5,1.7,19.3C488.1,270.3,485.2,270.5,481.3,270.9z"/> <path fill="#FF0000" d="M67.6,156.1c1.7-1.4,3.4-2.9,5.4-4.6c2.2-0.1,4.9-0.2,7.5-0.4c6,10.2,7,18.8,3.4,34c4.4,1.2,8.9,2.4,13.9,3.8 c0.6,3.3,1.2,6.8,1.8,10.7c-2.6,2.4-5.3,4.9-8.3,7.6c2.1,1,4.1,1.9,7.2,3.3c0.5,2.2,1.2,5.3,1.9,8.5c-3.8,3.4-7.1,6.5-11,10 c4.2,2.1,8.4,4,8.8,9.9c-0.5,1.5-1.3,3.8-2.2,6.5c4.8,0.9,9.6,1.9,15.4,3c1.5,1.4,3.4,3.2,5.2,4.9c0,5,0,9.2,0,13.2 c-8.9,10.8-22.4,15.2-33.2,10.9c-4.6-1.9-8.7-4.3-9.2-10.1c-0.5-6.3,1.1-11.5,6.5-15c3-1.9,6.4-3.3,9.7-5c0.7-3.2,1.3-6.3,2.1-9.9 c-4.7-0.7-9.1-1.4-13.5-2.1c-0.4-4.9-0.4-4.9,9.9-17.7c-4.8-0.6-9.3-1.2-14.1-1.9c0-3.4,0-6.1,0-10.9c2.3-1.5,5.9-3.9,10.5-7.1 c-6.6-1.5-11-2.5-16-3.6c-0.8-2.4-1.8-5.2-2.1-6.2c2.5-7,4.3-12.3,6.2-17.8C71.6,165.4,69.6,160.8,67.6,156.1z M111.3,258.6 c-11.6-5.3-21.3-2.8-26.9,6.9c4.5,7.5,11.6,5.1,17.9,4.2C107.9,268.9,110.4,265.2,111.3,258.6z"/> <path fill="var(--logo-ink,#fff)" d="M284.4,208.8c-6.4-0.9-5.2-5.5-7.4-8c-10,9.6-21.8,11.5-34.4,6.7c-4-1.5-7.9-4.7-10.6-8.1c-5.8-7-5.1-16.7,1.3-23.2 c7.7-8,17.4-10.8,28.2-9.3c2.9,0.4,5.7,1.5,9,2.4c0-10.3-0.5-20.3,0.2-30.2c0.4-6.6,2.1-13.1,3.7-19.5c1.1-4.5,3.8-8.2,9.9-9.9 c1,2,2.4,4.1,3.2,6.4c0.5,1.6,0.2,3.6-0.1,5.4c-3.3,25.7-2.1,51.6-2.3,77.4C285,201.9,284.6,205.1,284.4,208.8z M275.9,196.3 c-0.4-11.6-9.5-19.6-22.4-19.5c-9.9,0-13.7,3.4-15.8,13.5C244.9,205.4,263.3,208.3,275.9,196.3z"/> <path fill="var(--logo-ink,#fff)" d="M343.7,211c0-3,0.2-6,0-8.9c-0.3-3.6-0.1-7.4-1.4-10.7c-5.2-12.8-15.9-14.9-26.8-5.7c-3.3,6.4-1.4,14.3-4.9,20.6 c-5.6,0-8.7-2.8-8.8-7.1c-0.3-19.4-7.9-38.2-5.6-57.8c0.8-6.6,1.9-13.2,3.5-19.6c1.3-5.3,2.1-5.5,8.4-8.5c4.2,1,4.8,4.3,4.6,7.8 c-0.3,4.8-1,9.7-1.3,14.5c-0.6,11.2-1,22.3-1.5,33.8c20.5-5.3,33.4-0.5,39.8,14.1c2.8,6.4,2.5,13.2,0.6,19.6 C349.4,206,349.3,210.7,343.7,211z"/> <path fill="var(--logo-ink,#fff)" d="M155.3,182.5c0,2.6,0,5,0,7.2c4.2,6.3,10.5,8.4,17.2,9.1c6,0.6,12.1,0.8,18.2,0.9c4.3,0.1,8.3,0.9,12.9,4.4 c-3.6,2.6-6.1,5.4-9.3,6.4c-13.9,4.8-27.7,3.9-40.5-3.2c-18.1-10.1-17.8-31.7,0.3-42.4c11.3-6.7,22.7-5.7,33.5,1.1 c5.3,3.3,8,8.2,5.8,14.8c-7.3,7.9-21.6,9.8-32.2,3.7c7.5-4.3,16.8-1.1,23.2-6.7C176.2,168.3,166,169.8,155.3,182.5z"/> <path fill="var(--logo-ink,#fff)" d="M530.5,178.4c6,7.1,14.1,8.6,22.3,9.4c4.5,0.4,9.1,0.2,13.7,0.1c4,0,7.8,0.2,11,3.3c-1.5,4.5-5.6,5.4-9.1,6.7 c-13.6,5-27,3.6-39.6-3.2c-16.4-8.9-17.8-26.7-3.3-39.1c12.7-10.9,31-9.9,43,3.7c0,2.8,0,6.4,0,9.6c-7.9,7-23.4,8.8-32.7,3.1 c8.6-1.8,16-3.3,23.7-4.9c-4.3-7-10.9-8.7-19-5.8C532.2,164.1,529.4,168.7,530.5,178.4z"/> <path fill="var(--logo-ink,#fff)" d="M215.9,102.8c1.8,2.6,4.1,4.9,5.2,7.7c1.5,3.9,2.7,8.1,3,12.3c1.2,16.7,2.1,33.4-0.4,50c-1.9,12.3-3.9,24.5-6,36.7 c-0.4,2.1-1.5,4.1-2.3,6.2c-4.5-1.8-3.6-5-3.6-7.5c-0.8-27.9-1.5-55.9-2.1-83.8c-0.1-4.8-0.1-9.7,0.4-14.4c0.3-2.4,1.9-4.7,3-7 C214,103,214.9,102.9,215.9,102.8z"/> <path fill="var(--logo-ink,#fff)" d="M158.9,107.1c0,12.5-11.5,16.7-18.2,25.2c3.2,2.2,6.5,4.5,10.5,7.2c0.2,2.3,0.3,4.9,0.5,7.5c-8.9,6.1-15.1-1.3-22-3.5 c-7.7,2.5-9.6,13.1-19.6,13.2c-1.8-8.9,6.4-13.3,8.4-20.1c-3-4.8-11.3-5.4-10.6-13.5c6.5-3,11.6,1.5,18,3.4c3.1-3,6.5-6.3,10-9.6 c3.1-2.9,6.2-5.8,9.5-8.5C149.3,105.1,153.6,103.5,158.9,107.1z"/> <path fill="var(--logo-ink,#fff)" d="M494.9,187.5c-4-2.9-7.8-5.8-11.8-8.5c-12.6-8.5-13.7-20-2.5-30.1c3.6-3.2,7.9-5.6,12-8.1c0.8-0.5,2.2-0.1,3.5-0.1 c-0.5,9.6-12.4,12.4-11.5,22.8c2.8,1.7,5.7,3.7,8.8,5.5c2.9,1.7,5.8,3.3,8.7,4.9c10.4,5.9,10.7,18.1,4.7,25.1 c-4.6,5.4-10.9,9.5-16.9,13.4c-2.1,1.4-5.6,0.6-8.7,0.7C478.9,200.8,492.3,198.1,494.9,187.5z"/> <path fill="var(--logo-ink,#fff)" d="M421.9,156.4c0,4.1,0.2,7.1,0,10.1c-1.3,14.9,4,22.7,18.5,26.6c12.4-3.5,16-8.1,16.5-21.4c0.1-3.3,0.2-6.7,0.4-10 c0.1-0.8,0.6-1.6,1.1-2.9c4.5,0.8,6.4,4,8,7.7c4.2,9.7,0.2,26.4-7.8,32.5c-10,7.5-24.3,7.3-33.9-0.3c-8.9-7.2-12.6-20.1-8.9-32.2 C416.8,163.1,417.1,159.2,421.9,156.4z"/> <path fill="#FF0000" d="M366,184.2c1.5,8.8,7.8,11.7,15.5,12.6c11.9,1.4,20.6-2.5,27.2-12.2c1.1,6.9-0.7,11.1-6.8,14.6 c-13.7,7.8-27.1,7.3-40-1.3c-8.2-13.4-7.3-22.6,3.5-29.3c4.5-2.8,9.8-5.2,15-6c11.5-1.7,22.4,0.1,30.7,10.1c0,2.8,0,5.8,0,10.2 c-2.6-1.9-4.7-3.2-6.6-4.9c-9.1-8-19.3-7.6-29.8-3.7C370.4,176.1,368.8,178.4,366,184.2z"/> <path fill="var(--logo-ink,#fff)" d="M129.5,158c1.4,3.1,3.5,5.9,3.9,8.9c1.9,16.6-1.6,32.5-7.8,47.8c-0.2,0.5-0.7,1-1.2,1.4c-0.5,0.3-1,0.5-2.3,1 c-0.5-1.6-1.3-3.2-1.3-4.7c0.5-15.1,1.1-30.3,1.7-45.4C122.6,163.3,123.4,159.8,129.5,158z"/> <path fill="var(--logo-ink,#fff)" d="M578.7,266.8c-0.5,5-1,10-1.5,15.7c-8.5,0-17.4,0-26.2,0c0-0.2,0-0.4,0-0.7c8-1,15.9-2,24.5-3c0.1-2.3,0.5-4.7,0.3-6.9 c-1-9.2-2.4-18.4-3.4-27.6c-0.8-7.8-1.3-15.6-1.9-23.3c2.4,1,4.8,1.9,7.3,2.9C579.7,238.6,579.4,252.7,578.7,266.8z"/> <path fill="var(--logo-ink,#fff)" d="M520.9,221c-4.4,1.1-8.8,2.9-13.3,3.3c-8.9,0.6-17.8,0-26.5,3.4c-3.4,1.3-7.7,0.2-11.6,0.2c0.1-2.1,0.3-4.2,0.5-6.9 C487,221,504,221,520.9,221z"/> <path fill="var(--logo-ink,#fff)" d="M539.7,277.3c-2.3-16.8-4.9-33-4.6-49c9.6-5,18.5-3.7,26.9-3.9c4.5,6.3,7.6,24.8,8.2,48.5 c-2.2,0.8-4.7,1.7-8,2.8c-1.2-7.6-2.3-14.6-3.5-21.9c-4,0.6-7.5,1.2-12.1,1.9c0.6,6.7,1.2,13.5,1.9,20.9 C545.3,276.9,542.7,277.1,539.7,277.3z M545.1,243.3c4.8-0.4,8.5-0.7,12.6-1c-0.3-2.3-0.5-3.7-0.8-5.7c-4.2,0.3-7.9,0.5-11.8,0.8 C545.1,239.5,545.1,240.9,545.1,243.3z"/> <path fill="var(--logo-ink,#fff)" d="M511.6,242.2c0.3,2.7,0.5,4.1,0.7,6c6.1,0,11.8,0,18.2,0c3.7,9.5,6.5,18.7,2.5,29.8c-8.5,1.1-17,2.3-25.9,3.5 c-0.7-4.7-1.3-8.5-1.9-12.5c6.5-0.9,12.7-1.7,19.2-2.6c0-2.5,0-4.4,0-7.3c-5.6,0.6-10.5,1.1-15.2,1.6c-4.4-2.7-6-6.3-6.3-10.8 c-0.3-3.6-0.8-7.2-1.2-10.8c-0.7-6.2,1.8-9.6,8.3-10.4c6.3-0.8,12.6-1.1,19.5-1.7c0.7,3.5,1.5,7.3,2.4,11.9 C525.2,240,518.8,241,511.6,242.2z"/> <path fill="var(--logo-ink,#fff)" d="M481.3,270.9c3.9-0.4,6.8-0.7,10.4-1c-0.6-6.8-1.1-13-1.7-19.3c-0.6-6-1.4-11.9-2.2-18.4 c3.2-0.8,5.7-1.4,9.1-2.2c1.8,15.3,3.6,30,5.5,45.6c-0.7,1.6-1.9,4-3.1,6.7c-8,0.8-15.7,1.6-24.2,2.4c-5.5-16.8-4.5-33.5-7.7-50.3 c3.5-0.4,6.1-0.7,9.1-1C478,245.9,479.6,257.8,481.3,270.9z"/> <path fill="#FF0000" d="M545.1,243.3c0-2.4,0-3.8,0-5.9c3.9-0.3,7.6-0.5,11.8-0.8c0.3,2,0.5,3.4,0.8,5.7 C553.6,242.6,549.8,242.9,545.1,243.3z"/></symbol></defs></svg>
-
-<header class="top">
-  <a class="logo" href="#/" aria-label="FieldhouseUSA Aurora, start of the tour"><svg aria-hidden="true"><use href="#logo"/></svg></a>
-  <nav class="book" id="book" aria-label="Book"></nav>
-  <button class="menu-btn" id="menu-btn" aria-haspopup="dialog" aria-controls="menu">Menu</button>
-</header>
-
-<main class="tour">
-  <section class="mapcol" aria-labelledby="map-h">
-    <div class="maphead">
-      <div><h1 id="map-h">Tour the field house</h1><p>Tap any zone or room on the map, or pick a place below.</p></div>
-      <div class="viewtog" role="group" aria-label="Map view"><button type="button" data-view="3d" aria-pressed="true">3D</button><button type="button" data-view="flat" aria-pressed="false">Flat</button></div>
+<main id="main">
+<section id="hero" aria-label="FieldhouseUSA">
+  <svg class="court" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect x="120" y="80" width="1360" height="740"/>
+    <g class="sp sp1"><!-- volleyball -->
+      <rect x="250" y="175" width="1100" height="550"/><line x1="617" y1="175" x2="617" y2="725"/><line x1="983" y1="175" x2="983" y2="725"/>
+      <line x1="800" y1="150" x2="800" y2="750" style="stroke-width:6"/><circle class="fillred" cx="800" cy="150" r="9"/><circle class="fillred" cx="800" cy="750" r="9"/>
+      <line class="dash" x1="617" y1="130" x2="617" y2="175"/><line class="dash" x1="983" y1="130" x2="983" y2="175"/><line class="dash" x1="617" y1="725" x2="617" y2="770"/><line class="dash" x1="983" y1="725" x2="983" y2="770"/>
+    </g>
+    <g class="sp sp2"><!-- basketball -->
+      <line x1="800" y1="80" x2="800" y2="820"/><circle cx="800" cy="450" r="100"/>
+      <rect x="120" y="345" width="270" height="210"/><rect x="1210" y="345" width="270" height="210"/>
+      <path d="M390 355a95 95 0 0 1 0 190M1210 355a95 95 0 0 0 0 190"/>
+      <path d="M120 130h130a330 330 0 0 1 0 640h-130M1480 130h-130a330 330 0 0 0 0 640h130"/>
+      <circle class="fillred" cx="195" cy="450" r="12"/><circle class="fillred" cx="1405" cy="450" r="12"/><line x1="170" y1="405" x2="170" y2="495"/><line x1="1430" y1="405" x2="1430" y2="495"/>
+    </g>
+    <g class="sp sp3"><!-- futsal -->
+      <line x1="800" y1="80" x2="800" y2="820"/><circle cx="800" cy="450" r="110"/><circle class="fillred" cx="800" cy="450" r="8"/>
+      <path d="M120 250a200 200 0 0 1 200 200a200 200 0 0 1 -200 200M1480 250a200 200 0 0 0 -200 200a200 200 0 0 0 200 200"/>
+      <rect x="92" y="395" width="28" height="110"/><rect x="1480" y="395" width="28" height="110"/>
+      <circle class="fillred" cx="320" cy="450" r="6"/><circle class="fillred" cx="1280" cy="450" r="6"/>
+      <path d="M120 105a25 25 0 0 0 25 -25M1455 80a25 25 0 0 0 25 25M120 795a25 25 0 0 1 25 25M1455 820a25 25 0 0 1 25 -25"/>
+    </g>
+    <g class="sp sp4"><!-- training -->
+      <rect x="230" y="390" width="560" height="120"/><path d="M300 390v120M370 390v120M440 390v120M510 390v120M580 390v120M650 390v120M720 390v120"/>
+      <path class="dash" d="M900 200L1040 330L900 460L1040 590L900 720"/>
+      <path class="fillred" d="M900 182l18 34h-36zM1040 312l18 34h-36zM900 442l18 34h-36zM1040 572l18 34h-36zM900 702l18 34h-36z"/>
+      <line class="dash" x1="1180" y1="160" x2="1180" y2="740"/><line class="dash" x1="1280" y1="160" x2="1280" y2="740"/><line class="dash" x1="1380" y1="160" x2="1380" y2="740"/>
+      <line x1="1150" y1="160" x2="1410" y2="160"/><line x1="1150" y1="740" x2="1410" y2="740"/>
+    </g>
+    <g class="sp sp5"><!-- yoga and dance -->
+      <rect x="230" y="190" width="150" height="330" rx="14"/><rect x="430" y="190" width="150" height="330" rx="14"/><rect x="630" y="190" width="150" height="330" rx="14"/>
+      <rect x="230" y="560" width="150" height="150" rx="14"/><rect x="430" y="560" width="150" height="150" rx="14"/><rect x="630" y="560" width="150" height="150" rx="14"/>
+      <path d="M900 640C980 420 1080 720 1160 470S1320 300 1380 220" style="stroke:var(--red);stroke-width:4"/>
+      <circle cx="900" cy="640" r="14"/><circle cx="1160" cy="470" r="14"/><circle class="fillred" cx="1380" cy="220" r="14"/>
+      <line x1="880" y1="760" x2="1400" y2="760"/><line class="dash" x1="880" y1="790" x2="1400" y2="790"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero-logo"><svg role="img" aria-label="FieldhouseUSA"><use href="#logo"/></svg></div>
+    <h1>Denver's indoor sports and event venue.</h1>
+    <p class="now" aria-label="Volleyball, basketball, futsal, training, yoga and dance"><span aria-hidden="true">On the floor</span>
+      <span class="words" aria-hidden="true"><span class="sp sp1">Volleyball</span><span class="sp sp2">Basketball</span><span class="sp sp3">Futsal</span><span class="sp sp4">Training</span><span class="sp sp5">Yoga and dance</span></span></p>
+    <p class="lede">15 volleyball courts, basketball, pickleball and futsal, two studios, a bar and kitchen and a mezzanine under one roof in Aurora, on the east side of the Denver metro.</p>
+    <div class="acts">
+      <a class="btn btn-red" href="#events">Plan an event</a>
+      <a class="btn btn-white" href="activities.html">Find an activity</a>
+      <a class="btn btn-line" href="tour.html">Tour the fieldhouse</a>
     </div>
-    <div class="planbox is3d" id="planbox"></div>
-    <div class="places" id="places"></div>
-  </section>
+  </div>
+</section>
 
-  <article class="card" id="card" aria-live="polite" tabindex="-1">
-    <div class="photo"><img id="photo" class="pano" src="assets/fieldhouse-panorama.webp" alt="Inside the field house: the courts from the main entrance" fetchpriority="high"></div>
-    <div class="body" id="cardbody"><p class="kicker">Loading</p></div>
-  </article>
+<section class="sec" id="events" aria-labelledby="offer-h">
+  <div class="wrap">
+    <h2 id="offer-h" class="sr">What you can do here</h2>
+    <div class="offers">
+      <article class="offer">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l5.2 11.4L41 18l-8.8 8.2L34.6 39 24 32.6 13.4 39l2.4-12.8L7 18l11.8-1.6z"/><path d="M24 39v5M14 44h20"/></svg>
+        <h3>Special events</h3>
+        <p>Birthdays, corporate days, galas and fundraisers. Event-Den books the space. Food and the bar come from Oda Up.</p>
+        <ul><li>Corporate off-sites with the courts on the agenda</li><li>Holiday parties and galas with a licensed bar</li><li>Fundraisers and community events, up to the whole building</li></ul>
+        <div class="acts"><a class="btn btn-red" href="https://event-den.com/" rel="noopener">Plan it with Event-Den</a><button class="btn btn-line" data-ask="event">Ask us</button></div>
+      </article>
+      <article class="offer" id="tournaments">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M15 7h18v11a9 9 0 0 1-18 0z"/><path d="M15 10H8v3a7 7 0 0 0 7 7M33 10h7v3a7 7 0 0 1-7 7M24 27v8M16 41h16M19 35h10v6H19z"/></svg>
+        <h3>Tournaments</h3>
+        <p>Directors book a pod of courts or the whole building. Dates book 6 to 8 months ahead.</p>
+        <ul><li>Volleyball, basketball, pickleball and futsal</li><li>A 30% deposit holds your dates</li><li>Paid in full at least 30 days before the event</li></ul>
+        <div class="acts"><a class="btn btn-red" href="tournaments.html">Tournament details</a><button class="btn btn-line" data-ask="tournament">Ask about dates</button></div>
+      </article>
+      <article class="offer" id="activities">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M24 6c2 7 8 13 17 13M6.6 20c7-2 15 1 19 9M13 38c1-8 7-14 16-14M24 42c-3-5-3-10 0-15"/></svg>
+        <h3>Find an activity</h3>
+        <p>Leagues, clubs, classes and training, run by the operators based in the building.</p>
+        <ul><li>Volleyball leagues, drop-in and junior club</li><li>Basketball training and club teams</li><li>Futsal, dance and yoga</li></ul>
+        <div class="acts"><a class="btn btn-red" href="activities.html">See the operators</a></div>
+      </article>
+    </div>
+    <ul class="facts" aria-label="The building in numbers">
+      <li><b>15</b>volleyball courts in seven zones</li><li><b>4</b>basketball courts</li><li><b>12</b>pickleball courts</li><li><b>1</b>futsal arena</li>
+      <li><b>2</b>studios for dance and yoga</li><li>Bar and kitchen on site</li><li>Mezzanine over the courts</li><li>Free on-site parking</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="inside" aria-labelledby="inside-h">
+  <div class="wrap">
+    <p class="eyebrow">Ten stops</p>
+    <h2 id="inside-h">See the building</h2>
+    <p class="lede">Pick a stop to see photos, what happens there and who runs it. The tour has the map in flat and 3D.</p>
+    <div class="see">
+      <div id="homeplan"></div>
+      <ol class="stops">
+        <li><a href="tour.html#/s/entrance">Main entrance and front desk</a></li>
+        <li><a href="tour.html#/s/shoot360">Shoot 360</a></li>
+        <li><a href="tour.html#/s/hall13">Hallway between Courts 1 and 3</a></li>
+        <li><a href="tour.html#/s/socialden">Social Den</a></li>
+        <li><a href="tour.html#/s/odaup">Bar and kitchen</a></li>
+        <li><a href="tour.html#/s/studio2">Studio 2</a></li>
+        <li><a href="tour.html#/s/studio1">Studio 1</a></li>
+        <li><a href="tour.html#/s/mezz">Mezzanine</a></li>
+        <li><a href="tour.html#/s/court6">Court 6</a></li>
+        <li><a href="tour.html#/s/court7">Court 7</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rules" aria-labelledby="rules-h">
+  <div class="wrap">
+    <p class="eyebrow">For every event and every guest</p>
+    <h2 id="rules-h">Facility rules</h2>
+    <div class="intro">
+      <p>FieldhouseUSA is a <strong>private, commercial facility, not a recreation center</strong>. We follow health code and our own policies. By entering you accept these rules and the waiver terms. That covers players and spectators. You enter at your own risk.</p>
+      <p><strong>No outside food or drink. Everyone is subject to a bag search. Fines start at the first offense.</strong></p>
+      <div class="acts"><a class="btn btn-red" href="https://forms.gle/4vAwn3prUqkBDKqVA" rel="noopener">Sign the waiver</a></div>
+    </div>
+    <div class="rules">
+      <details open><summary>Before you enter</summary><ul>
+        <li>We may refuse entry or ask anyone to leave for any reason.</li>
+        <li><strong>Everyone who enters is subject to a bag search.</strong></li>
+        <li>Photos and video taken in the facility belong to the facility and may be used in marketing. Security cameras and staff monitor the building.</li>
+        <li>For tournaments and events run by outside organizers, FieldhouseUSA provides the venue only. We are not responsible for how the event is organized, or for injuries, damages or losses during it. Contact your organizer with event questions.</li>
+      </ul></details>
+      <details><summary>Bags and weapons</summary><ul>
+        <li><strong>No weapons or firearms of any kind.</strong></li>
+        <li>Only player backpacks are allowed inside. Purses and camera bags are permitted but must be open for a check.</li>
+        <li>All bags are subject to search at the door and inside the building.</li>
+      </ul></details>
+      <details><summary>Food and drink</summary><ul>
+        <li><strong>No outside commercial food or drink, including coffee.</strong> No coolers of food.</li>
+        <li>No gum. No sports drinks, coffee or tea in playing areas. They cause slips and delays.</li>
+        <li>Only sealed, clear water is allowed on the courts. No Stanley cups or uncapped cups.</li>
+        <li>No eating or snacks on the courts. A bar and kitchen is on site. All alcohol stays in the bar seating area.</li>
+        <li>If you bring outside food, eat it inside your vehicle.</li>
+      </ul></details>
+      <details><summary>Courts and equipment</summary><ul>
+        <li>Don't climb nets, fences or sprinklers, stand on tables or bar tops, or enter non-play areas. Offenders pay for damages.</li>
+        <li>No personal chairs, camping chairs, coolers or self-carried team tables on the courts. Don't move court chairs.</li>
+        <li>Floor mats and seats are fine if they don't scratch the floor. Movable spectator chairs are first come, first served. Please return them.</li>
+        <li>No ball handling or play, including dribbling and throwing, outside authorized event areas.</li>
+        <li>Keep team belongings in your team area and out of the play space, so the court stays clear for serving and defense.</li>
+        <li>Clean spills immediately. The responsible team stops play to clean up. Each team must clean its area after playing or be fined, even if the trash isn't yours.</li>
+      </ul></details>
+      <details><summary>Kids and restricted areas</summary><ul>
+        <li><strong>Children must be supervised at all times</strong> or will be asked to leave.</li>
+        <li>Stay out of areas you are not booked in: the studios, the lounge, the therapy room, training bays and anything closed or under construction.</li>
+      </ul></details>
+      <details><summary>Animals and service animals</summary><ul>
+        <li><strong>No animals, except service animals as defined by law.</strong></li>
+        <li>Bringing a service animal? Tell us before you arrive. We need time to arrange a reasonable accommodation for you and your animal.</li>
+        <li><strong>Animals are not allowed on playing surfaces or in activity areas.</strong> That is for the safety of the animal and the players.</li>
+      </ul></details>
+      <details><summary>First aid and power</summary><ul>
+        <li>There is no athletic trainer and no ice on site. Bring your own. First-aid kits and bandages can be purchased for a fee.</li>
+        <li>No appliances may be plugged in. Phone charging is allowed around the bar areas only.</li>
+      </ul></details>
+      <details><summary>Parking and out front</summary><ul>
+        <li>Parking is free and plentiful, but we are not responsible for your vehicle. Lock it and keep valuables out of sight.</li>
+        <li>No tables, camping or tailgating in front of the building. Aurora has a camping ban and other businesses operate here. Unattended items are removed.</li>
+        <li>No littering in the lot.</li>
+      </ul></details>
+      <details><summary>Lost and found</summary><ul>
+        <li><strong>There is no lost and found.</strong> Unclaimed items are disposed of nightly for sanitation. Lost electronics and valuables are not our responsibility. Please don't call or email about lost items.</li>
+      </ul></details>
+      <details><summary>USAV RMR events</summary><ul>
+        <li>Every RMR team coach signs the facility agreement and is responsible for their players and families following these rules.</li>
+        <li>RMR players only may bring a brown-bag lunch carried in a player backpack. If it doesn't fit in the backpack, it isn't allowed. Spectators may not bring bags, except purses and camera bags, or food.</li>
+        <li>Doors open at 7:00 AM. Team areas, tables and chairs are first come, first served. The coaches' meeting is at 7:30 AM at the admin desk.</li>
+        <li>Warm-up balls and carts are not provided. RMR provides one game ball per court. Guest Wi-Fi is available.</li>
+        <li>A limited number of court-approved folding chairs are provided free. Return them to the rack at the end. If chairs aren't returned, the privilege ends and chairs become paid rentals.</li>
+        <li>Coaches and directors must check out with the site director before leaving, or final scores won't be entered. That is an automatic forfeit.</li>
+      </ul></details>
+      <details><summary>Spectators and fines</summary><ul>
+        <li>Violations are monitored on camera.</li>
+        <li>Spectators who refuse to comply will be asked to leave or escorted out by Aurora police. Spectators must supervise their own children.</li>
+        <li><strong>These rules are the only warning. Fines start at the first offense.</strong></li>
+      </ul>
+      <div class="fines"><div><b>$25</b>1st offense, charged to the offending team or club</div><div><b>$50</b>2nd offense</div><div><b>Forfeit</b>3rd offense: the team forfeits its remaining matches and is not welcomed back</div></div></details>
+    </div>
+
+    <h3 id="faq" style="font-size:clamp(30px,4vw,48px);margin-top:44px">Questions</h3>
+    <div class="faq">
+      <details><summary>Is FieldhouseUSA a city rec center?</summary><p>No. It is a private, commercial sports and event facility. Pricing and rules are not the same as a school or rec center.</p></details>
+      <details><summary>Can I bring outside food or drink?</summary><p>No. Outside food and drink, including coffee, are not allowed in the building. Oda Up serves food and drinks inside. Event catering goes through Event-Den.</p></details>
+      <details><summary>When is drop-in volleyball?</summary><p>Thursday through Monday, 7 PM to 11 PM. Boomtown Athletics runs it. <a href="https://www.boomtownathletics.com/drop-in.html" rel="noopener">See the drop-in page</a>.</p></details>
+      <details><summary>How far ahead do tournaments book?</summary><p>Six to eight months. A 30% deposit holds the dates and the balance is due at least 30 days before the event. <a href="tournaments.html">Tournament details</a>.</p></details>
+      <details><summary>What are your hours?</summary><p>Hours follow the day's programs and events. Check your program's schedule or your event confirmation before you come.</p></details>
+      <details><summary>Is there parking?</summary><p>Yes, free and on site. It is an active lot, so lock your car and keep valuables out of sight.</p></details>
+      <details><summary>Are service animals allowed?</summary><p>Yes. Tell us before you arrive so we have time to arrange a reasonable accommodation. Animals are not allowed on playing surfaces.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sponsors" aria-labelledby="sp-h">
+  <div class="wrap">
+    <p class="eyebrow">Sponsors and partners</p>
+    <div class="two">
+      <div><h2 id="sp-h" class="sec-h">Put your name on the floor</h2></div>
+      <div>
+        <p class="lede" style="margin-top:0">Teams, families and event guests come through this building every week. Sponsors get in front of them on the courts, on the walls and at events.</p>
+        <ul style="margin:18px 0 22px"><li>Court and zone naming</li><li>Banners and wall signage</li><li>Presenting sponsor for tournaments and events</li><li>Placement on this site and in facility emails</li></ul>
+        <div class="acts"><button class="btn btn-red" data-ask="sponsor">Become a sponsor</button><a class="btn btn-line" href="activities.html#partners">Meet our partners</a></div>
+      </div>
+    </div>
+    <div class="slots" aria-label="Sponsor spaces available"><div>Your logo here</div><div>Your logo here</div><div>Your logo here</div><div>Your logo here</div></div>
+  </div>
+</section>
 </main>
 
-<dialog id="menu" aria-label="Menu">
-  <div class="inner">
-    <button class="x" aria-label="Close menu">×</button>
-    <h2>Book</h2><div class="row" id="menu-book"></div>
-    <h2>Know before you go</h2><div class="row">
-      <button class="btn btn-glass" data-open="rules">Rules</button>
-      <button class="btn btn-glass" data-open="faq">Questions</button>
-      <button class="btn btn-glass" data-open="partners">Who runs what</button>
-      <button class="btn btn-glass" data-open="contact">Ask the front desk</button>
-      <a class="btn btn-glass" id="m-waiver" href="#" rel="noopener">Waiver</a>
-      <a class="btn btn-glass" href="site.html">Full site</a>
-    </div>
-    <div class="foot" id="menu-foot"></div>
-  </div>
-</dialog>
-
-<dialog id="panel" aria-label="Information">
-  <div class="inner"><button class="x" aria-label="Close">×</button><div id="panel-body"></div></div>
-</dialog>
-
+<script src="assets/site.js"></script>
 <script src="assets/plan.js"></script>
 <script>
-(async function(){
-const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const narrow=()=>matchMedia('(max-width: 900px)').matches;
-const cardbody=$('#cardbody'),photo=$('#photo'),card=$('#card');
-
-let D;
-try{const r=await fetch('data/zones.json');if(!r.ok)throw 0;D=await r.json();}
-catch(e){cardbody.innerHTML='<p class="blurb">The building data did not load. Refresh, or call 720-773-4776.</p>';return;}
-
-const area=id=>D.areas.find(a=>a.id===id);
-const partner=id=>D.partners.find(p=>p.id===id);
-const inquiry=id=>D.inquiries.find(i=>i.id===id)||D.inquiries[D.inquiries.length-1];
-const isUrl=u=>/^https?:/.test(u||'');
-/* one tour order: courts by zone number, then the rooms. Same order as the place list, so Next always means the next chip. */
-const courts=D.areas.filter(a=>a.zone).sort((a,b)=>a.zone-b.zone), rooms=D.areas.filter(a=>!a.zone);
-const ORDER=[...courts,...rooms].map(a=>a.id);
-
-/* ---------- map + place list ---------- */
-const planbox=$('#planbox');
-planbox.innerHTML=FHPLAN.svg({areas:D.areas,you:false});
-if(narrow())setView('flat');
-function setView(v){planbox.classList.toggle('is3d',v==='3d');$$('.viewtog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));}
-$$('.viewtog button').forEach(b=>b.onclick=()=>setView(b.dataset.view));
-const chip=a=>`<button class="chip" data-go="${esc(a.id)}">${esc(a.name)}</button>`;
-$('#places').innerHTML=`<h2>COURTS</h2><div class="chips">${courts.map(chip).join('')}</div><h2>ROOMS</h2><div class="chips">${rooms.map(chip).join('')}</div>`;
-
-/* ---------- the card ---------- */
-let token=0;
-function setPhoto(src,pano){
-  const t=++token;photo.classList.add('loading');
-  const im=new Image();im.src=src;
-  const show=()=>{if(t!==token)return;photo.src=src;photo.classList.toggle('pano',!!pano);photo.classList.remove('loading');};
-  (im.decode?im.decode():Promise.resolve()).then(show,show);
-}
-function ctaFor(p,a){
-  if(p&&isUrl(p.url))return `<a class="btn btn-red" href="${esc(p.url)}" rel="noopener">${esc(p.name)}</a>`;
-  return `<button class="btn btn-red" data-open="contact" data-inquiry="${esc(a.inquiry)}">Ask the front desk</button>`;
-}
-function stepBtns(i){
-  const p=ORDER[i-1],n=ORDER[i+1];
-  return `<div class="step"><button data-go="${p||''}" ${p?'':'hidden'} aria-label="${p?'Previous: '+esc(area(p).name):''}"><small>← PREVIOUS</small>${p?esc(area(p).name):''}</button><button data-go="${n||''}" ${n?'':'hidden'} aria-label="${n?'Next: '+esc(area(n).name):''}"><small>NEXT →</small>${n?esc(area(n).name):''}</button></div>`;
-}
-function showWelcome(){
-  setPhoto(D.lobby.img,D.lobby.pano);
-  photo.alt='Inside the field house: the courts from the main entrance';
-  cardbody.innerHTML=`<p class="kicker">${esc(D.exterior.kicker)}</p><h2>${esc(D.exterior.title)}</h2><p class="blurb">${esc(D.exterior.lede)}</p>
-    <div class="acts"><button class="btn btn-red" data-go="${ORDER[0]}">Start the tour →</button><a class="btn btn-glass" href="site.html">Full site</a></div>`;
-}
-function showArea(a){
-  const p=partner(a.partner),i=ORDER.indexOf(a.id);
-  setPhoto(a.img,false);photo.alt=a.name;
-  const sec=a.secondary?(a.secondary.url?`<a class="btn btn-glass" href="${esc(a.secondary.url)}" rel="noopener">${esc(a.secondary.label)}</a>`:`<button class="btn btn-glass" data-open="contact" data-inquiry="${esc(a.secondary.inquiry||a.inquiry)}">${esc(a.secondary.label)}</button>`):'';
-  const ask=p&&isUrl(p.url)?`<button class="btn btn-glass" data-open="contact" data-inquiry="${esc(a.inquiry)}">Ask the front desk</button>`:'';
-  cardbody.innerHTML=`<p class="kicker">${esc(a.tag)} · ${i+1} of ${ORDER.length}</p><h2>${esc(a.name)}</h2>${a.courts?`<p class="courts">${esc(a.courts)}</p>`:''}
-    <p class="blurb">${esc(a.blurb)}</p>${a.where?`<p class="where">${esc(a.where)}</p>`:''}
-    <h3>WHAT'S HERE</h3><ul class="what">${a.what.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
-    ${p&&p.id!=='fhusa'?`<h3>WHO RUNS IT</h3><p class="blurb">${esc(p.name)}: ${esc(p.does.charAt(0).toLowerCase()+p.does.slice(1))}.</p>`:''}
-    <div class="acts">${ctaFor(p,a)}${sec}${ask}</div>${stepBtns(i)}`;
-  /* warm the neighbours so Next is instant */
-  [ORDER[i-1],ORDER[i+1]].forEach(id=>{if(id){const im=new Image();im.src=area(id).img;}});
-}
-let cur=null;
-function select(id,{push=true,scroll=false}={}){
-  const a=id&&area(id);cur=a?a.id:null;
-  a?showArea(a):showWelcome();
-  $$('.plan g[data-area]').forEach(g=>g.classList.toggle('on',!!cur&&g.dataset.area===cur));
-  $$('.chip').forEach(c=>c.setAttribute('aria-current',c.dataset.go===cur));
-  const h=cur?`#/a/${cur}`:'#/';
-  if(push&&location.hash!==h)history.pushState(null,'',h);
-  if(scroll&&narrow())card.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
-}
-
-/* ---------- menu + info panel ---------- */
-const menu=$('#menu'),panel=$('#panel'),pbody=$('#panel-body');
-$('#menu-btn').onclick=()=>menu.showModal();
-$$('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d)d.close();});$('.x',d).onclick=()=>d.close();});
-const bookHTML=D.desk.filter(d=>d.action!=='rules').map(d=>d.url?`<a class="btn ${d.inquiry==='event'?'btn-red':'btn-glass'}" href="${esc(d.url)}" rel="noopener">${esc(d.label)}</a>`:`<button class="btn btn-glass" data-open="${esc(d.action)}" data-inquiry="${esc(d.inquiry||'')}">${esc(d.label)}</button>`).join('');
-$('#book').innerHTML=bookHTML;$('#menu-book').innerHTML=bookHTML;
-$('#m-waiver').href=D.site.waiver;
-$('#menu-foot').innerHTML=`${esc(D.site.address)}<br>${esc(D.site.city)}<br><a href="${esc(D.site.phoneHref)}">${esc(D.site.phone)}</a> · <a href="mailto:${esc(D.site.email)}">${esc(D.site.email)}</a>`;
-
-function openPanel(kind,inq){
-  if(kind==='rules'){const R=D.rules;pbody.innerHTML=`<p class="kicker">Facility rules</p><h2>Before you play</h2><p class="lede">${esc(R.intro)}</p>
-    ${R.sections.map(s=>`<h3>${esc(s.title)}</h3><ul class="rules">${s.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>`).join('')}
-    <p class="note">Pulled ${esc(R.pulled)} from <a href="${esc(D.site.rulesSource)}" rel="noopener">boomtownathletics.com</a>. Sign the <a href="${esc(D.site.waiver)}" rel="noopener">liability waiver</a> before you play.</p>`;}
-  else if(kind==='faq'){pbody.innerHTML=`<p class="kicker">Questions</p><h2>Before you come</h2>${D.faq.map(f=>`<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}`;}
-  else if(kind==='partners'){pbody.innerHTML=`<p class="kicker">Partners</p><h2>Who runs what</h2><p class="lede">The building is shared by independent operators. Each place on the tour sends you to the right one.</p><div class="plist">${D.partners.filter(p=>p.id!=='fhusa').map(p=>isUrl(p.url)?`<a href="${esc(p.url)}" rel="noopener"><strong>${esc(p.name)}</strong><i>Visit</i><span>${esc(p.does)}</span></a>`:`<button data-open="contact" data-inquiry="${esc(p.inquiry)}"><strong>${esc(p.name)}</strong><i>Ask</i><span>${esc(p.does)}</span></button>`).join('')}</div>`;}
-  else if(kind==='contact'){pbody.innerHTML=`<p class="kicker">Front desk</p><h2>Ask us</h2><p class="lede">Tell us what you want to do and it goes to the right person. Or call <a href="${esc(D.site.phoneHref)}">${esc(D.site.phone)}</a>.</p>
-    <form id="inq" novalidate><label>I want to<select name="type" id="inq-type" required>${D.inquiries.map(i=>`<option value="${esc(i.id)}">${esc(i.label)}</option>`).join('')}</select></label>
-    <div class="f2"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
-    <div class="f2"><label>Phone<input name="phone" type="tel" autocomplete="tel"></label><label>Date, if you have one<input name="date" type="date"></label></div>
-    <label>Details<textarea name="details" placeholder="Headcount, hours, sport, anything that helps us answer fast."></textarea></label>
-    <div><button class="btn btn-red" type="submit">Send the request</button></div><p id="form-note">Sending opens your email app with the message filled in and addressed to the right team.</p></form>`;
-    if(inq&&D.inquiries.some(i=>i.id===inq))$('#inq-type').value=inq;
-    $('#inq').addEventListener('submit',e=>{e.preventDefault();const f=e.target;if(!f.reportValidity())return;const fd=new FormData(f),t=inquiry(fd.get('type'));
-      const subject=`[FHUSA] ${t.label} — ${fd.get('name')}`;const body=[`Request: ${t.label}`,`Name: ${fd.get('name')}`,`Email: ${fd.get('email')}`,`Phone: ${fd.get('phone')||'-'}`,`Date: ${fd.get('date')||'-'}`,'',fd.get('details')||'',''].join('\n');
-      // ponytail: mailto, no backend. Upgrade: POST to a Pages Function that emails t.to.
-      location.href=`mailto:${t.to.join(',')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      $('#form-note').innerHTML=`Your email app should have opened. If it didn't, send it yourself to <strong>${esc(t.to.join(', '))}</strong>.`;});}
-  else return;
-  if(!panel.open)panel.showModal();$('.inner',panel).scrollTop=0;
-}
-
-/* ---------- one click handler ---------- */
-document.addEventListener('click',e=>{
-  const open=e.target.closest('[data-open]');
-  if(open){if(menu.open)menu.close();openPanel(open.dataset.open,open.dataset.inquiry||null);return;}
-  const g=e.target.closest('[data-go]');
-  if(g&&g.dataset.go){select(g.dataset.go,{scroll:!g.closest('.card')});return;}
-  const pg=e.target.closest('.plan g[data-area]');
-  if(pg&&pg.dataset.area)select(pg.dataset.area,{scroll:true});
-});
-$$('.plan g[data-area]').forEach(g=>g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();g.dispatchEvent(new MouseEvent('click',{bubbles:true}));}}));
-document.addEventListener('keydown',e=>{
-  if(e.target.matches?.('input,textarea,select')||$$('dialog[open]').length)return;
-  if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
-  const i=cur?ORDER.indexOf(cur):-1,n=ORDER[i+(e.key==='ArrowRight'?1:-1)];
-  if(n){e.preventDefault();select(n);}
-});
-
-/* ---------- routing: #/a/<id>; old walk-in links (#/lobby, #/w/<wing>) still land somewhere sensible ---------- */
-function fromHash(){
-  const h=location.hash.replace(/^#\/?/,'');let m;
-  if((m=h.match(/^a\/([\w-]+)$/))&&area(m[1]))return m[1];
-  if((m=h.match(/^w\/([\w-]+)$/))){const w=D.wings.find(w=>w.key===m[1]);if(w)return w.areas.find(id=>area(id).zone)||w.areas[0];}
-  return null;
-}
-addEventListener('popstate',()=>select(fromHash(),{push:false}));
-/* the panning photo needs the card width to know how far to slide */
-new ResizeObserver(([e])=>photo.style.setProperty('--cw',e.contentRect.width+'px')).observe($('.photo'));
-select(fromHash(),{push:false});
+/* the map on the home page is a picture with ten links: every pin and room opens that stop in the tour */
+(function(){
+  const box=document.getElementById('homeplan');box.innerHTML=FHPLAN.flat();
+  const go=e=>{const g=e.target.closest('[data-spot]');if(g)location.href='tour.html#/s/'+g.dataset.spot;};
+  box.addEventListener('click',go);box.addEventListener('keydown',e=>{if(e.key==='Enter')go(e);});
 })();
 </script>
 </body>

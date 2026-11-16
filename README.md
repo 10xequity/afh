@@ -8,22 +8,35 @@ Static site for aurorafieldhouseusa.com. One page, no build step, no dependencie
 | **Live demo** | https://10xequity.github.io/afh/ (GitHub Pages from `v3`) |
 | **Status** | Demo for owner review. Not yet on the live domain. |
 
-## What it is
+## What it is (v5)
 
-Two experiences. `index.html` is the **map tour**; `site.html` is a conventional scrolling page (whiteboard floor plan, the three sells, partners, rules, FAQ, contact form). Each links to the other; zone panels on the site deep-link into the tour (`index.html#/a/<area id>`).
+Five static pages that share one stylesheet and one script. No build step.
 
-The tour (v4) is one screen: the floor plan on the left (3D tilt or flat) is the navigation, a card on the right shows the chosen place: photo, what's here, who runs it, the booking button, and Previous / Next. Below the plan every place is one tap away as a chip (Courts: Zones 1–7, then Rooms). Arrow keys step through the same order. Nothing locks while it animates; a click swaps the card at once. On phones the card sits on top and the map below. Book buttons are in the header; rules, FAQ, partners and the contact form open as side panels from Menu.
+- `index.html`: home. Two banners (facility rules, drop-in volleyball), a hero with an animated black court that cycles volleyball, basketball, futsal, training, yoga and dance, three offer cards (Special events, Tournaments, Find an activity), the map with ten tour stops, the full facility rules, questions, and the sponsors section.
+- `tour.html`: the tour. Ten set stops, each with a photo gallery and the businesses based there. Map loads flat; 3D (room boxes, standing nets, raised mezzanine) is built on demand. `assets/fieldhouse-3d-map.pdf` is the downloadable 3D map.
+- `tournaments.html`: what we host and how booking works (6 to 8 months out, 30% deposit, paid in full 30 days before). **Draft copy, owner to confirm.**
+- `activities.html`: "Find an activity" and the Service Operator Partners list, grouped by category.
+- `studios.html`: placeholder home for Dance-Den (`#dance-den`) and Yoga-Den (`#yoga-den`) until their own sites exist.
+- `site.html`: redirect to `index.html` (old address of the scrolling page).
+
+Page text is plain HTML on purpose: search engines and AI crawlers read it without running JavaScript.
 
 ## Files
 
-- `index.html` — the entry and the tour: CSS, JS, HUD, the logo symbol.
-- `site.html` — the scrolling page. Same data, same logo, same floor plan.
-- `assets/plan.js` — the one floor-plan drawing (rooms, zones, volleyball courts, route, position marker) used by both pages.
-- `data/zones.json` — all content: site facts, exterior and lobby copy, the three wings and their areas, partners, inquiry routing, FAQ, and the full facility rules. Edit this, not the HTML.
-- `assets/` — filler photos (Colorado Boom / Nike camp court shots, Shoot 360 lab, Wix stock for food, studios and lounges). Replace one-for-one when real photos exist; names are referenced from `zones.json`.
-- `favicon.svg`, `404.html`, `robots.txt`, `sitemap.xml`.
+- `assets/site.css`: all shared styles, including the floor plan in both views.
+- `assets/site.js`: logo, header, side menu, footer and the ask-the-front-desk panel (mailto, no backend).
+- `assets/plan.js`: the floor-plan geometry (`ROOMS`, `ZONES`, `SPOTS`) and the two drawings, `FHPLAN.flat()` and `FHPLAN.iso()`.
+- `data/zones.json`: tour stops (name, copy, photos, partners) and the partner list. The activities page and `llms.txt` were generated from it; if a partner changes, update both.
+- `llms.txt`, `robots.txt`, `sitemap.xml`: for search engines and AI assistants. `robots.txt` explicitly allows GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and Google-Extended.
+- `assets/*.webp`: photos. The `.jpg` files are masters. `wing-*`, `exterior`, `arches`, `spike`, `denver-street`, `event-festival` are no longer used by any page.
 
-Serve over HTTP (`python -m http.server`); the page fetches `data/zones.json`.
+To regenerate the 3D PDF: print a page that calls `FHPLAN.iso()` with headless Chrome (`--print-to-pdf`), landscape letter.
+
+Serve over HTTP (`python -m http.server`); the tour fetches `data/zones.json`.
+
+## v5 changes (2026-11-16)
+
+Owner review, 25 items. Home and tour swapped names (home is `index.html`). Walk-through idea dropped for ten set stops. Map: Massage is now Therapy / Spa and fills its gap, Bathroom is Restroom, Studio 1 lines up with Admin, Zone 6 is volleyball only, Zone 7 is 3 volleyball courts or 1 futsal arena. Removed: soccer field and turf, sprung and foam floors, mall entrance, the "pulled from Boomtown" note. Rules rewritten as FieldhouseUSA rules with bag search and service-animal accommodation. Address shows FieldhouseUSA on the suite line. SEO: titles and H1 lead with Denver metro, address stays Aurora; JSON-LD for the venue and FAQ.
 
 ## v4 — map tour (2026-11-16)
 
