@@ -16,8 +16,8 @@
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -60,26 +60,35 @@
 @media (prefers-reduced-motion:reduce){.sp{animation:none}.sp1{opacity:1}}
 
 /* three ways in: photo first, plain text under it, links not buttons */
-.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,40px)}
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(5,auto);gap:0 clamp(18px,3vw,40px)}
+.ways article{display:grid;grid-row:span 5;grid-template-rows:subgrid}
 .ways .shot{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#111}
 .ways .shot img{width:100%;height:100%;object-fit:cover;transition:transform 400ms var(--ease-out)}
 @media (hover:hover){.ways .shot:hover img{transform:scale(1.03)}}
 .ways .shot span{position:absolute;left:0;bottom:0;padding:4px 12px 5px;background:var(--red);font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:.06em}
 .ways h3{font-size:clamp(36px,3.6vw,52px);margin:16px 0 8px}
 .ways p{color:var(--ink-2)}
-.ways ul{margin:12px 0 14px;border-top:1px solid var(--line)}
-.ways li{padding:8px 0;border-bottom:1px solid var(--line);font-size:16px}
+.ways ul{margin:12px 0 14px;border-top:1px solid var(--line);display:grid;grid-auto-rows:1fr}
+.ways li{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:16px}
 .ways .go{display:flex;flex-wrap:wrap;gap:6px 22px}
 .ways .go a{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.04em;text-transform:uppercase;color:#fff;text-decoration:underline;text-decoration-color:var(--red-t);text-decoration-thickness:3px;text-underline-offset:6px;padding:6px 0}
 @media (hover:hover){.ways .go a:hover{color:var(--red-t)}}
-@media (max-width:900px){.ways{grid-template-columns:1fr}}
+@media (max-width:900px){.ways{grid-template-columns:1fr;grid-template-rows:none;gap:36px}.ways article{display:block}}
 /* scoreboard */
 .board{display:grid;grid-template-columns:2fr repeat(5,1fr);margin:clamp(36px,6vh,64px) 0 0;border-top:3px solid var(--red);border-bottom:1px solid var(--line)}
 .board div{padding:16px 16px 14px;border-left:1px solid var(--line)}
 .board div:first-child{border-left:0;padding-left:0}
 .board dt{font-family:var(--display);font-weight:900;font-size:clamp(44px,5.4vw,84px);line-height:.9;font-variant-numeric:tabular-nums}
 .board dd{margin:6px 0 0;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
-.also{margin-top:14px;color:var(--ink-2);max-width:80ch}
+.hl{margin-top:clamp(40px,7vh,72px)}
+.hl h3{font-size:clamp(34px,4.4vw,60px);margin-bottom:6px}
+.hl>p{color:var(--ink-2);max-width:70ch;margin-bottom:20px}
+.hl ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.hl li{padding:18px 18px 20px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.hl b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(24px,2.2vw,30px);line-height:1.05;letter-spacing:.02em;text-transform:uppercase;margin-bottom:8px;min-height:2.1em}
+.hl b i{font-style:normal;color:var(--red)}
+.hl span{color:var(--ink-2)}
+@media (max-width:900px){.hl ul{grid-template-columns:1fr 1fr}}@media (max-width:560px){.hl ul{grid-template-columns:1fr}}
 @media (max-width:900px){.board{grid-template-columns:repeat(3,1fr)}.board div:first-child{grid-column:1/-1;border-bottom:1px solid var(--line)}.board div:nth-child(2),.board div:nth-child(5){border-left:0;padding-left:0}}
 
 /* see the building */
@@ -111,7 +120,8 @@
 
 /* rules */
 #rules .intro{display:grid;gap:10px;margin:14px 0 22px;padding:16px 18px;border:1.5px solid var(--red);background:var(--panel);border-radius:12px;max-width:80ch}
-#rules .intro strong,#rules li strong{color:var(--red-t);font-weight:600}
+#rules .intro strong,#rules li strong{color:var(--red);font-weight:700;font-size:19px}
+#rules .eyebrow{color:var(--red);font-weight:900;font-size:20px}
 .rules{counter-reset:r;border-top:1px solid var(--line)}
 .rules details{counter-increment:r;border-bottom:1px solid var(--line)}
 .rules summary,.faq summary{list-style:none;cursor:pointer;position:relative;display:flex;align-items:center;gap:14px;padding:14px 40px 14px 0;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.03em;text-transform:uppercase}
@@ -119,13 +129,13 @@
 .rules summary::before{content:counter(r,decimal-leading-zero);flex:none;display:grid;place-items:center;width:38px;height:28px;background:var(--red);color:#fff;font-size:16px;letter-spacing:.06em;border-radius:4px}
 .rules summary::after,.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;border-right:2px solid var(--red);border-bottom:2px solid var(--red);transform:translateY(-70%) rotate(45deg);transition:transform 160ms var(--ease-out)}
 details[open]>summary::after{transform:translateY(-30%) rotate(-135deg)}
-.rules details[open] summary{color:var(--red-t)}
+.rules details[open] summary{color:var(--red);font-weight:900}
 .rules ul{display:grid;gap:8px;padding:0 0 18px 52px;max-width:84ch}
 .rules li{padding-left:18px;position:relative;color:rgba(255,255,255,.88)}
 .rules li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
 .rules .fines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 18px 52px;max-width:760px}
 .rules .fines div{padding:12px 14px;border:1.5px solid var(--red);border-radius:10px}
-.rules .fines b{display:block;font-family:var(--display);font-weight:900;font-size:30px;color:var(--red-t);line-height:1}
+.rules .fines b{display:block;font-family:var(--display);font-weight:900;font-size:30px;color:var(--red);line-height:1}
 @media (max-width:640px){.rules ul,.rules .fines{padding-left:0;margin-left:0}.rules .fines{grid-template-columns:1fr}}
 .faq{border-top:1px solid var(--line);margin-top:20px}
 .faq details{border-bottom:1px solid var(--line)}
@@ -133,9 +143,12 @@ details[open]>summary::after{transform:translateY(-30%) rotate(-135deg)}
 .faq p{padding:0 0 16px;max-width:70ch;color:var(--ink-2)}
 
 /* sponsors */
-.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:24px 0}
-.slots div{aspect-ratio:5/3;display:grid;place-items:center;border:1.5px dashed rgba(255,255,255,.3);border-radius:12px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
-@media (max-width:700px){.slots{grid-template-columns:1fr 1fr}}
+.logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 clamp(28px,5vh,48px)}
+.logos li{aspect-ratio:5/3;display:grid;place-items:center;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.logos img{max-width:78%;max-height:clamp(64px,9vw,118px);width:auto;height:auto;object-fit:contain}
+.logos .wm{font-family:var(--display);font-weight:900;font-size:clamp(22px,2.6vw,38px);line-height:1;letter-spacing:.04em;text-transform:uppercase;text-align:center}
+.oneline{white-space:nowrap;font-size:clamp(34px,9.5vw,80px)!important;margin-bottom:18px}
+@media (max-width:700px){.logos{grid-template-columns:1fr 1fr}}
 .two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px 48px;align-items:start}
 .two ul{display:grid;gap:8px}
 .two li{padding-left:18px;position:relative;color:rgba(255,255,255,.88)}
@@ -225,18 +238,29 @@ details[open]>summary::after{transform:translateY(-30%) rotate(-135deg)}
         <h3>Activities</h3>
         <p>Leagues, clubs, classes and training, run by the operators based in the building.</p>
         <ul><li>Volleyball leagues, drop-in and junior club</li><li>Basketball training and club teams</li><li>Futsal, dance and yoga</li></ul>
-        <p class="go"><a href="activities.html">Find a sport or activity</a></p>
+        <p class="go"><a href="activities.html">Find a sport or activity</a><a href="https://www.boomtownathletics.com/drop-in.html" rel="noopener">Drop-in volleyball</a></p>
       </article>
     </div>
     <dl class="board" aria-label="The building in numbers">
-      <div><dt>32,000</dt><dd>sq ft of open floor with the nets raised</dd></div>
+      <div><dt>92K</dt><dd>sq ft facility</dd></div>
       <div><dt>15</dt><dd>volleyball courts</dd></div>
       <div><dt>4</dt><dd>basketball courts</dd></div>
       <div><dt>12</dt><dd>pickleball courts</dd></div>
       <div><dt>2</dt><dd>studios</dd></div>
       <div><dt>1</dt><dd>futsal arena</dd></div>
     </dl>
-    <p class="also">Also under the roof: a full bar and restaurant, a 3,000 sq ft lounge and dining area, a mezzanine over the courts, and free parking.</p>
+    <div class="hl">
+      <h3 id="hl-h">Built to host your event</h3>
+      <p>One building with the floor, the rooms, the food and the parking, so your guests arrive once and stay.</p>
+      <ul aria-labelledby="hl-h">
+        <li><b><i>20 minutes</i> from DIA</b><span>Easy for teams, guests and vendors flying in. Parking is free and at the door.</span></li>
+        <li><b>Air conditioned</b><span>The whole building is climate controlled, so a July tournament and a December gala are equally comfortable.</span></li>
+        <li><b>Full bar, restaurant and catering</b><span>Oda Up runs the kitchen and bar inside the building and caters your event, from team meals to seated dinners.</span></li>
+        <li><b><i>32,000 sq ft</i> of open floor</b><span>Raise the nets and the courts become one clear floor for expos, trade shows and galas.</span></li>
+        <li><b>Rooms for every part of the day</b><span>8,000 sq ft expo and gala spaces, two studios, and a 3,000 sq ft lounge and dining area.</span></li>
+        <li><b>Mezzanine over the courts</b><span>A raised deck for hospitality and sponsors, with a clear view of the floor.</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -257,6 +281,28 @@ details[open]>summary::after{transform:translateY(-30%) rotate(-135deg)}
         <div id="homeplan"></div>
       </div>
       <aside id="pop" aria-live="polite"><p class="hint">Tap a number or a zone on the map.</p></aside>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true"><img src="assets/fieldhouse-overhead.webp" alt="" loading="lazy" width="1600" height="1200"><img src="assets/odaup-dining.webp" alt="" loading="lazy" width="1400" height="900"><img src="assets/fieldhouse-sign.webp" alt="" loading="lazy" width="1600" height="900"></div>
+
+<section class="sec" id="sponsors" aria-labelledby="sp-h">
+  <div class="wrap">
+    <ul class="logos" aria-label="Our sponsors">
+      <li><span class="wm">BSN Sports</span></li>
+      <li><img src="assets/sponsor-real-colorado.png" alt="Real Colorado Soccer" loading="lazy" width="185" height="240"></li>
+      <li><img src="assets/sponsor-rhone.png" alt="Rhone" loading="lazy" width="480" height="227"></li>
+      <li><span class="wm">Texas Roadhouse</span></li>
+    </ul>
+    <p class="eyebrow">Sponsors and partners</p>
+    <h2 id="sp-h" class="sec-h oneline">Put your name up</h2>
+    <div class="two">
+      <p class="lede" style="margin-top:0">Teams, families and event guests come through this building every week. Sponsors get in front of them on the courts, on the walls and at events.</p>
+      <div>
+        <ul style="margin:0 0 22px"><li>Court and zone naming</li><li>Banners and wall signage</li><li>Presenting sponsor for tournaments and events</li><li>Placement on this site and in facility emails</li></ul>
+        <div class="acts"><button class="btn btn-red" data-ask="sponsor">Become a sponsor</button><a class="btn btn-line" href="activities.html#partners">Meet our partners</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -354,24 +400,6 @@ details[open]>summary::after{transform:translateY(-30%) rotate(-135deg)}
       <details><summary>Is there parking?</summary><p>Yes, free and on site. It is an active lot, so lock your car and keep valuables out of sight.</p></details>
       <details><summary>Are service animals allowed?</summary><p>Yes. Tell us before you arrive so we have time to arrange a reasonable accommodation. Animals are not allowed on playing surfaces.</p></details>
     </div>
-  </div>
-</section>
-
-
-<div class="band" aria-hidden="true"><img src="assets/fieldhouse-overhead.webp" alt="" loading="lazy" width="1600" height="1200"><img src="assets/odaup-dining.webp" alt="" loading="lazy" width="1400" height="900"><img src="assets/fieldhouse-sign.webp" alt="" loading="lazy" width="1600" height="900"></div>
-
-<section class="sec" id="sponsors" aria-labelledby="sp-h">
-  <div class="wrap">
-    <p class="eyebrow">Sponsors and partners</p>
-    <div class="two">
-      <div><h2 id="sp-h" class="sec-h">Put your name up</h2></div>
-      <div>
-        <p class="lede" style="margin-top:0">Teams, families and event guests come through this building every week. Sponsors get in front of them on the courts, on the walls and at events.</p>
-        <ul style="margin:18px 0 22px"><li>Court and zone naming</li><li>Banners and wall signage</li><li>Presenting sponsor for tournaments and events</li><li>Placement on this site and in facility emails</li></ul>
-        <div class="acts"><button class="btn btn-red" data-ask="sponsor">Become a sponsor</button><a class="btn btn-line" href="activities.html#partners">Meet our partners</a></div>
-      </div>
-    </div>
-    <div class="slots" aria-label="Sponsor spaces available"><div>Your logo here</div><div>Your logo here</div><div>Your logo here</div><div>Your logo here</div></div>
   </div>
 </section>
 </main>

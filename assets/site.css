@@ -172,3 +172,5 @@ footer .fine{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);c
 #chat form{display:flex;gap:6px;padding:10px 12px;border-top:1px solid var(--line)}
 #chat form input{min-height:42px}
 #chat form button{flex:none;min-height:42px;padding:0 14px;font-size:16px}
+/* no single words stranded on a last line */
+h1,h2,h3,summary,.lede,dt{text-wrap:balance}p,li,dd{text-wrap:pretty}

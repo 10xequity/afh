@@ -19,6 +19,7 @@
     {id:'odaup',x:438,y:341,w:91,h:66,label:['Bar /','Kitchen']},
     {id:'studio2',x:533,y:304,w:71,h:103,label:['Studio 1']},
   ];
+  const MEZZ={x:387,y:413,w:47,h:96}; /* raised deck over the hallway between zones 4 and 6, about one court long */
   const HW=['Hardwood courts','2 volleyball or 1 basketball'];
   const ZONES={
     1:{box:[22,195,172,199],courts:[[36,209,144,84],[36,303,144,84]],desc:HW},
@@ -38,7 +39,7 @@
     {id:'odaup',pin:[453,357],on:['odaup']},
     {id:'studio2',pin:[568,326],on:['studio2']},
     {id:'studio1',pin:[682,238],on:['studio1']},
-    {id:'mezz',pin:[514,357],on:['mezzdeck']},
+    {id:'mezz',pin:[410,432],on:['mezzdeck']},
     {id:'court6',pin:[521,468],on:['z6']},
     {id:'court7',pin:[700,366],on:['z7']}
   ];
@@ -62,6 +63,7 @@
       if(o.flat)s+=`<text class="znum" x="${bx+bw/2}" y="${cy+2}">${n}</text>`+z.desc.map((t,i)=>`<text class="zdesc" x="${bx+bw/2}" y="${cy+20+i*13}">${esc(t)}</text>`).join('');
       s+=`<rect class="hit" x="${bx}" y="${by}" width="${bw}" height="${bh}"/></g>`;
     }
+    if(o.flat)s+=`<g data-el="mezzdeck" data-spot="mezz" tabindex="0" role="button" aria-label="Mezzanine"><rect class="room" x="${MEZZ.x}" y="${MEZZ.y}" width="${MEZZ.w}" height="${MEZZ.h}" rx="2"/><text class="lbl-s" transform="rotate(-90 ${MEZZ.x+MEZZ.w/2} ${MEZZ.y+MEZZ.h/2+14})" x="${MEZZ.x+MEZZ.w/2}" y="${MEZZ.y+MEZZ.h/2+18}">Mezzanine</text><rect class="hit" x="${MEZZ.x}" y="${MEZZ.y}" width="${MEZZ.w}" height="${MEZZ.h}"/></g>`;
     if(o.flat)for(const r of ROOMS)s+=`<g ${attrs(r.id,r.label.join(' '))}><rect class="room" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="2"/>${lines(r.label,r.x+r.w/2,r.y+r.h/2,r.small?11:14,r.small?'lbl-s':'lbl')}<rect class="hit" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/></g>`;
     return s;
   }
@@ -93,8 +95,7 @@
     const H=30,parts=[];
     for(const r of ROOMS)parts.push({d:depth(r.x+r.w/2,r.y+r.h/2),s:`<g ${attrs(r.id,r.label.join(' '))}>${box(r.x,r.y,r.w,r.h,0,H)}${tag(r.label,r.x+r.w/2,r.y+r.h/2,H,r.small?'lbl-s':'lbl',r.small?11:13)}</g>`});
     for(const z of Object.values(ZONES))for(const c of z.courts)parts.push({d:depth(c[0]+c[2]/2,c[1]+c[3]/2),s:net(...c)});
-    const od=ROOMS.find(r=>r.id==='odaup'); /* the mezzanine is a deck above the bar */
-    parts.push({d:depth(od.x+od.w/2,od.y+od.h/2)+.5,s:`<g data-el="mezzdeck" data-spot="mezz" tabindex="0" role="button" aria-label="Mezzanine">${box(od.x,od.y,od.w,od.h,52,57)}${tag(['Mezzanine'],od.x+od.w/2,od.y+od.h/2,57,'lbl-s',11)}</g>`});
+    parts.push({d:depth(MEZZ.x+MEZZ.w/2,MEZZ.y+MEZZ.h/2)+.5,s:`<g data-el="mezzdeck" data-spot="mezz" tabindex="0" role="button" aria-label="Mezzanine">${box(MEZZ.x,MEZZ.y,MEZZ.w,MEZZ.h,52,57)}${tag(['Mezzanine'],MEZZ.x+MEZZ.w/2,MEZZ.y+MEZZ.h/2,57,'lbl-s',11)}</g>`});
     parts.sort((a,b)=>a.d-b.d);
     const walls=[[15,35,800,35],[800,35,800,609],[15,609,800,609],[15,35,15,609]].map(e=>({e,d:depth((e[0]+e[2])/2,(e[1]+e[3])/2)})).sort((a,b)=>a.d-b.d).slice(0,2)
       .map(({e})=>poly('wall',[P(e[0],e[1]),P(e[2],e[3]),P(e[2],e[3],46),P(e[0],e[1],46)])).join('');
