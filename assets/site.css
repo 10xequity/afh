@@ -1,6 +1,6 @@
 /* FieldhouseUSA: shared styles for every page. Black, white, one red. No blur, no gradients, no always-on animation except the hero court. */
 :root{
-  --black:#000;--white:#fff;--red:#e10600;--red-d:#bf0500;--red-t:var(--red);--panel:#0d0d0d;--panel-2:#161616;--ink-2:rgba(255,255,255,.74);--ink-3:rgba(255,255,255,.66);--line:rgba(255,255,255,.16);
+  --black:#000;--white:#fff;--red:#ff0000;--red-d:#cc0000;--red-t:var(--red);--panel:#0d0d0d;--panel-2:#161616;--ink-2:rgba(255,255,255,.74);--ink-3:rgba(255,255,255,.66);--line:rgba(255,255,255,.16);
   --court:#c8742f;
   --display:'Big Shoulders Display',Impact,'Arial Narrow Bold',sans-serif;
   --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
