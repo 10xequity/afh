@@ -19,7 +19,7 @@
     {id:'odaup',x:438,y:341,w:91,h:66,label:['Bar /','Kitchen']},
     {id:'studio2',x:533,y:304,w:71,h:103,label:['Studio 1']},
   ];
-  const MEZZ={x:387,y:413,w:47,h:96}; /* raised deck over the hallway between zones 4 and 6, about one court long */
+  const MEZZ={x:387,y:510,w:47,h:96}; /* raised deck against the south wall, between zones 4 and 6, about one court long */
   const HW=['Hardwood courts','2 volleyball or 1 basketball'];
   const ZONES={
     1:{box:[22,195,172,199],courts:[[36,209,144,84],[36,303,144,84]],desc:HW},
@@ -39,7 +39,7 @@
     {id:'odaup',pin:[453,357],on:['odaup']},
     {id:'studio2',pin:[568,326],on:['studio2']},
     {id:'studio1',pin:[682,238],on:['studio1']},
-    {id:'mezz',pin:[410,432],on:['mezzdeck']},
+    {id:'mezz',pin:[410,529],on:['mezzdeck']},
     {id:'court6',pin:[521,468],on:['z6']},
     {id:'court7',pin:[700,366],on:['z7']}
   ];
