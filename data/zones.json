@@ -166,7 +166,7 @@
    ]
   },
   {
-   "id": "studio2",
+   "id": "studio1",
    "name": "Studio 1",
    "tag": "Studio",
    "courts": null,
@@ -187,7 +187,7 @@
    ]
   },
   {
-   "id": "studio1",
+   "id": "studio2",
    "name": "Studio 2",
    "tag": "Dance and yoga",
    "courts": null,

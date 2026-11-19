@@ -34,6 +34,10 @@ To regenerate the 3D PDF: print a page that calls `FHPLAN.iso()` with headless C
 
 Serve over HTTP (`python -m http.server`); the tour fetches `data/zones.json`.
 
+## v5.2 changes (2026-11-19)
+
+Audit fixes. The phone number is back, owner-approved: (720) 773-4776 shows in the footer, the menu and the home hero. Every page carries its name, address, phone and email in a plain-HTML `<footer>`; `site.js` reuses that address when it builds the full footer. Home title and H1 say Aurora; venue JSON-LD (phone, email, logo, no `sameAs`) is on every indexable page. Share image is `assets/og-image.jpg` (1200×630, centre crop of the panorama). `favicon.ico` and `apple-touch-icon.png` are drawn from `favicon.svg`. Studio ids now match their names: `#/s/studio1` is the small room (Studio 1), `#/s/studio2` the large one (Studio 2). A plain Contact link opens the form on "Something else". `sitemap.xml` `lastmod` is each page's last commit date.
+
 ## v5.1 changes (2026-11-16)
 
 Second owner review. Home: banners moved under the hero, three photo-led columns and a scoreboard replace the offer cards, entrance photo, rotatable 3D map with numbered pins and a side panel, one Take a tour button, a small Lost items section, facility rules PDF. Tour: every zone 1 to 7 opens its court photos (`#/z/<n>`), pins are numbered, 3D map rotates (drag or arrow buttons). Stops renamed: 3 Hardwood Courts, 9 Sports Court, 10 Sports Court and Futsal Arena; the studio labels are swapped (large room is Studio 2). Shared: no phone number or call button anywhere (email only), Home and an Activities dropdown in the nav, two reds (`--red` for fills, `--red-t` for red text on black) and larger small text for contrast, event and tournament requests must answer a full set of planning questions, downloads ask first. New `assets/chat.js`: an offline helper that answers rule questions by keyword and collects event details, then fills the request form; keep its answers in step with the rules on `index.html`. Tournaments: Boomtown banner, open-space sizes, rental contracts required for all rentals. "Who runs what" is now "Based here".

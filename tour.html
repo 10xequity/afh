@@ -3,21 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tour the Fieldhouse: 3D Map and Floor Plan | FieldhouseUSA, Denver Metro</title>
+<title>Tour the Fieldhouse: 3D Map &amp; Floor Plan | FieldhouseUSA</title>
 <meta name="description" content="See inside FieldhouseUSA before you come: a 3D map and floor plan of the building with photos, from the front desk and Shoot 360 to the courts, studios, bar and mezzanine.">
 <link rel="canonical" href="https://aurorafieldhouseusa.com/tour.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tour the Fieldhouse | FieldhouseUSA">
 <meta property="og:description" content="A 3D map and floor plan of the building, with photos of each area.">
 <meta property="og:url" content="https://aurorafieldhouseusa.com/tour.html">
-<meta property="og:image" content="https://aurorafieldhouseusa.com/assets/fieldhouse-panorama.jpg">
+<meta property="og:image" content="https://aurorafieldhouseusa.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A volleyball tournament in progress at FieldhouseUSA Aurora">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="data/zones.json" as="fetch" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":["SportsActivityLocation","EventVenue"],"@id":"https://aurorafieldhouseusa.com/#venue","name":"FieldhouseUSA","alternateName":"FieldhouseUSA Aurora","description":"Indoor sports complex and event venue in Aurora, Colorado, serving the Denver metro: 15 volleyball courts, basketball, pickleball and futsal, two studios, a bar and kitchen and a mezzanine.","url":"https://aurorafieldhouseusa.com/","telephone":"+1-720-773-4776","email":"admin@aurorafieldhouseusa.com","logo":"https://aurorafieldhouseusa.com/apple-touch-icon.png","image":"https://aurorafieldhouseusa.com/assets/og-image.jpg","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}}
+</script>
 <style>
 .tour{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,460px);gap:var(--gutter);padding:var(--gutter);max-width:1600px;margin:0 auto}
 .mapcol{min-width:0;display:grid;gap:14px;align-content:start}
@@ -30,6 +39,7 @@
 .viewtog button[aria-pressed="true"]{background:#fff;color:#000}
 .tools .btn{min-height:40px;font-size:15px;padding:0 14px}
 #planbox svg{max-width:1000px;max-height:calc(100svh - 330px);margin:0 auto}
+#planbox:empty{aspect-ratio:820/650;max-height:min(calc(100svh - 330px),793px)} /* hold the map's space while zones.json loads, so the stop list does not jump */
 .stops{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px;counter-reset:s}
 .stops a{counter-increment:s;display:flex;align-items:center;gap:10px;min-height:42px;padding:6px 12px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);text-decoration:none;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;line-height:1.05}
 .stops a::before{content:counter(s);flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.12);font-size:14px}
@@ -64,7 +74,7 @@
 .step button small{display:block;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.08em;color:var(--ink-3)}
 .step button[hidden]{display:block;visibility:hidden}
 @media (hover:hover){.step button:hover{background:rgba(255,255,255,.16)}}
-@media (max-width:900px){.tour{grid-template-columns:1fr}.card{position:static;max-height:none;overflow:visible;order:-1}#planbox svg{max-height:none}}
+@media (max-width:900px){.tour{grid-template-columns:1fr}.card{position:static;max-height:none;overflow:visible;order:-1}#planbox svg,#planbox:empty{max-height:none}}
 </style>
 </head>
 <body data-page="tour">
@@ -84,8 +94,8 @@
       <li><a href="#/s/hall13">Hardwood Courts</a></li>
       <li><a href="#/s/socialden">Social Den</a></li>
       <li><a href="#/s/odaup">Bar and kitchen</a></li>
-      <li><a href="#/s/studio2">Studio 1</a></li>
-      <li><a href="#/s/studio1">Studio 2</a></li>
+      <li><a href="#/s/studio1">Studio 1</a></li>
+      <li><a href="#/s/studio2">Studio 2</a></li>
       <li><a href="#/s/mezz">Mezzanine</a></li>
       <li><a href="#/s/court6">Sports Court</a></li>
       <li><a href="#/s/court7">Sports Court and Futsal Arena</a></li>
@@ -99,6 +109,7 @@
   </article>
 </main>
 
+<footer><div class="wrap"><address>FieldhouseUSA Aurora<br>14200 E Alameda Ave<br>Aurora, CO 80012<br><a href="tel:+17207734776">(720) 773-4776</a><br><a href="mailto:admin@aurorafieldhouseusa.com">admin@aurorafieldhouseusa.com</a></address></div></footer>
 <script src="assets/site.js"></script>
 <script src="assets/plan.js"></script>
 <script>
@@ -164,7 +175,7 @@ document.addEventListener('keydown',e=>{
   const n=ORDER[ORDER.indexOf(cur)+(e.key==='ArrowRight'?1:-1)];if(n){e.preventDefault();select(n);}
 });
 /* links: #/s/<stop>. Older links (#/a/<area>) still land on the nearest stop. */
-const OLD={office:'entrance',z1:'hall13',z2:'hall13',z3:'hall13',z4:'hall13',z6:'court6',z7:'court7',danceden:'studio1',yogaden:'studio2'};
+const OLD={office:'entrance',z1:'hall13',z2:'hall13',z3:'hall13',z4:'hall13',z6:'court6',z7:'court7',danceden:'studio2',yogaden:'studio1'}; /* studio ids now match their names: studio1 is the small room, studio2 the large one */
 function go(push){const m=location.hash.match(/^#\/(s|a|z)\/([\w-]+)$/);
   if(m&&m[1]==='z'){cur=cur||ORDER[0];zone(m[2],{push});return;}
   select(!m?ORDER[0]:m[1]==='s'?m[2]:(OLD[m[2]]||m[2]),{push});}

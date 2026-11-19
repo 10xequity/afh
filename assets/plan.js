@@ -14,10 +14,10 @@
     {id:'admin2',x:486,y:158,w:213,h:59,label:['Admin']},
     {id:'storage',x:703,y:158,w:80,h:59,label:['Storage /','Dock']},
     {id:'socialden',x:438,y:221,w:91,h:116,label:['Social','Den']},
-    {id:'studio1',x:533,y:221,w:166,h:79,label:['Studio 2']},
+    {id:'studio2',x:533,y:221,w:166,h:79,label:['Studio 2']},
     {id:'rest2',x:703,y:221,w:80,h:79,label:['Restroom','2']},
     {id:'odaup',x:438,y:341,w:91,h:66,label:['Bar /','Kitchen']},
-    {id:'studio2',x:533,y:304,w:71,h:103,label:['Studio 1']},
+    {id:'studio1',x:533,y:304,w:71,h:103,label:['Studio 1']},
   ];
   const MEZZ={x:387,y:510,w:47,h:96}; /* raised deck against the south wall, between zones 4 and 6, about one court long */
   const HW=['Hardwood courts','2 volleyball or 1 basketball'];
@@ -37,8 +37,8 @@
     {id:'hall13',pin:[196,295],on:['z1','z3']},
     {id:'socialden',pin:[512,240],on:['socialden']},
     {id:'odaup',pin:[453,357],on:['odaup']},
-    {id:'studio2',pin:[568,326],on:['studio2']},
-    {id:'studio1',pin:[682,238],on:['studio1']},
+    {id:'studio1',pin:[568,326],on:['studio1']},
+    {id:'studio2',pin:[682,238],on:['studio2']},
     {id:'mezz',pin:[410,529],on:['mezzdeck']},
     {id:'court6',pin:[521,468],on:['z6']},
     {id:'court7',pin:[700,366],on:['z7']}
@@ -124,6 +124,8 @@
     stage.addEventListener('pointerdown',e=>{if(view!=='3d')return;x0=e.clientX;moved=0;});
     addEventListener('pointermove',e=>{if(x0===null)return;const dx=e.clientX-x0;if(Math.abs(dx)<3)return;moved+=Math.abs(dx);x0=e.clientX;turn(-dx*.35);});
     addEventListener('pointerup',()=>{x0=null;});
+    /* the browser took the gesture (a vertical scroll, say): end the drag so the map stops following the pointer and the next tap still counts */
+    addEventListener('pointercancel',()=>{x0=null;moved=0;});
     const pick=e=>{if(moved>6){moved=0;return;}const p=e.target.closest('.pin,[data-zone],[data-spot]');if(!p||!o.pick)return;
       if(p.classList.contains('pin')||!p.dataset.zone)o.pick('spot',p.dataset.spot,p);else o.pick('zone',p.dataset.zone,p);};
     stage.addEventListener('click',pick);

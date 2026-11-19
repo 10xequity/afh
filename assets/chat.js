@@ -9,7 +9,7 @@ const KB=[
  [['bag','backpack','purse','search','camera bag'],'Everyone who enters is subject to a bag search. Only player backpacks are allowed inside. Purses and camera bags are allowed but must be open for a check.'],
  [['weapon','gun','firearm','knife'],'No weapons or firearms of any kind.'],
  [['dog','pet','animal','service animal'],'No animals, except service animals as defined by law. Tell us before you arrive so we have time to arrange a reasonable accommodation. Animals are not allowed on playing surfaces or in activity areas.'],
- [['lost','found','left my','forgot my','missing'],'We do not maintain a lost and found. Anything lost here is gone, and we are not responsible for lost items. Please do not contact us about them. There is a lost item form linked in the Lost items section of the home page.'],
+ [['lost','found','left my','forgot my','missing'],'We do not keep a lost and found and cannot hold lost items. If you left something today, use the lost item form in the Lost items section of the home page. Please don\'t call or email about lost items.'],
  [['park','parking','tailgate','car','lot'],'Parking is free and on site. We are not responsible for your vehicle, so lock it and keep valuables out of sight. No tables, camping or tailgating in front of the building, and no littering in the lot.'],
  [['kid','child','children','toddler','babysit'],'Children must be supervised at all times or will be asked to leave. Stay out of areas you are not booked in.'],
  [['chair','table','tent','camping chair','mat'],'No personal chairs, camping chairs, coolers or team tables on the courts. Floor mats and seats are fine if they do not scratch the floor. Spectator chairs are first come, first served. Please return them.'],
