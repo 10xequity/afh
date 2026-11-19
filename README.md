@@ -36,7 +36,7 @@ Serve over HTTP (`python -m http.server`); the tour fetches `data/zones.json`.
 
 ## v5.2 changes (2026-11-19)
 
-Audit fixes. The phone number is back, owner-approved: (720) 773-4776 shows in the footer, the menu and the home hero. Every page carries its name, address, phone and email in a plain-HTML `<footer>`; `site.js` reuses that address when it builds the full footer. Home title and H1 say Aurora; venue JSON-LD (phone, email, logo, no `sameAs`) is on every indexable page. Share image is `assets/og-image.jpg` (1200×630, centre crop of the panorama). `favicon.ico` and `apple-touch-icon.png` are drawn from `favicon.svg`. Studio ids now match their names: `#/s/studio1` is the small room (Studio 1), `#/s/studio2` the large one (Studio 2). A plain Contact link opens the form on "Something else". `sitemap.xml` `lastmod` is each page's last commit date.
+Audit fixes. Still no phone number anywhere (owner decision in v5.1). Every page carries its name, address and email in a plain-HTML `<footer>`; `site.js` reuses that address when it builds the full footer. Home title and H1 say Aurora; venue JSON-LD (email, logo, no `sameAs`) is on every indexable page. Share image is `assets/og-image.jpg` (1200×630, centre crop of the panorama). `favicon.ico` and `apple-touch-icon.png` are drawn from `favicon.svg`. Studio ids now match their names: `#/s/studio1` is the small room (Studio 1), `#/s/studio2` the large one (Studio 2). A plain Contact link opens the form on "Something else". `sitemap.xml` `lastmod` is each page's last commit date.
 
 ## v5.1 changes (2026-11-16)
 

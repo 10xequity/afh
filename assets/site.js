@@ -4,7 +4,7 @@
 (function(){
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE={email:'admin@aurorafieldhouseusa.com',tel:'+17207734776',phone:'(720) 773-4776',
+const SITE={email:'admin@aurorafieldhouseusa.com',
   maps:'https://www.google.com/maps/search/?api=1&query=FieldhouseUSA+14200+E+Alameda+Ave+Aurora+CO+80012',waiver:'https://forms.gle/4vAwn3prUqkBDKqVA',lost:'https://forms.gle/wkkn4TCwwnCsuoRd6'};
 const INQ=[['event','Host a special event'],['tournament','Host a tournament'],['rental','Find an activity or program'],['volleyball','Volleyball: club, league or drop-in'],['basketball','Basketball training or club'],
   ['studio','Studios and Social-Den'],['food','Food, bar or catering'],['therapy','Therapy / Spa Room'],['sponsor','Become a sponsor'],['other','Something else']];
@@ -18,8 +18,8 @@ const navLink=n=>n[3]==='activities'
   ?`<div class="dd"><a href="${n[0]}"${here(n[3])} aria-haspopup="true">${n[1]}</a><div class="ddm">${ACT.map(a=>`<a href="activities.html#${a[0]}">${a[1]}</a>`).join('')}</div></div>`
   :`<a href="${n[0]}"${here(n[3])}>${n[1]}</a>`;
 const ADDR='14200 E Alameda Ave<br>FieldhouseUSA<br>Aurora, CO 80012';
-/* each page carries its name, address, phone and email in plain HTML (for search engines and no-JS visitors); the full footer reuses it */
-const staticFooter=$('body>footer'),NAP=staticFooter?$('address',staticFooter).innerHTML:`${ADDR}<br><a href="tel:${SITE.tel}">${SITE.phone}</a><br><a href="mailto:${SITE.email}">${SITE.email}</a>`;
+/* each page carries its name, address and email in plain HTML (for search engines and no-JS visitors); the full footer reuses it */
+const staticFooter=$('body>footer'),NAP=staticFooter?$('address',staticFooter).innerHTML:`${ADDR}<br><a href="mailto:${SITE.email}">${SITE.email}</a>`;
 staticFooter?.remove();
 const opt=a=>a.map(o=>`<option>${o}</option>`).join('');
 
@@ -45,7 +45,7 @@ document.body.insertAdjacentHTML('beforeend',`
   <div class="mhead"><b>MENU</b><button class="x" aria-label="Close menu">×</button></div>
   <ol>${NAV.map((n,i)=>`<li><a href="${n[0]}" style="transition-delay:${40+i*30}ms,${40+i*30}ms,0ms"${here(n[3])}><span>${n[1]}</span><small>${n[2]}</small></a></li>`).join('')}</ol>
   <p class="hint">↑ ↓ to move · Enter to open · Esc to close</p>
-  <div class="mfoot"><div class="acts"><a class="btn btn-red" href="${SITE.maps}" rel="noopener">Directions</a></div>${ADDR}<br><a href="tel:${SITE.tel}">${SITE.phone}</a><br><a href="mailto:${SITE.email}">${SITE.email}</a></div>
+  <div class="mfoot"><div class="acts"><a class="btn btn-red" href="${SITE.maps}" rel="noopener">Directions</a></div>${ADDR}<br><a href="mailto:${SITE.email}">${SITE.email}</a></div>
 </div></dialog>
 <dialog id="ask" aria-label="Ask the front desk"><div class="inner">
   <button class="x" aria-label="Close">×</button>
