@@ -76,6 +76,38 @@
    ],
    "imgs": [
     {
+     "src": "assets/hardwood-attack.webp",
+     "alt": "Women's attack on the hardwood"
+    },
+    {
+     "src": "assets/hardwood-set.webp",
+     "alt": "Junior set on the hardwood"
+    },
+    {
+     "src": "assets/hardwood-double-block.webp",
+     "alt": "Double block on the hardwood"
+    },
+    {
+     "src": "assets/hardwood-junior-set.webp",
+     "alt": "Junior team on the hardwood"
+    },
+    {
+     "src": "assets/hardwood-block.webp",
+     "alt": "Block at the net on the hardwood"
+    },
+    {
+     "src": "assets/hardwood-dig.webp",
+     "alt": "Junior dig with spectators behind"
+    },
+    {
+     "src": "assets/hardwood-mens-block.webp",
+     "alt": "Men's block and attack on the hardwood"
+    },
+    {
+     "src": "assets/hardwood-team.webp",
+     "alt": "Men's team on court"
+    },
+    {
      "src": "assets/court-1.webp",
      "alt": "Volleyball on Zone 1"
     },
@@ -108,20 +140,32 @@
    "what": [
     "Daytime workspace",
     "Meeting room for teams and clubs",
-    "Socials and speaker nights"
+    "Socials, speaker nights and group activities"
    ],
    "imgs": [
     {
-     "src": "assets/socialden-tables.webp",
-     "alt": "Social Den tables"
+     "src": "assets/socialden-crowd.webp",
+     "alt": "Social Den packed with guests"
     },
     {
-     "src": "assets/socialden-cafe.webp",
-     "alt": "Social Den cafe seating"
+     "src": "assets/socialden-evening.webp",
+     "alt": "Evening at the Social Den tables"
     },
     {
-     "src": "assets/socialden-lounge.webp",
-     "alt": "Social Den lounge"
+     "src": "assets/socialden-hall.webp",
+     "alt": "A full room of tables during an event"
+    },
+    {
+     "src": "assets/activity-crafts.webp",
+     "alt": "Kids crafting at a long table"
+    },
+    {
+     "src": "assets/activity-crafts-table.webp",
+     "alt": "Kids at the craft table"
+    },
+    {
+     "src": "assets/activity-crafts-detail.webp",
+     "alt": "A craft project up close"
     }
    ],
    "partners": [
@@ -262,6 +306,18 @@
    ],
    "imgs": [
     {
+     "src": "assets/sportcourt-attack.webp",
+     "alt": "Attack and block on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-set.webp",
+     "alt": "Junior volleyball on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-pass.webp",
+     "alt": "Setter under the ball on the sports court"
+    },
+    {
      "src": "assets/court-5.webp",
      "alt": "Volleyball on Zone 6"
     }
@@ -282,6 +338,18 @@
     "Camps and clinics"
    ],
    "imgs": [
+    {
+     "src": "assets/sportcourt-attack.webp",
+     "alt": "Attack and block on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-set.webp",
+     "alt": "Junior volleyball on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-pass.webp",
+     "alt": "Setter under the ball on the sports court"
+    },
     {
      "src": "assets/court-7.webp",
      "alt": "Zone 7"
@@ -396,6 +464,18 @@
    "blurb": "Sports court with two volleyball courts, beside the bar.",
    "imgs": [
     {
+     "src": "assets/sportcourt-attack.webp",
+     "alt": "Attack and block on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-set.webp",
+     "alt": "Junior volleyball on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-pass.webp",
+     "alt": "Setter under the ball on the sports court"
+    },
+    {
      "src": "assets/court-5.webp",
      "alt": "Volleyball on Zone 6"
     }
@@ -411,6 +491,18 @@
    "courts": "3 volleyball courts or 1 futsal arena",
    "blurb": "Sports court with three volleyball courts in a row. Converts to one futsal arena.",
    "imgs": [
+    {
+     "src": "assets/sportcourt-attack.webp",
+     "alt": "Attack and block on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-set.webp",
+     "alt": "Junior volleyball on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-pass.webp",
+     "alt": "Setter under the ball on the sports court"
+    },
     {
      "src": "assets/court-7.webp",
      "alt": "Zone 7"

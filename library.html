@@ -1,0 +1,207 @@
+<!doctype html>
+<!--
+  FieldhouseUSA: INTERNAL PHOTO LIBRARY (not linked, not in the sitemap, noindex).
+  Every image in /assets, read from data/photos.json (built by tools/photos.py).
+  "In use" is worked out live: the page fetches every site page plus zones.json and
+  the scripts and looks for each file name, so it can't drift out of date.
+  To swap a photo: tick it, "Copy request for Claude", paste it in a session and say what goes there.
+  Find it by typing the URL: /library.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>FieldhouseUSA photo library (internal)</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#ff0000;--panel:#0d0d0d;--panel-2:#161616;--ink-2:rgba(255,255,255,.74);--line:rgba(255,255,255,.16);--ok:#3ecf8e;
+  --display:'Big Shoulders Display',Impact,sans-serif;--body:'Barlow',system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#000;color:#fff;font-family:var(--body);font-size:16px;line-height:1.45;padding:32px 16px 140px}
+.wrap{max-width:1240px;margin:0 auto}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(40px,6vw,72px);line-height:.92;text-transform:uppercase;margin:0 0 10px}
+.eyebrow{font-family:var(--display);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin:0 0 6px}
+.lead{color:var(--ink-2);max-width:78ch;margin:0 0 6px}
+.warn{color:#ffd400;font-weight:600;font-size:14px;margin:0 0 22px}
+.tools{position:sticky;top:0;z-index:5;background:#000;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 0;border-bottom:3px solid var(--red);margin-bottom:22px}
+.search{flex:1;min-width:220px;background:var(--panel-2);border:1.5px solid rgba(255,255,255,.3);border-radius:8px;color:#fff;font:inherit;padding:10px 12px}
+.tgl{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:transparent;border:0;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4);border-radius:999px;padding:9px 14px;cursor:pointer}
+.tgl[aria-pressed="true"]{background:#fff;color:#000}
+.count{font-weight:600;color:var(--ink-2);white-space:nowrap}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--panel);border-radius:12px;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;display:flex;flex-direction:column}
+.card.sel{box-shadow:inset 0 0 0 3px var(--red)}
+.thumb{position:relative;aspect-ratio:3/2;background:#111;display:block}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;left:8px;top:8px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;background:var(--red);color:#fff}
+.badge.off{background:#fff;color:#000}
+.badge.new{left:auto;right:44px;background:#ffd400;color:#000}
+.pick{position:absolute;right:8px;top:8px;width:26px;height:26px;accent-color:var(--red);cursor:pointer}
+.body{padding:12px 13px 13px;display:flex;flex-direction:column;gap:7px;flex:1}
+.fname{font-weight:600;word-break:break-all}
+.desc{color:var(--ink-2);font-size:14.5px}
+.meta{font-size:13px;color:var(--ink-2)}
+.uses{display:flex;flex-wrap:wrap;gap:4px}
+.uses a,.tag{font-size:12.5px;font-weight:600;padding:2px 8px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);color:#fff;text-decoration:none;white-space:nowrap}
+.tag{color:var(--ink-2);font-weight:500}
+.src{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--ink-2);word-break:break-all}
+.row{display:flex;gap:6px;margin-top:auto;padding-top:4px}
+.copy{flex:1;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;border:0;border-radius:8px;padding:8px 10px;cursor:pointer;background:#fff;color:#000}
+.copy.ok{background:var(--ok)}
+.empty{color:var(--ink-2);padding:30px 0}
+.selbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#0b0b0b;border-top:3px solid var(--red);transform:translateY(110%);transition:transform .2s}
+.selbar.show{transform:none}
+.selbar .in{max-width:1240px;margin:0 auto;padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.selbar b{font-family:var(--display);font-size:24px;color:var(--red);margin-right:auto}
+.modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.show{display:flex}
+.sheet{background:var(--panel-2);border-radius:14px;max-width:720px;width:100%;padding:18px}
+.sheet h2{font-family:var(--display);font-weight:900;font-size:28px;text-transform:uppercase;margin:0 0 6px}
+.sheet p{color:var(--ink-2);font-size:14px;margin:0 0 10px}
+.sheet textarea{width:100%;min-height:220px;background:#000;color:#fff;border:1px solid var(--line);border-radius:8px;font-family:ui-monospace,Consolas,monospace;font-size:13px;padding:10px}
+.sheet .acts{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+.foot{color:var(--ink-2);font-size:13px;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion:reduce){.selbar{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Internal · not linked · not indexed</p>
+  <h1>Photo library</h1>
+  <p class="lead">Every image in <code>/assets</code>. The red badge lists the pages it is on right now (checked live, every time this page loads). Tick photos and use <b>Copy request for Claude</b> to ask for a swap, a new spot or a removal. Each card names the camera original, so Claude can re-export it at a different crop or size.</p>
+  <p class="warn">Hidden from the menu, the sitemap and search engines, but anyone with the link can open it.</p>
+  <div class="tools">
+    <input class="search" id="q" type="search" placeholder="Search: file, description, tag, page or DSC number" aria-label="Search photos">
+    <button class="tgl" type="button" data-f="all" aria-pressed="true">All</button>
+    <button class="tgl" type="button" data-f="used" aria-pressed="false">In use</button>
+    <button class="tgl" type="button" data-f="unused" aria-pressed="false">Not used</button>
+    <button class="tgl" type="button" data-f="new" aria-pressed="false">Newest</button>
+    <span class="count" id="count">Loading…</span>
+  </div>
+  <div id="out"></div>
+  <p class="foot">FieldhouseUSA photo library · data/photos.json is rebuilt by <code>python tools/photos.py</code> · “In use” scans the pages, data/zones.json and the scripts in assets/.</p>
+</div>
+
+<div class="selbar" id="selbar" role="region" aria-label="Selected photos"><div class="in">
+  <b id="selN">0 selected</b>
+  <button class="tgl" type="button" id="exClaude">Copy request for Claude</button>
+  <button class="tgl" type="button" id="exPaths">Copy paths</button>
+  <button class="tgl" type="button" id="exRm">Copy git rm</button>
+  <button class="tgl" type="button" id="selClear">Clear</button>
+</div></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mT"><div class="sheet">
+  <h2 id="mT"></h2><p id="mP"></p>
+  <textarea id="mText" aria-label="Text to copy"></textarea>
+  <div class="acts"><button class="tgl" type="button" id="mCopy">Copy</button><button class="tgl" type="button" id="mClose">Close</button></div>
+</div></div>
+
+<script>
+(function(){
+"use strict";
+const PAGES=["index.html","tour.html","tournaments.html","activities.html","events.html","studios.html","404.html","data/zones.json","assets/site.js","assets/chat.js","assets/party.js","assets/plan.js"];
+const LS="fh_lib_sel_v1";
+const $=s=>document.querySelector(s);
+const out=$("#out"),countEl=$("#count");
+let photos=[],uses={},filter="all",newest="";
+let sel=new Set();
+try{sel=new Set(JSON.parse(localStorage.getItem(LS)||"[]"));}catch(e){}
+const save=()=>{try{localStorage.setItem(LS,JSON.stringify([...sel]));}catch(e){}};
+
+function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;}
+function pageOf(p){return p.replace(/^data\//,"tour: ").replace(/^assets\//,"script: ");}
+
+async function load(){
+  const res=await fetch("data/photos.json",{cache:"no-store"});
+  photos=(await res.json()).photos;
+  newest=photos.map(p=>p.added||"").sort().pop()||"";
+  const texts=await Promise.all(PAGES.map(p=>fetch(p,{cache:"no-store"}).then(r=>r.ok?r.text():"").catch(()=>"")));
+  photos.forEach(ph=>{
+    const file=ph.path.split("/").pop();
+    uses[ph.path]=PAGES.filter((p,i)=>texts[i].includes(file));
+  });
+  render();
+}
+
+function matches(ph){
+  const u=uses[ph.path]||[];
+  if(filter==="used"&&!u.length)return false;
+  if(filter==="unused"&&u.length)return false;
+  if(filter==="new"&&ph.added!==newest)return false;
+  const q=$("#q").value.trim().toLowerCase();
+  if(!q)return true;
+  return [ph.path,ph.desc,ph.source,(ph.tags||[]).join(" "),u.join(" ")].join(" ").toLowerCase().includes(q);
+}
+
+function render(){
+  out.textContent="";
+  const grid=el("div","grid");let shown=0;
+  photos.filter(matches).forEach(ph=>{
+    shown++;
+    const u=uses[ph.path]||[];
+    const card=el("div","card"+(sel.has(ph.path)?" sel":""));
+    const th=el("a","thumb");th.href=ph.path;th.target="_blank";th.rel="noopener";
+    const img=el("img");img.loading="lazy";img.decoding="async";img.src=ph.path;img.alt=ph.desc||"";th.append(img);
+    th.append(el("span","badge"+(u.length?"":" off"),u.length?"In use":"Not used"));
+    if(ph.added&&ph.added===newest)th.append(el("span","badge new","New"));
+    const cb=el("input","pick");cb.type="checkbox";cb.checked=sel.has(ph.path);cb.setAttribute("aria-label","Select "+ph.path);
+    cb.addEventListener("click",e=>e.stopPropagation());
+    cb.addEventListener("change",()=>{cb.checked?sel.add(ph.path):sel.delete(ph.path);card.classList.toggle("sel",cb.checked);save();bar();});
+    const wrapT=el("div");wrapT.style.position="relative";wrapT.append(th,cb);
+    const b=el("div","body");
+    b.append(el("div","fname",ph.path));
+    if(ph.desc)b.append(el("div","desc",ph.desc));
+    b.append(el("div","meta",ph.w+" × "+ph.h+" · "+ph.kb+" KB"+(ph.added?" · added "+ph.added:"")));
+    if(u.length){const us=el("div","uses");u.forEach(p=>{const a=el("a",null,pageOf(p));a.href=p.endsWith(".html")?p:"#";if(!p.endsWith(".html"))a.removeAttribute("href");us.append(a);});b.append(us);}
+    if(ph.tags&&ph.tags.length){const tg=el("div","uses");ph.tags.forEach(t=>tg.append(el("span","tag",t)));b.append(tg);}
+    if(ph.source)b.append(el("div","src","Original: "+ph.source));
+    const row=el("div","row");const btn=el("button","copy","Copy path");btn.type="button";
+    btn.addEventListener("click",()=>copy(ph.path,btn,"Copy path"));
+    row.append(btn);b.append(row);
+    card.append(wrapT,b);grid.append(card);
+  });
+  if(shown)out.append(grid);else out.append(el("p","empty","No photos match."));
+  countEl.textContent=shown+" / "+photos.length+" photos";
+  bar();
+}
+
+async function copy(text,btn,label){
+  try{await navigator.clipboard.writeText(text);}catch(e){const t=$("#mText");t.value=text;t.select();document.execCommand("copy");}
+  if(btn){btn.textContent="Copied";btn.classList.add("ok");setTimeout(()=>{btn.textContent=label;btn.classList.remove("ok");},1300);}
+}
+function bar(){$("#selN").textContent=sel.size+" selected";$("#selbar").classList.toggle("show",sel.size>0);}
+function chosen(){return photos.filter(p=>sel.has(p.path));}
+function modal(title,note,text){$("#mT").textContent=title;$("#mP").textContent=note;$("#mText").value=text;$("#modal").classList.add("show");}
+
+$("#exClaude").addEventListener("click",()=>{
+  const lines=chosen().map(p=>{
+    const u=uses[p.path]||[];
+    return "- "+p.path+(p.desc?" ("+p.desc+")":"")+"\n  on: "+(u.length?u.join(", "):"not used")+(p.source?"\n  original: "+p.source:"")+"\n  change: ";
+  });
+  modal("Request for Claude","Fill in each “change:” line (replace with…, move to…, remove), then paste into a Claude session on the afh repo.",
+    "FieldhouseUSA site (10xequity/afh, branch v3). Photo changes:\n\n"+lines.join("\n\n"));
+});
+$("#exPaths").addEventListener("click",()=>modal("Paths","One per line.",chosen().map(p=>p.path).join("\n")));
+$("#exRm").addEventListener("click",()=>{
+  const c=chosen(),live=c.filter(p=>(uses[p.path]||[]).length);
+  modal("Delete these files",live.length?("Warning: "+live.length+" of these are still on the site. Remove them from the pages first."):"None of these are on the site. Run from the repo root, then commit.",
+    c.map(p=>'git rm "'+p.path+'"').join("\n")+"\npython tools/photos.py --manifest");
+});
+$("#selClear").addEventListener("click",()=>{sel.clear();save();render();});
+$("#mCopy").addEventListener("click",e=>copy($("#mText").value,e.target,"Copy"));
+$("#mClose").addEventListener("click",()=>$("#modal").classList.remove("show"));
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#modal").classList.remove("show");});
+$("#q").addEventListener("input",render);
+document.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{
+  filter=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();
+}));
+load().catch(e=>{countEl.textContent="Could not load data/photos.json. Serve the site over HTTP.";console.error(e);});
+})();
+</script>
+</body>
+</html>

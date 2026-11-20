@@ -34,6 +34,16 @@ To regenerate the 3D PDF: print a page that calls `FHPLAN.iso()` with headless C
 
 Serve over HTTP (`python -m http.server`); the tour fetches `data/zones.json`.
 
+## v5.3 photos (2026-11-20)
+
+38 real photos from the building replace stock and fill new sections. Originals are on the owner's E: drive (`E:\Photos\11112026 Camera Dump`, `E:\Photos\Event Photos\Mongolian Tournament 9-3-26`); each asset's original is recorded in `data/photos.json`.
+
+- **Photo library:** `library.html` is a hidden page (noindex, not linked, not in the sitemap) that shows every image in `assets/`, the pages it is on (worked out live from the pages, `zones.json` and the scripts), its camera original, and a "Copy request for Claude" button for swaps. It reads `data/photos.json`.
+- **Adding photos:** add a line to `NEW` in `tools/photos.py` and run `python tools/photos.py`. It exports WebP (1600 px, q60) and rebuilds `data/photos.json`. After deleting files, run `python tools/photos.py --manifest`.
+- **Tournaments:** hero is the group photo, "What we host" adds martial arts, wrestling and mat sports, and gymnastics, cheer and dance; new Game day, crowd and Cultural and community events sections. Share image `assets/og-tournaments.jpg`. **Mat-sport and gymnastics copy is draft, owner to confirm.**
+- **Home:** the three cards use real photos. **Parties:** real photos on the hero and package cards, plus a Real courts, real parties gallery. **Activities:** photo strip and real thumbnails. **Tour:** Hardwood Courts, Sports Court stops, Zones 6 and 7 and Social Den gained the new photos (sports-court photos are on both Zone 6 and Zone 7 because the shots don't show which zone).
+- Now unused, kept for the moment: the replaced stock (`party-hero`, `party-karaoke`, `party-kids`, `party-watch`, `socialden-tables/cafe/lounge`). Remove from the library page when ready; `og-party.jpg` is still stock.
+
 ## v5.2 changes (2026-11-19)
 
 Audit fixes. Still no phone number anywhere (owner decision in v5.1). Every page carries its name, address and email in a plain-HTML `<footer>`; `site.js` reuses that address when it builds the full footer. Home title and H1 say Aurora; venue JSON-LD (email, logo, no `sameAs`) is on every indexable page. Share image is `assets/og-image.jpg` (1200×630, centre crop of the panorama). `favicon.ico` and `apple-touch-icon.png` are drawn from `favicon.svg`. Studio ids now match their names: `#/s/studio1` is the small room (Studio 1), `#/s/studio2` the large one (Studio 2). A plain Contact link opens the form on "Something else". `sitemap.xml` `lastmod` is each page's last commit date.

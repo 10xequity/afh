@@ -1,0 +1,1010 @@
+{
+ "note": "Built by tools/photos.py. library.html reads this; 'In use' is worked out live from the pages.",
+ "photos": [
+  {
+   "path": "assets/activity-crafts-detail.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 25,
+   "desc": "Close-up of a craft project and glue gun",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5212.JPG",
+   "tags": [
+    "activity room",
+    "crafts",
+    "detail"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/activity-crafts-table.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 38,
+   "desc": "Kids at the craft table with a candy jar",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5225.JPG",
+   "tags": [
+    "activity room",
+    "crafts",
+    "party"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/activity-crafts.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 57,
+   "desc": "Kids crafting at a long table, TV behind",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5182.JPG",
+   "tags": [
+    "activity room",
+    "social den",
+    "party",
+    "crafts"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/arches.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 7,
+   "desc": "",
+   "tags": [],
+   "master": "assets/arches.jpg"
+  },
+  {
+   "path": "assets/boom-logo.png",
+   "w": 184,
+   "h": 88,
+   "kb": 30,
+   "desc": "",
+   "tags": []
+  },
+  {
+   "path": "assets/court-1.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 50,
+   "desc": "Zone 1 volleyball",
+   "tags": [],
+   "master": "assets/court-1.jpg"
+  },
+  {
+   "path": "assets/court-2.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 62,
+   "desc": "Zone 2",
+   "tags": [],
+   "master": "assets/court-2.jpg"
+  },
+  {
+   "path": "assets/court-3.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 43,
+   "desc": "Zone 3 volleyball",
+   "tags": [],
+   "master": "assets/court-3.jpg"
+  },
+  {
+   "path": "assets/court-4.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 67,
+   "desc": "Zone 4",
+   "tags": [],
+   "master": "assets/court-4.jpg"
+  },
+  {
+   "path": "assets/court-5.webp",
+   "w": 1500,
+   "h": 988,
+   "kb": 152,
+   "desc": "Zone 6 volleyball",
+   "tags": [],
+   "master": "assets/court-5.jpg"
+  },
+  {
+   "path": "assets/court-6.webp",
+   "w": 1000,
+   "h": 450,
+   "kb": 80,
+   "desc": "Volleyball courts",
+   "tags": [],
+   "master": "assets/court-6.jpg"
+  },
+  {
+   "path": "assets/court-7.webp",
+   "w": 1400,
+   "h": 630,
+   "kb": 59,
+   "desc": "Zone 7",
+   "tags": [],
+   "master": "assets/court-7.jpg"
+  },
+  {
+   "path": "assets/crowd-bleachers.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 151,
+   "desc": "Full bleachers under the mezzanine",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8206.JPG",
+   "tags": [
+    "crowd",
+    "spectators",
+    "mezzanine"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/crowd-courtside.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 167,
+   "desc": "Packed courtside crowd during a women's match, Oda Up behind",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8303.JPG",
+   "tags": [
+    "crowd",
+    "spectators",
+    "volleyball",
+    "oda up"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/cultural-flag-bench.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 97,
+   "desc": "Team bench under the Mongolian flag",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8260.JPG",
+   "tags": [
+    "cultural",
+    "flag",
+    "team"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/cultural-flag-crowd.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 85,
+   "desc": "Spectators and the score table under the Mongolian flag",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8138.JPG",
+   "tags": [
+    "cultural",
+    "flag",
+    "crowd"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/cultural-mens-match.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 127,
+   "desc": "Men's match with a crowd and the mezzanine behind",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8243.JPG",
+   "tags": [
+    "cultural",
+    "volleyball",
+    "crowd"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/cultural-team-lineup.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 103,
+   "desc": "Women's teams lined up, flag behind",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8345.JPG",
+   "tags": [
+    "cultural",
+    "volleyball",
+    "team"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/cultural-trophy.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 74,
+   "desc": "Trophy and medals at a community tournament",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8661.JPG",
+   "tags": [
+    "cultural",
+    "awards",
+    "community"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/danceden-class.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 37,
+   "desc": "Dance class (stock)",
+   "tags": [],
+   "master": "assets/danceden-class.jpg"
+  },
+  {
+   "path": "assets/danceden-kids.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 44,
+   "desc": "Kids dance (stock)",
+   "tags": [],
+   "master": "assets/danceden-kids.jpg"
+  },
+  {
+   "path": "assets/denver-street.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 83,
+   "desc": "",
+   "tags": [],
+   "master": "assets/denver-street.jpg"
+  },
+  {
+   "path": "assets/event-concert.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 129,
+   "desc": "Concert (stock)",
+   "tags": [],
+   "master": "assets/event-concert.jpg"
+  },
+  {
+   "path": "assets/event-dinner.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 36,
+   "desc": "Dinner event (stock)",
+   "tags": [],
+   "master": "assets/event-dinner.jpg"
+  },
+  {
+   "path": "assets/event-festival.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 164,
+   "desc": "",
+   "tags": [],
+   "master": "assets/event-festival.jpg"
+  },
+  {
+   "path": "assets/event-hall.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 110,
+   "desc": "Event setup (stock)",
+   "tags": [],
+   "master": "assets/event-hall.jpg"
+  },
+  {
+   "path": "assets/exterior.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 73,
+   "desc": "",
+   "tags": [],
+   "master": "assets/exterior.jpg"
+  },
+  {
+   "path": "assets/fieldhouse-entrance.webp",
+   "w": 1305,
+   "h": 1600,
+   "kb": 102,
+   "desc": "Main entrance",
+   "tags": [],
+   "master": "assets/fieldhouse-entrance.jpg"
+  },
+  {
+   "path": "assets/fieldhouse-overhead.webp",
+   "w": 1500,
+   "h": 1125,
+   "kb": 285,
+   "desc": "Courts from the mezzanine",
+   "tags": [],
+   "master": "assets/fieldhouse-overhead.jpg"
+  },
+  {
+   "path": "assets/fieldhouse-panorama-1200.webp",
+   "w": 1200,
+   "h": 458,
+   "kb": 74,
+   "desc": "",
+   "tags": []
+  },
+  {
+   "path": "assets/fieldhouse-panorama-800.webp",
+   "w": 800,
+   "h": 306,
+   "kb": 37,
+   "desc": "",
+   "tags": []
+  },
+  {
+   "path": "assets/fieldhouse-panorama.webp",
+   "w": 2000,
+   "h": 764,
+   "kb": 174,
+   "desc": "Court panorama from the admin desk during a tournament",
+   "tags": [],
+   "master": "assets/fieldhouse-panorama.jpg"
+  },
+  {
+   "path": "assets/fieldhouse-sign.webp",
+   "w": 1600,
+   "h": 900,
+   "kb": 68,
+   "desc": "Fieldhouse sign",
+   "tags": [],
+   "master": "assets/fieldhouse-sign.jpg"
+  },
+  {
+   "path": "assets/hardwood-attack.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 47,
+   "desc": "Women's attack on the hardwood",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3969.JPG",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/hardwood-block.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 60,
+   "desc": "Block at the net on the hardwood",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3883.JPG",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/hardwood-dig.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 72,
+   "desc": "Junior dig on the hardwood with spectators",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3273.JPG",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "juniors",
+    "crowd"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/hardwood-double-block.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 57,
+   "desc": "Double block on the hardwood",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3646.JPG",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/hardwood-junior-set.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 70,
+   "desc": "Junior team on the hardwood, setter jumping",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3313.JPG",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "juniors"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/hardwood-mens-block.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 64,
+   "desc": "Men's block and attack on the hardwood",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8193.JPG",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "men",
+    "cultural"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/hardwood-set.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 67,
+   "desc": "Junior set on the hardwood, Boom wall behind",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3316.JPG",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "juniors"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/hardwood-team.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 106,
+   "desc": "Men's team holding their shirts",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4292.JPG",
+   "tags": [
+    "hardwood",
+    "team",
+    "men"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/karate-tournament.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 80,
+   "desc": "Karate tournament: competitors in gis, rings and a crowd",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5091.JPG",
+   "tags": [
+    "martial arts",
+    "karate",
+    "tournament",
+    "mat sports"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/lobby.webp",
+   "w": 1400,
+   "h": 630,
+   "kb": 149,
+   "desc": "Front lobby",
+   "tags": [],
+   "master": "assets/lobby.jpg"
+  },
+  {
+   "path": "assets/martial-arts-expo.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 69,
+   "desc": "Martial arts studio tables and trophies at a karate event",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5094.JPG",
+   "tags": [
+    "martial arts",
+    "karate",
+    "expo",
+    "vendors"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/medals-two-players.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 54,
+   "desc": "Two players showing their medals",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4933.JPG",
+   "tags": [
+    "medals",
+    "celebration",
+    "colorado boom",
+    "party"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/mezz-lounge.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 67,
+   "desc": "Mezzanine lounge",
+   "tags": [],
+   "master": "assets/mezz-lounge.jpg"
+  },
+  {
+   "path": "assets/odabar-glasses.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 40,
+   "desc": "Bar glasses",
+   "tags": [],
+   "master": "assets/odabar-glasses.jpg"
+  },
+  {
+   "path": "assets/odabar-toast.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 51,
+   "desc": "Bar toast",
+   "tags": [],
+   "master": "assets/odabar-toast.jpg"
+  },
+  {
+   "path": "assets/odaup-bowl.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 40,
+   "desc": "Oda Up bowl",
+   "tags": [],
+   "master": "assets/odaup-bowl.jpg"
+  },
+  {
+   "path": "assets/odaup-dining.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 67,
+   "desc": "Oda Up dining",
+   "tags": [],
+   "master": "assets/odaup-dining.jpg"
+  },
+  {
+   "path": "assets/odaup-food.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 147,
+   "desc": "Oda Up food",
+   "tags": [],
+   "master": "assets/odaup-food.jpg"
+  },
+  {
+   "path": "assets/og-image.jpg",
+   "w": 1200,
+   "h": 630,
+   "kb": 179,
+   "desc": "Share card 1200x630",
+   "tags": []
+  },
+  {
+   "path": "assets/og-party.jpg",
+   "w": 1200,
+   "h": 630,
+   "kb": 126,
+   "desc": "Party share card",
+   "tags": []
+  },
+  {
+   "path": "assets/og-tournaments.jpg",
+   "w": 1200,
+   "h": 630,
+   "kb": 149,
+   "desc": "Tournaments share card 1200x630 (from DSC_5078)",
+   "tags": []
+  },
+  {
+   "path": "assets/party-bounce.webp",
+   "w": 1200,
+   "h": 800,
+   "kb": 34,
+   "desc": "Inflatable (Unsplash stock)",
+   "tags": []
+  },
+  {
+   "path": "assets/party-hero.webp",
+   "w": 1600,
+   "h": 900,
+   "kb": 119,
+   "desc": "Confetti party (Unsplash stock)",
+   "tags": []
+  },
+  {
+   "path": "assets/party-hoops.webp",
+   "w": 1200,
+   "h": 800,
+   "kb": 73,
+   "desc": "Kids basketball (Unsplash stock)",
+   "tags": []
+  },
+  {
+   "path": "assets/party-karaoke.webp",
+   "w": 1200,
+   "h": 800,
+   "kb": 53,
+   "desc": "Karaoke (Unsplash stock)",
+   "tags": []
+  },
+  {
+   "path": "assets/party-kids.webp",
+   "w": 1200,
+   "h": 800,
+   "kb": 105,
+   "desc": "Kids birthday (Unsplash stock)",
+   "tags": []
+  },
+  {
+   "path": "assets/party-pizza.webp",
+   "w": 1200,
+   "h": 800,
+   "kb": 68,
+   "desc": "Pizza (Unsplash stock)",
+   "tags": []
+  },
+  {
+   "path": "assets/party-vb-attack.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 52,
+   "desc": "Attacker swinging, Oda Up sign in the back",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4034.JPG",
+   "tags": [
+    "party",
+    "volleyball",
+    "action",
+    "oda up"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/party-vb-block.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 102,
+   "desc": "Volleyball block with Oda Up behind the court",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4753.JPG",
+   "tags": [
+    "party",
+    "volleyball",
+    "oda up"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/party-vb-dig.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 69,
+   "desc": "Player passing a ball, Oda Up and string lights behind",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_7335.JPG",
+   "tags": [
+    "party",
+    "volleyball",
+    "oda up"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/party-vb-spike.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 61,
+   "desc": "Spike over a double block",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4055.JPG",
+   "tags": [
+    "party",
+    "volleyball",
+    "action"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/party-watch.webp",
+   "w": 1200,
+   "h": 800,
+   "kb": 84,
+   "desc": "Watch party (Unsplash stock)",
+   "tags": []
+  },
+  {
+   "path": "assets/shoot360-bays.webp",
+   "w": 960,
+   "h": 712,
+   "kb": 85,
+   "desc": "Shoot 360 shooting bays",
+   "tags": [],
+   "master": "assets/shoot360-bays.jpg"
+  },
+  {
+   "path": "assets/shoot360.webp",
+   "w": 1600,
+   "h": 1069,
+   "kb": 143,
+   "desc": "Shoot 360 training floor",
+   "tags": [],
+   "master": "assets/shoot360.jpg"
+  },
+  {
+   "path": "assets/socialden-cafe.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 65,
+   "desc": "Social Den cafe (stock)",
+   "tags": [],
+   "master": "assets/socialden-cafe.jpg"
+  },
+  {
+   "path": "assets/socialden-crowd.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 58,
+   "desc": "Social Den packed with guests at wood tables",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5122.JPG",
+   "tags": [
+    "social den",
+    "lounge",
+    "crowd"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/socialden-evening.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 45,
+   "desc": "Evening at the Social Den tables",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5123.JPG",
+   "tags": [
+    "social den",
+    "lounge"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/socialden-hall.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 64,
+   "desc": "Full room of tables during an event, Halloween decorations",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5127.JPG",
+   "tags": [
+    "social den",
+    "activity room",
+    "event",
+    "crowd"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/socialden-lounge.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 70,
+   "desc": "Social Den lounge (stock)",
+   "tags": [],
+   "master": "assets/socialden-lounge.jpg"
+  },
+  {
+   "path": "assets/socialden-tables.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 73,
+   "desc": "Social Den tables (stock)",
+   "tags": [],
+   "master": "assets/socialden-tables.jpg"
+  },
+  {
+   "path": "assets/spike.webp",
+   "w": 819,
+   "h": 868,
+   "kb": 31,
+   "desc": "",
+   "tags": [],
+   "master": "assets/spike.jpg"
+  },
+  {
+   "path": "assets/sponsor-real-colorado.png",
+   "w": 185,
+   "h": 240,
+   "kb": 33,
+   "desc": "",
+   "tags": []
+  },
+  {
+   "path": "assets/sponsor-rhone.png",
+   "w": 480,
+   "h": 227,
+   "kb": 15,
+   "desc": "",
+   "tags": []
+  },
+  {
+   "path": "assets/sponsor-usav.png",
+   "w": 186,
+   "h": 156,
+   "kb": 7,
+   "desc": "",
+   "tags": []
+  },
+  {
+   "path": "assets/sportcourt-attack.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 45,
+   "desc": "Attack and block on the sports court",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3341.JPG",
+   "tags": [
+    "sports court",
+    "volleyball",
+    "juniors"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/sportcourt-pass.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 58,
+   "desc": "Setter under the ball on the sports court",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3384.JPG",
+   "tags": [
+    "sports court",
+    "volleyball",
+    "juniors"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/sportcourt-set.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 69,
+   "desc": "Junior volleyball on the sports court",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3388.JPG",
+   "tags": [
+    "sports court",
+    "volleyball",
+    "juniors"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/team-high-fives.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 62,
+   "desc": "Colorado Boom players high-fiving down the line",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4871.JPG",
+   "tags": [
+    "team",
+    "cheering",
+    "party",
+    "colorado boom"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/team-mens-group.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 108,
+   "desc": "Men's team grinning at the net",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4278.JPG",
+   "tags": [
+    "team",
+    "party",
+    "men"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/team-mens-lineup.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 73,
+   "desc": "Men's team lined up on the sports court",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4285.JPG",
+   "tags": [
+    "team",
+    "party",
+    "men"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/tournament-group.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 101,
+   "desc": "Big group photo on the hardwood under the Boomtown banner",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_5078.JPG",
+   "tags": [
+    "tournament",
+    "league",
+    "group",
+    "hero",
+    "instagram"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/vb-set-colorado-boom.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 47,
+   "desc": "Set at the net in front of the Colorado Boom wall",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_3563.JPG",
+   "tags": [
+    "volleyball",
+    "sports",
+    "colorado boom"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/vb-team-lineup.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 111,
+   "desc": "Team lined up and clapping before a match",
+   "source": "E:\\Photos\\Event Photos\\Mongolian Tournament 9-3-26\\DSC_8356.JPG",
+   "tags": [
+    "volleyball",
+    "sports",
+    "team",
+    "cultural"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/vb-women-defense.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 53,
+   "desc": "Women's volleyball, players ready on defense",
+   "source": "E:\\Photos\\11112026 Camera Dump\\DSC_4590.JPG",
+   "tags": [
+    "volleyball",
+    "sports",
+    "women"
+   ],
+   "added": "2026-11-20"
+  },
+  {
+   "path": "assets/wing-ahead.webp",
+   "w": 1600,
+   "h": 1067,
+   "kb": 70,
+   "desc": "",
+   "tags": [],
+   "master": "assets/wing-ahead.jpg"
+  },
+  {
+   "path": "assets/wing-east.webp",
+   "w": 1400,
+   "h": 630,
+   "kb": 151,
+   "desc": "",
+   "tags": [],
+   "master": "assets/wing-east.jpg"
+  },
+  {
+   "path": "assets/wing-west.webp",
+   "w": 1400,
+   "h": 630,
+   "kb": 107,
+   "desc": "",
+   "tags": [],
+   "master": "assets/wing-west.jpg"
+  },
+  {
+   "path": "assets/yoga-meadow.webp",
+   "w": 1400,
+   "h": 900,
+   "kb": 89,
+   "desc": "Yoga class (stock)",
+   "tags": [],
+   "master": "assets/yoga-meadow.jpg"
+  }
+ ]
+}
