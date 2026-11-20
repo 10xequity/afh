@@ -6,11 +6,11 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const SITE={email:'admin@aurorafieldhouseusa.com',
   maps:'https://www.google.com/maps/search/?api=1&query=FieldhouseUSA+14200+E+Alameda+Ave+Aurora+CO+80012',waiver:'https://forms.gle/4vAwn3prUqkBDKqVA',lost:'https://forms.gle/wkkn4TCwwnCsuoRd6'};
-const INQ=[['event','Host a special event'],['tournament','Host a tournament'],['rental','Find an activity or program'],['volleyball','Volleyball: club, league or drop-in'],['basketball','Basketball training or club'],
+const INQ=[['tournament','Host a tournament or sports event'],['event','Host a party or special event'],['rental','Find an activity or program'],['volleyball','Volleyball: club, league or drop-in'],['basketball','Basketball training or club'],
   ['studio','Studios and Social-Den'],['food','Food, bar or catering'],['therapy','Therapy / Spa Room'],['sponsor','Become a sponsor'],['other','Something else']];
 const ACT=[['special-events','Special events'],['volleyball','Volleyball'],['basketball','Basketball'],['futsal','Futsal'],['social-leagues-community','Social leagues and community'],['studios-wellness','Studios and wellness']];
-const NAV=[['index.html','Home','Start here','home'],['events.html','Parties & Events','Birthdays, gatherings, team-building','events'],['tournaments.html','Tournaments','Host yours here','tournaments'],
-  ['activities.html','Activities','Find a sport or activity','activities'],['tour.html','Tour','3D map and floor plan','tour'],['index.html#rules','Facility Rules','Read before you come','rules'],
+const NAV=[['index.html','Home','Start here','home'],['tournaments.html','Tournaments','Host yours here','tournaments'],
+  ['activities.html','Activities','Find a sport or activity','activities'],['events.html','Parties & Events','Birthdays, gatherings, team-building','events'],['tour.html','Tour','3D map and floor plan','tour'],['index.html#rules','Facility Rules','Read before you come','rules'],
   ['index.html#sponsors','Sponsors','Put your name up','sponsors'],['activities.html#partners','Partners','Operators based here','partners'],['#ask','Contact','Email the front desk','ask']];
 const page=document.body.dataset.page||'';
 const here=k=>k===page?' aria-current="page"':'';
@@ -35,7 +35,7 @@ document.body.insertAdjacentHTML('beforeend',`
   <div class="grid">
     <div><div class="flogo"><svg role="img" aria-label="FieldhouseUSA"><use href="#logo"/></svg></div>
       <address>${NAP}<br><a href="${SITE.maps}" rel="noopener">Get directions</a></address></div>
-    <div><h3>Do</h3><ul><li><a href="events.html">Parties and events</a></li><li><a href="tournaments.html">Tournaments</a></li><li><a href="activities.html">Activities</a></li><li><a href="studios.html">Dance-Den and Yoga-Den</a></li></ul></div>
+    <div><h3>Do</h3><ul><li><a href="tournaments.html">Tournaments</a></li><li><a href="activities.html">Activities</a></li><li><a href="events.html">Parties and events</a></li><li><a href="studios.html">Dance-Den and Yoga-Den</a></li></ul></div>
     <div><h3>See</h3><ul><li><a href="index.html">Home</a></li><li><a href="tour.html">Tour the fieldhouse</a></li><li><a href="activities.html#partners">Partners</a></li><li><a href="index.html#sponsors">Sponsors</a></li></ul></div>
     <div><h3>Know</h3><ul><li><a href="index.html#rules">Facility rules</a></li><li><a href="${SITE.waiver}" rel="noopener">Liability waiver</a></li><li><a href="index.html#lost">Lost items</a></li><li><a href="#ask">Contact</a></li></ul></div>
   </div>

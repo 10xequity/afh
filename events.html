@@ -52,16 +52,17 @@
 .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
 .box{padding:20px 22px;background:var(--panel);border-radius:14px;box-shadow:inset 0 0 0 1px var(--line);display:grid;gap:10px;align-content:start}
 .box h3{font-size:28px}.box p{color:var(--ink-2)}
-.box .acts{margin-top:4px}
+.cols .box{grid-row:span 3;grid-template-rows:subgrid;row-gap:10px}
 .box.here{box-shadow:inset 0 0 0 2px var(--red)}
 .pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
-.pk article{background:var(--panel);border-radius:14px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);display:grid;grid-template-rows:auto 1fr}
+.pk article{background:var(--panel);border-radius:14px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0}
 .pk img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
-.pk .in{padding:18px 20px 20px;display:grid;gap:10px;align-content:start}
+.pk .in{padding:18px 20px 20px;display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:10px}
 .pk h3{font-size:28px}
 .pk .price{font-family:var(--display);font-weight:900;font-size:30px;line-height:1;color:var(--red-t);font-variant-numeric:tabular-nums}
 .pk .price small{font-family:var(--body);font-weight:500;font-size:15px;color:var(--ink-2);letter-spacing:0;text-transform:none}
 .pk p{color:var(--ink-2)}
+.pk .ticks{align-content:start}
 .ticks{display:grid;gap:7px}
 .ticks li{padding-left:18px;position:relative;color:rgba(255,255,255,.88)}
 .ticks li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
@@ -103,7 +104,7 @@
 .big{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:26px 28px;background:var(--red);border-radius:14px;margin-top:8px}
 .big h2{font-size:clamp(32px,4vw,52px)}
 .big p{max-width:62ch}
-@media (max-width:980px){.pk,.cols,.steps{grid-template-columns:1fr 1fr}.build,.food{grid-template-columns:1fr}.est{position:static}}
+@media (max-width:980px){.pk,.steps{grid-template-columns:1fr 1fr}.cols,.build,.food{grid-template-columns:1fr}.est{position:static}}
 @media (max-width:640px){.pk,.cols,.steps,.spec,.addons,.f3,.big{grid-template-columns:1fr}}
 </style>
 </head>
@@ -154,7 +155,7 @@
       <ul class="ticks"><li>Inflatables: $150</li><li>Pair it with the party room</li></ul>
     </div></article>
     <article><img src="assets/party-kids.webp" alt="Kids at a birthday party with balloons and cake" width="1200" height="800" loading="lazy"><div class="in">
-      <h3>Colorado Boom families</h3><p class="price">$400 <small>party room with a court included</small></p>
+      <h3>Colorado Boom members</h3><p class="price">$400 <small>party room with a court included</small></p>
       <p>Club members get one volleyball court for the full 3 hours, included with the party room. That saves $150.</p>
       <ul class="ticks"><li>Tell us the player's name when you book</li></ul>
     </div></article>
