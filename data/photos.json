@@ -317,24 +317,6 @@
    "added": "2026-11-20"
   },
   {
-   "path": "assets/danceden-class.webp",
-   "w": 1400,
-   "h": 900,
-   "kb": 37,
-   "desc": "Dance class (stock)",
-   "tags": [],
-   "master": "assets/danceden-class.jpg"
-  },
-  {
-   "path": "assets/danceden-kids.webp",
-   "w": 1400,
-   "h": 900,
-   "kb": 44,
-   "desc": "Kids dance (stock)",
-   "tags": [],
-   "master": "assets/danceden-kids.jpg"
-  },
-  {
    "path": "assets/denver-street.webp",
    "w": 1400,
    "h": 900,
@@ -371,15 +353,6 @@
    "master": "assets/event-festival.jpg"
   },
   {
-   "path": "assets/event-hall.webp",
-   "w": 1400,
-   "h": 900,
-   "kb": 110,
-   "desc": "Event setup (stock)",
-   "tags": [],
-   "master": "assets/event-hall.jpg"
-  },
-  {
    "path": "assets/exterior.webp",
    "w": 1600,
    "h": 1067,
@@ -396,6 +369,21 @@
    "desc": "Main entrance",
    "tags": [],
    "master": "assets/fieldhouse-entrance.jpg"
+  },
+  {
+   "path": "assets/fieldhouse-open-floor.webp",
+   "w": 1800,
+   "h": 811,
+   "kb": 168,
+   "desc": "Wide view of the empty hardwood floor and courts",
+   "source": "btvb assets/img/library/fieldhouse-interior-wide.jpg",
+   "tags": [
+    "hardwood",
+    "open floor",
+    "facility",
+    "empty"
+   ],
+   "added": "2026-11-21"
   },
   {
    "path": "assets/fieldhouse-overhead.webp",
@@ -568,6 +556,131 @@
     "mat sports"
    ],
    "added": "2026-11-20"
+  },
+  {
+   "path": "assets/league-attack-bright-lights.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 70,
+   "desc": "Attack past a block under the fieldhouse lights",
+   "source": "BT library (13.jpg)",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women",
+    "league",
+    "action"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/league-attack-denver-juniors.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 46,
+   "desc": "Attack into a double block in front of the Denver Juniors banner",
+   "source": "BT library (11.jpg)",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women",
+    "league",
+    "action"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/league-attack-restrooms.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 54,
+   "desc": "Women's league attack and block on the hardwood, restrooms sign behind",
+   "source": "BT library (7.jpg, 2026-11-21 upload)",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women",
+    "league"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/league-spike-double-block.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 56,
+   "desc": "Women's league spike over a double block, Boomtown shirt in front",
+   "source": "BT library (10.jpg)",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women",
+    "league",
+    "action"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/league-team-four.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 73,
+   "desc": "Four women's league players smiling on the hardwood",
+   "source": "BT library (8.jpg)",
+   "tags": [
+    "team",
+    "women",
+    "league",
+    "social"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/league-team-number-one.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 69,
+   "desc": "Women's league team holding up number one at the net",
+   "source": "BT library (9.jpg)",
+   "tags": [
+    "team",
+    "women",
+    "league",
+    "celebration"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/league-tip-boomtown-banner.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 85,
+   "desc": "Tip at the net with the Boomtown Athletics banner behind",
+   "source": "BT library (14.jpg)",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women",
+    "league",
+    "boomtown"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/league-tip-denver-juniors.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 54,
+   "desc": "Tip over the block in front of the Denver Juniors banner",
+   "source": "BT library (12.jpg)",
+   "tags": [
+    "hardwood",
+    "volleyball",
+    "women",
+    "league",
+    "action"
+   ],
+   "added": "2026-11-21"
   },
   {
    "path": "assets/lobby-front-desk.webp",
@@ -758,6 +871,21 @@
    "tags": []
   },
   {
+   "path": "assets/party-inflatable.webp",
+   "w": 1067,
+   "h": 1600,
+   "kb": 65,
+   "desc": "Stock: boy running across a colorful inflatable",
+   "source": "Pexels photo 40091926 (free license): https://www.pexels.com/photo/children-playing-on-colorful-inflatable-bouncer-40091926/",
+   "tags": [
+    "stock",
+    "party",
+    "inflatable",
+    "kids"
+   ],
+   "added": "2026-11-21"
+  },
+  {
    "path": "assets/party-karaoke.webp",
    "w": 1200,
    "h": 800,
@@ -854,15 +982,6 @@
    "desc": "Shoot 360 shooting bays",
    "tags": [],
    "master": "assets/shoot360-bays.jpg"
-  },
-  {
-   "path": "assets/shoot360.webp",
-   "w": 1600,
-   "h": 1069,
-   "kb": 143,
-   "desc": "Shoot 360 training floor",
-   "tags": [],
-   "master": "assets/shoot360.jpg"
   },
   {
    "path": "assets/socialden-cafe.webp",
@@ -1125,6 +1244,21 @@
    "added": "2026-11-21"
   },
   {
+   "path": "assets/team-hands-in.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 48,
+   "desc": "Friends stacking hands at the net before a game",
+   "source": "BT library (18.jpg)",
+   "tags": [
+    "team",
+    "social",
+    "party",
+    "adults"
+   ],
+   "added": "2026-11-21"
+  },
+  {
    "path": "assets/team-high-fives.webp",
    "w": 1600,
    "h": 1067,
@@ -1305,6 +1439,51 @@
     "studio",
     "yoga-den",
     "mats"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/zone5-sportcourt-attack.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 39,
+   "desc": "Attack and dig on the red and blue sports court in Zone 5",
+   "source": "BT library (15.jpg)",
+   "tags": [
+    "sports-court",
+    "zone-5",
+    "volleyball",
+    "adults"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/zone5-sportcourt-swing.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 65,
+   "desc": "Attacker swinging past the block on the Zone 5 sports court",
+   "source": "BT library (17.jpg)",
+   "tags": [
+    "sports-court",
+    "zone-5",
+    "volleyball",
+    "adults"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/zone5-sportcourt-tip.webp",
+   "w": 1600,
+   "h": 1068,
+   "kb": 38,
+   "desc": "Player tipping over the block on the Zone 5 sports court",
+   "source": "BT library (16.jpg)",
+   "tags": [
+    "sports-court",
+    "zone-5",
+    "volleyball",
+    "adults"
    ],
    "added": "2026-11-21"
   }

@@ -81,6 +81,21 @@ PHONE = {
     'court3-boom-huddle-pink': ('IMG_4268.jpeg', 'Colorado Boom players in pink huddled with coaches on Zone 3', ['colorado-boom', 'hardwood', 'zone-3', 'juniors', 'coaching']),
     'sportcourt-adult-league': ('IMG_4329.jpeg', 'Adult league match on the sports court, block at the net', ['sports-court', 'adults', 'league', 'volleyball']),
     'sportcourt-adult-practice': ('IMG_4338.jpeg', 'Adult training session on the sports court, passing drill', ['sports-court', 'adults', 'training', 'volleyball']),
+    # BT-site photos added 2026-11-21 (owner-supplied)
+    'league-attack-restrooms': ('BT library (7.jpg, 2026-11-21 upload)', "Women's league attack and block on the hardwood, restrooms sign behind", ['hardwood', 'volleyball', 'women', 'league']),
+    'league-team-four': ('BT library (8.jpg)', "Four women's league players smiling on the hardwood", ['team', 'women', 'league', 'social']),
+    'league-team-number-one': ('BT library (9.jpg)', "Women's league team holding up number one at the net", ['team', 'women', 'league', 'celebration']),
+    'league-spike-double-block': ('BT library (10.jpg)', "Women's league spike over a double block, Boomtown shirt in front", ['hardwood', 'volleyball', 'women', 'league', 'action']),
+    'league-attack-denver-juniors': ('BT library (11.jpg)', 'Attack into a double block in front of the Denver Juniors banner', ['hardwood', 'volleyball', 'women', 'league', 'action']),
+    'league-tip-denver-juniors': ('BT library (12.jpg)', 'Tip over the block in front of the Denver Juniors banner', ['hardwood', 'volleyball', 'women', 'league', 'action']),
+    'league-attack-bright-lights': ('BT library (13.jpg)', 'Attack past a block under the fieldhouse lights', ['hardwood', 'volleyball', 'women', 'league', 'action']),
+    'league-tip-boomtown-banner': ('BT library (14.jpg)', 'Tip at the net with the Boomtown Athletics banner behind', ['hardwood', 'volleyball', 'women', 'league', 'boomtown']),
+    'zone5-sportcourt-attack': ('BT library (15.jpg)', 'Attack and dig on the red and blue sports court in Zone 5', ['sports-court', 'zone-5', 'volleyball', 'adults']),
+    'zone5-sportcourt-tip': ('BT library (16.jpg)', 'Player tipping over the block on the Zone 5 sports court', ['sports-court', 'zone-5', 'volleyball', 'adults']),
+    'zone5-sportcourt-swing': ('BT library (17.jpg)', 'Attacker swinging past the block on the Zone 5 sports court', ['sports-court', 'zone-5', 'volleyball', 'adults']),
+    'team-hands-in': ('BT library (18.jpg)', 'Friends stacking hands at the net before a game', ['team', 'social', 'party', 'adults']),
+    'fieldhouse-open-floor': ('btvb assets/img/library/fieldhouse-interior-wide.jpg', 'Wide view of the empty hardwood floor and courts', ['hardwood', 'open floor', 'facility', 'empty']),
+    'party-inflatable': ('Pexels photo 40091926 (free license): https://www.pexels.com/photo/children-playing-on-colorful-inflatable-bouncer-40091926/', 'Stock: boy running across a colorful inflatable', ['stock', 'party', 'inflatable', 'kids']),
 }
 
 # what older files are (for the manifest). Anything not listed shows its file name only.

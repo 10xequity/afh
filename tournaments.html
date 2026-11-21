@@ -57,11 +57,11 @@
 .plist span:not(.ph){color:var(--ink-2)}
 .plist i{font-style:normal;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;color:var(--red-t);white-space:nowrap}
 @media (hover:hover){.plist a:hover,.plist button:hover{background:rgba(255,255,255,.05)}}
-.boomban{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px;margin-top:-18px;padding:14px 22px;background:var(--red);color:#fff;text-decoration:none;box-shadow:0 22px 44px rgba(0,0,0,.9),0 6px 14px rgba(0,0,0,.7);position:relative;z-index:2;font-size:17px}
-.boomban img{height:44px;width:auto}
+.boomban{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px 22px;margin-top:-18px;padding:18px 26px;background:#0a0a0a;color:#fff;text-decoration:none;border:2px solid #ffd400;border-radius:12px;box-shadow:8px 8px 0 #ffd400;position:relative;z-index:2;font-size:17px;line-height:1.35;transition:transform .15s ease,box-shadow .15s ease}.boomban:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 #ffd400}.boomban:focus-visible{outline:3px solid #fff;outline-offset:4px}.boomban span{display:flex;flex-direction:column;gap:2px}.boomban small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#ffd400;font-weight:600}@media (max-width:700px){.boomban{grid-template-columns:auto 1fr}.boomban u{grid-column:1/-1;margin-left:0}}
+.boomban img{height:44px;width:auto}.expo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:center}.expo img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px}@media (max-width:800px){.expo{grid-template-columns:1fr}}
 .boomban b{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:.04em;text-transform:uppercase}
 .boomban b i{font-style:normal;color:#ffd400}
-.boomban u{margin-left:auto;font-weight:600;text-underline-offset:4px;white-space:nowrap}
+.boomban u{margin-left:auto;font-weight:600;text-decoration:none;white-space:nowrap;background:#ffd400;color:#000;padding:10px 18px;border-radius:999px;font-family:var(--display);font-size:18px;letter-spacing:.02em}
 .spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:24px 0 0;border-top:3px solid var(--red)}
 .spec div{padding:16px 18px 16px 0;border-bottom:1px solid var(--line)}
 .spec dt{font-family:var(--display);font-weight:900;font-size:clamp(36px,4.4vw,60px);line-height:.95}
@@ -78,14 +78,14 @@
   <p class="lede">FieldhouseUSA rents courts and floor space to tournament directors, leagues and sanctioning bodies. You run the event. We provide the building: 15 volleyball courts in seven zones, 32,000 sq ft of open floor, a bar and kitchen, seating and free parking, in Aurora on the east side of the Denver metro.</p>
   <div class="acts" style="margin-top:22px"><button class="btn btn-red" data-ask="tournament">Ask about dates</button><a class="btn btn-line" href="tour.html">See the courts</a></div>
 </div></section>
-<div class="wrap"><a class="boomban" href="https://www.boomtownathletics.com/tournaments.html" rel="noopener"><img src="assets/boom-logo.png" alt="" width="92" height="44"><span>Looking to play, not host? <b>Boom<i>town</i></b> Athletics runs volleyball tournaments here.</span><u>See Boomtown tournaments</u></a></div>
+<div class="wrap"><a class="boomban" href="https://www.boomtownathletics.com/tournaments.html" rel="noopener"><img src="assets/boom-logo.png" alt="" width="92" height="44"><span><small>Here to play, not host?</small><b>Boom<i>town</i></b> runs volleyball tournaments here all year.</span><u>See tournaments →</u></a></div>
 
 <section class="sec" style="border-top:0"><div class="wrap">
   <h2>What we host</h2>
-  <p class="lede">Court sports on the courts. Mat sports, meets and competitions on the open floor, with the nets raised.</p>
+  <p class="lede">Fifteen courts, 32,000 sq ft of open floor and rooms for everything around the competition. Run a single-day tournament or a multi-day championship: court sports on the hardwood and sports courts, then raise the nets for mat sports, meets, showcases, expos and ceremonies. Camps, clinics, combines, league finals, festivals and banquets all fit under the same roof.</p>
   <div class="pgrid" style="--n:3">
-    <figure><img src="assets/hardwood-attack.webp" alt="A women's attack on the hardwood courts" width="1600" height="1067" loading="lazy"><figcaption>Volleyball on the hardwood.</figcaption></figure>
-    <figure class="w2"><img src="assets/karate-tournament.webp" alt="Karate competitors in gis waiting by their ring, with families in the seats" width="1600" height="1067" loading="lazy"><figcaption>A karate tournament on the open floor.</figcaption></figure>
+    <figure><img src="assets/hardwood-attack.webp" alt="A women's attack on the hardwood courts" width="1600" height="1067" loading="lazy"></figure>
+    <figure class="w2"><img src="assets/karate-tournament.webp" alt="Karate competitors in gis waiting by their ring, with families in the seats" width="1600" height="1067" loading="lazy"></figure>
   </div>
   <div class="cols">
     <div class="box"><h3>Volleyball</h3><p>Up to 15 courts. Sanctioned and independent events for juniors and adults.</p><ul><li>Region and national qualifier play dates</li><li>Club, school and adult tournaments and leagues</li><li>Pods of 2, 3 or 4 courts, or the whole building</li></ul></div>
@@ -95,9 +95,19 @@
     <div class="box"><h3>Wrestling and mat sports</h3><p>Mats go down on the open floor with the nets raised.</p><ul><li>Wrestling and grappling tournaments and duals</li><li>Several mats running at once</li><li>Camps and clinics</li></ul></div>
     <div class="box"><h3>Gymnastics, cheer and dance</h3><p>Open floor for competition areas, warm-up space and seating.</p><ul><li>Gymnastics meets and showcases</li><li>Cheer and dance competitions</li><li>Two studios for warm-ups and judging rooms</li></ul></div>
   </div>  <div class="two" style="margin-top:44px">
-    <img src="assets/martial-arts-expo.webp" alt="Martial arts school tables with trophies and banners at a karate event" width="1600" height="1067" loading="lazy">
+    <img src="assets/fieldhouse-open-floor.webp" alt="The open hardwood floor and courts of the fieldhouse, empty and ready to set up" width="1800" height="811" loading="lazy" style="object-fit:cover;aspect-ratio:3/2;width:100%;object-position:50% 60%">
     <div><h3 style="font-size:clamp(28px,3.4vw,40px)">Open space and rooms</h3>
     <p class="lede">Every net raises to the ceiling. That clears the floor for mat events, expos, galas, ceremonies and anything that needs room, with space for school and vendor tables beside the action.</p></div>
+  </div>
+  <div class="expo" style="margin-top:56px">
+    <img src="assets/martial-arts-expo.webp" alt="Martial arts school tables with trophies and banners along the open floor at an expo" width="1600" height="1067" loading="lazy">
+    <div>
+      <p class="eyebrow">Expos, conferences and exhibitions</p>
+      <h3 style="font-size:clamp(28px,3.4vw,40px)">Room for the booths, the stage and the crowd.</h3>
+      <p class="lede">With the nets raised, the floor becomes an exhibit hall. Lay out vendor rows on the hardwood, put a main stage at one end, run breakouts in the studios and host the reception on the mezzanine. Oda Up feeds everyone without leaving the building.</p>
+      <ul class="ticks" style="margin-top:14px"><li>Trade shows, sports and fitness expos, and vendor fairs</li><li>Conferences, summits and award banquets</li><li>Exhibitions, showcases and product launches</li><li>Combines, recruiting days and registration nights</li></ul>
+      <div class="acts" style="margin-top:18px"><a class="btn btn-red" href="https://event-den.com/inquiry.html" rel="noopener">Plan an expo or conference</a></div>
+    </div>
   </div>
   <dl class="spec">
     <div><dt>32,000 sq ft</dt><dd>of open floor with the nets raised</dd></div>
@@ -114,16 +124,16 @@
   <h2>Built for play</h2>
   <p class="lede">Hardwood and sports-court floors, nets at every height, and the whole day under one roof: warm-ups, matches, food, finals and awards.</p>
   <div class="pgrid">
-    <figure class="w2"><img src="assets/vb-set-colorado-boom.webp" alt="A set at the net in front of the Colorado Boom wall" width="1600" height="1067" loading="lazy"><figcaption>Club volleyball in front of the Colorado Boom wall.</figcaption></figure>
-    <figure><img src="assets/vb-women-defense.webp" alt="Women's volleyball players ready on defense" width="1600" height="1067" loading="lazy"><figcaption>Adult leagues and tournaments.</figcaption></figure>
-    <figure><img src="assets/vb-team-lineup.webp" alt="A women's team lined up and clapping before a match" width="1600" height="1067" loading="lazy"><figcaption>Teams introduced before the match.</figcaption></figure>
-    <figure class="w2"><img src="assets/hardwood-mens-block.webp" alt="A men's block and attack on the hardwood" width="1600" height="1067" loading="lazy"><figcaption>Men's play on the hardwood.</figcaption></figure>
+    <figure class="w2"><img src="assets/vb-set-colorado-boom.webp" alt="A set at the net in front of the Colorado Boom wall" width="1600" height="1067" loading="lazy"></figure>
+    <figure><img src="assets/vb-women-defense.webp" alt="Women's volleyball players ready on defense" width="1600" height="1067" loading="lazy"></figure>
+    <figure><img src="assets/vb-team-lineup.webp" alt="A women's team lined up and clapping before a match" width="1600" height="1067" loading="lazy"></figure>
+    <figure class="w2"><img src="assets/hardwood-mens-block.webp" alt="A men's block and attack on the hardwood" width="1600" height="1067" loading="lazy"></figure>
   </div>
   <h3 style="font-size:clamp(28px,3.4vw,40px);margin-top:44px">Room for the crowd</h3>
   <p class="lede">Bleachers along the courts, the mezzanine above them and Oda Up courtside, so families and fans stay for the whole day.</p>
   <div class="pgrid" style="--n:2">
-    <figure><img src="assets/crowd-bleachers.webp" alt="Full bleachers under the mezzanine during a tournament" width="1600" height="1067" loading="lazy"><figcaption>Bleachers under the mezzanine.</figcaption></figure>
-    <figure><img src="assets/crowd-courtside.webp" alt="A packed courtside crowd during a women's match, with Oda Up behind" width="1600" height="1067" loading="lazy"><figcaption>Courtside, with Oda Up behind.</figcaption></figure>
+    <figure><img src="assets/crowd-bleachers.webp" alt="Full bleachers under the mezzanine during a tournament" width="1600" height="1067" loading="lazy"></figure>
+    <figure><img src="assets/crowd-courtside.webp" alt="A packed courtside crowd during a women's match, with Oda Up behind" width="1600" height="1067" loading="lazy"></figure>
   </div>
 </div></section>
 
@@ -132,11 +142,11 @@
   <h2>Bring your whole community</h2>
   <p class="lede">Community associations and cultural groups host their tournaments here: flags on the wall, families in the stands, matches all day and trophies at the end. Courts, seating and food from Oda Up are all in the building.</p>
   <div class="pgrid">
-    <figure class="w2"><img src="assets/cultural-flag-bench.webp" alt="A team bench and spectators under a large Mongolian flag" width="1600" height="1067" loading="lazy"><figcaption>Flags up for a community tournament.</figcaption></figure>
-    <figure><img src="assets/cultural-trophy.webp" alt="A trophy raised during the awards at a community tournament" width="1600" height="1067" loading="lazy"><figcaption>Awards at the end of the day.</figcaption></figure>
-    <figure><img src="assets/cultural-mens-match.webp" alt="A men's match with the crowd and the mezzanine behind" width="1600" height="1067" loading="lazy"><figcaption>Men's division on the hardwood.</figcaption></figure>
-    <figure><img src="assets/cultural-team-lineup.webp" alt="Women's teams lined up with the flag behind them" width="1600" height="1067" loading="lazy"><figcaption>Women's division line-up.</figcaption></figure>
-    <figure><img src="assets/cultural-flag-crowd.webp" alt="Spectators and the score table under the flag" width="1600" height="1067" loading="lazy"><figcaption>Score table and fans.</figcaption></figure>
+    <figure class="w2"><img src="assets/cultural-flag-bench.webp" alt="A team bench and spectators under a large Mongolian flag" width="1600" height="1067" loading="lazy"></figure>
+    <figure><img src="assets/cultural-trophy.webp" alt="A trophy raised during the awards at a community tournament" width="1600" height="1067" loading="lazy"></figure>
+    <figure><img src="assets/cultural-mens-match.webp" alt="A men's match with the crowd and the mezzanine behind" width="1600" height="1067" loading="lazy"></figure>
+    <figure><img src="assets/cultural-team-lineup.webp" alt="Women's teams lined up with the flag behind them" width="1600" height="1067" loading="lazy"></figure>
+    <figure><img src="assets/cultural-flag-crowd.webp" alt="Spectators and the score table under the flag" width="1600" height="1067" loading="lazy"></figure>
   </div>
   <div class="acts" style="margin-top:24px"><button class="btn btn-red" data-ask="tournament">Ask about dates</button><a class="btn btn-line" href="https://event-den.com/inquiry.html" rel="noopener">Plan a festival with Event-Den</a></div>
 </div></section>

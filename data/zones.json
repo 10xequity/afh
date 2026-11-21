@@ -54,10 +54,6 @@
    ],
    "imgs": [
     {
-     "src": "assets/shoot360.webp",
-     "alt": "Shoot 360 training floor"
-    },
-    {
      "src": "assets/shoot360-bays.webp",
      "alt": "Shoot 360 shooting bays"
     }
@@ -164,16 +160,16 @@
      "alt": "Players gathered in the Social Den under string lights"
     },
     {
+     "src": "assets/mezz-lounge.webp",
+     "alt": "The fireplace and TV in the Social Den"
+    },
+    {
      "src": "assets/socialden-crowd.webp",
      "alt": "Social Den packed with guests"
     },
     {
      "src": "assets/socialden-evening.webp",
      "alt": "Evening at the Social Den tables"
-    },
-    {
-     "src": "assets/socialden-hall.webp",
-     "alt": "A full room of tables during an event"
     },
     {
      "src": "assets/activity-crafts.webp",
@@ -213,6 +209,10 @@
      "alt": "League players with drinks at the Oda Up counter"
     },
     {
+     "src": "assets/event-dinner.webp",
+     "alt": "Guests raising glasses at dinner"
+    },
+    {
      "src": "assets/odaup-dining.webp",
      "alt": "Oda Up dining area"
     },
@@ -234,7 +234,7 @@
    "name": "Studio 1",
    "tag": "Studio",
    "courts": null,
-   "blurb": "The smaller studio beside the bar, for small classes, team recovery and private sessions.",
+   "blurb": "The smaller studio beside the bar, for small classes, team recovery, private sessions and seated group meals.",
    "what": [
     "Small-group classes",
     "Team recovery sessions",
@@ -245,6 +245,27 @@
      "src": "assets/yoga-studio-mats.webp",
      "alt": "The studio set with rows of yoga mats"
     },
+    {
+     "src": "assets/socialden-hall.webp",
+     "alt": "Long tables filled with people during an event"
+    }
+   ],
+   "partners": [
+    "yogaden"
+   ]
+  },
+  {
+   "id": "studio2",
+   "name": "Studio 2",
+   "tag": "Studio",
+   "courts": null,
+   "blurb": "The larger studio, used for yoga, mobility and team conditioning.",
+   "what": [
+    "Dance classes",
+    "Yoga and mobility",
+    "Studio time when classes are out"
+   ],
+   "imgs": [
     {
      "src": "assets/yoga-studio-instructor.webp",
      "alt": "An instructor leading a yoga and mobility class"
@@ -260,31 +281,6 @@
     {
      "src": "assets/studio-plank-line.webp",
      "alt": "Players holding a plank along the studio wall"
-    }
-   ],
-   "partners": [
-    "yogaden"
-   ]
-  },
-  {
-   "id": "studio2",
-   "name": "Studio 2",
-   "tag": "Dance and yoga",
-   "courts": null,
-   "blurb": "The larger studio, used for dance, yoga and mobility classes.",
-   "what": [
-    "Dance classes",
-    "Yoga and mobility",
-    "Studio time when classes are out"
-   ],
-   "imgs": [
-    {
-     "src": "assets/danceden-class.webp",
-     "alt": "Dance class in Studio 1"
-    },
-    {
-     "src": "assets/danceden-kids.webp",
-     "alt": "Kids dance class"
     }
    ],
    "partners": [
@@ -307,22 +303,6 @@
     {
      "src": "assets/fieldhouse-overhead.webp",
      "alt": "The courts seen from the mezzanine"
-    },
-    {
-     "src": "assets/mezz-lounge.webp",
-     "alt": "Mezzanine lounge"
-    },
-    {
-     "src": "assets/event-dinner.webp",
-     "alt": "Dinner event"
-    },
-    {
-     "src": "assets/event-hall.webp",
-     "alt": "Event setup"
-    },
-    {
-     "src": "assets/event-concert.webp",
-     "alt": "Concert event"
     }
    ],
    "partners": [
@@ -341,14 +321,6 @@
     "Seating from the bar"
    ],
    "imgs": [
-    {
-     "src": "assets/sportcourt-adult-league.webp",
-     "alt": "An adult league match on the sports court"
-    },
-    {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court"
-    },
     {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
@@ -383,14 +355,6 @@
    ],
    "imgs": [
     {
-     "src": "assets/sportcourt-adult-league.webp",
-     "alt": "An adult league match on the sports court"
-    },
-    {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court"
-    },
-    {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
     },
@@ -409,6 +373,10 @@
     {
      "src": "assets/court-6.webp",
      "alt": "Volleyball courts"
+    },
+    {
+     "src": "assets/event-concert.webp",
+     "alt": "A concert crowd under stage lights"
     }
    ],
    "partners": [
@@ -503,10 +471,30 @@
   {
    "n": 5,
    "name": "Zone 5",
-   "tag": "Volleyball courts",
+   "tag": "Sports court",
    "courts": "2 volleyball courts",
    "blurb": "Two courts just inside the main entrance.",
    "imgs": [
+    {
+     "src": "assets/zone5-sportcourt-attack.webp",
+     "alt": "Attack and block on the red and blue sports court in Zone 5"
+    },
+    {
+     "src": "assets/sportcourt-adult-league.webp",
+     "alt": "An adult league match on the Zone 5 sports court"
+    },
+    {
+     "src": "assets/zone5-sportcourt-tip.webp",
+     "alt": "A player tipping over the block on the Zone 5 sports court"
+    },
+    {
+     "src": "assets/sportcourt-adult-practice.webp",
+     "alt": "An adult training session on the Zone 5 sports court"
+    },
+    {
+     "src": "assets/zone5-sportcourt-swing.webp",
+     "alt": "An attacker swinging past the block on the Zone 5 sports court"
+    },
     {
      "src": "assets/court-6.webp",
      "alt": "Volleyball courts"
@@ -527,14 +515,6 @@
    "courts": "2 volleyball courts",
    "blurb": "Sports court with two volleyball courts, beside the bar.",
    "imgs": [
-    {
-     "src": "assets/sportcourt-adult-league.webp",
-     "alt": "An adult league match on the sports court"
-    },
-    {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court"
-    },
     {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
@@ -564,14 +544,6 @@
    "blurb": "Sports court with three volleyball courts in a row. Converts to one futsal arena.",
    "imgs": [
     {
-     "src": "assets/sportcourt-adult-league.webp",
-     "alt": "An adult league match on the sports court"
-    },
-    {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court"
-    },
-    {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
     },
@@ -590,6 +562,10 @@
     {
      "src": "assets/fieldhouse-overhead.webp",
      "alt": "Courts seen from the mezzanine"
+    },
+    {
+     "src": "assets/event-concert.webp",
+     "alt": "A concert crowd under stage lights"
     }
    ],
    "partners": [
