@@ -58,6 +58,31 @@ NEW = {
     "crowd-courtside":         (rf"{MON}\DSC_8303.JPG", "Packed courtside crowd during a women's match, Oda Up behind", ["crowd", "spectators", "volleyball", "oda up"]),
 }
 
+# Phone photos uploaded 2026-11-21 (originals: IMG_/DSC file names from the phone).
+# asset name -> (original, description, tags). Already exported; listed for the manifest.
+PHONE = {
+    'concourse-seating': ('IMG_3482.jpeg', 'Main concourse with picnic tables and rolling bleachers, empty', ['concourse', 'lobby', 'seating']),
+    'lobby-front-desk': ('IMG_3501.jpeg', 'Front desk and main concourse during a busy day, Volo and Colorado Boom banners', ['lobby', 'entrance', 'front-desk', 'concourse']),
+    'odaup-halloween-group': ('IMG_3614.jpeg', 'Adult league players in Halloween costumes with drinks at the Oda Up counter', ['oda-up', 'bar', 'adults', 'halloween', 'league']),
+    'odabar-halloween': ('IMG_3628.jpeg', 'Adult league team in mime costumes at the Oda Up bar', ['oda-up', 'bar', 'adults', 'halloween', 'league']),
+    'boom-team-photo': ('DSC00106.jpeg', 'Colorado Boom team and coaches posed at the net on the hardwood', ['colorado-boom', 'hardwood', 'team', 'juniors']),
+    'court4-boom-practice': ('IMG_3713.jpeg', 'Colorado Boom practice on Zone 4, setter and hitter at the net', ['colorado-boom', 'hardwood', 'zone-4', 'juniors', 'volleyball']),
+    'court3-boom-huddle': ('IMG_3718.jpeg', 'Colorado Boom coach huddle on Zone 3 around the ball cart', ['colorado-boom', 'hardwood', 'zone-3', 'juniors', 'coaching']),
+    'studio-tables': ('IMG_3726.jpeg', 'Club meeting at rolling tables in the studio', ['studio', 'meeting', 'colorado-boom']),
+    'socialden-lights-blur': ('IMG_7264.jpeg', 'Social Den under string lights, busy and motion-blurred (library only)', ['social-den', 'lounge', 'crowd']),
+    'socialden-fireplace': ('IMG_7269.jpeg', 'Colorado Boom players in the Social Den under string lights, fireplace behind', ['social-den', 'lounge', 'colorado-boom', 'juniors']),
+    'boom-club-meeting': ('IMG_3886.jpeg', 'Whole club seated in a circle on the hardwood, Oda Up behind', ['colorado-boom', 'hardwood', 'club', 'meeting', 'juniors']),
+    'yoga-studio-mats': ('IMG_3937.jpeg', 'Studio set with rows of yoga mats, before class', ['studio', 'yoga-den', 'mats']),
+    'yoga-studio-instructor': ('IMG_4004.jpeg', 'Instructor leading a big yoga and mobility class in the studio', ['studio', 'yoga-den', 'class', 'mobility', 'juniors']),
+    'yoga-studio-class': ('IMG_4006.jpeg', 'Full yoga and mobility class balancing on the mats', ['studio', 'yoga-den', 'class', 'mobility', 'juniors']),
+    'studio-agility-drill': ('IMG_4076.jpeg', 'Agility drill with cones in the studio', ['studio', 'conditioning', 'juniors']),
+    'studio-coach-plank': ('IMG_4133.jpeg', 'Coach running a plank set, players along both walls', ['studio', 'conditioning', 'juniors', 'coaching']),
+    'studio-plank-line': ('IMG_4136.jpeg', 'Low angle down a line of players holding a plank', ['studio', 'conditioning', 'juniors']),
+    'court3-boom-huddle-pink': ('IMG_4268.jpeg', 'Colorado Boom players in pink huddled with coaches on Zone 3', ['colorado-boom', 'hardwood', 'zone-3', 'juniors', 'coaching']),
+    'sportcourt-adult-league': ('IMG_4329.jpeg', 'Adult league match on the sports court, block at the net', ['sports-court', 'adults', 'league', 'volleyball']),
+    'sportcourt-adult-practice': ('IMG_4338.jpeg', 'Adult training session on the sports court, passing drill', ['sports-court', 'adults', 'training', 'volleyball']),
+}
+
 # what older files are (for the manifest). Anything not listed shows its file name only.
 OLD = {
     "fieldhouse-panorama": "Court panorama from the admin desk during a tournament",
@@ -113,6 +138,8 @@ def manifest():
         e.update(path=path, w=w, h=h, kb=round(os.path.getsize(os.path.join(ASSETS, f)) / 1024))
         if stem in NEW:
             e.update(desc=NEW[stem][1], source=NEW[stem][0], tags=NEW[stem][2], added="2026-11-20")
+        elif stem in PHONE:
+            e.update(desc=PHONE[stem][1], source=PHONE[stem][0], tags=PHONE[stem][2], added="2026-11-21")
         e.setdefault("desc", OLD.get(stem, ""))
         e.setdefault("tags", [])
         if os.path.exists(os.path.join(ASSETS, stem + ".jpg")) and ext.lower() == ".webp":

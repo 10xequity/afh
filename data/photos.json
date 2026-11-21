@@ -54,12 +54,57 @@
    "master": "assets/arches.jpg"
   },
   {
+   "path": "assets/boom-club-meeting.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 186,
+   "desc": "Whole club seated in a circle on the hardwood, Oda Up behind",
+   "source": "IMG_3886.jpeg",
+   "tags": [
+    "colorado-boom",
+    "hardwood",
+    "club",
+    "meeting",
+    "juniors"
+   ],
+   "added": "2026-11-21"
+  },
+  {
    "path": "assets/boom-logo.png",
    "w": 184,
    "h": 88,
    "kb": 30,
    "desc": "",
    "tags": []
+  },
+  {
+   "path": "assets/boom-team-photo.webp",
+   "w": 1600,
+   "h": 1066,
+   "kb": 123,
+   "desc": "Colorado Boom team and coaches posed at the net on the hardwood",
+   "source": "DSC00106.jpeg",
+   "tags": [
+    "colorado-boom",
+    "hardwood",
+    "team",
+    "juniors"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/concourse-seating.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 72,
+   "desc": "Main concourse with picnic tables and rolling bleachers, empty",
+   "source": "IMG_3482.jpeg",
+   "tags": [
+    "concourse",
+    "lobby",
+    "seating"
+   ],
+   "added": "2026-11-21"
   },
   {
    "path": "assets/court-1.webp",
@@ -123,6 +168,54 @@
    "desc": "Zone 7",
    "tags": [],
    "master": "assets/court-7.jpg"
+  },
+  {
+   "path": "assets/court3-boom-huddle-pink.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 137,
+   "desc": "Colorado Boom players in pink huddled with coaches on Zone 3",
+   "source": "IMG_4268.jpeg",
+   "tags": [
+    "colorado-boom",
+    "hardwood",
+    "zone-3",
+    "juniors",
+    "coaching"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/court3-boom-huddle.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 186,
+   "desc": "Colorado Boom coach huddle on Zone 3 around the ball cart",
+   "source": "IMG_3718.jpeg",
+   "tags": [
+    "colorado-boom",
+    "hardwood",
+    "zone-3",
+    "juniors",
+    "coaching"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/court4-boom-practice.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 175,
+   "desc": "Colorado Boom practice on Zone 4, setter and hitter at the net",
+   "source": "IMG_3713.jpeg",
+   "tags": [
+    "colorado-boom",
+    "hardwood",
+    "zone-4",
+    "juniors",
+    "volleyball"
+   ],
+   "added": "2026-11-21"
   },
   {
    "path": "assets/crowd-bleachers.webp",
@@ -477,6 +570,21 @@
    "added": "2026-11-20"
   },
   {
+   "path": "assets/lobby-front-desk.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 122,
+   "desc": "Front desk and main concourse during a busy day, Volo and Colorado Boom banners",
+   "source": "IMG_3501.jpeg",
+   "tags": [
+    "lobby",
+    "entrance",
+    "front-desk",
+    "concourse"
+   ],
+   "added": "2026-11-21"
+  },
+  {
    "path": "assets/lobby.webp",
    "w": 1400,
    "h": 630,
@@ -534,6 +642,22 @@
    "master": "assets/odabar-glasses.jpg"
   },
   {
+   "path": "assets/odabar-halloween.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 148,
+   "desc": "Adult league team in mime costumes at the Oda Up bar",
+   "source": "IMG_3628.jpeg",
+   "tags": [
+    "oda-up",
+    "bar",
+    "adults",
+    "halloween",
+    "league"
+   ],
+   "added": "2026-11-21"
+  },
+  {
    "path": "assets/odabar-toast.webp",
    "w": 1400,
    "h": 900,
@@ -568,6 +692,22 @@
    "desc": "Oda Up food",
    "tags": [],
    "master": "assets/odaup-food.jpg"
+  },
+  {
+   "path": "assets/odaup-halloween-group.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 106,
+   "desc": "Adult league players in Halloween costumes with drinks at the Oda Up counter",
+   "source": "IMG_3614.jpeg",
+   "tags": [
+    "oda-up",
+    "bar",
+    "adults",
+    "halloween",
+    "league"
+   ],
+   "added": "2026-11-21"
   },
   {
    "path": "assets/og-image.jpg",
@@ -761,6 +901,21 @@
    "added": "2026-11-20"
   },
   {
+   "path": "assets/socialden-fireplace.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 104,
+   "desc": "Colorado Boom players in the Social Den under string lights, fireplace behind",
+   "source": "IMG_7269.jpeg",
+   "tags": [
+    "social-den",
+    "lounge",
+    "colorado-boom",
+    "juniors"
+   ],
+   "added": "2026-11-21"
+  },
+  {
    "path": "assets/socialden-hall.webp",
    "w": 1600,
    "h": 1067,
@@ -774,6 +929,20 @@
     "crowd"
    ],
    "added": "2026-11-20"
+  },
+  {
+   "path": "assets/socialden-lights-blur.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 78,
+   "desc": "Social Den under string lights, busy and motion-blurred (library only)",
+   "source": "IMG_7264.jpeg",
+   "tags": [
+    "social-den",
+    "lounge",
+    "crowd"
+   ],
+   "added": "2026-11-21"
   },
   {
    "path": "assets/socialden-lounge.webp",
@@ -827,6 +996,36 @@
    "tags": []
   },
   {
+   "path": "assets/sportcourt-adult-league.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 85,
+   "desc": "Adult league match on the sports court, block at the net",
+   "source": "IMG_4329.jpeg",
+   "tags": [
+    "sports-court",
+    "adults",
+    "league",
+    "volleyball"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/sportcourt-adult-practice.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 93,
+   "desc": "Adult training session on the sports court, passing drill",
+   "source": "IMG_4338.jpeg",
+   "tags": [
+    "sports-court",
+    "adults",
+    "training",
+    "volleyball"
+   ],
+   "added": "2026-11-21"
+  },
+  {
    "path": "assets/sportcourt-attack.webp",
    "w": 1600,
    "h": 1067,
@@ -867,6 +1066,63 @@
     "juniors"
    ],
    "added": "2026-11-20"
+  },
+  {
+   "path": "assets/studio-agility-drill.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 124,
+   "desc": "Agility drill with cones in the studio",
+   "source": "IMG_4076.jpeg",
+   "tags": [
+    "studio",
+    "conditioning",
+    "juniors"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/studio-coach-plank.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 100,
+   "desc": "Coach running a plank set, players along both walls",
+   "source": "IMG_4133.jpeg",
+   "tags": [
+    "studio",
+    "conditioning",
+    "juniors",
+    "coaching"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/studio-plank-line.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 94,
+   "desc": "Low angle down a line of players holding a plank",
+   "source": "IMG_4136.jpeg",
+   "tags": [
+    "studio",
+    "conditioning",
+    "juniors"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/studio-tables.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 110,
+   "desc": "Club meeting at rolling tables in the studio",
+   "source": "IMG_3726.jpeg",
+   "tags": [
+    "studio",
+    "meeting",
+    "colorado-boom"
+   ],
+   "added": "2026-11-21"
   },
   {
    "path": "assets/team-high-fives.webp",
@@ -1005,6 +1261,52 @@
    "desc": "Yoga class (stock)",
    "tags": [],
    "master": "assets/yoga-meadow.jpg"
+  },
+  {
+   "path": "assets/yoga-studio-class.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 164,
+   "desc": "Full yoga and mobility class balancing on the mats",
+   "source": "IMG_4006.jpeg",
+   "tags": [
+    "studio",
+    "yoga-den",
+    "class",
+    "mobility",
+    "juniors"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/yoga-studio-instructor.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 134,
+   "desc": "Instructor leading a big yoga and mobility class in the studio",
+   "source": "IMG_4004.jpeg",
+   "tags": [
+    "studio",
+    "yoga-den",
+    "class",
+    "mobility",
+    "juniors"
+   ],
+   "added": "2026-11-21"
+  },
+  {
+   "path": "assets/yoga-studio-mats.webp",
+   "w": 1200,
+   "h": 1600,
+   "kb": 163,
+   "desc": "Studio set with rows of yoga mats, before class",
+   "source": "IMG_3937.jpeg",
+   "tags": [
+    "studio",
+    "yoga-den",
+    "mats"
+   ],
+   "added": "2026-11-21"
   }
  ]
 }

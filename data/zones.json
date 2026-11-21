@@ -29,8 +29,12 @@
      "alt": "The courts seen from the admin desk during a tournament"
     },
     {
-     "src": "assets/lobby.webp",
-     "alt": "The front lobby"
+     "src": "assets/lobby-front-desk.webp",
+     "alt": "The front desk and main concourse on a busy day"
+    },
+    {
+     "src": "assets/concourse-seating.webp",
+     "alt": "Picnic tables and bleachers along the main concourse"
     }
    ],
    "partners": [
@@ -76,12 +80,24 @@
    ],
    "imgs": [
     {
+     "src": "assets/court4-boom-practice.webp",
+     "alt": "Colorado Boom practice on Zone 4"
+    },
+    {
      "src": "assets/hardwood-attack.webp",
      "alt": "Women's attack on the hardwood"
     },
     {
+     "src": "assets/court3-boom-huddle.webp",
+     "alt": "A coach huddle on Zone 3"
+    },
+    {
      "src": "assets/hardwood-set.webp",
      "alt": "Junior set on the hardwood"
+    },
+    {
+     "src": "assets/boom-club-meeting.webp",
+     "alt": "The whole club seated in a circle on the hardwood"
     },
     {
      "src": "assets/hardwood-double-block.webp",
@@ -144,6 +160,10 @@
    ],
    "imgs": [
     {
+     "src": "assets/socialden-fireplace.webp",
+     "alt": "Players gathered in the Social Den under string lights"
+    },
+    {
      "src": "assets/socialden-crowd.webp",
      "alt": "Social Den packed with guests"
     },
@@ -185,6 +205,14 @@
    ],
    "imgs": [
     {
+     "src": "assets/odabar-halloween.webp",
+     "alt": "A league team in costume at the Oda Up bar"
+    },
+    {
+     "src": "assets/odaup-halloween-group.webp",
+     "alt": "League players with drinks at the Oda Up counter"
+    },
+    {
      "src": "assets/odaup-dining.webp",
      "alt": "Oda Up dining area"
     },
@@ -195,14 +223,6 @@
     {
      "src": "assets/odaup-bowl.webp",
      "alt": "A bowl from Oda Up"
-    },
-    {
-     "src": "assets/odabar-toast.webp",
-     "alt": "A toast at the bar"
-    },
-    {
-     "src": "assets/odabar-glasses.webp",
-     "alt": "Glasses at the bar"
     }
    ],
    "partners": [
@@ -222,8 +242,24 @@
    ],
    "imgs": [
     {
-     "src": "assets/yoga-meadow.webp",
-     "alt": "Yoga class"
+     "src": "assets/yoga-studio-mats.webp",
+     "alt": "The studio set with rows of yoga mats"
+    },
+    {
+     "src": "assets/yoga-studio-instructor.webp",
+     "alt": "An instructor leading a yoga and mobility class"
+    },
+    {
+     "src": "assets/yoga-studio-class.webp",
+     "alt": "A full class balancing on the mats"
+    },
+    {
+     "src": "assets/studio-agility-drill.webp",
+     "alt": "An agility drill with cones in the studio"
+    },
+    {
+     "src": "assets/studio-plank-line.webp",
+     "alt": "Players holding a plank along the studio wall"
     }
    ],
    "partners": [
@@ -306,6 +342,14 @@
    ],
    "imgs": [
     {
+     "src": "assets/sportcourt-adult-league.webp",
+     "alt": "An adult league match on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-adult-practice.webp",
+     "alt": "An adult training session on the sports court"
+    },
+    {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
     },
@@ -338,6 +382,14 @@
     "Camps and clinics"
    ],
    "imgs": [
+    {
+     "src": "assets/sportcourt-adult-league.webp",
+     "alt": "An adult league match on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-adult-practice.webp",
+     "alt": "An adult training session on the sports court"
+    },
     {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
@@ -410,6 +462,14 @@
    "blurb": "Hardwood. Sets up as 2 volleyball courts, 1 basketball court or 3 pickleball courts. Off the main aisle.",
    "imgs": [
     {
+     "src": "assets/court3-boom-huddle.webp",
+     "alt": "A coach huddle on Zone 3"
+    },
+    {
+     "src": "assets/court3-boom-huddle-pink.webp",
+     "alt": "Players in pink huddled with coaches on Zone 3"
+    },
+    {
      "src": "assets/court-3.webp",
      "alt": "Volleyball on Zone 3"
     }
@@ -426,6 +486,10 @@
    "courts": "2 volleyball courts or 1 basketball court",
    "blurb": "Hardwood. Sets up as 2 volleyball courts, 1 basketball court or 3 pickleball courts. League nights and club practice.",
    "imgs": [
+    {
+     "src": "assets/court4-boom-practice.webp",
+     "alt": "Colorado Boom practice on Zone 4"
+    },
     {
      "src": "assets/court-4.webp",
      "alt": "Zone 4"
@@ -464,6 +528,14 @@
    "blurb": "Sports court with two volleyball courts, beside the bar.",
    "imgs": [
     {
+     "src": "assets/sportcourt-adult-league.webp",
+     "alt": "An adult league match on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-adult-practice.webp",
+     "alt": "An adult training session on the sports court"
+    },
+    {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
     },
@@ -491,6 +563,14 @@
    "courts": "3 volleyball courts or 1 futsal arena",
    "blurb": "Sports court with three volleyball courts in a row. Converts to one futsal arena.",
    "imgs": [
+    {
+     "src": "assets/sportcourt-adult-league.webp",
+     "alt": "An adult league match on the sports court"
+    },
+    {
+     "src": "assets/sportcourt-adult-practice.webp",
+     "alt": "An adult training session on the sports court"
+    },
     {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court"
