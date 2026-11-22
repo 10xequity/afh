@@ -129,10 +129,13 @@ $$('.viewtog button').forEach(b=>b.onclick=()=>{map.setView(b.dataset.view);$$('
 
 /* card */
 let token=0;
+const fpos=im=>/^\d{1,3}% \d{1,3}%$/.test(im.pos||'')?im.pos:'';
 function setPhoto(im){
   const t=++token;photo.classList.add('loading');
   const pre=new Image();pre.src=im.src;
-  const show=()=>{if(t!==token)return;photo.src=im.src;photo.alt=im.alt;photo.classList.remove('loading');};
+  /* each photo can carry a focus point (pos, CSS object-position) and a zoom from data/zones.json */
+  const show=()=>{if(t!==token)return;photo.src=im.src;photo.alt=im.alt;const p=fpos(im);
+    photo.style.objectPosition=p;photo.style.transformOrigin=p;photo.style.transform=+im.zoom>1?`scale(${+im.zoom})`:'';photo.classList.remove('loading');};
   (pre.decode?pre.decode():Promise.resolve()).then(show,show);
   $$('button',thumbs).forEach(b=>b.setAttribute('aria-pressed',b.dataset.src===im.src));
 }
@@ -143,7 +146,7 @@ function bizRow(p){
 }
 function show(s,isZone){
   const i=isZone?-1:ORDER.indexOf(s.id),pv=isZone?null:spot(ORDER[i-1]),nx=isZone?spot(cur||ORDER[0]):spot(ORDER[i+1]);
-  thumbs.innerHTML=s.imgs.length>1?s.imgs.map((im,k)=>`<button type="button" data-k="${k}" data-src="${esc(im.src)}" aria-label="Photo ${k+1}: ${esc(im.alt)}"><img src="${esc(im.src)}" alt="" loading="lazy"></button>`).join(''):'';
+  thumbs.innerHTML=s.imgs.length>1?s.imgs.map((im,k)=>`<button type="button" data-k="${k}" data-src="${esc(im.src)}" aria-label="Photo ${k+1}: ${esc(im.alt)}"><img src="${esc(im.src)}" alt="" loading="lazy"${fpos(im)?` style="object-position:${fpos(im)}"`:''}></button>`).join(''):'';
   setPhoto(s.imgs[0]);
   cardbody.innerHTML=`<p class="eyebrow">${isZone?'':(i+1)+' · '}${esc(s.tag)}</p><h2>${esc(s.name)}</h2>${s.courts?`<p class="courts">${esc(s.courts)}</p>`:''}
     <p>${esc(s.blurb)}</p>${s.what?`<h3>WHAT'S HERE</h3><ul class="what">${s.what.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}

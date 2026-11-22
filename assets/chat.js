@@ -32,54 +32,108 @@ const KB=[
  [['spectator','parent','watch','fan'],'Spectators follow the same rules as players. Spectators who refuse to comply will be asked to leave or escorted out by Aurora police.'],
  [['ball','dribble','warm up','warmup'],'No ball handling or play outside authorized event areas, including dribbling and throwing.'],
 ];
-/* the questions we need answered before we can plan an event. k matches the request form's field names. */
-const FLOW=[
- {k:'kind',q:'What kind of event is it?',o:['Tournament','Corporate event','Birthday or private party','Gala or fundraiser','Expo or trade show','Camp or clinic','League or recurring rental','Other']},
- {k:'org',q:'What organization or team is it for?'},
- {k:'ages',q:'Who is it for?',o:['Adults','Youth','Adults and youth']},
- {k:'date',q:'What is your first choice date? (for example 2027-03-14)',re:/^\d{4}-\d{2}-\d{2}$/,bad:'Please give the date as YYYY-MM-DD.'},
- {k:'date2',q:'And a backup date?',re:/^\d{4}-\d{2}-\d{2}$/,bad:'Please give the date as YYYY-MM-DD.'},
- {k:'guests',q:'About how many guests or players?',re:/^\d+$/,bad:'A number, please.'},
- {k:'food',q:'Food and drink?',o:['None','Food only','Food and bar','Not sure yet']},
- {k:'budget',q:'What is your budget for the venue?',o:['Under $2,500','$2,500 to $5,000','$5,000 to $10,000','$10,000 to $25,000','Over $25,000','Need a quote first']},
- {k:'setup',q:'What setup do you need? Tables, chairs, staging, sound, vendors.'},
+/* Three inquiries, each asked only when the visitor asks for it. k matches the request form's field names (see LABEL in
+   site.js); keys the form has no field for go into the email as extra lines (x:true). t is the form's request type. */
+const DATE={re:/^(\d{4}-\d{1,2}-\d{1,2}|\d{1,2}\/\d{1,2}\/\d{2,4})$/,bad:'Please give a date like 3/14/2027.'};
+const NUM={re:/^\d{1,5}$/,bad:'A number, please.'};
+const YOU=[
  {k:'name',q:'Your name?'},
  {k:'email',q:'Your email?',re:/^\S+@\S+\.\S+$/,bad:'That does not look like an email address.'},
- {k:'phone',q:'A phone number we can reach you on?'},
+ {k:'phone',q:'A phone number we can reach you on?',re:/^[\d\s().+-]{10,}$/,bad:'Please include the area code.'},
 ];
-const START=['Can I bring food?','Bag policy','Lost item','Book an event'];
+const FLOWS={
+ tournament:{t:'tournament',title:'tournament',fixed:{kind:'Tournament'},steps:[
+  {k:'sport',x:1,l:'Sport',q:'What sport?',o:['Volleyball','Basketball','Pickleball','Futsal','Martial arts','Wrestling or mat sports','Gymnastics, cheer or dance','Other']},
+  {k:'org',q:'What organization, club or league is running it?'},
+  {k:'ages',q:'Who is playing?',o:['Adults','Youth','Adults and youth']},
+  {k:'date',q:'First choice date? Tournament dates book 6 to 8 months ahead.',...DATE},
+  {k:'date2',q:'A backup date?',...DATE},
+  {k:'days',x:1,l:'Days',q:'How many days?',o:['1 day','2 days','3 or more days']},
+  {k:'courts',x:1,l:'Courts or space',q:'How many courts, or how much floor?',o:['2 to 4 courts','5 to 8 courts','9 to 15 courts','Open floor, nets up','Not sure']},
+  {k:'teams',q:'About how many teams?',...NUM},
+  {k:'guests',q:'Players and spectators on the busiest day, roughly?',...NUM},
+  {k:'food',q:'Food and drink? Oda Up runs food and the bar inside. No outside food.',o:['None','Food only','Food and bar','Not sure yet']},
+  {k:'coi',q:'Can you provide event insurance (a certificate of insurance)?',o:['Yes','No','Not sure']},
+  {k:'budget',q:'Budget for the venue?',o:['Under $2,500','$2,500 to $5,000','$5,000 to $10,000','$10,000 to $25,000','Over $25,000','Need a quote first']},
+  ...YOU]},
+ party:{t:'event',title:'party',fixed:{kind:'Birthday or private party'},steps:[
+  {k:'pkind',x:1,l:'Kind of party',q:'What kind of party?',o:['Kids birthday','Teen birthday','Adult birthday','Team party','Graduation','Holiday party','Other']},
+  {k:'date',q:'What date? In winter most openings are Friday to Sunday nights.',...DATE},
+  {k:'date2',q:'A backup date?',...DATE},
+  {k:'start',q:'Start time? (for example 6:30 PM)',re:/^\d{1,2}(:\d{2})?\s*(am|pm)?$/i,bad:'A time like 6:30 PM, please.'},
+  {k:'kids',x:1,l:'Kids',q:'How many kids?',...NUM},
+  {k:'adults',x:1,l:'Adults',q:'How many adults?',...NUM},
+  {k:'play',x:1,l:'Activity',q:'What do you want to play? The party room is $400 for 3 hours.',o:['Volleyball court ($150)','Basketball','Pickleball','Inflatables ($150)','Just the party room','Not sure']},
+  {k:'food',q:'Food? Oda Up packages are $15 a kid and $25 an adult. Outside food is a $250 fee.',o:['Oda Up for everyone','Oda Up for kids only','We bring our own','Not sure yet']},
+  {k:'details',q:'Anything else? Theme, allergies, DJ or karaoke, a game on TV. Or type "no".'},
+  ...YOU]},
+ big:{t:'event',title:'event',steps:[
+  {k:'kind',q:'What kind of event?',o:['Corporate event','Gala or fundraiser','Expo or trade show','Cultural or community event','Camp or clinic','Other']},
+  {k:'org',q:'What organization is it for?'},
+  {k:'date',q:'First choice date?',...DATE},
+  {k:'date2',q:'A backup date?',...DATE},
+  {k:'days',x:1,l:'Days',q:'How many days?',o:['1 day','2 days','3 or more days']},
+  {k:'guests',q:'About how many guests?',...NUM},
+  {k:'spaces',q:'Which space fits best?',o:['Open floor (nets up)','Expo space','Gala space','Studio','Lounge and dining','Mezzanine','Not sure']},
+  {k:'food',q:'Food and drink?',o:['None','Food only','Food and bar','Not sure yet']},
+  {k:'budget',q:'Budget for the venue?',o:['Under $2,500','$2,500 to $5,000','$5,000 to $10,000','$10,000 to $25,000','Over $25,000','Need a quote first']},
+  {k:'setup',q:'What setup do you need? Staging, sound, tables, vendors, décor.'},
+  ...YOU]},
+};
+const PICK={'Host a tournament':'tournament','Plan a party':'party','Plan a big event':'big'};
+const START=['Can I bring food?','Bag policy','Lost item','Book or plan something'];
 document.body.insertAdjacentHTML('beforeend',`<section id="chat" role="dialog" aria-label="Fieldhouse helper" hidden>
   <header><div><b>Fieldhouse helper</b><small>Rules and event requests. Works offline.</small></div><button class="x" type="button" aria-label="Close helper">×</button></header>
   <div class="log" aria-live="polite"></div><div class="quick"></div>
   <form><input aria-label="Type a question" placeholder="Type a question" autocomplete="off"><button class="btn btn-red" type="submit">Send</button></form></section>`);
 const box=$('#chat'),log=$('.log',box),quick=$('.quick',box),input=$('input',box);
-let step=-1,ans={};
+let flow=null,step=-1,ans={},done=null;
 function say(t,who){const m=document.createElement('div');m.className='m '+(who||'b');m.textContent=t;log.appendChild(m);log.scrollTop=log.scrollHeight;}
 function chips(a){quick.textContent='';a.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>handle(t);quick.appendChild(b);});}
-function ask(){const s=FLOW[step];say(s.q);chips(s.o||['Cancel']);}
+function ask(){const s=flow.steps[step];say(s.q);chips([...(s.o||[]),'Cancel']);}
+function iso(v){const m=v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);if(!m)return v.replace(/-(\d)(?=-|$)/g,'-0$1');
+  const y=m[3].length===2?'20'+m[3]:m[3];return `${y}-${m[1].padStart(2,'0')}-${m[2].padStart(2,'0')}`;}
+function begin(id){flow=FLOWS[id];step=0;ans={...(flow.fixed||{})};
+  say(`I will ask a few questions so your ${flow.title} request is complete. All rentals require a signed rental contract.`);ask();}
+/* the summary: form fields by their form names, the rest as "Label: value" lines */
 function finish(){
-  step=-1;say('Thanks. I have what we need to start. Next I will open the request form with your answers filled in. Add your times and spaces there, then send it.');
-  chips(['Open the request form','Start over']);
+  if(/^(no|none|nope|n\/a|nothing)\.?$/i.test(ans.details||''))delete ans.details;
+  const f=flow,a=ans,more=f.steps.filter(s=>s.x&&a[s.k]).map(s=>`${s.l}: ${a[s.k]}`);
+  if(f===FLOWS.party){const n=(+a.kids||0)+(+a.adults||0);a.guests=String(n);
+    if(n>75)more.push('Note: over 75 guests, so Event-Den plans it.');}
+  if(f===FLOWS.big)more.push('Note: big event, route to Event-Den.');
+  done={t:f.t,a,more};flow=null;step=-1;
+  const L={org:'Organization',kind:'Kind of event',ages:'For',date:'First choice',date2:'Backup',start:'Start',guests:'Guests',teams:'Teams',spaces:'Space',food:'Food and drink',budget:'Budget',coi:'Insurance',setup:'Setup',details:'Notes',name:'Name',email:'Email',phone:'Phone'};
+  const lines=Object.entries(L).filter(([k])=>a[k]).map(([k,l])=>`${l}: ${a[k]}`);
+  say('Here is your request:\n'+[...lines,...more].join('\n'));
+  if(f===FLOWS.party&&+a.guests>75)say('Over 75 guests is a planned event. Event-Den will take it from here.');
+  say('Tap "Send it" and your email app opens with this filled in, addressed to '+SITE.email+'. Or open the full form to add times and spaces first.');
+  chips(['Send it','Open the full form','Start over']);
 }
 function answer(t){
   const q=' '+t.toLowerCase()+' ';let best=null,score=0;
   for(const [keys,a] of KB){const s=keys.filter(k=>q.includes(k)).length;if(s>score){score=s;best=a;}}
-  return best||'I can answer questions about the facility rules and take the details for an event request. Try "Can I bring food?" or tap "Book an event". For anything else, email '+SITE.email+'.';
+  return best||'I can answer questions about the facility rules and take a tournament, party or event request. Try "Can I bring food?" or tap "Book or plan something". For anything else, email '+SITE.email+'.';
 }
+/* which inquiry a question is about, so the answer can offer to start it (only offered, never started unasked) */
+function topic(t){return /tournament|league|meet|competition/i.test(t)?'Host a tournament':/party|birthday|gathering|graduation/i.test(t)?'Plan a party':/corporate|gala|expo|conference|fundraiser|festival|wedding|banquet/i.test(t)?'Plan a big event':'';}
 function handle(t){
   t=t.trim();if(!t)return;say(t,'u');
-  if(t==='Open the request form'){box.hidden=true;openAsk(/tournament/i.test(ans.kind||'')?'tournament':'event',ans);return;}
-  if(t==='Start over'||t==='Cancel'){step=-1;ans={};say('No problem. What would you like to know?');chips(START);return;}
-  if(step<0&&/^book an event$|book|reserve|host (an?|my|our) /i.test(t)){step=0;ans={};say('I will ask a few questions so the request is complete. All rentals require a signed rental contract.');ask();return;}
-  if(step>=0){const s=FLOW[step];
+  if(t==='Send it'&&done){const {t:type,a,more}=done;FH.mailRequest(type,k=>a[k]||'',more);say('Your email app should have opened. If it did not, email '+SITE.email+'.');chips(['Start over']);return;}
+  if(t==='Open the full form'&&done){box.hidden=true;openAsk(done.t,done.a);return;}
+  if(t==='Start over'||t==='Cancel'){flow=null;step=-1;ans={};done=null;say('No problem. What would you like to know?');chips(START);return;}
+  if(flow){const s=flow.steps[step];
     if(s.o&&!s.o.includes(t)){say('Please pick one of the options.');return;}
     if(s.re&&!s.re.test(t)){say(s.bad);return;}
-    ans[s.k]=t;step++;if(step<FLOW.length)ask();else finish();return;}
-  say(answer(t));chips(START);
+    ans[s.k]=s.re===DATE.re?iso(t):t;step++;if(step<flow.steps.length)ask();else finish();return;}
+  if(PICK[t]){begin(PICK[t]);return;}
+  if(/^book or plan something$/i.test(t)||/\b(book|reserve|host|rent|plan)\b/i.test(t)&&!topic(t)){say('What would you like to plan?');chips([...Object.keys(PICK),'Cancel']);return;}
+  if(/\b(book|reserve|host|rent|plan|request|inquir|quote)\w*/i.test(t)&&topic(t)){begin(PICK[topic(t)]);return;}
+  const p=topic(t);say(answer(t));chips(p?[p,...START.slice(0,3)]:START);
 }
 $('form',box).addEventListener('submit',e=>{e.preventDefault();const v=input.value;input.value='';handle(v);});
 $('.x',box).onclick=()=>{box.hidden=true;};
 box.addEventListener('keydown',e=>{if(e.key==='Escape')box.hidden=true;});
-window.FHCHAT={open(){box.hidden=false;if(!log.children.length){say('Hi. I can answer questions about the facility rules, or take the details for an event request.');chips(START);}input.focus();},answer};
+window.FHCHAT={open(){box.hidden=false;if(!log.children.length){say('Hi. I can answer questions about the facility rules, or take a tournament, party or event request.');chips(START);}input.focus();},answer};
 FHCHAT.open();
 })();

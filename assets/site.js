@@ -99,9 +99,10 @@ document.addEventListener('click',e=>{
 });
 const LABEL={org:'Organization',kind:'Kind of event',ages:'For',date:'First choice date',date2:'Backup date',start:'Start (with setup)',end:'End (with teardown)',guests:'Guests or players',teams:'Teams',
   spaces:'Spaces',food:'Food and drink',budget:'Venue budget',coi:'Event insurance',flex:'Date flexible',setup:'Setup',details:'Notes'};
-function mailRequest(t,get){
+function mailRequest(t,get,more){
   const label=INQ.find(i=>i[0]===t)[1],rows=[`Request: ${label}`,`Name: ${get('name')}`,`Email: ${get('email')}`,`Phone: ${get('phone')}`];
   for(const [k,l] of Object.entries(LABEL)){const v=get(k);if(v)rows.push(`${l}: ${v}`);}
+  if(more)rows.push(...more); /* extra lines the helper collects that the form has no field for */
   // ponytail: mailto, no backend. Upgrade: POST to a form service or Pages Function when spam or lost leads become a problem.
   location.href=`mailto:${SITE.email}?subject=${encodeURIComponent(`[FHUSA] ${label}: ${get('name')}`)}&body=${encodeURIComponent(rows.join('\n')+'\n')}`;
 }

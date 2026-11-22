@@ -42,8 +42,15 @@
 <style>
 .phead{position:relative;isolation:isolate;padding:clamp(36px,7vh,80px) 0 clamp(28px,5vh,56px);overflow:hidden}
 .phead .bg{position:absolute;inset:0;z-index:-1}
-.phead .bg img{width:100%;height:100%;object-fit:cover;opacity:.8}
-.phead .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88) 12%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.08))}
+/* the hero photo is portrait, so on wide screens it sits in the right half instead of being blown up across the page */
+.phead .bg{overflow:hidden}
+.phead .bg img{position:absolute;top:0;right:0;width:min(46%,660px);height:100%;object-fit:cover;object-position:50% 22%;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+.phead .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#000 40%,rgba(0,0,0,.55) 58%,rgba(0,0,0,0) 80%)}
+@media (max-width:900px){.phead .bg img{width:100%;opacity:.5;-webkit-mask-image:none;mask-image:none}.phead .bg::after{background:linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,.85))}}
+/* parallax: the photo drifts slower than the page as you scroll past the hero. CSS only, skipped when motion is reduced */
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
+  .phead .bg img{height:110%;top:-5%;animation:drift linear both;animation-timeline:view();animation-range:exit}
+  @keyframes drift{to{transform:translateY(9%)}}}}
 .phead h1{font-size:clamp(48px,8vw,110px);max-width:13ch}.phead .acts{margin-top:26px;gap:12px}.phead .spec{margin-top:36px}
 .spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:28px 0 0;border-top:3px solid var(--red)}
 .spec div{padding:16px 18px 16px 0;border-bottom:1px solid var(--line)}
@@ -111,7 +118,7 @@
 <body data-page="events">
 <main id="main">
 
-<section class="phead"><div class="bg"><img src="assets/odaup-halloween-group.webp" alt="" width="1200" height="1600" fetchpriority="high" style="object-position:50% 28%"></div><div class="wrap">
+<section class="phead"><div class="bg"><img src="assets/odaup-halloween-group.webp" alt="" width="1200" height="1600" fetchpriority="high"></div><div class="wrap">
   <p class="eyebrow">Parties and private events in Aurora, CO</p>
   <h1>Birthday parties, done big.</h1>
   <p class="lede">Birthdays, team parties, graduations, holiday parties, watch nights and team-building. Real courts, a party room and food from Oda Up, under one roof in Aurora. Build your party below and send it. We confirm the date and send a payment link to lock it in.</p>
@@ -144,12 +151,12 @@
       <p>The party room plus your own court. Volleyball, basketball, pickleball, futsal or cornhole.</p>
       <ul class="ticks"><li>Volleyball court: $150, for 12 to 20 players</li><li>Basketball: $200 full court, $100 half court</li><li>Pickleball, 3 courts: $200</li></ul>
     </div></article>
-    <article><img src="assets/socialden-fireplace.webp" alt="A big crowd packed into the Social-Den under string lights" width="1200" height="1600" loading="lazy" style="object-position:50% 45%"><div class="in">
+    <article><img src="assets/socialden-fireplace-crop.webp" alt="A big group packed into the Social-Den, throwing peace signs for the camera" width="1200" height="800" loading="lazy"><div class="in">
       <h3>Party or gathering</h3><p class="price">$400 <small>party room, 3 hours</small></p>
       <p>No sport needed. A room for the group and the night you want.</p>
       <ul class="ticks"><li>TV for watch parties</li><li>DJ system or karaoke system, with lights and a fog machine, added to your quote</li><li>Party games and inflatables available</li></ul>
     </div></article>
-    <article><img src="assets/party-inflatable.webp" alt="A boy laughing as he runs across a colorful inflatable" width="1067" height="1600" loading="lazy" style="object-position:50% 38%"><div class="in">
+    <article><img src="assets/sportcourt-attack-crop.webp" alt="An attack and block at the net on the Zone 7 sports court" width="1200" height="800" loading="lazy"><div class="in">
       <h3>Big play: Zone 7</h3><p class="price">$400 <small>for the 3 hours</small></p>
       <p>Three volleyball courts side by side, one futsal arena, or space for inflatables. Three courts would be $450. This is the bundle price. Zone 7 also books as open space or gala space: 9,500 sq ft.</p>
       <ul class="ticks"><li>Inflatables: $150</li><li>Pair it with the party room</li></ul>
@@ -170,6 +177,11 @@
       <ul class="ticks"><li>Add the party room and a food package</li><li><a href="https://www.shoot360denver.com/" rel="noopener">About Shoot 360 Denver</a></li></ul>
     </div></article>
   </div>
+</div></section>
+
+<section class="ctaban" aria-labelledby="cta-party-h"><div class="wrap">
+  <div><p class="k">From $400 for 3 hours</p><h2 id="cta-party-h">Pick a date. We'll handle the rest.</h2></div>
+  <div class="acts"><a class="btn btn-white" href="#book">Build your party</a><button class="btn btn-line" data-ask="event">Ask a question</button></div>
 </div></section>
 
 <section class="sec" id="photos" aria-labelledby="ph-h"><div class="wrap">

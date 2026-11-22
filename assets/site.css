@@ -180,5 +180,23 @@ footer .fine{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);c
 .pgrid .w2 img{aspect-ratio:auto;height:0;min-height:100%;object-position:50% 30%}
 .pgrid figcaption{padding:8px 10px 10px;font-size:15px;line-height:1.35;color:var(--ink-2)}
 @media (max-width:700px){.pgrid{grid-template-columns:1fr 1fr}.pgrid .w2{grid-column:1/-1}}
+/* mosaic: photos are pre-cropped to their tile (2:1 wide, square beside it, 3:2 in rows of three), so nothing is cropped twice */
+.pgrid.mosaic img{object-position:50% 50%}
+.mosaic .sq img{aspect-ratio:1/1}
+@media (max-width:700px){.mosaic .w2 img{aspect-ratio:2/1;height:auto;min-height:0}}
+/* thin full-width banners (home and activities): the first thing under the header */
+.bans{display:grid}
+.ban{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 12px;padding:9px var(--gutter);text-align:center;text-decoration:none;font-size:15px;line-height:1.3}
+.ban b{font-family:var(--display);font-weight:900;font-size:19px;letter-spacing:.05em;text-transform:uppercase}
+.ban u{font-weight:600;text-underline-offset:3px;white-space:nowrap}
+.ban-red{background:var(--red);color:#fff}
+.ban-white{background:#fff;color:#000}
+@media (hover:hover){.ban-red:hover{background:var(--red-d)}.ban-white:hover{background:#eaeaea}}
+/* red call-to-action band at the end of a page or between sections */
+.ctaban{background:var(--red);color:#fff;padding:clamp(36px,6vw,64px) 0}
+.ctaban .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px}
+.ctaban h2{font-size:clamp(34px,5vw,64px);line-height:.95;max-width:16ch}
+.ctaban .k{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.ctaban .acts{margin:0}
 /* no single words stranded on a last line */
 h1,h2,h3,summary,.lede,dt{text-wrap:balance}p,li,dd{text-wrap:pretty}
