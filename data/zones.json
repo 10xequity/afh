@@ -365,15 +365,6 @@
    ],
    "imgs": [
     {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court",
-     "pos": "50% 12%"
-    },
-    {
-     "src": "assets/zone5-sportcourt-tip.webp",
-     "alt": "A player tipping over the block on the sports court"
-    },
-    {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court",
      "pos": "60% 70%",
@@ -414,15 +405,6 @@
     "Camps and clinics"
    ],
    "imgs": [
-    {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court",
-     "pos": "50% 12%"
-    },
-    {
-     "src": "assets/zone5-sportcourt-tip.webp",
-     "alt": "A player tipping over the block on the sports court"
-    },
     {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court",
@@ -590,6 +572,15 @@
      "alt": "An attacker swinging past the block on the Zone 5 sports court",
      "pos": "50% 70%",
      "zoom": 1.15
+    },
+    {
+     "src": "assets/sportcourt-adult-practice.webp",
+     "alt": "An adult training session on the sports court",
+     "pos": "50% 12%"
+    },
+    {
+     "src": "assets/zone5-sportcourt-tip.webp",
+     "alt": "A player tipping over the block on the sports court"
     }
    ],
    "partners": [
@@ -603,15 +594,6 @@
    "courts": "2 volleyball courts",
    "blurb": "Sports court with two volleyball courts, beside the bar.",
    "imgs": [
-    {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court",
-     "pos": "50% 12%"
-    },
-    {
-     "src": "assets/zone5-sportcourt-tip.webp",
-     "alt": "A player tipping over the block on the sports court"
-    },
     {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court",
@@ -648,15 +630,6 @@
    "courts": "3 volleyball courts or 1 futsal arena",
    "blurb": "Sports court with three volleyball courts in a row. Converts to one futsal arena.",
    "imgs": [
-    {
-     "src": "assets/sportcourt-adult-practice.webp",
-     "alt": "An adult training session on the sports court",
-     "pos": "50% 12%"
-    },
-    {
-     "src": "assets/zone5-sportcourt-tip.webp",
-     "alt": "A player tipping over the block on the sports court"
-    },
     {
      "src": "assets/sportcourt-attack.webp",
      "alt": "Attack and block on the sports court",
