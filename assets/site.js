@@ -7,7 +7,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const SITE={email:'admin@aurorafieldhouseusa.com',cc:'admin@boomtownathletics.com',
   maps:'https://www.google.com/maps/search/?api=1&query=FieldhouseUSA+14200+E+Alameda+Ave+Aurora+CO+80012',waiver:'https://forms.gle/4vAwn3prUqkBDKqVA',lost:'https://forms.gle/wkkn4TCwwnCsuoRd6'};
 const INQ=[['tournament','Host a tournament or sports event'],['event','Host a party or special event'],['space','Rent space for a team, club or group'],['rental','Find an activity or program'],['volleyball','Volleyball: club, league or drop-in'],['basketball','Basketball training or club'],
-  ['studio','Studios and Social-Den'],['food','Food, bar or catering'],['therapy','Therapy / Spa Room'],['sponsor','Become a sponsor']];
+  ['studio','Studios and Social-Den'],['food','Food, bar or catering'],['sponsor','Become a sponsor']];
 const ACT=[['special-events','Special events'],['volleyball','Volleyball'],['basketball','Basketball'],['futsal','Futsal'],['social-leagues-community','Social leagues and community'],['studios-wellness','Studios and wellness']];
 const NAV=[['index.html','Home','Start here','home'],['tournaments.html','Tournaments','Host yours here','tournaments'],
   ['activities.html','Activities','Find a sport or activity','activities'],['events.html','Parties & Events','Birthdays, gatherings, team-building','events'],['tour.html','Tour','3D map and floor plan','tour'],['index.html#rules','Facility Rules','Read before you come','rules'],
