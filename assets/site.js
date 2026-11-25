@@ -4,10 +4,10 @@
 (function(){
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE={email:'admin@aurorafieldhouseusa.com',
+const SITE={email:'admin@aurorafieldhouseusa.com',cc:'admin@boomtownathletics.com',
   maps:'https://www.google.com/maps/search/?api=1&query=FieldhouseUSA+14200+E+Alameda+Ave+Aurora+CO+80012',waiver:'https://forms.gle/4vAwn3prUqkBDKqVA',lost:'https://forms.gle/wkkn4TCwwnCsuoRd6'};
-const INQ=[['tournament','Host a tournament or sports event'],['event','Host a party or special event'],['rental','Find an activity or program'],['volleyball','Volleyball: club, league or drop-in'],['basketball','Basketball training or club'],
-  ['studio','Studios and Social-Den'],['food','Food, bar or catering'],['therapy','Therapy / Spa Room'],['sponsor','Become a sponsor'],['other','Something else']];
+const INQ=[['tournament','Host a tournament or sports event'],['event','Host a party or special event'],['space','Rent space for a team, club or group'],['rental','Find an activity or program'],['volleyball','Volleyball: club, league or drop-in'],['basketball','Basketball training or club'],
+  ['studio','Studios and Social-Den'],['food','Food, bar or catering'],['therapy','Therapy / Spa Room'],['sponsor','Become a sponsor']];
 const ACT=[['special-events','Special events'],['volleyball','Volleyball'],['basketball','Basketball'],['futsal','Futsal'],['social-leagues-community','Social leagues and community'],['studios-wellness','Studios and wellness']];
 const NAV=[['index.html','Home','Start here','home'],['tournaments.html','Tournaments','Host yours here','tournaments'],
   ['activities.html','Activities','Find a sport or activity','activities'],['events.html','Parties & Events','Birthdays, gatherings, team-building','events'],['tour.html','Tour','3D map and floor plan','tour'],['index.html#rules','Facility Rules','Read before you come','rules'],
@@ -50,32 +50,35 @@ document.body.insertAdjacentHTML('beforeend',`
 <dialog id="ask" aria-label="Ask the front desk"><div class="inner">
   <button class="x" aria-label="Close">×</button>
   <p class="eyebrow">Front desk</p><h2>Ask us</h2>
-  <p class="lede">Tell us what you want to do and it goes to the right person. Event and tournament requests need the details below so we can answer with real dates and numbers.</p>
+  <p class="lede">Tell us what you want to do and it goes to the right person. Booking requests need every field below so we can answer with real dates and numbers. We do not rent courts to individuals.</p>
   <form id="inq" novalidate>
     <label>I want to<select name="type" id="inq-type" required>${INQ.map(i=>`<option value="${i[0]}">${esc(i[1])}</option>`).join('')}</select></label>
     <div class="f2"><label>Name <input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
     <div class="f2"><label>Phone<input name="phone" type="tel" required autocomplete="tel"></label><label>Organization or team<input name="org" autocomplete="organization"></label></div>
-    <fieldset id="evx"><legend>About the event <span class="req">(all required)</span></legend>
-      <div class="f2"><label>Kind of event<select name="kind" required><option value="">Choose</option>${opt(['Tournament','Corporate event','Birthday or private party','Gala or fundraiser','Expo or trade show','Camp or clinic','League or recurring rental','Film or photo shoot','Other'])}</select></label>
-        <label>Who is it for<select name="ages" required><option value="">Choose</option>${opt(['Adults','Youth','Adults and youth'])}</select></label></div>
-      <div class="f2"><label>First choice date<input name="date" type="date" required></label><label>Backup date<input name="date2" type="date" required></label></div>
+    <fieldset id="evx"><legend>About your request <span class="req">(all required)</span></legend>
+      <div class="f2"><label>Type of sport or event<select name="kind" required><option value="">Choose</option>${opt(['Volleyball','Basketball','Pickleball','Futsal','Tournament','League or team practice','Camp or clinic','Birthday party','Graduation party','Celebration or private party','Cultural or community event','Corporate event','Gala or fundraiser','Expo or trade show','Film or photo shoot','Other'])}</select></label>
+        <label id="ko" hidden>Describe your sport or event<input name="kindx" required disabled></label>
+        <label>How many participants?<input name="guests" type="number" min="1" inputmode="numeric" required></label></div>
+      <div class="f2"><label>First choice date<input name="date" type="date" required></label><label>Do you have insurance coverage?<select name="coi" required><option value="">Choose</option>${opt(['Yes','No','Not sure'])}</select></label></div>
       <div class="f2"><label>Start time, including setup<input name="start" type="time" required></label><label>End time, including teardown<input name="end" type="time" required></label></div>
-      <div class="f2"><label>Expected guests or players<input name="guests" type="number" min="1" inputmode="numeric" required></label><label>Teams, if a sports event<input name="teams" type="number" min="0" inputmode="numeric"></label></div>
-      <div><label id="sp-l">Spaces you need</label><div class="checks" role="group" aria-labelledby="sp-l">${['Courts','Open floor (nets up)','Expo space','Gala space','Studio','Lounge and dining','Mezzanine','Not sure'].map(x=>`<label><input type="checkbox" name="spaces" value="${x}">${x}</label>`).join('')}</div></div>
-      <div class="f2"><label>Food and drink<select name="food" required><option value="">Choose</option>${opt(['None','Food only','Food and bar','Not sure yet'])}</select></label>
-        <label>Budget for the venue<select name="budget" required><option value="">Choose</option>${opt(['Under $2,500','$2,500 to $5,000','$5,000 to $10,000','$10,000 to $25,000','Over $25,000','Need a quote first'])}</select></label></div>
-      <div class="f2"><label>Can you provide event insurance?<select name="coi" required><option value="">Choose</option>${opt(['Yes','No','Not sure'])}</select></label>
-        <label>Is the date flexible?<select name="flex" required><option value="">Choose</option>${opt(['No, fixed date','Within the same week','Within the same month'])}</select></label></div>
-      <label>Setup you need<textarea name="setup" required placeholder="Tables, chairs, staging, sound, scoreboards, vendors, anything brought in."></textarea></label>
+      <div><label id="sp-l">Space you want</label><div class="checks" role="group" aria-labelledby="sp-l">${['Courts','Open floor (nets up)','Expo space','Gala space','Studio','Lounge and dining','Mezzanine','Not sure'].map(x=>`<label><input type="checkbox" name="spaces" value="${x}">${x}</label>`).join('')}</div></div>
+      <label>What is your total budget for this request? (US dollars)<input name="budget" type="number" min="1" step="1" inputmode="numeric" required aria-describedby="bud-h"></label>
+      <p class="hint" id="bud-h">We are a commercial facility and our prices reflect that. We are not a school or rec center. Requests without a budget get no response.</p>
+      <fieldset id="evx2"><legend>Event details</legend>
+        <div class="f2"><label>Who is it for<select name="ages" required><option value="">Choose</option>${opt(['Adults','Youth','Adults and youth'])}</select></label><label>Backup date<input name="date2" type="date" required></label></div>
+        <div class="f2"><label>Teams, if a sports event<input name="teams" type="number" min="0" inputmode="numeric"></label><label>Is the date flexible?<select name="flex" required><option value="">Choose</option>${opt(['No, fixed date','Within the same week','Within the same month'])}</select></label></div>
+        <label>Food and drink<select name="food" required><option value="">Choose</option>${opt(['None','Food only','Food and bar','Not sure yet'])}</select></label>
+        <label>Setup you need<textarea name="setup" required placeholder="Tables, chairs, staging, sound, scoreboards, vendors, anything brought in."></textarea></label>
+      </fieldset>
     </fieldset>
-    <label>Anything else<textarea name="details" placeholder="What would make this a good event for you."></textarea></label>
+    <label><span id="det-l">Your question</span><textarea name="details" id="det" placeholder="Days of the week, how often, start and end dates, level, anything we should know."></textarea></label>
     <div><button class="btn btn-red" type="submit">Send the request</button></div>
-    <p id="form-note">Sending opens your email app with the message filled in, addressed to ${SITE.email}. All rentals require a signed rental contract.</p>
+    <p id="form-note">Sending opens your email app with the message filled in, addressed to ${SITE.email} with a copy to ${SITE.cc}. All rentals require a signed rental contract.</p>
   </form>
 </div></dialog>
 <button id="chat-open" type="button" aria-haspopup="dialog">Questions?</button>`);
 
-const menu=$('#menu'),ask=$('#ask'),evx=$('#evx'),type=$('#inq-type');
+const menu=$('#menu'),ask=$('#ask'),evx=$('#evx'),evx2=$('#evx2'),det=$('#det'),type=$('#inq-type');
 $('#menu-btn').onclick=()=>menu.showModal();
 [menu,ask].forEach(d=>{d.addEventListener('click',e=>{if(e.target===d)d.close();});$('.x',d).onclick=()=>d.close();});
 /* the menu behaves like a game list: arrow keys move the selection */
@@ -84,27 +87,32 @@ menu.addEventListener('keydown',e=>{
   const items=$$('ol a',menu),i=items.indexOf(document.activeElement);e.preventDefault();
   items[(i+(e.key==='ArrowDown'?1:-1)+items.length)%items.length].focus();
 });
-/* event and tournament requests must answer the event questions; other requests skip them */
-function syncType(){const on=type.value==='event'||type.value==='tournament';evx.hidden=!on;evx.disabled=!on;}
-type.addEventListener('change',syncType);
+/* anything that books space must answer the screening questions (budget, insurance, dates...); events and tournaments
+   also answer the event extras. Plain questions (programs, food, spa, sponsors, other) skip both. */
+const BOOK=['tournament','event','space','volleyball','basketball','studio'];
+function syncType(){const v=type.value,on=BOOK.includes(v),ev=v==='event'||v==='tournament';
+  evx.hidden=!on;evx.disabled=!on;evx2.hidden=!ev;evx2.disabled=!ev;
+  const ko=$('#ko'),kx=ko.querySelector('input'),other=on&&$('#inq').elements.kind.value==='Other';ko.hidden=!other;kx.disabled=!other;
+  det.required=on;$('#det-l').textContent=on?'Specific details of event':'Your question';}
+type.addEventListener('change',syncType);$('#inq').elements.kind.addEventListener('change',syncType);
 function openAsk(t,fill){if(menu.open)menu.close();if(t&&INQ.some(i=>i[0]===t))type.value=t;syncType();
-  if(fill)for(const [k,v] of Object.entries(fill)){const el=$('#inq').elements[k];if(el&&!(el instanceof RadioNodeList))el.value=v;}
+  if(fill){for(const [k,v] of Object.entries(fill)){const el=$('#inq').elements[k];if(el&&!(el instanceof RadioNodeList))el.value=v;}syncType();}
   if(!ask.open)ask.showModal();}
 document.addEventListener('click',e=>{
   const a=e.target.closest('[data-ask],a[href="#ask"]');
-  if(a){e.preventDefault();openAsk(a.dataset.ask||'other');return;} /* a plain Contact link is a general question, not whatever was picked last */
+  if(a){e.preventDefault();openAsk(a.dataset.ask||'rental');return;} /* a plain Contact link starts at the first plain-question option, not whatever was picked last */
   if(e.target.closest('#menu ol a'))menu.close();
   /* downloads ask first */
   const d=e.target.closest('a[data-dl]');if(d&&!confirm('Download "'+d.dataset.dl+'" (PDF) to your device?'))e.preventDefault();
 });
-const LABEL={org:'Organization',kind:'Kind of event',ages:'For',date:'First choice date',date2:'Backup date',start:'Start (with setup)',end:'End (with teardown)',guests:'Guests or players',teams:'Teams',
-  spaces:'Spaces',food:'Food and drink',budget:'Venue budget',coi:'Event insurance',flex:'Date flexible',setup:'Setup',details:'Notes'};
+const LABEL={org:'Organization',kind:'Sport or event',kindx:'Sport or event (other)',guests:'Participants',ages:'For',date:'First choice date',date2:'Backup date',start:'Start (with setup)',end:'End (with teardown)',teams:'Teams',
+  spaces:'Space',food:'Food and drink',budget:'Total budget (USD)',coi:'Insurance coverage',flex:'Date flexible',setup:'Setup',details:'Specific details of event'};
 function mailRequest(t,get,more){
   const label=INQ.find(i=>i[0]===t)[1],rows=[`Request: ${label}`,`Name: ${get('name')}`,`Email: ${get('email')}`,`Phone: ${get('phone')}`];
   for(const [k,l] of Object.entries(LABEL)){const v=get(k);if(v)rows.push(`${l}: ${v}`);}
   if(more)rows.push(...more); /* extra lines the helper collects that the form has no field for */
   // ponytail: mailto, no backend. Upgrade: POST to a form service or Pages Function when spam or lost leads become a problem.
-  location.href=`mailto:${SITE.email}?subject=${encodeURIComponent(`[FHUSA] ${label}: ${get('name')}`)}&body=${encodeURIComponent(rows.join('\n')+'\n')}`;
+  location.href=`mailto:${SITE.email}?cc=${SITE.cc}&subject=${encodeURIComponent(`[FHUSA] ${label}: ${get('name')}`)}&body=${encodeURIComponent(rows.join('\n')+'\n')}`;
 }
 $('#inq').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
   const sp=$$('input[name=spaces]',f),need=!evx.hidden&&!sp.some(x=>x.checked);sp[0].setCustomValidity(need?'Pick at least one space.':'');

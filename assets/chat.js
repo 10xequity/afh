@@ -36,6 +36,7 @@ const KB=[
    site.js); keys the form has no field for go into the email as extra lines (x:true). t is the form's request type. */
 const DATE={re:/^(\d{4}-\d{1,2}-\d{1,2}|\d{1,2}\/\d{1,2}\/\d{2,4})$/,bad:'Please give a date like 3/14/2027.'};
 const NUM={re:/^\d{1,5}$/,bad:'A number, please.'};
+const BUDGET={k:'budget',q:'What is your total budget for this request, in dollars? We are a commercial facility and our prices reflect that. We are not a school or rec center. Requests without a budget get no response.',re:/^\$?\d[\d,]{0,8}$/,bad:'A dollar amount, please, like 5000.'};
 const YOU=[
  {k:'name',q:'Your name?'},
  {k:'email',q:'Your email?',re:/^\S+@\S+\.\S+$/,bad:'That does not look like an email address.'},
@@ -53,10 +54,10 @@ const FLOWS={
   {k:'teams',q:'About how many teams?',...NUM},
   {k:'guests',q:'Players and spectators on the busiest day, roughly?',...NUM},
   {k:'food',q:'Food and drink? Oda Up runs food and the bar inside. No outside food.',o:['None','Food only','Food and bar','Not sure yet']},
-  {k:'coi',q:'Can you provide event insurance (a certificate of insurance)?',o:['Yes','No','Not sure']},
-  {k:'budget',q:'Budget for the venue?',o:['Under $2,500','$2,500 to $5,000','$5,000 to $10,000','$10,000 to $25,000','Over $25,000','Need a quote first']},
+  {k:'coi',q:'Do you have insurance coverage (a certificate of insurance)?',o:['Yes','No','Not sure']},
+  BUDGET,
   ...YOU]},
- party:{t:'event',title:'party',fixed:{kind:'Birthday or private party'},steps:[
+ party:{t:'event',title:'party',fixed:{kind:'Birthday party'},steps:[
   {k:'pkind',x:1,l:'Kind of party',q:'What kind of party?',o:['Kids birthday','Teen birthday','Adult birthday','Team party','Graduation','Holiday party','Other']},
   {k:'date',q:'What date? In winter most openings are Friday to Sunday nights.',...DATE},
   {k:'date2',q:'A backup date?',...DATE},
@@ -76,7 +77,8 @@ const FLOWS={
   {k:'guests',q:'About how many guests?',...NUM},
   {k:'spaces',q:'Which space fits best?',o:['Open floor (nets up)','Expo space','Gala space','Studio','Lounge and dining','Mezzanine','Not sure']},
   {k:'food',q:'Food and drink?',o:['None','Food only','Food and bar','Not sure yet']},
-  {k:'budget',q:'Budget for the venue?',o:['Under $2,500','$2,500 to $5,000','$5,000 to $10,000','$10,000 to $25,000','Over $25,000','Need a quote first']},
+  {k:'coi',q:'Do you have insurance coverage (a certificate of insurance)?',o:['Yes','No','Not sure']},
+  BUDGET,
   {k:'setup',q:'What setup do you need? Staging, sound, tables, vendors, décor.'},
   ...YOU]},
 };
@@ -103,7 +105,7 @@ function finish(){
     if(n>75)more.push('Note: over 75 guests, so Event-Den plans it.');}
   if(f===FLOWS.big)more.push('Note: big event, route to Event-Den.');
   done={t:f.t,a,more};flow=null;step=-1;
-  const L={org:'Organization',kind:'Kind of event',ages:'For',date:'First choice',date2:'Backup',start:'Start',guests:'Guests',teams:'Teams',spaces:'Space',food:'Food and drink',budget:'Budget',coi:'Insurance',setup:'Setup',details:'Notes',name:'Name',email:'Email',phone:'Phone'};
+  const L={org:'Organization',kind:'Kind of event',ages:'For',date:'First choice',date2:'Backup',start:'Start',guests:'Guests',teams:'Teams',spaces:'Space',food:'Food and drink',budget:'Total budget (USD)',coi:'Insurance coverage',setup:'Setup',details:'Specific details of event',name:'Name',email:'Email',phone:'Phone'};
   const lines=Object.entries(L).filter(([k])=>a[k]).map(([k,l])=>`${l}: ${a[k]}`);
   say('Here is your request:\n'+[...lines,...more].join('\n'));
   if(f===FLOWS.party&&+a.guests>75)say('Over 75 guests is a planned event. Event-Den will take it from here.');
@@ -125,7 +127,7 @@ function handle(t){
   if(flow){const s=flow.steps[step];
     if(s.o&&!s.o.includes(t)){say('Please pick one of the options.');return;}
     if(s.re&&!s.re.test(t)){say(s.bad);return;}
-    ans[s.k]=s.re===DATE.re?iso(t):t;step++;if(step<flow.steps.length)ask();else finish();return;}
+    ans[s.k]=s.re===DATE.re?iso(t):s===BUDGET?t.replace(/[$,]/g,''):t;step++;if(step<flow.steps.length)ask();else finish();return;}
   if(PICK[t]){begin(PICK[t]);return;}
   if(/^book or plan something$/i.test(t)||/\b(book|reserve|host|rent|plan)\b/i.test(t)&&!topic(t)){say('What would you like to plan?');chips([...Object.keys(PICK),'Cancel']);return;}
   if(/\b(book|reserve|host|rent|plan|request|inquir|quote)\w*/i.test(t)&&topic(t)){begin(PICK[topic(t)]);return;}
